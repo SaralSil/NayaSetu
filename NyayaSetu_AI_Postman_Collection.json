@@ -1,0 +1,407 @@
+{
+  "info": {
+    "_postman_id": "b3f07a12-8e11-4a25-9c88-nyayasetu001",
+    "name": "NyayaSetu AI - West Bengal Gov Schemes API",
+    "description": "API collection for NyayaSetu AI: West Bengal Government Scheme & Citizen Rights Assistant.\nIncludes Scheme Discovery, Eligibility Wizard, Notice/SMS Decrypter, and Grievance Drafter.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "01. Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/health/",
+          "host": ["{{base_url}}"],
+          "path": ["api", "health", ""]
+        },
+        "description": "Checks if the NyayaSetu AI Django API backend is running and healthy."
+      }
+    },
+    {
+      "name": "02. Schemes Engine",
+      "item": [
+        {
+          "name": "Get All Schemes (Paginated)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/schemes/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "schemes", ""]
+            },
+            "description": "Returns list of active West Bengal schemes (Lakshmir Bhandar, Krishak Bandhu, Kanyashree, Aikyashree, etc.)."
+          }
+        },
+        {
+          "name": "Search Schemes (by Keyword)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/schemes/?search=farmer",
+              "host": ["{{base_url}}"],
+              "path": ["api", "schemes", ""],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "farmer",
+                  "description": "Search keyword in English or Bengali"
+                }
+              ]
+            },
+            "description": "Search schemes by title, Bengali name, or description."
+          }
+        },
+        {
+          "name": "Filter Schemes by Category",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/schemes/?category=women",
+              "host": ["{{base_url}}"],
+              "path": ["api", "schemes", ""],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "women",
+                  "description": "Categories: women, agriculture, education, tribal_caste, health"
+                }
+              ]
+            },
+            "description": "Filter schemes by target beneficiary category."
+          }
+        },
+        {
+          "name": "Get Scheme Detail (Lakshmir Bhandar)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/schemes/lakshmir-bhandar/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "schemes", "lakshmir-bhandar", ""]
+            },
+            "description": "Returns comprehensive details, required document checklist with notes (e.g. single bank a/c mandatory), and common rejection remedies."
+          }
+        },
+        {
+          "name": "Get Scheme Detail (Krishak Bandhu)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/schemes/krishak-bandhu-natun/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "schemes", "krishak-bandhu-natun", ""]
+            }
+          }
+        },
+        {
+          "name": "Get Scheme Detail (Kanyashree)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/schemes/kanyashree-prakalpa/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "schemes", "kanyashree-prakalpa", ""]
+            }
+          }
+        },
+        {
+          "name": "Get Scheme Detail (Jai Johar - ST Pension)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/schemes/jai-johar/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "schemes", "jai-johar", ""]
+            }
+          }
+        },
+        {
+          "name": "List Departments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/schemes/departments/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "schemes", "departments", ""]
+            },
+            "description": "List all West Bengal government departments with helpline numbers and portal links."
+          }
+        }
+      ]
+    },
+    {
+      "name": "03. Eligibility Matcher Wizard",
+      "item": [
+        {
+          "name": "Check Eligibility - Rural Woman Profile",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"age\": 29,\n  \"gender\": \"female\",\n  \"caste\": \"SC\",\n  \"annual_family_income\": 72000,\n  \"has_land\": false,\n  \"is_student\": false\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/schemes/check-eligibility/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "schemes", "check-eligibility", ""]
+            },
+            "description": "Evaluates citizen profile against all WB schemes and returns matched schemes with specific requirements."
+          }
+        },
+        {
+          "name": "Check Eligibility - Farmer Profile",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"age\": 42,\n  \"gender\": \"male\",\n  \"caste\": \"General\",\n  \"annual_family_income\": 110000,\n  \"has_land\": true,\n  \"is_student\": false\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/schemes/check-eligibility/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "schemes", "check-eligibility", ""]
+            }
+          }
+        },
+        {
+          "name": "Check Eligibility - ST Elderly Citizen Profile",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"age\": 64,\n  \"gender\": \"male\",\n  \"caste\": \"ST\",\n  \"annual_family_income\": 40000,\n  \"has_land\": false,\n  \"is_student\": false\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/schemes/check-eligibility/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "schemes", "check-eligibility", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "04. Notice & Rejection Decrypter (Gemini AI)",
+      "item": [
+        {
+          "name": "Explain Notice (Bank NPCI Error Text)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"Your Lakshmir Bhandar application status is Incomplete. Reason: NPCI mapping inactive / Bank Account Validation Failed. Please contact BDO.\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/analyzer/explain/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "analyzer", "explain", ""]
+            },
+            "description": "Parses SMS or notice text, detects the scheme, translates into plain Bengali, English & Hindi, and provides step-by-step physical remedy instructions."
+          }
+        },
+        {
+          "name": "Explain Notice (Krishak Bandhu Land Mismatch)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"text\": \"Krishak Bandhu application on hold. Reason: RoR Khatian record not mutated in applicant name in Banglarbhumi.\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/analyzer/explain/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "analyzer", "explain", ""]
+            }
+          }
+        },
+        {
+          "name": "Explain Notice (Upload Receipt Image)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": [],
+                  "description": "Upload photo/screenshot of receipt slip or rejection letter"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/analyzer/explain/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "analyzer", "explain", ""]
+            },
+            "description": "Upload an image of an application receipt slip or status letter for multimodal vision analysis."
+          }
+        }
+      ]
+    },
+    {
+      "name": "05. Grievance & Representation Drafter",
+      "item": [
+        {
+          "name": "Generate Grievance Draft - Bengali (বাংলা)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"applicant_name\": \"Mita Roy\",\n  \"contact_phone\": \"9876543210\",\n  \"residence_address\": \"গ্রাম: গোপালনগর, জিপি: হরিদাসপুর, ব্লক: ক্যানিং-১, দক্ষিণ ২৪ পরগণা\",\n  \"scheme_name\": \"লক্ষ্মীর ভাণ্ডার\",\n  \"application_ref_no\": \"LB/2026/089211\",\n  \"original_application_date\": \"১৫/০১/২০২৬\",\n  \"grievance_type\": \"delay\",\n  \"addressed_to\": \"মাননীয় সমষ্টি উন্নয়ন আধিকারিক (BDO) মহাশয়,\",\n  \"facts_statement\": \"আবেদন করার পর ৫ মাস অতিবাহিত হলেও কোনো এসএমএস বা ভাতা পাইনি। ব্যাংক অ্যাকাউন্ট যাচাইকরণে সমস্যা দেখাচ্ছে কিন্তু ব্যাংকে আধার লিঙ্ক সক্রিয় করা হয়েছে।\",\n  \"language\": \"bn\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/grievances/generate/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "grievances", "generate", ""]
+            },
+            "description": "Generates a formal, respectful administrative representation in Bengali addressed to BDO or Duare Sarkar counters."
+          }
+        },
+        {
+          "name": "Generate Grievance Draft - English",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"applicant_name\": \"Subhash Chandra Mondal\",\n  \"contact_phone\": \"9830012345\",\n  \"residence_address\": \"Vill: Joynagar, Block: Joynagar-II, South 24 Parganas\",\n  \"scheme_name\": \"Krishak Bandhu (Natun)\",\n  \"application_ref_no\": \"KB/2025/110482\",\n  \"original_application_date\": \"10/11/2025\",\n  \"grievance_type\": \"dbt_failure\",\n  \"addressed_to\": \"The Assistant Director of Agriculture (ADA),\",\n  \"facts_statement\": \"Kharif season installment was received, but Rabi season installment has not been credited due to IFSC change following bank merger.\",\n  \"language\": \"en\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/grievances/generate/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "grievances", "generate", ""]
+            }
+          }
+        },
+        {
+          "name": "List Official Directory & Portals",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/grievances/offices/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "grievances", "offices", ""]
+            },
+            "description": "Returns verified contact numbers, office designations, and grievance portal links (CMO Grievance Cell, P&RD, Duare Sarkar)."
+          }
+        }
+      ]
+    },
+    {
+      "name": "06. User Accounts & Tracking (Supabase Auth)",
+      "item": [
+        {
+          "name": "Get User Profile",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/accounts/profile/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "accounts", "profile", ""]
+            },
+            "description": "Retrieves citizen profile synced with Supabase JWT access token."
+          }
+        },
+        {
+          "name": "List Saved Schemes (Bookmarks)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/accounts/saved-schemes/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "accounts", "saved-schemes", ""]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
