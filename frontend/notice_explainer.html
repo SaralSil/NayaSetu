@@ -1503,7 +1503,7 @@
 
       // Auto-detect API base URL
 
-      const API_BASE = window.location.origin.includes('8000') ? '/api' : 'http://127.0.0.1:8000/api';
+      const API_BASE = (window.location.protocol === 'file:' || window.location.port === '5500' || window.location.port === '3000') ? 'http://127.0.0.1:8000/api' : '/api';
 
 
 

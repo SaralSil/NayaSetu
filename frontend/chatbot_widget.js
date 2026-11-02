@@ -11,7 +11,7 @@
   window.NayaSetuChatbotLoaded = true;
 
   // Configuration & Auto API Base Resolution
-  window.API_BASE = window.API_BASE || (window.location.origin && window.location.origin.includes('8000') ? '/api' : 'http://127.0.0.1:8000/api');
+  window.API_BASE = window.API_BASE || ((window.location.protocol === 'file:' || window.location.port === '5500' || window.location.port === '3000') ? 'http://127.0.0.1:8000/api' : '/api');
   const getApiChatbotUrl = () => {
     const base = (window.API_BASE || '').replace(/\/$/, '');
     return base.endsWith('/api') ? base + '/chatbot/' : base + '/api/chatbot/';
