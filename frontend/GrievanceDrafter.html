@@ -966,21 +966,21 @@
 
                     <select id="schemeInput" class="w-full bg-[#141210] text-[#F7F4EE] text-xs sm:text-sm font-body rounded-lg px-3 py-2.5 border border-[#453C33] focus:outline-none focus:ring-1 focus:ring-[#C98A5B] focus:border-[#C98A5B] shadow-inner appearance-none cursor-pointer">
 
-                      <option value="লক্ষ্মীর ভাণ্ডার (Lakshmir Bhandar)" selected>লক্ষ্মীর ভাণ্ডার (Lakshmir Bhandar)</option>
+                      <option value="পিএম সূর্য ঘর (PM Surya Ghar)" selected>পিএম সূর্য ঘর মুফ্ত বিদ্যুৎ যোজনা (PM Surya Ghar)</option>
 
-                      <option value="কৃষক বন্ধু (Krishak Bandhu)">কৃষক বন্ধু (Krishak Bandhu)</option>
+                      <option value="পিএম কিষাণ (PM-KISAN)">প্রধানমন্ত্রী কিষাণ সম্মান নিধি (PM-KISAN)</option>
 
                       <option value="বার্ধক্য ভাতা (Old Age Pension)">বার্ধক্য ভাতা (Jai Bangla)</option>
 
                       <option value="বিধবা ভাতা (Widow Pension)">বিধবা ভাতা (Widow Pension)</option>
 
-                      <option value="স্বাস্থ্য সাথী (Swasthya Sathi)">স্বাস্থ্য সাথী (Swasthya Sathi)</option>
+                      <option value="আয়ুষ্মান ভারত (PM-JAY)">আয়ুষ্মান ভারত (PM-JAY)</option>
 
                       <option value="১০০ দিনের কাজ (MGNREGA বকেয়া)">১০০ দিনের কাজ বকেয়া পারিশ্রমিক</option>
 
-                      <option value="কন্যাশ্রী (Kanyashree K2/K3)">কন্যাশ্রী প্রকল্প (Kanyashree)</option>
+                      <option value="প্রধানমন্ত্রী আবাস যোজনা (PMAY-U)">প্রধানমন্ত্রী আবাস যোজনা (PMAY-U)</option>
 
-                      <option value="রূপশ্রী (Rupashree Prakalpa)">রূপশ্রী প্রকল্প (Rupashree)</option>
+                      <option value="পিএম স্বনিধি (PM SVANidhi)">পিএম স্বনিধি (PM SVANidhi)</option>
 
                       <option value="স্টুডেন্ট ক্রেডিট কার্ড (Student Credit Card)">স্টুডেন্ট ক্রেডিট কার্ড</option>
 
@@ -2026,7 +2026,8 @@
 
         
 
-        if (Array.isArray(schemes) && schemes.length > 0) {
+        const schemeList = Array.isArray(schemes) ? schemes : (schemes.results || []);
+        if (schemeList.length > 0) {
 
           const select = document.getElementById('schemeInput');
 
@@ -2036,7 +2037,7 @@
 
           
 
-          schemes.forEach(sc => {
+          schemeList.forEach(sc => {
 
             const opt = document.createElement('option');
 
