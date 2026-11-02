@@ -49,3 +49,6 @@ staticfiles/
 /NayaSetu/backend/__pycache__/
 graphify-out
 .agents
+
+*.patch
+*.bundle
