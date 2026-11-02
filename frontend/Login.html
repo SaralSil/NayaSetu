@@ -419,7 +419,7 @@
     let currentLang = 'bn';
     let countdownInterval = null;
     let generatedOtp = '123456';
-    const API_BASE = window.location.origin.includes('8000') ? '/api' : 'http://127.0.0.1:8000/api';
+    const API_BASE = (window.location.protocol === 'file:' || window.location.port === '5500' || window.location.port === '3000') ? 'http://127.0.0.1:8000/api' : '/api';
 
     function setAppLanguage(lang) {
       if (!i18n[lang]) return;
@@ -517,8 +517,6 @@
       alert(i18n[currentLang]['forgot-msg']);
       switchLoginTab('otp');
     }
-
-    const API_BASE = window.location.origin.includes('8000') ? '/api' : 'http://127.0.0.1:8000/api';
     // OTP Handlers
     async function requestOtpCode() {
       const phoneInput = document.getElementById('otpPhoneInput');
@@ -604,7 +602,7 @@
         if (res.ok && data.success) {
           showToast(i18n[currentLang]['toast-login-success'], true);
           localStorage.setItem('nayasetu_user', JSON.stringify(data.user));
-          setTimeout(() => { window.location.href = (window.location.port === '8000' ? '/home/' : 'Home.html'); }, 1000);
+          setTimeout(() => { window.location.href = (window.location.protocol === 'file:' ? 'Home.html' : '/home/'); }, 1000);
         } else {
           showToast(data.error || "ভুল ওটিপি দেওয়া হয়েছে।", false);
         }
@@ -619,7 +617,7 @@
         };
         localStorage.setItem('nayasetu_user', JSON.stringify(citizenUser));
         showToast(i18n[currentLang]['toast-login-success'], true);
-        setTimeout(() => { window.location.href = (window.location.port === '8000' ? '/home/' : 'Home.html'); }, 1000);
+        setTimeout(() => { window.location.href = (window.location.protocol === 'file:' ? 'Home.html' : '/home/'); }, 1000);
       }
     }
 
@@ -640,7 +638,7 @@
         if (res.ok && data.success) {
           showToast(i18n[currentLang]['toast-login-success'], true);
           localStorage.setItem('nayasetu_user', JSON.stringify(data.user));
-          setTimeout(() => { window.location.href = (window.location.port === '8000' ? '/home/' : 'Home.html'); }, 1000);
+          setTimeout(() => { window.location.href = (window.location.protocol === 'file:' ? 'Home.html' : '/home/'); }, 1000);
         } else {
           showToast(data.error || "ইউজার আইডি বা পাসওয়ার্ড সঠিক নয়।", false);
         }
@@ -655,7 +653,7 @@
         };
         localStorage.setItem('nayasetu_user', JSON.stringify(citizenUser));
         showToast(i18n[currentLang]['toast-login-success'], true);
-        setTimeout(() => { window.location.href = (window.location.port === '8000' ? '/home/' : 'Home.html'); }, 1000);
+        setTimeout(() => { window.location.href = (window.location.protocol === 'file:' ? 'Home.html' : '/home/'); }, 1000);
       }
     }
 

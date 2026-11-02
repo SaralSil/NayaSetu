@@ -452,7 +452,7 @@
     };
 
     let currentLang = 'bn';
-    const API_BASE = window.location.origin.includes('8000') ? '/api' : 'http://127.0.0.1:8000/api';
+    const API_BASE = (window.location.protocol === 'file:' || window.location.port === '5500' || window.location.port === '3000') ? 'http://127.0.0.1:8000/api' : '/api';
 
     function setAppLanguage(lang) {
       if (!i18n[lang]) return;
@@ -617,8 +617,6 @@
           ration_card_type: rationCard,
           password: password
         };
-
-        const API_BASE = window.location.origin.includes('8000') ? '/api' : 'http://127.0.0.1:8000/api';
         const res = await fetch(`${API_BASE}/accounts/register/`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -630,7 +628,7 @@
         if (res.ok && data.success) {
           showToast(i18n[currentLang]['success-register'], true);
           localStorage.setItem('nayasetu_user', JSON.stringify(data.user));
-          setTimeout(() => { window.location.href = (window.location.port === '8000' ? '/login/?registered=1' : 'Login.html?registered=1'); }, 1200);
+          setTimeout(() => { window.location.href = (window.location.protocol === 'file:' ? 'Login.html?registered=1' : '/login/?registered=1'); }, 1200);
         } else {
           showToast(data.error || "নিবন্ধন করা সম্ভব হয়নি। দয়া করে পুনরায় চেষ্টা করুন।", false);
           submitBtn.disabled = false;
@@ -651,7 +649,7 @@
         };
         localStorage.setItem('nayasetu_user', JSON.stringify(citizenUser));
         showToast(i18n[currentLang]['success-register'], true);
-        setTimeout(() => { window.location.href = (window.location.port === '8000' ? '/login/?registered=1' : 'Login.html?registered=1'); }, 1200);
+        setTimeout(() => { window.location.href = (window.location.protocol === 'file:' ? 'Login.html?registered=1' : '/login/?registered=1'); }, 1200);
       }
     }
 
