@@ -1532,7 +1532,7 @@
 
 
 
-                কর্মশ্রী ৫০ দিন
+                <span data-i18n="chip_km">কর্মশ্রী ৫০ দিন</span>
 
 
 
@@ -1544,7 +1544,7 @@
 
 
 
-                স্বাস্থ্য সাথী কার্ড
+                <span data-i18n="chip_ss">স্বাস্থ্য সাথী কার্ড</span>
 
 
 
@@ -2569,7 +2569,7 @@
               </div>
             </div>
             <div class="flex flex-wrap sm:flex-nowrap items-center gap-3 w-full md:w-auto">
-              <button class="action-btn w-full sm:w-auto px-5 py-2.5 rounded-lg bg-[#C98A5B] text-[#141210] text-xs font-label font-bold text-center tracking-wide hover:bg-[#B87B4C] transition-colors shadow-md shadow-[#C98A5B]/20 flex items-center justify-center gap-1.5" data-path="helpline-and-offices" data-i18n="camp_btn">
+              <button class="action-btn w-full sm:w-auto px-5 py-2.5 rounded-lg bg-[#C98A5B] text-[#141210] text-xs font-label font-bold text-center tracking-wide hover:bg-[#B87B4C] transition-colors shadow-md shadow-[#C98A5B]/20 flex items-center justify-center gap-1.5" data-path="helpline-and-offices">
                 <span class="material-symbols-outlined text-sm">my_location</span>
                 <span data-i18n="camp_btn_find">নিকটস্থ BDO / SDO অফিস খুঁজুন</span>
               </button>
@@ -3351,7 +3351,7 @@
 
                 <button type="button" id="noticeSampleKrishakBtn" class="text-[11px] text-[#E2A97B] hover:text-[#F2CBA5] font-semibold hover:underline cursor-pointer">
 
-                  কৃষক বন্ধু নমুনা
+                  <span data-i18n="notice_sample_kb">কৃষক বন্ধু নমুনা</span>
 
                 </button>
 
@@ -3835,15 +3835,11 @@
 
                 <select id="grvLang" class="w-full bg-[#141210] border border-[#453C33] rounded-lg p-2.5 text-[#F7F4EE] focus:border-[#C98A5B] outline-none">
 
+                  <option value="bn" data-i18n="grv_opt_lang_bn">বাংলা (Bengali Official Draft)</option>
 
+                  <option value="en" data-i18n="grv_opt_lang_en">English (Official English Draft)</option>
 
-                  <option value="bn">বাংলা (Bengali Official Draft)</option>
-
-
-
-                  <option value="en">English (Official English Draft)</option>
-
-
+                  <option value="hi" data-i18n="grv_opt_lang_hi">हिन्दी (Hindi Official Draft)</option>
 
                 </select>
 
@@ -6470,7 +6466,107 @@
 
 
 
-      hi: {
+      
+        auth_btn_google: 'Google একাউন্ট দিয়ে লগইন করুন',
+        auth_guest_desc: 'প্রকল্প খোঁজা, যোগ্যতা যাচাই ও নোটিশ বিশ্লেষণ সম্পূর্ণ বিনামূল্যে বিনা লগইনেই করা সম্ভব।',
+        auth_guest_title: 'গেস্ট মোড সক্রিয়:',
+        auth_link_login: 'হোয়াইট ও গোল্ডেন লগইন পেইজে যান (Login Page)',
+        auth_link_register: 'নতুন নাগরিক নিবন্ধন (Register Page)',
+        auth_mobile_lbl: 'মোবাইল নম্বর (Mobile OTP Login):',
+        auth_modal_sub: 'Supabase সিকিওর লগইন ও ড্রাফট সংরক্ষণ',
+        auth_modal_title: 'নাগরিক পোর্টাল (Citizen Portal)',
+        auth_or_google: '— অথবা সরাসরি গুগল দিয়ে —',
+        camp_banner_desc: 'অন্নপূর্ণা ভাণ্ডার, আয়ুষ্মান ভারত (PM-JAY), পিএম কিষাণ ও আবাস যোজনা সহ সরকারি প্রকল্পের সরাসরি ফর্ম জমা ও স্পট ভেরিফিকেশন চলছে। আপনার অঞ্চলে ক্যাম্প না থাকলেও যেকোনো কাজের দিনে নিকটস্থ BDO (গ্রামীণ পঞ্চায়েত) বা SDO (পৌরসভা/শহর) অফিসে আবেদন জমা দিন ও প্রাপ্তি রসিদ সংগ্রহ করুন।',
+        camp_btn_find: 'নিকটস্থ BDO / SDO অফিস খুঁজুন',
+        card_chip_ab: 'আয়ুষ্মান ভারত ও স্বাস্থ্য সাথী',
+        card_chip_kb: 'কৃষক বন্ধু ও শস্য বীমা',
+        card_chip_km: 'কর্মশ্রী ও আবাস যোজনা',
+        card_chip_lb: 'অন্নপূর্ণা / লক্ষ্মীর ভাণ্ডার',
+        card_chip_ys: 'যুব শক্তি যোজনা',
+        card_grv_b1: 'স্বাক্ষরের নির্দিষ্ট স্থান ও সংযুক্তি (Enclosures) তালিকা স্বয়ংক্রিয়ভাবে তৈরি',
+        card_grv_b2: 'সরাসরি বাংলায় PDF বা এক ক্লিকে প্রিন্ট করার সুবিধা',
+        card_notice_b1: "'DBT Failed / Inactive Aadhaar' সংক্রান্ত সমস্যা সমাধান",
+        card_notice_b2: 'ব্যাঙ্ক অ্যাকাউন্ট মিসম্যাচ সংশোধন নির্দেশ',
+        card_schemes_b1: 'স্বাস্থ্যসাথী কার্ড, আধার, ও একক ব্যাংক অ্যাকাউন্টের নির্দেশিকা',
+        card_schemes_b2: 'দুয়ারে সরকার ক্যাম্পে জমা দেওয়ার আগে সেলফ-অ্যাটেস্টেড নিয়ম',
+        chip_ab: 'আয়ুষ্মান ভারত',
+        chip_ab_amt: '₹৫L + ৭০+ ফ্রি',
+        chip_dbt: 'আধার লিঙ্ক (NPCI/DBT)',
+        chip_kb: 'কৃষক বন্ধু',
+        chip_kb_amt: 'শস্য বীমা',
+        chip_km: 'কর্মশ্রী ৫০ দিন',
+        chip_lb: 'অন্নপূর্ণা / লক্ষ্মীর ভাণ্ডার',
+        chip_lb_amt: '₹৩০০০/মাস',
+        chip_ss: 'স্বাস্থ্য সাথী কার্ড',
+        chip_ys: 'যুব শক্তি যোজনা',
+        chip_ys_amt: '₹২০০০-₹৩০০০',
+        footer_font_size: 'ফন্ট সাইজ:',
+        grv_btn_close_window: 'উইন্ডো বন্ধ করুন (Close)',
+        grv_btn_edit: 'তথ্য সংশোধন (Edit Details)',
+        grv_btn_new_draft: 'নতুন দরখাস্ত তৈরি করুন (New Draft)',
+        grv_doc_header: 'পশ্চিমবঙ্গ প্রশাসনিক নাগরিক সহায়তা উদ্যোগ (Citizen Representation Format)',
+        grv_opt_lang_bn: 'বাংলা (Bengali Official Draft)',
+        grv_opt_lang_en: 'English (Official English Draft)',
+        grv_opt_lang_hi: 'हिन्दी (Hindi Official Draft)',
+        grv_resume_btn: 'চিঠি দেখুন (View Letter)',
+        grv_resume_text: 'আপনার একটি পূর্ববর্তী প্রস্তুতকৃত চিঠি সংরক্ষিত রয়েছে।',
+        hl_bdo_line: '• ব্লক উন্নয়ন আধিকারিক (BDO Office)',
+        hl_bsk_line: '• বাংলা সহায়তা কেন্দ্র (BSK)',
+        hl_cm_label: 'মুখ্যমন্ত্রী গ্রিভেন্স সেল (Didi ke Bolo):',
+        hl_csc_line: '• গ্রাম পঞ্চায়েত তথ্যমিত্র কেন্দ্র (CSC)',
+        hl_ds_label: 'দুয়ারে সরকার কন্ট্রোল রুম:',
+        hl_local_head: 'কোনো আবেদনের চূড়ান্ত প্রক্রিয়াকরণের জন্য সর্বদা নিকটস্থ স্থানীয় কর্তৃপক্ষের সাথে যোগাযোগ করুন:',
+        hl_nalsa_label: 'জাতীয় আইনি সেবা (NALSA Toll-Free):',
+        hl_sdo_line: '• মহকুমা শাসক কার্যালয় (SDO Office)',
+        hl_women_label: 'মহিলা সহায়তা হেল্পলাইন:',
+        nav_landing_back: 'হোম পেজ',
+        notice_btn_remove: 'মুছুন',
+        notice_dropzone_sub: 'ছবি টেনে আনুন অথবা এখানে ক্লিক করে ছবি আপলোড করুন (JPG, PNG, WebP • সর্বোচ্চ ১০ এমবি)',
+        notice_dropzone_title: 'আবেদনপত্র, নোটিশ স্লিপ বা স্ক্রিনশটের ছবি নির্বাচন করুন',
+        notice_img_attached: '✓ ছবি যুক্ত করা হয়েছে',
+        notice_sample_kb: 'কৃষক বন্ধু নমুনা',
+        notice_sample_lb: 'অন্নপূর্ণা ভাণ্ডার নমুনা',
+        off_btn_detect_text: 'লাইভ লোকেশন সক্ষম করুন (Find Nearest BDO / SDO)',
+        off_btn_draft: 'এই অফিসে দরখাস্ত লিখুন (Draft Grievance)',
+        off_btn_maps: 'গুগল ম্যাপে পথ ও দূরত্ব দেখুন (Google Maps)',
+        off_calc_dist: 'দূরত্ব গণনা করুন',
+        off_dist_all: 'পশ্চিমবঙ্গের সব জেলা (All 23 Districts)',
+        off_dist_lbl: 'পশ্চিমবঙ্গের জেলা নির্বাচন করুন (District):',
+        off_filter_all: 'সকল দপ্তর (All)',
+        off_filter_bdo: '🏛️ ব্লক উন্নয়ন (BDO) — গ্রাম পঞ্চায়েত',
+        off_filter_lbl: 'দপ্তরের ধরন (Filter):',
+        off_filter_sdo: '🏢 মহকুমা শাসক (SDO) — পৌরসভা/শহর',
+        off_gps_sub: 'ডিভাইসের লোকেশন অন করে আপনার নিকটবর্তী BDO (গ্রাম) ও SDO (পৌরসভা/শহর) অফিস এক ক্লিকে চিহ্নিত করুন।',
+        off_gps_title: 'স্বয়ংক্রিয় GPS লোকেশন সনাক্তকরণ (Live GPS Detection)',
+        off_jurisdiction_tag: 'চিহ্নিত দায়িত্বপ্রাপ্ত প্রশাসনিক দপ্তর',
+        off_list_title: 'পশ্চিমবঙ্গের BDO ও SDO অফিসের সম্পূর্ণ তালিকা:',
+        off_map_legend: '🔵 আপনার স্থান | 🏢 SDO দপ্তর | 🏛️ BDO দপ্তর',
+        off_map_title: 'ভৌগোলিক মানচিত্র ও নেভিগেশন (Interactive Map)',
+        off_rec_sub: 'পৌরসভা অথবা পঞ্চায়েত এলাকা অনুযায়ী বেছে নিন',
+        off_rec_title: 'আপনার অবস্থানের ভিত্তিতে প্রস্তাবিত দপ্তরসমূহ (Recommended for You):',
+        off_search_area_lbl: 'ব্লক, শহর বা এলাকার নাম দিয়ে খুঁজুন (Search by Area):',
+        off_work_hours: 'কাজের সময়: সোম-শুক্র (১০:০০ AM - ৫:০০ PM)',
+        quick_results_title: 'দ্রুত প্রাসঙ্গিক ফলাফল (Quick Results):',
+        step_1_pill: 'প্রস্তাবিত ধাপ ১',
+        story1_loc: 'মুর্শিদাবাদ • লালবাগ ব্লক',
+        story1_quote: '"লক্ষ্মীর ভাণ্ডারের এসএমএস রিজেকশন স্ক্যান করে ব্যাঙ্কে জমা দেওয়ার সঠিক চিঠি তৈরি করে ৩ মাসের বকেয়া টাকা অ্যাকাউন্টে জমা হয়েছে।"',
+        story1_tag: 'BDO অফিসে সফল নিষ্পত্তিকরণ',
+        story1_time: '২ দিন আগে',
+        story1_title: 'আধার DBT সক্রিয়করণে সফল সমাধান',
+        story2_loc: 'পূর্ব বর্ধমান • কালনা',
+        story2_quote: '"ওয়ারিশান সূত্রে রেকর্ড হওয়া জমির খতিয়ান আপডেট না থাকায় টাকা আটকে ছিল। সঠিক দরখাস্তের বয়ান নিয়ে সহকারী কৃষি অধিকর্তা (ADA) দফতরে জমা দেওয়া হয়।"',
+        story2_tag: 'মিউটেশন অনুমোদন ও পোর্টাল আপডেট',
+        story2_time: '৩ দিন আগে',
+        story2_title: 'কৃষক বন্ধু খতিয়ান মিউটেশন প্রতিকার',
+        story3_loc: 'দক্ষিণ ২৪ পরগনা • ক্যানিং',
+        story3_quote: '"বিয়ের তারিখের ১৫ দিন আগে ফর্ম জমা দিতে ভুল নথিপত্র বাদ দেওয়ার জন্য চেকলিস্ট ব্যবহার করে প্রথম দফায় ফর্ম গৃহীত হয়েছে।"',
+        story3_tag: 'দুয়ারে সরকার সেন্টারে ফর্ম জমা সম্পন্ন',
+        story3_time: 'আজ',
+        story3_title: 'রূপশ্রী প্রকল্পের এককালীন অনুদান যাচাই',
+
+    },
+
+    hi: {
 
 
 
@@ -7160,7 +7256,107 @@
 
 
 
-      en: {
+      
+        auth_btn_google: 'Google खाते से लॉगिन करें',
+        auth_guest_desc: 'योजनाओं की खोज, पात्रता जांच और नोटिस विश्लेषण पूरी तरह निःशुल्क और बिना लॉगिन के उपलब्ध है।',
+        auth_guest_title: 'गेस्ट मोड सक्रिय:',
+        auth_link_login: 'सफेद और सुनहरे लॉगिन पृष्ठ पर जाएं',
+        auth_link_register: 'नया नागरिक पंजीकरण (Register Page)',
+        auth_mobile_lbl: 'मोबाइल नंबर (Mobile OTP Login):',
+        auth_modal_sub: 'सुरक्षित लॉगिन एवं ड्राफ्ट प्रबंधन',
+        auth_modal_title: 'नागरिक पोर्टल (Citizen Portal)',
+        auth_or_google: '— अथवा सीधे गूगल से —',
+        camp_banner_desc: 'अन्नपूर्णा भंडार, आयुष्मान भारत (PM-JAY), पीएम किसान और आवास योजना सहित सरकारी योजनाओं के फॉर्म जमा और स्पॉट सत्यापन चल रहे हैं। यदि आपके क्षेत्र में शिविर नहीं है, तो किसी भी कार्य दिवस में निकटतम बीडीओ (ग्रामीण) या एसडीओ (शहरी) कार्यालय में आवेदन जमा करें।',
+        camp_btn_find: 'निकटतम बीडीओ / एसडीओ कार्यालय खोजें',
+        card_chip_ab: 'आयुष्मान भारत एवं स्वास्थ्य साथी',
+        card_chip_kb: 'कृषक बंधु एवं फसल बीमा',
+        card_chip_km: 'कर्मश्री एवं आवास योजना',
+        card_chip_lb: 'अन्नपूर्णा / लक्ष्मी भंडार',
+        card_chip_ys: 'युवा शक्ति योजना',
+        card_grv_b1: 'हस्ताक्षर स्थान और संलग्नक सूची स्वतः तैयार',
+        card_grv_b2: 'सीधे पीडीएफ या एक क्लिक में प्रिंट करने की सुविधा',
+        card_notice_b1: "'DBT Failed / Inactive Aadhaar' समस्याओं का त्वरित समाधान",
+        card_notice_b2: 'बैंक खाता बेमेल सुधार निर्देश',
+        card_schemes_b1: 'स्वास्थ्य साथी, आधार एवं एकल बैंक खाते के दिशानिर्देश',
+        card_schemes_b2: 'दुआरे सरकार शिविर से पूर्व स्व-सत्यापन नियम',
+        chip_ab: 'आयुष्मान भारत',
+        chip_ab_amt: '₹5 लाख + 70+ मुफ्त',
+        chip_dbt: 'आधार लिंक (NPCI/DBT)',
+        chip_kb: 'कृषक बंधु',
+        chip_kb_amt: 'फसल बीमा',
+        chip_km: 'कर्मश्री 50 दिन',
+        chip_lb: 'अन्नपूर्णा / लक्ष्मी भंडार',
+        chip_lb_amt: '₹3000/माह',
+        chip_ss: 'स्वास्थ्य साथी कार्ड',
+        chip_ys: 'युवा शक्ति योजना',
+        chip_ys_amt: '₹2000-₹3000',
+        footer_font_size: 'फ़ॉन्ट आकार:',
+        grv_btn_close_window: 'विंडो बंद करें',
+        grv_btn_edit: 'विवरण संशोधित करें (Edit)',
+        grv_btn_new_draft: 'नया आवेदन तैयार करें (New Draft)',
+        grv_doc_header: 'पश्चिम बंगाल प्रशासनिक नागरिक अभ्यावेदन प्रारूप',
+        grv_opt_lang_bn: 'বাংলা (Bengali Official Draft)',
+        grv_opt_lang_en: 'English (Official English Draft)',
+        grv_opt_lang_hi: 'हिन्दी (Hindi Official Draft)',
+        grv_resume_btn: 'पत्र देखें (View Letter)',
+        grv_resume_text: 'आपका एक पूर्व तैयार आधिकारिक आवेदन पत्र सुरक्षित है।',
+        hl_bdo_line: '• प्रखंड विकास पदाधिकारी (BDO Office)',
+        hl_bsk_line: '• बांग्ला सहायता केंद्र (BSK)',
+        hl_cm_label: 'मुख्यमंत्री शिकायत प्रकोष्ठ (दीदी के बोलो):',
+        hl_csc_line: '• ग्राम पंचायत जन सेवा केंद्र (CSC)',
+        hl_ds_label: 'दुआरे सरकार केंद्रीय हेल्पलाइन:',
+        hl_local_head: 'अंतिम सत्यापन और आधिकारिक स्वीकृति हेतु हमेशा स्थानीय प्रशासन से संपर्क करें:',
+        hl_nalsa_label: 'राष्ट्रीय कानूनी सेवा प्राधिकरण (NALSA Toll-Free):',
+        hl_sdo_line: '• अनुमंडल पदाधिकारी (SDO Office)',
+        hl_women_label: 'महिला सहायता हेल्पलाइन:',
+        nav_landing_back: 'होम पेज',
+        notice_btn_remove: 'हटाएं',
+        notice_dropzone_sub: 'चित्र खींचें अथवा यहाँ क्लिक करके अपलोड करें (JPG, PNG, WebP • अधिकतम 10 MB)',
+        notice_dropzone_title: 'आवेदन पर्ची, नोटिस अथवा स्क्रीनशॉट चुनें',
+        notice_img_attached: '✓ चित्र सफलतापूर्वक संलग्न',
+        notice_sample_kb: 'कृषक बंधु नमूना',
+        notice_sample_lb: 'अन्नपूर्णा भंडार नमूना',
+        off_btn_detect_text: 'लाइव स्थान सक्षम करें (Find Nearest BDO / SDO)',
+        off_btn_draft: 'इस कार्यालय हेतु आवेदन लिखें',
+        off_btn_maps: 'गूगल मैप्स पर मार्ग एवं दूरी देखें',
+        off_calc_dist: 'दूरी की गणना करें',
+        off_dist_all: 'पश्चिम बंगाल के सभी 23 जिले',
+        off_dist_lbl: 'पश्चिम बंगाल का जिला चुनें:',
+        off_filter_all: 'सभी कार्यालय (All)',
+        off_filter_bdo: '🏛️ प्रखंड विकास (BDO) — ग्राम पंचायत',
+        off_filter_lbl: 'कार्यालय का प्रकार (Filter):',
+        off_filter_sdo: '🏢 अनुमंडल पदाधिकारी (SDO) — नगरपालिका / शहर',
+        off_gps_sub: 'डिवाइस लोकेशन ऑन करके अपने निकटतम बीडीओ (ग्रामीण) और एसडीओ (शहरी) कार्यालय को एक क्लिक में खोजें।',
+        off_gps_title: 'स्वचालित जीपीएस स्थान पहचान (Live GPS)',
+        off_jurisdiction_tag: 'नामित प्रशासनिक कार्यालय',
+        off_list_title: 'पश्चिम बंगाल बीडीओ एवं एसडीओ कार्यालयों की सूची:',
+        off_map_legend: '🔵 आपका स्थान | 🏢 SDO कार्यालय | 🏛️ BDO कार्यालय',
+        off_map_title: 'भौगोलिक मानचित्र एवं नेविगेशन',
+        off_rec_sub: 'अपनी नगरपालिका अथवा ग्राम पंचायत क्षेत्र अनुसार चुनें',
+        off_rec_title: 'आपके स्थान के लिए अनुशंसित कार्यालय:',
+        off_search_area_lbl: 'प्रखंड, शहर अथवा क्षेत्र के नाम से खोजें:',
+        off_work_hours: 'कार्य समय: सोम-शुक्र (10:00 AM - 5:00 PM)',
+        quick_results_title: 'त्वरित खोज परिणाम (Quick Results):',
+        step_1_pill: 'अनुशंसित चरण 1',
+        story1_loc: 'मुर्शिदाबाद • लालबाग प्रखंड',
+        story1_quote: '"लक्ष्मी भंडार अस्वीकृति एसएमएस स्कैन करने के बाद बैंक को प्रस्तुत करने हेतु सही आवेदन पत्र तैयार हुआ और 3 महीने का बकाया भत्ता खाते में जमा हो गया।"',
+        story1_tag: 'बीडीओ कार्यालय में सफल समाधान',
+        story1_time: '2 दिन पूर्व',
+        story1_title: 'आधार डीबीटी सक्रियण में सफलता',
+        story2_loc: 'पूर्व बर्धमान • कालना',
+        story2_quote: '"उत्तराधिकार भूमि म्यूटेशन लंबित होने के कारण सहायता राशि रुकी हुई थी। तैयार आवेदन सहायक कृषि निदेशक कार्यालय में जमा करने पर तुरंत सुधार हुआ।"',
+        story2_tag: 'म्यूटेशन स्वीकृत एवं पोर्टल अपडेट',
+        story2_time: '3 दिन पूर्व',
+        story2_title: 'कृषक बंधु खतियान म्यूटेशन समाधान',
+        story3_loc: 'दक्षिण 24 परगना • कैनिंग',
+        story3_quote: '"विवाह तिथि से 15 दिन पूर्व आवेदन करने के लिए चेकलिस्ट का उपयोग किया, जिससे सभी दस्तावेज सही रहे और फॉर्म पहली बार में स्वीकृत हो गया।"',
+        story3_tag: 'दुआरे सरकार केंद्र में फॉर्म स्वीकृत',
+        story3_time: 'आज',
+        story3_title: 'रूपश्री अनुदान सत्यापन में सफलता',
+
+    },
+
+    en: {
 
 
 
@@ -7846,6 +8042,104 @@
 
 
 
+    
+        auth_btn_google: 'Sign in with Google Account',
+        auth_guest_desc: 'Scheme browsing, eligibility checking, and notice analysis are completely free and available without login.',
+        auth_guest_title: 'Guest Mode Active:',
+        auth_link_login: 'Go to White & Golden Login Page',
+        auth_link_register: 'New Citizen Registration',
+        auth_mobile_lbl: 'Mobile Number (Mobile OTP Login):',
+        auth_modal_sub: 'Secure login and draft management',
+        auth_modal_title: 'Citizen Portal (Login / Register)',
+        auth_or_google: '— or directly with Google —',
+        camp_banner_desc: 'Direct spot verification and application submissions for Annapurna Bhandar, Ayushman Bharat (PM-JAY), PM-Kisan, and Awas Yojana are underway. If there is no camp in your area, submit your application at your nearest BDO (rural) or SDO (urban) office on any working day.',
+        camp_btn_find: 'Find Nearest BDO / SDO Office',
+        card_chip_ab: 'Ayushman Bharat & Swasthya Sathi',
+        card_chip_kb: 'Krishak Bandhu & Crop Insurance',
+        card_chip_km: 'Karmashree & Awas Yojana',
+        card_chip_lb: 'Annapurna / Lakshmir Bhandar',
+        card_chip_ys: 'Yuva Shakti Scheme',
+        card_grv_b1: 'Automated signature placement and enclosures checklist generated',
+        card_grv_b2: 'Direct download in PDF or 1-click printing capability',
+        card_notice_b1: 'Resolution for DBT Failed / Inactive Aadhaar errors',
+        card_notice_b2: 'Actionable steps for Bank Account Mismatch errors',
+        card_schemes_b1: 'Guidelines for Swasthya Sathi, Aadhaar & Single Bank Accounts',
+        card_schemes_b2: 'Mandatory self-attestation rules before Duare Sarkar camps',
+        chip_ab: 'Ayushman Bharat',
+        chip_ab_amt: '₹5L + 70+ Free',
+        chip_dbt: 'Aadhaar Link (NPCI/DBT)',
+        chip_kb: 'Krishak Bandhu',
+        chip_kb_amt: 'Crop Insurance',
+        chip_km: 'Karmashree 50 Days',
+        chip_lb: 'Annapurna / Lakshmir Bhandar',
+        chip_lb_amt: '₹3000/month',
+        chip_ss: 'Swasthya Sathi Card',
+        chip_ys: 'Yuva Shakti Scheme',
+        chip_ys_amt: '₹2000-₹3000',
+        footer_font_size: 'Font Size:',
+        grv_btn_close_window: 'Close Window',
+        grv_btn_edit: 'Edit Details',
+        grv_btn_new_draft: 'Create New Draft',
+        grv_doc_header: 'West Bengal Citizen Administrative Representation Format',
+        grv_opt_lang_bn: 'Bengali (Official Bengali Draft)',
+        grv_opt_lang_en: 'English (Official English Draft)',
+        grv_opt_lang_hi: 'Hindi (Official Hindi Draft)',
+        grv_resume_btn: 'View Draft Letter',
+        grv_resume_text: 'You have an active previously generated representation letter saved.',
+        hl_bdo_line: '• Block Development Officer (BDO Office)',
+        hl_bsk_line: '• Bangla Sahayata Kendra (BSK)',
+        hl_cm_label: 'Chief Minister Grievance Cell (Didi ke Bolo):',
+        hl_csc_line: '• Gram Panchayat Common Service Center (CSC)',
+        hl_ds_label: 'Duare Sarkar Central Helpline:',
+        hl_local_head: 'For final verification and official submission, contact your local authority:',
+        hl_nalsa_label: 'National Legal Services Authority (NALSA Toll-Free):',
+        hl_sdo_line: '• Sub-Divisional Officer (SDO Office)',
+        hl_women_label: 'Women Protection Helpline:',
+        nav_landing_back: 'Home Page',
+        notice_btn_remove: 'Remove',
+        notice_dropzone_sub: 'Drag & drop image or click here to upload (JPG, PNG, WebP • Max 10MB)',
+        notice_dropzone_title: 'Select Application Slip, Official Notice, or Screenshot Image',
+        notice_img_attached: '✓ Image attached successfully',
+        notice_sample_kb: 'Krishak Bandhu Sample',
+        notice_sample_lb: 'Annapurna Bhandar Sample',
+        off_btn_detect_text: 'Enable Live Location (Find Nearest BDO / SDO)',
+        off_btn_draft: 'Draft Grievance for this Office',
+        off_btn_maps: 'View Route & Distance on Google Maps',
+        off_calc_dist: 'Calculate Distance',
+        off_dist_all: 'All 23 Districts of West Bengal',
+        off_dist_lbl: 'Select District of West Bengal:',
+        off_filter_all: 'All Offices (All)',
+        off_filter_bdo: '🏛️ Block Development (BDO) — Gram Panchayat',
+        off_filter_lbl: 'Office Type (Filter):',
+        off_filter_sdo: '🏢 Sub-Divisional Officer (SDO) — Urban / Municipality',
+        off_gps_sub: 'Turn on device location to instantly locate your nearest BDO (rural) and SDO (urban) offices.',
+        off_gps_title: 'Automatic GPS Location Detection',
+        off_jurisdiction_tag: 'Designated Administrative Authority',
+        off_list_title: 'Complete Directory of West Bengal BDO & SDO Offices:',
+        off_map_legend: '🔵 Your Location | 🏢 SDO Office | 🏛️ BDO Office',
+        off_map_title: 'Geographical Map & Navigation',
+        off_rec_sub: 'Select according to your Municipality or Gram Panchayat area',
+        off_rec_title: 'Offices Recommended for Your Location:',
+        off_search_area_lbl: 'Search by Block, Town, or Area Name:',
+        off_work_hours: 'Working Hours: Mon-Fri (10:00 AM - 5:00 PM)',
+        quick_results_title: 'Quick Search Results:',
+        step_1_pill: 'Recommended Step 1',
+        story1_loc: 'Murshidabad • Lalbagh Block',
+        story1_quote: '"After scanning the Lakshmir Bhandar rejection SMS, NayaSetu drafted the correct representation to the bank and 3 months of pending allowance was credited to my account."',
+        story1_tag: 'Successful BDO Resolution',
+        story1_time: '2 days ago',
+        story1_title: 'Aadhaar DBT Activation Success',
+        story2_loc: 'Purba Bardhaman • Kalna',
+        story2_quote: '"Disbursement was paused because inherited land mutation was pending. With the drafted representation submitted to the ADA office, records were updated immediately."',
+        story2_tag: 'Mutation Approved & Portal Updated',
+        story2_time: '3 days ago',
+        story2_title: 'Krishak Bandhu Record Mutation Redressal',
+        story3_loc: 'South 24 Parganas • Canning',
+        story3_quote: '"To submit the form 15 days before marriage without missing papers, we used the checklist and the application was approved in the first review."',
+        story3_tag: 'Form Accepted at Duare Sarkar Camp',
+        story3_time: 'Today',
+        story3_title: 'Rupashree Grant Verification Success',
+
     };
 
 
@@ -7900,7 +8194,7 @@
       // 4. Update grievance drafter form default language selector if exists
       const grvLang = document.getElementById('grvLang');
       if (grvLang) {
-        grvLang.value = (lang === 'en') ? 'en' : 'bn';
+        grvLang.value = (lang === 'en') ? 'en' : (lang === 'hi' ? 'hi' : 'bn');
       }
 
       // 5. Re-render wizard results if they are currently displayed
