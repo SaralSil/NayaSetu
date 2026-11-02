@@ -6,11 +6,12 @@ from pathlib import Path
 from dotenv import load_dotenv
 import dj_database_url
 
-# Load environment variables from .env
-load_dotenv()
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Load environment variables from backend/.env or root .env
+load_dotenv(BASE_DIR / '.env')
+load_dotenv(BASE_DIR.parent / '.env')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY', 'nyayasetu-insecure-dev-secret-key-wbgov-assistant')
@@ -74,9 +75,18 @@ TEMPLATES = [
 WSGI_APPLICATION = 'core.wsgi.application'
 ASGI_APPLICATION = 'core.asgi.application'
 
+import urllib.parse
 # Database configuration:
 # Automatically handles Supabase PostgreSQL via DATABASE_URL, with local SQLite fallback.
 db_url = os.getenv('DATABASE_URL', '').strip()
+if db_url and (db_url.startswith('postgresql://') or db_url.startswith('postgres://')) and '@' in db_url:
+    prefix, _, rest = db_url.partition('://')
+    auth_part, host_part = rest.rsplit('@', 1)
+    if ':' in auth_part:
+        db_user, db_pwd = auth_part.split(':', 1)
+        db_pwd = urllib.parse.quote(urllib.parse.unquote(db_pwd))
+        db_url = f'{prefix}://{db_user}:{db_pwd}@{host_part}'
+
 use_sqlite = os.getenv('USE_LOCAL_SQLITE', 'false').lower() in ('true', '1', 't')
 if db_url and not db_url.startswith('sqlite') and not use_sqlite:
     DATABASES = {

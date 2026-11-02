@@ -451,6 +451,7 @@
     };
 
     let currentLang = 'bn';
+    const API_BASE = window.location.origin.includes('8000') ? '/api' : 'http://127.0.0.1:8000/api';
 
     function setAppLanguage(lang) {
       if (!i18n[lang]) return;
@@ -616,7 +617,7 @@
           password: password
         };
 
-        const res = await fetch('/api/accounts/register/', {
+        const res = await fetch(`${API_BASE}/accounts/register/`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
