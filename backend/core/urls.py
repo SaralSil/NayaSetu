@@ -5,6 +5,10 @@ from django.contrib import admin
 from django.urls import path, re_path, include
 from django.http import JsonResponse
 from django.views.generic import TemplateView
+from django.views.static import serve
+from django.conf import settings
+from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from apps.analyzer.views import ChatbotAssistantView
 
 def api_health_check(request):
@@ -16,6 +20,12 @@ def api_health_check(request):
     })
 
 urlpatterns = [
+    # Direct Asset & Favicon routes
+    re_path(r'^assets/(?P<path>.*)$', serve, {'document_root': settings.BASE_DIR.parent / 'frontend' / 'assets'}),
+    re_path(r'^(?:[^/]+/)*wb_emblem\.webp$', serve, {'document_root': settings.BASE_DIR.parent / 'frontend', 'path': 'wb_emblem.webp'}),
+    re_path(r'^favicon\.ico$', serve, {'document_root': settings.BASE_DIR.parent / 'frontend', 'path': 'wb_emblem.webp'}),
+    re_path(r'^sw\.js$', serve, {'document_root': settings.BASE_DIR.parent / 'frontend', 'path': 'sw.js'}),
+
     # Frontend Pages (Support both clean URLs and .html filenames for complete compatibility)
     path('', TemplateView.as_view(template_name='Landing.html'), name='landing'),
     re_path(r'^(?:Landing\.html)?$', TemplateView.as_view(template_name='Landing.html')),
@@ -48,3 +58,8 @@ urlpatterns = [
     path('api/grievances/', include('apps.grievances.urls')),
     path('api/accounts/', include('apps.accounts.urls')),
 ]
+
+# Static files delivery in development
+urlpatterns += staticfiles_urlpatterns()
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
