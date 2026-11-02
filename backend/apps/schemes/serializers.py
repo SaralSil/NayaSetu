@@ -46,6 +46,7 @@ class SchemeListSerializer(serializers.ModelSerializer):
             'id', 'slug', 'category', 'name_en', 'name_bn', 'name_hi',
             'tagline_en', 'tagline_bn', 'tagline_hi', 'benefit_type',
             'benefit_amount_text_en', 'benefit_amount_text_bn',
+            'application_channels', 'official_portal_url',
             'department', 'is_active'
         ]
 

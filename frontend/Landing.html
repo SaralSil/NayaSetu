@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="bn" class="light">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>ন্যায়সেতু AI | পশ্চিমবঙ্গ সরকার নাগরিক অধিকার ও কল্যাণ প্রকল্প প্রবেশদ্বার</title>
+
+  <!-- Google Fonts: Noto Sans Bengali, Noto Sans, EB Garamond -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=Noto+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Early Theme & Language Initializer -->
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('nayasetu_theme');
+        if (t === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        } else {
+          document.documentElement.classList.add('light');
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <style>
+    /* ========================================================
+       WHITE & SILTSTONE / TERRACOTTA COLOR SYSTEM
+       Clean, Warm Siltstone & Regal Ashoka Emblem Ambient Glow
+       ======================================================== */
+    :root {
+      --silt-bg: #FAF8F2;
+      --silt-card: #FFFFFF;
+      --silt-border: #E5DEC9;
+      --silt-text: #1F1A14;
+      --silt-muted: #6E5C3E;
+      --gold-primary: #D4AF37;
+      --gold-deep: #B8860B;
+      --terracotta: #C98A5B;
+      --terracotta-dark: #A45F2E;
+      --gold-gradient: linear-gradient(135deg, #F9E5A8 0%, #D4AF37 40%, #B8860B 100%);
+      --terracotta-gradient: linear-gradient(135deg, #E2A97B 0%, #C98A5B 50%, #A45F2E 100%);
+    }
+
+    body {
+      font-family: 'Noto Sans Bengali', 'Noto Sans', sans-serif;
+      background-color: var(--silt-bg);
+      color: var(--silt-text);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Ambient Background Watermark: Ashoka Stambh / State Emblem */
+    .ashoka-emblem-watermark {
+      position: fixed;
+      inset: 0;
+      background-image: url('assets/wb_emblem.webp'), url('/assets/wb_emblem.webp'), url('wb_emblem.webp');
+      background-repeat: no-repeat;
+      background-position: center 38%;
+      background-size: min(520px, 85vw);
+      opacity: 0.08;
+      pointer-events: none;
+      z-index: 0;
+      filter: drop-shadow(0 0 45px rgba(212, 175, 55, 0.45));
+      transition: opacity 0.3s ease;
+    }
+
+    .ambient-siltstone-glow {
+      position: fixed;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 50% 10%, rgba(247, 231, 180, 0.65), transparent 55%),
+        radial-gradient(circle at 12% 70%, rgba(201, 138, 91, 0.15), transparent 50%),
+        radial-gradient(circle at 88% 70%, rgba(212, 175, 55, 0.15), transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Dark Mode Overrides */
+    html.dark body {
+      background-color: #141210;
+      color: #F7F4EE;
+    }
+    html.dark .ashoka-emblem-watermark {
+      opacity: 0.06;
+      filter: invert(1) brightness(0.8) drop-shadow(0 0 35px rgba(201, 138, 91, 0.3));
+    }
+    html.dark .ambient-siltstone-glow {
+      background: 
+        radial-gradient(circle at 50% 10%, rgba(201, 138, 91, 0.15), transparent 55%),
+        radial-gradient(circle at 85% 80%, rgba(212, 175, 55, 0.08), transparent 50%);
+    }
+    html.dark .silt-card {
+      background-color: #1E1A16 !important;
+      border-color: #38312A !important;
+      color: #F7F4EE !important;
+    }
+    html.dark .silt-card-interactive {
+      background-color: #1E1A16 !important;
+      border-color: #38312A !important;
+    }
+    html.dark .silt-card-interactive:hover {
+      border-color: #C98A5B !important;
+      box-shadow: 0 16px 36px rgba(201, 138, 91, 0.18) !important;
+    }
+    html.dark .silt-header {
+      background-color: rgba(24, 21, 18, 0.95) !important;
+      border-bottom-color: #38312A !important;
+    }
+    html.dark .silt-topbar {
+      background-color: #181512 !important;
+      border-bottom-color: #2F2923 !important;
+      color: #DDD5C7 !important;
+    }
+    html.dark .silt-muted {
+      color: #A39788 !important;
+    }
+
+    /* Interactive Card Aesthetic */
+    .silt-card-interactive {
+      background: #FFFFFF;
+      border: 1.5px solid #E5DEC9;
+      border-radius: 1.25rem;
+      box-shadow: 0 10px 25px -5px rgba(184, 134, 11, 0.08), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .silt-card-interactive:hover {
+      transform: translateY(-6px);
+      border-color: #D4AF37;
+      box-shadow: 0 20px 35px -8px rgba(212, 175, 55, 0.22), 0 8px 16px -4px rgba(0, 0, 0, 0.06);
+    }
+
+    .silt-card-interactive::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 4px;
+      background: var(--terracotta-gradient);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .silt-card-interactive:hover::before {
+      opacity: 1;
+    }
+
+    /* Buttons */
+    .btn-terracotta {
+      background: var(--terracotta-gradient);
+      color: #FFFFFF;
+      font-weight: 700;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 18px rgba(201, 138, 91, 0.35);
+    }
+    .btn-terracotta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(201, 138, 91, 0.5);
+    }
+
+    .btn-gold-outline {
+      border: 2px solid #D4AF37;
+      background: #FFFFFF;
+      color: #8C640C;
+      font-weight: 700;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .btn-gold-outline:hover {
+      background: #FAF3E4;
+      transform: translateY(-2px);
+      border-color: #B8860B;
+      color: #5A3E00;
+    }
+    html.dark .btn-gold-outline {
+      background: #25201A;
+      color: #E2A97B;
+      border-color: #C98A5B;
+    }
+    html.dark .btn-gold-outline:hover {
+      background: #332B22;
+      color: #F7F4EE;
+    }
+  </style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+  <!-- 1. Ambient Background Ashoka Stambh / State Emblem Watermark -->
+  <div class="ashoka-emblem-watermark" aria-hidden="true"></div>
+  <div class="ambient-siltstone-glow" aria-hidden="true"></div>
+
+  <!-- 2. Top Sovereign Govt Sub-Bar -->
+  <aside class="silt-topbar relative z-30 bg-[#F4EDE0] border-b border-[#E2D8C3] text-[#5C4A28] text-xs py-1.5 px-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#C98A5B] inline-block animate-pulse"></span>
+        <span class="font-bold tracking-tight" data-i18n="topbar_gov">পশ্চিমবঙ্গ সরকার • নাগরিক কল্যাণ ও ডিজিটাল অধিকার সুরক্ষা প্ল্যাটফর্ম</span>
+      </div>
+      <div class="hidden md:flex items-center gap-3 text-[11px] font-semibold text-[#8C640C]">
+        <span class="flex items-center gap-1">
+          <span class="material-symbols-outlined text-xs">verified</span>
+          <span data-i18n="topbar_verified">আইনি ও সরকারি নথি দ্বারা যাচাইকৃত (2026 Updated)</span>
+        </span>
+        <span>•</span>
+        <span class="flex items-center gap-1">
+          <span class="material-symbols-outlined text-xs">lock</span>
+          <span data-i18n="topbar_privacy">১০০% নিরাপদ ও ব্যক্তিগত</span>
+        </span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 3. Main Header Navigation -->
+  <header class="silt-header sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#E5DEC9] shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <!-- Brand & Emblem -->
+      <a href="Landing.html" onclick="handleBrandClick(event)" class="flex items-center gap-3 group shrink-0">
+        <div class="w-12 h-14 relative flex items-center justify-center p-1 rounded-xl bg-gradient-to-b from-[#FAF4E6] to-[#FFFFFF] border-1.5 border-[#D4AF37] shadow-sm group-hover:scale-105 transition-transform">
+          <img src="assets/wb_emblem.webp" onerror="this.src='wb_emblem.webp'" alt="West Bengal Ashoka Emblem" class="w-full h-full object-contain drop-shadow-xs"/>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2">
+            <span class="text-xl sm:text-2xl font-bold tracking-tight text-[#1F1A14] group-hover:text-[#B8860B] transition-colors" data-i18n="brand_name">ন্যায়সেতু <span class="text-[#C98A5B]">AI</span></span>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#FAF2DA] border border-[#D4AF37] text-[#8C640C]">WB CITIZEN</span>
+          </div>
+          <p class="hidden sm:block text-[11px] text-[#6E5C3E] font-medium truncate max-w-xs" data-i18n="brand_sub">নাগরিক ও সরকারি প্রকল্পের মধ্যকার সরাসরি সেতু</p>
+        </div>
+      </a>
+
+      <!-- Quick Nav Links (Gated by Auth) -->
+      <nav class="hidden lg:flex items-center gap-2 text-sm font-semibold">
+        <a href="Home.html" onclick="handleAuthProtectedNav(event, 'home')" class="px-3.5 py-2 rounded-xl text-[#1F1A14] hover:text-[#C98A5B] hover:bg-[#FAF4E8] transition-all flex items-center gap-1.5" data-i18n="nav_home">
+          <span class="material-symbols-outlined text-base">dashboard</span>
+          <span>হোম ড্যাশবোর্ড</span>
+        </a>
+        <a href="Home.html" onclick="handleAuthProtectedNav(event, 'home', 'open=eligibility-wizard')" class="px-3 py-2 rounded-xl text-[#5C4A28] hover:text-[#C98A5B] hover:bg-[#FAF4E8] transition-all" data-i18n="nav_wizard">যোগ্যতা যাচাই</a>
+        <a href="Home.html" onclick="handleAuthProtectedNav(event, 'home', 'open=schemes-and-docs')" class="px-3 py-2 rounded-xl text-[#5C4A28] hover:text-[#C98A5B] hover:bg-[#FAF4E8] transition-all" data-i18n="nav_schemes">প্রকল্প তালিকা</a>
+        <a href="Home.html" onclick="handleAuthProtectedNav(event, 'home', 'open=grievance-drafter')" class="px-3 py-2 rounded-xl text-[#5C4A28] hover:text-[#C98A5B] hover:bg-[#FAF4E8] transition-all" data-i18n="nav_grievance">বিডিও দরখাস্ত</a>
+      </nav>
+
+      <!-- Action Suite: Language Switcher, Theme Switcher, Register & Login Buttons -->
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        
+        <!-- Theme Mode Toggle (Fully functional without login) -->
+        <button id="themeToggleBtn" type="button" onclick="toggleTheme()" class="p-2 sm:px-2.5 sm:py-1.5 rounded-xl border border-[#D4AF37]/60 bg-[#FAF7F0] hover:bg-[#F2E8D2] text-[#8C640C] transition-all flex items-center gap-1 text-xs font-semibold cursor-pointer" title="Toggle Theme" aria-label="Toggle Theme">
+          <span id="themeToggleIcon" class="material-symbols-outlined text-base">dark_mode</span>
+          <span id="themeToggleText" class="hidden sm:inline font-medium">ডার্ক মোড</span>
+        </button>
+
+        <!-- Trilingual Switcher (Fully functional without login) -->
+        <div class="inline-flex rounded-xl border border-[#D4AF37] p-0.5 bg-[#FAF7F0] text-xs font-semibold shadow-inner">
+          <button type="button" onclick="setAppLanguage('bn')" class="lang-btn px-2.5 py-1 rounded-lg transition-all active-lang bg-[#D4AF37] text-[#1A140B] shadow-xs font-bold" data-lang="bn">বাংলা</button>
+          <button type="button" onclick="setAppLanguage('en')" class="lang-btn px-2.5 py-1 rounded-lg transition-all text-[#6E5C3E] hover:text-[#1F1A14]" data-lang="en">English</button>
+          <button type="button" onclick="setAppLanguage('hi')" class="lang-btn px-2.5 py-1 rounded-lg transition-all text-[#6E5C3E] hover:text-[#1F1A14]" data-lang="hi">हिन्दी</button>
+        </div>
+
+        <!-- Auth Actions Container: Shows Login/Register OR Logged-in Profile -->
+        <div id="authActionsContainer" class="flex items-center gap-2">
+          <!-- Login Button -->
+          <a href="Login.html" onclick="goToLogin(event)" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#8C640C] border-1.5 border-[#D4AF37] bg-[#FFFDF9] hover:bg-[#FAF3E4] px-3.5 py-2 rounded-xl transition-all shadow-xs" data-i18n="btn_login">
+            <span class="material-symbols-outlined text-base">login</span>
+            <span>লগইন</span>
+          </a>
+
+          <!-- Sign Up / Register Button (Prominent) -->
+          <a href="Register.html" onclick="goToRegister(event)" class="btn-terracotta inline-flex items-center gap-1.5 text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl cursor-pointer">
+            <span class="material-symbols-outlined text-base">person_add</span>
+            <span data-i18n="btn_register">নিবন্ধন / সাইন আপ</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- 4. Hero Section with Ashoka & Siltstone Theme Radiance -->
+  <main class="relative z-10 flex-1">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14 pb-12 sm:pb-16 text-center">
+      
+      <!-- Top Announcement Pill -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF0D8] border border-[#D4AF37] text-[#8C640C] text-xs font-bold shadow-xs mb-6">
+        <span class="material-symbols-outlined text-sm text-[#B8860B]">campaign</span>
+        <span data-i18n="hero_pill">২০২৬ সালের সমস্ত সংশোধিত অনুদান ও প্রকল্প ভাতা অন্তর্ভুক্ত</span>
+        <span class="text-xs">✨</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#1F1A14] leading-[1.2] max-w-4xl mx-auto" data-i18n="hero_title">
+        পশ্চিমবঙ্গের সমস্ত নাগরিক অধিকার ও কল্যাণ প্রকল্পের <span class="bg-gradient-to-r from-[#B8860B] via-[#C98A5B] to-[#A45F2E] bg-clip-text text-transparent">একীভূত প্রবেশদ্বার</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-base sm:text-lg text-[#6E5C3E] max-w-2xl mx-auto mt-4 sm:mt-5 leading-relaxed font-medium" data-i18n="hero_subtitle">
+        কৃষক বন্ধু, লক্ষ্মীর ভাণ্ডার, স্বাস্থ্য সাথী, যুবশ্রী সহ প্রতিটি সরকারি প্রকল্পে আপনার যোগ্যতা যাচাই করুন, সরকারি নোটিশ সরল ভাষায় বুঝুন এবং মাত্র ১ ক্লিকে বিডিও ও এসডিও বরাবর অফিসিয়াল দরখাস্ত প্রস্তুত করুন।
+      </p>
+
+      <!-- Primary CTA Action Cluster -->
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+        
+        <!-- Sign Up / Register Button (Primary Action) -->
+        <a href="Register.html" onclick="goToRegister(event)" class="btn-terracotta inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 rounded-2xl text-sm sm:text-base font-bold shadow-md cursor-pointer">
+          <span class="material-symbols-outlined text-xl">how_to_reg</span>
+          <span data-i18n="cta_register">নতুন নাগরিক অ্যাকাউন্ট তৈরি করুন (Sign Up)</span>
+        </a>
+
+        <!-- Sign In Button -->
+        <a href="Login.html" onclick="goToLogin(event)" class="btn-gold-outline inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 rounded-2xl text-sm sm:text-base font-bold shadow-xs cursor-pointer">
+          <span class="material-symbols-outlined text-xl">login</span>
+          <span data-i18n="cta_login">সরাসরি নাগরিক লগইন (Sign In)</span>
+        </a>
+
+        <!-- Explore Home Dashboard Button (Auth Gated) -->
+        <a href="Home.html" onclick="handleAuthProtectedNav(event, 'home')" class="inline-flex items-center gap-1.5 px-5 py-3.5 rounded-2xl text-xs sm:text-sm font-semibold text-[#8C640C] hover:bg-[#FAF4E8] transition-colors border border-[#D4AF37]/50" data-i18n="cta_home">
+          <span class="material-symbols-outlined text-base">dashboard</span>
+          <span>হোম ড্যাশবোর্ড দেখুন →</span>
+        </a>
+
+      </div>
+
+      <!-- Quick Trust Indicators -->
+      <div class="mt-8 pt-6 border-t border-[#E5DEC9]/80 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs sm:text-sm font-semibold text-[#705C3D]">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#B8860B] text-lg">shield_with_heart</span>
+          <span data-i18n="trust_free">১০০% সম্পূর্ণ বিনামূল্যে নাগরিক সেবা</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#C98A5B] text-lg">translate</span>
+          <span data-i18n="trust_lang">বাংলা, ইংরেজি ও হিন্দি সহায়তা</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-[#B8860B] text-lg">lock</span>
+          <span data-i18n="trust_auth">নিরাপদ লগইন ও নাগরিক প্রোফাইল সুরক্ষা</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 5. 3-4 Ultra-Interactive Cards (White & Siltstone / Silk stone Theme) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      
+      <div class="text-center mb-8">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-[#1F1A14] tracking-tight" data-i18n="cards_section_title">
+          নাগরিকদের জন্য চারটি প্রধান ইন্টারেক্টিভ সুবিধা
+        </h2>
+        <p class="text-xs sm:text-sm text-[#6E5C3E] mt-1.5" data-i18n="cards_section_sub">
+          যেকোনো সুবিধা অ্যাক্সেস করতে অনুগ্রহ করে নাগরিক অ্যাকাউন্টে লগইন বা সাইন আপ করুন
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        
+        <!-- CARD 1: Smart Eligibility Wizard (যোগ্যতা যাচাই) -->
+        <div class="silt-card-interactive p-6 flex flex-col justify-between group cursor-pointer" onclick="handleAuthProtectedNav(event, 'home', 'open=eligibility-wizard')">
+          <div>
+            <!-- Card Header & Badge -->
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-[#FAF0D8] border border-[#D4AF37] flex items-center justify-center text-[#B8860B] group-hover:scale-110 transition-transform shadow-xs">
+                <span class="material-symbols-outlined text-2xl font-bold">balance</span>
+              </div>
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#FAF0D8] text-[#8C640C] border border-[#D4AF37]/50" data-i18n="card1_badge">
+                ২০২৬ ক্যালকুলেটর
+              </span>
+            </div>
+
+            <h3 class="text-lg font-bold text-[#1F1A14] group-hover:text-[#B8860B] transition-colors" data-i18n="card1_title">
+              যোগ্যতা যাচাই ও আর্থিক অনুদান
+            </h3>
+            <p class="text-xs text-[#6E5C3E] mt-2 leading-relaxed" data-i18n="card1_desc">
+              আপনার বয়স, আয় ও ক্যাটাগরি দিয়ে ১ মিনিটে জানুন আপনি কোন কোন প্রকল্পে প্রতি মাসে বা বছরে কত টাকা অনুদান পাবেন।
+            </p>
+
+            <!-- Interactive Micro-preview Toggle -->
+            <div class="mt-4 p-3 rounded-xl bg-[#FAF8F2] border border-[#E5DEC9] text-xs space-y-2">
+              <div class="flex justify-between items-center text-[11px] font-semibold text-[#8C640C]">
+                <span data-i18n="card1_prev_tag">অনুদানের উদাহরণ:</span>
+                <span class="text-[#C98A5B] font-bold">₹১,০০০ - ₹৩,০০০/মাস</span>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded bg-white text-[10px] font-semibold border border-[#E5DEC9] text-[#5C4A28]">লক্ষ্মীর ভাণ্ডার</span>
+                <span class="px-2 py-0.5 rounded bg-white text-[10px] font-semibold border border-[#E5DEC9] text-[#5C4A28]">কৃষক বন্ধু</span>
+                <span class="px-2 py-0.5 rounded bg-white text-[10px] font-semibold border border-[#E5DEC9] text-[#5C4A28]">স্বাস্থ্য সাথী</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-5 pt-4 border-t border-[#E5DEC9]/80 flex items-center justify-between text-xs font-bold text-[#C98A5B] group-hover:text-[#A45F2E]">
+            <span data-i18n="card1_action">যোগ্যতা পরীক্ষা করুন (লগইন প্রয়োজন)</span>
+            <span class="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">lock</span>
+          </div>
+        </div>
+
+        <!-- CARD 2: BDO Grievance Letter Drafter (দরখাস্ত প্রস্তুতকারক) -->
+        <div class="silt-card-interactive p-6 flex flex-col justify-between group cursor-pointer" onclick="handleAuthProtectedNav(event, 'home', 'open=grievance-drafter')">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-[#FBF0E8] border border-[#C98A5B] flex items-center justify-center text-[#C98A5B] group-hover:scale-110 transition-transform shadow-xs">
+                <span class="material-symbols-outlined text-2xl font-bold">edit_document</span>
+              </div>
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#FBF0E8] text-[#A45F2E] border border-[#C98A5B]/40" data-i18n="card2_badge">
+                আইনি ফরম্যাট
+              </span>
+            </div>
+
+            <h3 class="text-lg font-bold text-[#1F1A14] group-hover:text-[#C98A5B] transition-colors" data-i18n="card2_title">
+              বিডিও অভিযোগ ও দরখাস্ত জেনারেটর
+            </h3>
+            <p class="text-xs text-[#6E5C3E] mt-2 leading-relaxed" data-i18n="card2_desc">
+              ভাতা বন্ধ হওয়া, আবেদন ঝুলে থাকা বা ব্যাংক ডিবিটি সমস্যার জন্য সঠিক আইনি ধারা সহ নিখুঁত অফিসিয়াল বাংলা চিঠি তৈরি করুন।
+            </p>
+
+            <div class="mt-4 p-3 rounded-xl bg-[#FAF8F2] border border-[#E5DEC9] text-xs space-y-2">
+              <div class="flex justify-between items-center text-[11px] font-semibold text-[#8C640C]">
+                <span data-i18n="card2_prev_tag">ড্রাফট ফরম্যাট:</span>
+                <span class="text-emerald-700 font-bold">✓ প্রিন্ট ও পিডিএফ প্রস্তুত</span>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded bg-white text-[10px] font-semibold border border-[#E5DEC9] text-[#5C4A28]">আধার-ডিবিটি আবেদন</span>
+                <span class="px-2 py-0.5 rounded bg-white text-[10px] font-semibold border border-[#E5DEC9] text-[#5C4A28]">পেমেন্ট বিলম্ব</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-5 pt-4 border-t border-[#E5DEC9]/80 flex items-center justify-between text-xs font-bold text-[#C98A5B] group-hover:text-[#A45F2E]">
+            <span data-i18n="card2_action">দরখাস্ত তৈরি করুন (লগইন প্রয়োজন)</span>
+            <span class="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">lock</span>
+          </div>
+        </div>
+
+        <!-- CARD 3: Notice & SMS Decryption (নোটিশ বুঝুন) -->
+        <div class="silt-card-interactive p-6 flex flex-col justify-between group cursor-pointer" onclick="handleAuthProtectedNav(event, 'home', 'open=notice-explainer')">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-[#FAF0D8] border border-[#D4AF37] flex items-center justify-center text-[#B8860B] group-hover:scale-110 transition-transform shadow-xs">
+                <span class="material-symbols-outlined text-2xl font-bold">document_scanner</span>
+              </div>
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#FAF0D8] text-[#8C640C] border border-[#D4AF37]/50" data-i18n="card3_badge">
+                এআই স্ক্যানার
+              </span>
+            </div>
+
+            <h3 class="text-lg font-bold text-[#1F1A14] group-hover:text-[#B8860B] transition-colors" data-i18n="card3_title">
+              সরকারি নোটিশ ও এসএমএস ডিক্রিপশন
+            </h3>
+            <p class="text-xs text-[#6E5C3E] mt-2 leading-relaxed" data-i18n="card3_desc">
+              মোবাইলে আসা দুর্বোধ্য এসএমএস বা অফিসিয়াল রিজেকশন চিঠির ছবি আপলোড করলেই এআই আপনাকে সহজ ভাষায় করণীয় জানিয়ে দেবে।
+            </p>
+
+            <div class="mt-4 p-3 rounded-xl bg-[#FAF8F2] border border-[#E5DEC9] text-xs space-y-2">
+              <div class="flex justify-between items-center text-[11px] font-semibold text-[#8C640C]">
+                <span data-i18n="card3_prev_tag">সমর্থন:</span>
+                <span class="text-[#B8860B] font-bold">ছবি স্ক্যান + বাংলা এসএমএস</span>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded bg-white text-[10px] font-semibold border border-[#E5DEC9] text-[#5C4A28]">কারণ ব্যাখ্যা</span>
+                <span class="px-2 py-0.5 rounded bg-white text-[10px] font-semibold border border-[#E5DEC9] text-[#5C4A28]">সমাধানের নির্দেশ</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-5 pt-4 border-t border-[#E5DEC9]/80 flex items-center justify-between text-xs font-bold text-[#C98A5B] group-hover:text-[#A45F2E]">
+            <span data-i18n="card3_action">নোটিশ আপলোড করুন (লগইন প্রয়োজন)</span>
+            <span class="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">lock</span>
+          </div>
+        </div>
+
+        <!-- CARD 4: 2026 Schemes Directory & AI Assistant (প্রকল্প নির্দেশিকা) -->
+        <div class="silt-card-interactive p-6 flex flex-col justify-between group cursor-pointer" onclick="handleAuthProtectedNav(event, 'home', 'open=schemes-and-docs')">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-[#FBF0E8] border border-[#C98A5B] flex items-center justify-center text-[#C98A5B] group-hover:scale-110 transition-transform shadow-xs">
+                <span class="material-symbols-outlined text-2xl font-bold">menu_book</span>
+              </div>
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#FBF0E8] text-[#A45F2E] border border-[#C98A5B]/40" data-i18n="card4_badge">
+                সর্বশেষ নির্দেশিকা
+              </span>
+            </div>
+
+            <h3 class="text-lg font-bold text-[#1F1A14] group-hover:text-[#C98A5B] transition-colors" data-i18n="card4_title">
+              ২০২৬ রাজ্য প্রকল্প নির্দেশিকা ও অফিস
+            </h3>
+            <p class="text-xs text-[#6E5C3E] mt-2 leading-relaxed" data-i18n="card4_desc">
+              পশ্চিমবঙ্গের প্রতিটি ব্লকের BDO অফিসের ঠিকানা, হেল্পলাইন নম্বর এবং সমস্ত প্রকল্পের অফিসিয়াল ওয়েবসাইট লিঙ্ক ও নিয়মাবলী।
+            </p>
+
+            <div class="mt-4 p-3 rounded-xl bg-[#FAF8F2] border border-[#E5DEC9] text-xs space-y-2">
+              <div class="flex justify-between items-center text-[11px] font-semibold text-[#8C640C]">
+                <span data-i18n="card4_prev_tag">ডিরেক্টরি তথ্য:</span>
+                <span class="text-[#8C640C] font-bold">৩৪২টি ব্লক ও পৌরসভা</span>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded bg-white text-[10px] font-semibold border border-[#E5DEC9] text-[#5C4A28]">সরাসরি পোর্টাল লিংক</span>
+                <span class="px-2 py-0.5 rounded bg-white text-[10px] font-semibold border border-[#E5DEC9] text-[#5C4A28]">প্রয়োজনীয় নথিপত্র</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-5 pt-4 border-t border-[#E5DEC9]/80 flex items-center justify-between text-xs font-bold text-[#C98A5B] group-hover:text-[#A45F2E]">
+            <span data-i18n="card4_action">প্রকল্প তালিকা দেখুন (লগইন প্রয়োজন)</span>
+            <span class="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">lock</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- 6. Secondary Interactive Register Banner -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 mb-16">
+      <div class="silt-card-interactive p-8 sm:p-10 bg-gradient-to-br from-[#FFFDF9] via-[#FAF6ED] to-[#F5ECE0] border-2 border-[#D4AF37] text-center relative">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF0D8] text-[#8C640C] text-xs font-bold border border-[#D4AF37] mb-3">
+          <span class="material-symbols-outlined text-sm">lock</span>
+          <span data-i18n="banner_badge">সুরক্ষিত নাগরিক পোর্টাল</span>
+        </span>
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-[#1F1A14]" data-i18n="banner_title">
+          আজই আপনার ভেরিফায়েড নাগরিক অ্যাকাউন্ট নিবন্ধন করুন
+        </h3>
+        <p class="text-xs sm:text-sm text-[#6E5C3E] max-w-xl mx-auto mt-2 leading-relaxed" data-i18n="banner_desc">
+          আপনার সংরক্ষিত ড্রাফট, যোগ্যতার ফলাফল ও আবেদনের স্ট্যাটাস সবসময় এক জায়গায় সংরক্ষিত থাকবে। সম্পূর্ণ নিরাপদ ও দ্রুত।
+        </p>
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <a href="Register.html" onclick="goToRegister(event)" class="btn-terracotta inline-flex items-center gap-2 px-7 py-3 rounded-xl text-sm font-bold shadow-md cursor-pointer">
+            <span class="material-symbols-outlined text-lg">person_add</span>
+            <span data-i18n="banner_btn_register">এখনই নিবন্ধন করুন (Sign Up)</span>
+          </a>
+          <a href="Login.html" onclick="goToLogin(event)" class="btn-gold-outline inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold shadow-xs cursor-pointer">
+            <span class="material-symbols-outlined text-lg">login</span>
+            <span data-i18n="banner_btn_login">নাগরিক লগইন (Sign In)</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 7. Auth Required Floating Toast / Modal Notice -->
+  <div id="authRequiredModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+    <div class="silt-card bg-white p-6 sm:p-8 rounded-2xl max-w-md w-full border-2 border-[#D4AF37] shadow-2xl text-center relative animate-in fade-in zoom-in duration-200">
+      <div class="w-16 h-16 rounded-full bg-[#FAF0D8] border border-[#D4AF37] flex items-center justify-center text-[#B8860B] mx-auto mb-4">
+        <span class="material-symbols-outlined text-3xl">lock_person</span>
+      </div>
+      <h3 class="text-xl font-bold text-[#1F1A14]" data-i18n="auth_modal_title">নাগরিক লগইন বা নিবন্ধন আবশ্যক</h3>
+      <p class="text-xs sm:text-sm text-[#6E5C3E] mt-2 leading-relaxed" data-i18n="auth_modal_desc">
+        এই সুবিধাটি ব্যবহার করার জন্য আপনাকে প্রথমে একটি ভেরিফায়েড নাগরিক অ্যাকাউন্ট দিয়ে লগইন অথবা নতুন নিবন্ধন করতে হবে।
+      </p>
+      <div class="mt-6 flex flex-col sm:flex-row gap-2.5">
+        <a href="Register.html" onclick="goToRegister(event)" class="btn-terracotta flex-1 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 cursor-pointer">
+          <span class="material-symbols-outlined text-base">person_add</span>
+          <span data-i18n="btn_register">নিবন্ধন / সাইন আপ</span>
+        </a>
+        <a href="Login.html" onclick="goToLogin(event)" class="btn-gold-outline flex-1 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 cursor-pointer">
+          <span class="material-symbols-outlined text-base">login</span>
+          <span data-i18n="btn_login">লগইন</span>
+        </a>
+      </div>
+      <button type="button" onclick="closeAuthModal()" class="mt-3 text-xs text-[#8C640C] hover:underline font-semibold" data-i18n="btn_close">
+        বন্ধ করুন
+      </button>
+    </div>
+  </div>
+
+  <!-- 8. Footer -->
+  <footer class="silt-header bg-[#FAF7F0] border-t border-[#E5DEC9] py-8 text-xs text-[#705C3D] relative z-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img src="assets/wb_emblem.webp" onerror="this.src='wb_emblem.webp'" alt="Emblem" class="w-8 h-10 object-contain"/>
+        <div>
+          <p class="font-bold text-[#1F1A14]" data-i18n="footer_title">ন্যায়সেতু AI • পশ্চিমবঙ্গ সরকার নাগরিক কল্যাণ সহায়ক প্ল্যাটফর্ম</p>
+          <p class="text-[11px] text-[#8C640C]" data-i18n="footer_sub">একটি উন্মুক্ত ও স্বাধীন জনস্বার্থ নাগরিক উদ্যোগ (2026 Edition)</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4 text-xs font-semibold text-[#8C640C]">
+        <a href="Register.html" onclick="goToRegister(event)" class="hover:underline" data-i18n="footer_reg">নিবন্ধন</a>
+        <span>•</span>
+        <a href="Login.html" onclick="goToLogin(event)" class="hover:underline" data-i18n="footer_login">লগইন</a>
+        <span>•</span>
+        <a href="Home.html" onclick="handleAuthProtectedNav(event, 'home')" class="hover:underline" data-i18n="footer_home">হোম ড্যাশবোর্ড</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 9. Complete Smart Router, Auth Wall & Multilingual Script -->
+  <script>
+    const I18N = {
+      bn: {
+        topbar_gov: 'পশ্চিমবঙ্গ সরকার • নাগরিক কল্যাণ ও ডিজিটাল অধিকার সুরক্ষা প্ল্যাটফর্ম',
+        topbar_verified: 'আইনি ও সরকারি নথি দ্বারা যাচাইকৃত (2026 Updated)',
+        topbar_privacy: '১০০% নিরাপদ ও ব্যক্তিগত',
+        brand_name: 'ন্যায়সেতু <span class="text-[#C98A5B]">AI</span>',
+        brand_sub: 'নাগরিক ও সরকারি প্রকল্পের মধ্যকার সরাসরি সেতু',
+        nav_home: 'হোম ড্যাশবোর্ড',
+        nav_wizard: 'যোগ্যতা যাচাই',
+        nav_schemes: 'প্রকল্প তালিকা',
+        nav_grievance: 'বিডিও দরখাস্ত',
+        btn_login: 'লগইন',
+        btn_register: 'নিবন্ধন / সাইন আপ',
+        btn_logout: 'লগআউট',
+        hero_pill: '২০২৬ সালের সমস্ত সংশোধিত অনুদান ও প্রকল্প ভাতা অন্তর্ভুক্ত',
+        hero_title: 'পশ্চিমবঙ্গের সমস্ত নাগরিক অধিকার ও কল্যাণ প্রকল্পের <span class="bg-gradient-to-r from-[#B8860B] via-[#C98A5B] to-[#A45F2E] bg-clip-text text-transparent">একীভূত প্রবেশদ্বার</span>',
+        hero_subtitle: 'কৃষক বন্ধু, লক্ষ্মীর ভাণ্ডার, স্বাস্থ্য সাথী, যুবশ্রী সহ প্রতিটি সরকারি প্রকল্পে আপনার যোগ্যতা যাচাই করুন, সরকারি নোটিশ সরল ভাষায় বুঝুন এবং মাত্র ১ ক্লিকে বিডিও ও এসডিও বরাবর অফিসিয়াল দরখাস্ত প্রস্তুত করুন।',
+        cta_register: 'নতুন নাগরিক অ্যাকাউন্ট তৈরি করুন (Sign Up)',
+        cta_home: 'হোম ড্যাশবোর্ড দেখুন →',
+        cta_login: 'সরাসরি নাগরিক লগইন (Sign In)',
+        trust_free: '১০০% সম্পূর্ণ বিনামূল্যে নাগরিক সেবা',
+        trust_lang: 'বাংলা, ইংরেজি ও হিন্দি সহায়তা',
+        trust_auth: 'নিরাপদ লগইন ও নাগরিক প্রোফাইল সুরক্ষা',
+        cards_section_title: 'নাগরিকদের জন্য চারটি প্রধান ইন্টারেক্টিভ সুবিধা',
+        cards_section_sub: 'যেকোনো সুবিধা অ্যাক্সেস করতে অনুগ্রহ করে নাগরিক অ্যাকাউন্টে লগইন বা সাইন আপ করুন',
+        card1_badge: '২০২৬ ক্যালকুলেটর',
+        card1_title: 'যোগ্যতা যাচাই ও আর্থিক অনুদান',
+        card1_desc: 'আপনার বয়স, আয় ও ক্যাটাগরি দিয়ে ১ মিনিটে জানুন আপনি কোন কোন প্রকল্পে প্রতি মাসে বা বছরে কত টাকা অনুদান পাবেন।',
+        card1_prev_tag: 'অনুদানের উদাহরণ:',
+        card1_action: 'যোগ্যতা পরীক্ষা করুন (লগইন প্রয়োজন)',
+        card2_badge: 'আইনি ফরম্যাট',
+        card2_title: 'বিডিও অভিযোগ ও দরখাস্ত জেনারেটর',
+        card2_desc: 'ভাতা বন্ধ হওয়া, আবেদন ঝুলে থাকা বা ব্যাংক ডিবিটি সমস্যার জন্য সঠিক আইনি ধারা সহ নিখুঁত অফিসিয়াল বাংলা চিঠি তৈরি করুন।',
+        card2_prev_tag: 'ড্রাফট ফরম্যাট:',
+        card2_action: 'দরখাস্ত তৈরি করুন (লগইন প্রয়োজন)',
+        card3_badge: 'এআই স্ক্যানার',
+        card3_title: 'সরকারি নোটিশ ও এসএমএস ডিক্রিপশন',
+        card3_desc: 'মোবাইলে আসা দুর্বোধ্য এসএমএস বা অফিসিয়াল রিজেকশন চিঠির ছবি আপলোড করলেই এআই আপনাকে সহজ ভাষায় করণীয় জানিয়ে দেবে।',
+        card3_prev_tag: 'সমর্থন:',
+        card3_action: 'নোটিশ আপলোড করুন (লগইন প্রয়োজন)',
+        card4_badge: 'সর্বশেষ নির্দেশিকা',
+        card4_title: '২০২৬ রাজ্য প্রকল্প নির্দেশিকা ও অফিস',
+        card4_desc: 'পশ্চিমবঙ্গের প্রতিটি ব্লকের BDO অফিসের ঠিকানা, হেল্পলাইন নম্বর এবং সমস্ত প্রকল্পের অফিসিয়াল ওয়েবসাইট লিঙ্ক ও নিয়মাবলী।',
+        card4_prev_tag: 'ডিরেক্টরি তথ্য:',
+        card4_action: 'প্রকল্প তালিকা দেখুন (লগইন প্রয়োজন)',
+        banner_badge: 'সুরক্ষিত নাগরিক পোর্টাল',
+        banner_title: 'আজই আপনার ভেরিফায়েড নাগরিক অ্যাকাউন্ট নিবন্ধন করুন',
+        banner_desc: 'আপনার সংরক্ষিত ড্রাফট, যোগ্যতার ফলাফল ও আবেদনের স্ট্যাটাস সবসময় এক জায়গায় সংরক্ষিত থাকবে। সম্পূর্ণ নিরাপদ ও দ্রুত।',
+        banner_btn_register: 'এখনই নিবন্ধন করুন (Sign Up)',
+        banner_btn_login: 'নাগরিক লগইন (Sign In)',
+        footer_title: 'ন্যায়সেতু AI • পশ্চিমবঙ্গ সরকার নাগরিক কল্যাণ সহায়ক প্ল্যাটফর্ম',
+        footer_sub: 'একটি উন্মুক্ত ও স্বাধীন জনস্বার্থ নাগরিক উদ্যোগ (2026 Edition)',
+        footer_home: 'হোম ড্যাশবোর্ড',
+        footer_reg: 'নিবন্ধন',
+        footer_login: 'লগইন',
+        auth_modal_title: 'নাগরিক লগইন বা নিবন্ধন আবশ্যক',
+        auth_modal_desc: 'এই সুবিধাটি ব্যবহার করার জন্য আপনাকে প্রথমে একটি ভেরিফায়েড নাগরিক অ্যাকাউন্ট দিয়ে লগইন অথবা নতুন নিবন্ধন করতে হবে।',
+        btn_close: 'বন্ধ করুন',
+        theme_light: 'লাইট মোড',
+        theme_dark: 'ডার্ক মোড'
+      },
+      en: {
+        topbar_gov: 'Government of West Bengal • Citizen Welfare & Digital Rights Gateway',
+        topbar_verified: 'Verified by Official Gazettes & Legal Standards (2026 Updated)',
+        topbar_privacy: '100% Private, Secure & Free',
+        brand_name: 'NayaSetu <span class="text-[#C98A5B]">AI</span>',
+        brand_sub: 'Unified Bridge Between Citizens & Government Welfare',
+        nav_home: 'Home Dashboard',
+        nav_wizard: 'Eligibility Check',
+        nav_schemes: 'Scheme Directory',
+        nav_grievance: 'BDO Representation',
+        btn_login: 'Sign In',
+        btn_register: 'Register / Sign Up',
+        btn_logout: 'Logout',
+        hero_pill: 'Includes All 2026 Updated Grants & Scheme Allowances',
+        hero_title: 'Unified Gateway for West Bengal Citizen Rights & <span class="bg-gradient-to-r from-[#B8860B] via-[#C98A5B] to-[#A45F2E] bg-clip-text text-transparent">Welfare Schemes</span>',
+        hero_subtitle: 'Check your eligibility for Lakkhir Bhandar, Krishak Bandhu, Swasthya Sathi & Yuvasree in 1 minute, decipher confusing official notices, and generate compliant legal representations for BDO & SDO.',
+        cta_register: 'Create Citizen Account (Sign Up)',
+        cta_home: 'View Home Dashboard →',
+        cta_login: 'Direct Citizen Sign In',
+        trust_free: '100% Free Public Citizen Service',
+        trust_lang: 'Bengali, English & Hindi Support',
+        trust_auth: 'Secure Login & Citizen Profile Protection',
+        cards_section_title: 'Four Core Interactive Citizen Capabilities',
+        cards_section_sub: 'Please sign in or register to access any citizen capability',
+        card1_badge: '2026 Calculator',
+        card1_title: 'Smart Eligibility & Benefit Calculator',
+        card1_desc: 'Enter your age, income, and category to instantly see how much grant money you are entitled to receive each month or year.',
+        card1_prev_tag: 'Grant Examples:',
+        card1_action: 'Check Eligibility (Login Required)',
+        card2_badge: 'Legal Format',
+        card2_title: 'BDO Official Grievance Drafter',
+        card2_desc: 'Generate formal Bengali and English representations cited with legal rights for stopped pensions, pending approvals, and Aadhaar-DBT errors.',
+        card2_prev_tag: 'Draft Format:',
+        card2_action: 'Draft Representation (Login Required)',
+        card3_badge: 'AI Scanner',
+        card3_title: 'Government Notice & SMS Decryption',
+        card3_desc: 'Upload a picture of rejection letters or paste cryptic Bengali SMS to get plain-language explanations and exact next steps.',
+        card3_prev_tag: 'Capabilities:',
+        card3_action: 'Upload Notice / SMS (Login Required)',
+        card4_badge: 'Latest 2026 Guide',
+        card4_title: '2026 Schemes Directory & BDO Offices',
+        card4_desc: 'Comprehensive directory of 342 BDO offices, official helpline contacts, and direct government scheme application portals across West Bengal.',
+        card4_prev_tag: 'Directory Coverage:',
+        card4_action: 'Browse Schemes (Login Required)',
+        banner_badge: 'Secured Citizen Gateway',
+        banner_title: 'Register Your Verified Citizen Profile Today',
+        banner_desc: 'Safely access saved representations, check eligibility updates, and track scheme deadlines in one place. Fast and confidential.',
+        banner_btn_register: 'Register Now (Sign Up)',
+        banner_btn_login: 'Citizen Login (Sign In)',
+        footer_title: 'NayaSetu AI • Government of West Bengal Citizen Welfare Gateway',
+        footer_sub: 'An open-access public interest initiative (2026 Edition)',
+        footer_home: 'Home Dashboard',
+        footer_reg: 'Register',
+        footer_login: 'Sign In',
+        auth_modal_title: 'Citizen Sign In or Registration Required',
+        auth_modal_desc: 'To access this citizen feature, please register a verified citizen profile or sign in to your existing account.',
+        btn_close: 'Close',
+        theme_light: 'Light Mode',
+        theme_dark: 'Dark Mode'
+      },
+      hi: {
+        topbar_gov: 'पश्चिम बंगाल सरकार • नागरिक कल्याण एवं डिजिटल अधिकार सुरक्षा पोर्टल',
+        topbar_verified: 'सरकारी दस्तावेजों द्वारा सत्यापित (2026 अद्यतन)',
+        topbar_privacy: '100% सुरक्षित एवं निजी',
+        brand_name: 'न्यायसेतु <span class="text-[#C98A5B]">AI</span>',
+        brand_sub: 'नागरिकों और सरकारी योजनाओं के बीच का सीधा सेतु',
+        nav_home: 'होम डैशबोर्ड',
+        nav_wizard: 'पात्रता जांच',
+        nav_schemes: 'योजना सूची',
+        nav_grievance: 'बीडीओ आवेदन',
+        btn_login: 'लॉगिन',
+        btn_register: 'पंजीकरण / साइन अप',
+        btn_logout: 'लॉगआउट',
+        hero_pill: '2026 की सभी संशोधित सहायता राशि और भत्ते शामिल',
+        hero_title: 'पश्चिम बंगाल के नागरिक अधिकारों और सरकारी योजनाओं का <span class="bg-gradient-to-r from-[#B8860B] via-[#C98A5B] to-[#A45F2E] bg-clip-text text-transparent">एकीकृत प्रवेश द्वार</span>',
+        hero_subtitle: 'कृषक बंधु, लक्ष्मी भंडार, स्वास्थ्य साथी, और युवश्री जैसी योजनाओं में अपनी पात्रता 1 मिनट में जांचें, सरकारी नोटिस सरल भाषा में समझें और बीडीओ के लिए औपचारिक आवेदन तैयार करें।',
+        cta_register: 'नया नागरिक खाता बनाएं (Sign Up)',
+        cta_home: 'होम डैशबोर्ड देखें →',
+        cta_login: 'सीधे नागरिक लॉगिन (Sign In)',
+        trust_free: '100% पूर्णतः निःशुल्क नागरिक सेवा',
+        trust_lang: 'বাংলা, English एवं हिन्दी सहायता',
+        trust_auth: 'सुरक्षित लॉगिन एवं नागरिक प्रोफाइल सुरक्षा',
+        cards_section_title: 'नागरिकों के लिए चार प्रमुख इंटरैक्टिव सुविधाएं',
+        cards_section_sub: 'किसी भी सुविधा का उपयोग करने के लिए कृपया नागरिक खाते में लॉगिन या साइन अप करें',
+        card1_badge: '2026 कैलकुलेटर',
+        card1_title: 'पात्रता जांच एवं वित्तीय सहायता',
+        card1_desc: 'अपनी आयु, आय और श्रेणी दर्ज करके तुरंत जानें कि आप किन-किन योजनाओं में प्रति माह या वर्ष कितनी सहायता पाने के पात्र हैं।',
+        card1_prev_tag: 'सहायता उदाहरण:',
+        card1_action: 'पात्रता जांचें (लॉगिन आवश्यक)',
+        card2_badge: 'कानूनी प्रारूप',
+        card2_title: 'बीडीओ शिकायत एवं आवेदन पत्र निर्माता',
+        card2_desc: 'रुके हुए भत्ते, लंबित स्वीकृति या बैंक डीबीटी समस्याओं के समाधान हेतु आधिकारिक बंगाली व अंग्रेजी कानूनी अभ्यावेदन तैयार करें।',
+        card2_prev_tag: 'प्रारूप स्थिति:',
+        card2_action: 'आवेदन तैयार करें (लॉगिन आवश्यक)',
+        card3_badge: 'एआई स्कैनर',
+        card3_title: 'सरकारी नोटिस एवं एसएमएस डिक्रिप्शन',
+        card3_desc: 'अस्वीकृति पत्र की तस्वीर या जटिल एसएमएस अपलोड करें, एआई आपको सरल भाषा में कारण और अगले कदम स्पष्ट करेगा।',
+        card3_prev_tag: 'सुविधाएं:',
+        card3_action: 'नोटिस अपलोड करें (लॉगिन आवश्यक)',
+        card4_badge: 'नवीनतम 2026 निर्देशिका',
+        card4_title: '2026 राज्य योजना निर्देशिका एवं कार्यालय',
+        card4_desc: 'पश्चिम बंगाल के सभी 342 प्रखंडों के बीडीओ कार्यालयों के पते, हेल्पलाइन नंबर और आधिकारिक योजना पोर्टल लिंक।',
+        card4_prev_tag: 'निर्देशिका विस्तार:',
+        card4_action: 'योजना सूची देखें (लॉगिन आवश्यक)',
+        banner_badge: 'सुरक्षित नागरिक पोर्टल',
+        banner_title: 'आज ही अपना सत्यापित नागरिक प्रोफाइल पंजीकृत करें',
+        banner_desc: 'अपने सहेजे गए आवेदन, पात्रता परिणाम और आवेदन स्थिति हमेशा एक सुरक्षित स्थान पर रखें।',
+        banner_btn_register: 'अभी पंजीकरण करें (Sign Up)',
+        banner_btn_login: 'नागरिक लॉगिन (Sign In)',
+        footer_title: 'न्यायसेतु AI • पश्चिम बंगाल सरकार नागरिक कल्याण सहायक पोर्टल',
+        footer_sub: 'एक स्वतंत्र जनहित नागरिक पहल (2026 संस्करण)',
+        footer_home: 'होम डैशबोर्ड',
+        footer_reg: 'पंजीकरण',
+        footer_login: 'लॉगिन',
+        auth_modal_title: 'नागरिक लॉगिन या पंजीकरण आवश्यक',
+        auth_modal_desc: 'इस सुविधा का उपयोग करने के लिए आपको पहले एक सत्यापित नागरिक खाते से लॉगिन करना होगा अथवा नया पंजीकरण करना होगा।',
+        btn_close: 'बंद करें',
+        theme_light: 'लाइट मोड',
+        theme_dark: 'डार्क मोड'
+      }
+    };
+
+    let currentLang = 'bn';
+
+    // Smart Universal URL Resolver (Works on Django port 8000, Live Server port 5500/3000, and direct files)
+    function getTargetUrl(page, query = '') {
+      const isDjango = (window.location.port === '8000') && !window.location.pathname.endsWith('.html');
+      const fileMap = {
+        'register': isDjango ? '/register/' : 'Register.html',
+        'login': isDjango ? '/login/' : 'Login.html',
+        'home': isDjango ? '/home/' : 'Home.html',
+        'landing': isDjango ? '/' : 'Landing.html'
+      };
+      const base = fileMap[page] || (isDjango ? `/${page}/` : `${page}.html`);
+      return query ? `${base}?${query}` : base;
+    }
+
+    // Direct Navigation Handlers
+    function goToRegister(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      window.location.href = getTargetUrl('register');
+    }
+
+    function goToLogin(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      window.location.href = getTargetUrl('login');
+    }
+
+    function handleBrandClick(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      window.location.href = getTargetUrl('landing');
+    }
+
+    // STRICT AUTH WALL: Blocks unauthenticated access to Home or any citizen feature
+    function handleAuthProtectedNav(e, page, query = '') {
+      if (e && e.preventDefault) e.preventDefault();
+
+      const userStr = localStorage.getItem('nayasetu_user');
+      if (userStr) {
+        // Authenticated citizen: grant access!
+        window.location.href = getTargetUrl(page, query);
+        return;
+      }
+
+      // Unauthenticated visitor: display Auth Wall Modal
+      showAuthModal();
+    }
+
+    function showAuthModal() {
+      const modal = document.getElementById('authRequiredModal');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeAuthModal() {
+      const modal = document.getElementById('authRequiredModal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    // Check if user is logged in to render user badge in header
+    function syncUserSessionUI() {
+      const userStr = localStorage.getItem('nayasetu_user');
+      const container = document.getElementById('authActionsContainer');
+      if (!container) return;
+
+      if (userStr) {
+        try {
+          const user = JSON.parse(userStr);
+          const name = user.full_name || user.username || 'নাগরিক';
+          container.innerHTML = `
+            <a href="Home.html" onclick="handleAuthProtectedNav(event, 'home')" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#8C640C] border border-[#D4AF37] bg-[#FAF3E4] px-3 py-1.5 rounded-xl shadow-xs" title="নাগরিক প্রোফাইল">
+              <span class="material-symbols-outlined text-base">account_circle</span>
+              <span class="max-w-[100px] truncate">${name}</span>
+            </a>
+            <button type="button" onclick="logoutCitizen()" class="px-2.5 py-1.5 rounded-xl text-xs font-semibold text-red-700 bg-red-50 hover:bg-red-100 border border-red-200 transition-colors cursor-pointer" title="লগআউট">
+              ${I18N[currentLang]['btn_logout'] || 'লগআউট'}
+            </button>
+          `;
+        } catch(e) {}
+      }
+    }
+
+    function logoutCitizen() {
+      localStorage.removeItem('nayasetu_user');
+      window.location.reload();
+    }
+
+    // Language Engine
+    function setAppLanguage(lang) {
+      if (!I18N[lang]) lang = 'bn';
+      currentLang = lang;
+      localStorage.setItem('nayasetu_lang', lang);
+      localStorage.setItem('nyayasetu_lang', lang);
+      document.documentElement.lang = lang;
+
+      // Update button active state
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        if (btn.getAttribute('data-lang') === lang) {
+          btn.className = "lang-btn px-2.5 py-1 rounded-lg transition-all active-lang bg-[#D4AF37] text-[#1A140B] shadow-xs font-bold";
+        } else {
+          btn.className = "lang-btn px-2.5 py-1 rounded-lg transition-all text-[#6E5C3E] hover:text-[#1F1A14]";
+        }
+      });
+
+      // Update all translatable elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (I18N[lang] && I18N[lang][key]) {
+          el.innerHTML = I18N[lang][key];
+        }
+      });
+
+      updateThemeUI(lang);
+      syncUserSessionUI();
+    }
+
+    // Theme Engine
+    function updateThemeUI(lang) {
+      const isDark = document.documentElement.classList.contains('dark');
+      const icon = document.getElementById('themeToggleIcon');
+      const text = document.getElementById('themeToggleText');
+      const curLang = lang || currentLang || 'bn';
+
+      if (isDark) {
+        if (icon) icon.textContent = 'light_mode';
+        if (text) text.textContent = I18N[curLang]['theme_light'] || 'Light Mode';
+      } else {
+        if (icon) icon.textContent = 'dark_mode';
+        if (text) text.textContent = I18N[curLang]['theme_dark'] || 'Dark Mode';
+      }
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.contains('dark');
+      if (isDark) {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+        localStorage.setItem('nayasetu_theme', 'light');
+      } else {
+        document.documentElement.classList.remove('light');
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('nayasetu_theme', 'dark');
+      }
+      updateThemeUI(currentLang);
+    }
+
+    // Initialize Language and Theme on Page Load
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('nayasetu_lang') || localStorage.getItem('nyayasetu_lang') || 'bn';
+      setAppLanguage(savedLang);
+      updateThemeUI(savedLang);
+      syncUserSessionUI();
+    });
+  </script>
+
+</body>
+</html>

@@ -20,6 +20,8 @@ class OfficialDirectory(models.Model):
     contact_phone = models.CharField(max_length=100, blank=True)
     official_email = models.EmailField(blank=True)
     grievance_portal_url = models.URLField(blank=True)
+    latitude = models.FloatField(null=True, blank=True, help_text="GPS Latitude for distance calculation")
+    longitude = models.FloatField(null=True, blank=True, help_text="GPS Longitude for distance calculation")
 
     def __str__(self):
         return f"{self.designation} - {self.district}"

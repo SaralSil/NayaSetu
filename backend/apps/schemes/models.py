@@ -25,6 +25,7 @@ class Scheme(models.Model):
         ('social_security', 'Social Security & Pensions'),
         ('tribal_caste', 'Tribal & Backward Classes'),
         ('health', 'Healthcare & Nutrition'),
+        ('youth', 'Youth, Employment & Entrepreneurship'),
     ]
 
     BENEFIT_TYPE_CHOICES = [

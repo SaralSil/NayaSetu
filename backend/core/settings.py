@@ -58,7 +58,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / 'templates', BASE_DIR.parent / 'frontend'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,7 +77,8 @@ ASGI_APPLICATION = 'core.asgi.application'
 # Database configuration:
 # Automatically handles Supabase PostgreSQL via DATABASE_URL, with local SQLite fallback.
 db_url = os.getenv('DATABASE_URL', '').strip()
-if db_url and not db_url.startswith('sqlite'):
+use_sqlite = os.getenv('USE_LOCAL_SQLITE', 'false').lower() in ('true', '1', 't')
+if db_url and not db_url.startswith('sqlite') and not use_sqlite:
     DATABASES = {
         'default': dj_database_url.config(
             default=db_url,
@@ -110,6 +111,7 @@ USE_TZ = True
 # Static & Media files
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [BASE_DIR.parent / 'frontend']
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -139,9 +141,9 @@ CORS_ALLOWED_ORIGINS = [
 CORS_ALLOW_CREDENTIALS = True
 
 # Supabase Configuration
-SUPABASE_URL = os.getenv('SUPABASE_URL', '')
-SUPABASE_ANON_KEY = os.getenv('SUPABASE_ANON_KEY', '')
-SUPABASE_JWT_SECRET = os.getenv('SUPABASE_JWT_SECRET', '')
+SUPABASE_URL = os.getenv('SUPABASE_URL', '').replace('/rest/v1', '').rstrip('/')
+SUPABASE_ANON_KEY = os.getenv('SUPABASE_ANON_KEY', '').strip()
+SUPABASE_JWT_SECRET = os.getenv('SUPABASE_JWT_SECRET', '').strip()
 
 # Google Gemini API
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', '')

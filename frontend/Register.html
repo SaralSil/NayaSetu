@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>নাগরিক নিবন্ধন (Register) | ন্যায়সেতু AI – পশ্চিমবঙ্গ সরকার নাগরিক অধিকার সুরক্ষা পোর্টাল</title>
+
+  <!-- Google Fonts: Noto Sans Bengali, Noto Sans, EB Garamond -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+
+  <style>
+    :root {
+      --gold-primary: #D4AF37;
+      --gold-deep: #B8860B;
+      --gold-light: #F7E7B4;
+      --gold-gradient: linear-gradient(135deg, #F9E5A8 0%, #D4AF37 40%, #B8860B 100%);
+      --gold-shadow: 0 15px 40px -10px rgba(212, 175, 55, 0.35);
+    }
+
+    body {
+      font-family: 'Noto Sans Bengali', 'Noto Sans', sans-serif;
+      background-color: #FAF8F2;
+      color: #1F1A14;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Background Watermark & Golden Glow */
+    .emblem-bg-watermark {
+      position: fixed;
+      inset: 0;
+      background-image: url('/assets/wb_emblem.webp'), url('wb_emblem.webp');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: min(480px, 85vw);
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: 0;
+      filter: drop-shadow(0 0 35px rgba(212, 175, 55, 0.45));
+    }
+
+    .golden-ambient-glow {
+      position: fixed;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 50% 12%, rgba(247, 231, 180, 0.60), transparent 60%),
+        radial-gradient(circle at 15% 85%, rgba(212, 175, 55, 0.18), transparent 50%),
+        radial-gradient(circle at 85% 85%, rgba(184, 134, 11, 0.14), transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* White & Golden Card Aesthetic */
+    .gold-card {
+      background: #FFFFFF;
+      border: 2px solid #D4AF37;
+      box-shadow: 0 25px 50px -12px rgba(184, 134, 11, 0.22), 0 0 0 1px rgba(212, 175, 55, 0.25);
+      border-radius: 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .gold-card::before {
+      content: "";
+      position: absolute;
+      top: -2px; left: -2px; right: -2px; height: 6px;
+      background: var(--gold-gradient);
+      border-top-left-radius: 1.5rem;
+      border-top-right-radius: 1.5rem;
+    }
+
+    .gold-btn {
+      background: var(--gold-gradient);
+      color: #1A140B;
+      font-weight: 700;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+    }
+
+    .gold-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(184, 134, 11, 0.45);
+      filter: brightness(1.04);
+    }
+
+    .gold-input {
+      background-color: #FFFFFF;
+      border: 1.5px solid #E2D3AF;
+      color: #1F1A14;
+      transition: all 0.2s ease;
+    }
+
+    .gold-input:focus {
+      border-color: #C59B27;
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25);
+      outline: none;
+    }
+
+    /* Subtle governmental border ornament */
+    .gold-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+  <!-- Background Watermark & Golden Ambiance -->
+  <div class="emblem-bg-watermark"></div>
+  <div class="golden-ambient-glow"></div>
+
+  <!-- Top State Government Header -->
+  <header class="relative z-20 bg-white/95 backdrop-blur-md border-b border-[#E8D8B5] shadow-sm py-3 px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Logo & Govt Seal -->
+      <a href="/" class="flex items-center gap-3 group">
+        <img src="/assets/wb_emblem.webp" onerror="this.src='wb_emblem.webp'" alt="West Bengal Government Emblem" class="w-10 h-12 object-contain drop-shadow-sm group-hover:scale-105 transition-transform"/>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="font-bold text-sm sm:text-base text-[#1F1A14] tracking-tight">ন্যায়সেতু <span class="text-[#B8860B]">AI</span></span>
+            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#FAF2DA] border border-[#D4AF37] text-[#8C640C]">WB CITIZEN</span>
+          </div>
+          <p class="text-[11px] text-[#705C3D]" data-i18n="govt-sub">পশ্চিমবঙ্গ সরকার নাগরিক অধিকার ও প্রকল্প পোর্টাল</p>
+        </div>
+      </a>
+
+      <!-- Right Controls: Language Selector & Login Link -->
+      <div class="flex items-center gap-2 sm:gap-4">
+        
+        <!-- Language Switcher Bar -->
+        <div class="inline-flex rounded-lg border border-[#D4AF37] p-0.5 bg-[#FAF7F0] text-xs font-semibold shadow-inner">
+          <button type="button" onclick="setAppLanguage('bn')" class="lang-btn px-2.5 py-1 rounded-md transition-all active-lang bg-[#D4AF37] text-[#1A140B] shadow-sm font-bold" data-lang="bn">বাংলা</button>
+          <button type="button" onclick="setAppLanguage('en')" class="lang-btn px-2.5 py-1 rounded-md transition-all text-[#6E5C3E] hover:text-[#1F1A14]" data-lang="en">English</button>
+          <button type="button" onclick="setAppLanguage('hi')" class="lang-btn px-2.5 py-1 rounded-md transition-all text-[#6E5C3E] hover:text-[#1F1A14]" data-lang="hi">हिन्दी</button>
+        </div>
+
+        <a href="/login/" class="inline-flex items-center gap-1 text-xs font-bold text-[#8C640C] border border-[#D4AF37] bg-[#FFFDF9] hover:bg-[#FAF3E4] px-3 py-1.5 rounded-lg transition-all shadow-sm">
+          <span class="material-symbols-outlined text-sm">login</span>
+          <span data-i18n="nav-login">লগইন</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Registration Container -->
+  <main class="relative z-10 flex-1 flex items-center justify-center p-4 sm:p-6 my-auto">
+    <div class="w-full max-w-xl">
+      
+      <!-- Main White & Golden Card -->
+      <div class="gold-card p-6 sm:p-8">
+        
+        <!-- Crest & Title Header -->
+        <div class="text-center mb-6">
+          <div class="inline-flex p-2 rounded-2xl bg-gradient-to-b from-[#FAF4E6] to-[#FFFFFF] border-2 border-[#D4AF37] shadow-md mb-3">
+            <img src="/assets/wb_emblem.webp" onerror="this.src='wb_emblem.webp'" alt="Govt Emblem" class="w-16 h-20 object-contain"/>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-bold text-[#1F1A14] tracking-tight" data-i18n="title-register">নতুন নাগরিক নিবন্ধন</h1>
+          <p class="text-xs text-[#705C3D] mt-1 font-medium" data-i18n="subtitle-register">পশ্চিমবঙ্গের সরকারি প্রকল্প সহায়তা পেতে আপনার স্থায়ী নাগরিক প্রোফাইল তৈরি করুন</p>
+          <div class="gold-divider mt-4"></div>
+        </div>
+
+        <!-- Notification / Error Box -->
+        <div id="toastBox" class="hidden mb-4 p-3 rounded-xl text-xs font-semibold flex items-center gap-2 border"></div>
+
+        <!-- Registration Form -->
+        <form id="formRegister" onsubmit="handleRegisterSubmit(event)" class="space-y-4">
+          
+          <!-- Section 1: Full Name & Mobile -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-[#4F3F23] mb-1.5" data-i18n="label-name">পুরো নাম (Full Name) *</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3 top-2.5 text-[#A38D62] text-sm">badge</span>
+                <input type="text" id="regFullName" placeholder="যেমন: রাহুল ব্যানার্জী" data-i18n-placeholder="ph-fullname" pattern="^[A-Za-z\s\u0980-\u09FF\u0900-\u097F]+$" maxlength="60" title="শুধুমাত্র বর্ণমালা গ্রহণযোগ্য / Alphabets only" autocomplete="name" required
+                       class="gold-input w-full rounded-xl py-2 pl-9 pr-3 text-sm font-semibold"/>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-[#4F3F23] mb-1.5" data-i18n="label-phone">মোবাইল নম্বর *</label>
+              <div class="flex gap-1.5">
+                <span class="inline-flex items-center px-2.5 rounded-xl bg-[#FAF6EC] border border-[#E2D3AF] text-xs font-bold text-[#705C3D]">+91</span>
+                <input type="tel" id="regPhone" maxlength="10" inputmode="numeric" pattern="[0-9]{10}" title="শুধুমাত্র ১০ সংখ্যার মোবাইল নম্বর / Numbers only" autocomplete="tel" placeholder="9876543210" required
+                       class="gold-input w-full rounded-xl py-2 px-3 text-sm font-semibold"/>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: District & Block/Municipality -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-[#4F3F23] mb-1.5" data-i18n="label-district">পশ্চিমবঙ্গের জেলা (District) *</label>
+              <div class="relative">
+                <select id="regDistrict" required class="gold-input w-full rounded-xl py-2 px-3 text-sm font-semibold cursor-pointer">
+                  <option value="" disabled selected data-i18n="opt-select-district">-- জেলা নির্বাচন করুন --</option>
+                  <option value="Alipurduar">আলিপুরদুয়ার (Alipurduar)</option>
+                  <option value="Bankura">বাঁকুড়া (Bankura)</option>
+                  <option value="Birbhum">বীরভূম (Birbhum)</option>
+                  <option value="Cooch Behar">কোচবিহার (Cooch Behar)</option>
+                  <option value="Dakshin Dinajpur">দক্ষিণ দিনাজপুর (Dakshin Dinajpur)</option>
+                  <option value="Darjeeling">দার্জিলিং (Darjeeling)</option>
+                  <option value="Hooghly">হুগলি (Hooghly)</option>
+                  <option value="Howrah">হাওড়া (Howrah)</option>
+                  <option value="Jalpaiguri">জলপাইগুড়ি (Jalpaiguri)</option>
+                  <option value="Jhargram">ঝাড়গ্রাম (Jhargram)</option>
+                  <option value="Kalimpong">কালিম্পং (Kalimpong)</option>
+                  <option value="Kolkata">কলকাতা (Kolkata)</option>
+                  <option value="Malda">মালদা (Malda)</option>
+                  <option value="Murshidabad">মুর্শিদাবাদ (Murshidabad)</option>
+                  <option value="Nadia">নদিয়া (Nadia)</option>
+                  <option value="North 24 Parganas">উত্তর ২৪ পরগনা (North 24 Parganas)</option>
+                  <option value="Paschim Bardhaman">পশ্চিম বর্ধমান (Paschim Bardhaman)</option>
+                  <option value="Paschim Medinipur">পশ্চিম মেদিনীপুর (Paschim Medinipur)</option>
+                  <option value="Purba Bardhaman">পূর্ব বর্ধমান (Purba Bardhaman)</option>
+                  <option value="Purba Medinipur">পূর্ব মেদিনীপুর (Purba Medinipur)</option>
+                  <option value="Purulia">পুরুলিয়া (Purulia)</option>
+                  <option value="South 24 Parganas">দক্ষিণ ২৪ পরগনা (South 24 Parganas)</option>
+                  <option value="Uttar Dinajpur">উত্তর দিনাজপুর (Uttar Dinajpur)</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-[#4F3F23] mb-1.5" data-i18n="label-block">ব্লক / পৌরসভা (Block / Municipality)</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3 top-2.5 text-[#A38D62] text-sm">location_city</span>
+                <input type="text" id="regBlock" placeholder="যেমন: বারাসাত / সোনারপুর" data-i18n-placeholder="ph-block"
+                       class="gold-input w-full rounded-xl py-2 pl-9 pr-3 text-sm font-semibold"/>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3: Preferred Language & Ration Card Type (Optional) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-[#4F3F23] mb-1.5" data-i18n="label-pref-lang">পছন্দের ভাষা (Preferred Language)</label>
+              <select id="regLang" onchange="setAppLanguage(this.value)" class="gold-input w-full rounded-xl py-2 px-3 text-sm font-semibold cursor-pointer">
+                <option value="bn" selected>বাংলা (Bengali)</option>
+                <option value="en">English (ইংরেজি)</option>
+                <option value="hi">हिन्दी (Hindi)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-[#4F3F23] mb-1.5" data-i18n="label-ration">রেশন কার্ড ক্যাটাগরি (ঐচ্ছিক)</label>
+              <select id="regRationCard" class="gold-input w-full rounded-xl py-2 px-3 text-sm font-semibold cursor-pointer">
+                <option value="" selected data-i18n="opt-none">-- প্রযোজ্য নয় / জানা নেই --</option>
+                <option value="AAY">AAY (অন্ত্যোদয় অন্ন যোজনা)</option>
+                <option value="PHH">PHH (অগ্রাধিকার প্রাপ্ত পরিবার)</option>
+                <option value="SPHH">SPHH (বিশেষ অগ্রাধিকার পরিবার)</option>
+                <option value="RKSY-I">RKSY-I (রাজ্য খাদ্য সুরক্ষা - ১)</option>
+                <option value="RKSY-II">RKSY-II (রাজ্য খাদ্য সুরক্ষা - ২)</option>
+                <option value="GENERAL">General (সাধারণ)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Section 4: Password & Confirm Password -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-[#4F3F23] mb-1.5" data-i18n="label-pwd">পাসওয়ার্ড তৈরি করুন *</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3 top-2.5 text-[#A38D62] text-sm">lock</span>
+                <input type="password" id="regPassword" placeholder="কমপক্ষে ৬ অক্ষর" data-i18n-placeholder="ph-pwd" required oninput="checkPasswordStrength()"
+                       class="gold-input w-full rounded-xl py-2 pl-9 pr-9 text-sm font-semibold"/>
+                <button type="button" onclick="togglePasswordVisibility('regPassword', 'eyeReg1')" class="absolute right-2.5 top-2 text-[#A38D62] hover:text-[#1F1A14]">
+                  <span id="eyeReg1" class="material-symbols-outlined text-sm">visibility</span>
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-[#4F3F23] mb-1.5" data-i18n="label-pwd-confirm">পাসওয়ার্ড নিশ্চিত করুন *</label>
+              <div class="relative">
+                <span class="material-symbols-outlined absolute left-3 top-2.5 text-[#A38D62] text-sm">lock_reset</span>
+                <input type="password" id="regConfirmPassword" placeholder="একই পাসওয়ার্ড পুনরায় দিন" data-i18n-placeholder="ph-pwd-confirm" required
+                       class="gold-input w-full rounded-xl py-2 pl-9 pr-9 text-sm font-semibold"/>
+                <button type="button" onclick="togglePasswordVisibility('regConfirmPassword', 'eyeReg2')" class="absolute right-2.5 top-2 text-[#A38D62] hover:text-[#1F1A14]">
+                  <span id="eyeReg2" class="material-symbols-outlined text-sm">visibility</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Password Strength Indicator -->
+          <div id="pwdStrengthBarWrapper" class="hidden space-y-1">
+            <div class="flex justify-between text-[11px] font-semibold text-[#705C3D]">
+              <span data-i18n="pwd-strength">পাসওয়ার্ডের শক্তি:</span>
+              <span id="pwdStrengthLabel">সহজ</span>
+            </div>
+            <div class="w-full bg-[#EFE8D8] h-1.5 rounded-full overflow-hidden">
+              <div id="pwdStrengthBar" class="h-full bg-red-400 w-1/4 transition-all duration-300"></div>
+            </div>
+          </div>
+
+          <!-- Citizen Declaration Checkbox -->
+          <div class="p-3 bg-[#FAF7F0] border border-[#E2D3AF] rounded-xl text-xs space-y-2">
+            <label class="flex items-start gap-2.5 cursor-pointer text-[#4F3F23] font-medium leading-relaxed">
+              <input type="checkbox" id="termsCheck" required class="mt-0.5 rounded border-[#D4AF37] text-[#B8860B] focus:ring-[#D4AF37]"/>
+              <span data-i18n="terms-declaration">আমি ঘোষণা করছি যে আমি পশ্চিমবঙ্গের স্থায়ী বাসিন্দা/নাগরিক এবং প্রদত্ত সমস্ত বিবরণ সত্য ও সঠিক।</span>
+            </label>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="pt-2">
+            <button type="submit" id="btnRegisterSubmit" class="gold-btn w-full py-3 rounded-xl text-sm flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-base">how_to_reg</span>
+              <span data-i18n="btn-create-account">নাগরিক একাউন্ট তৈরি করুন (Register)</span>
+            </button>
+          </div>
+
+        </form>
+
+        <!-- Divider -->
+        <div class="relative my-6 text-center">
+          <div class="gold-divider"></div>
+          <span class="relative -top-2.5 bg-white px-3 text-[11px] font-semibold text-[#8C640C]" data-i18n="divider-already">ইতিমধ্যে নিবন্ধিত?</span>
+        </div>
+
+        <!-- Back to Login CTA -->
+        <div class="text-center space-y-3">
+          <a href="/login/" class="inline-flex w-full items-center justify-center gap-2 py-2.5 px-4 rounded-xl border-2 border-[#D4AF37] bg-[#FFFDF9] hover:bg-[#FAF3E4] text-[#8C640C] font-bold text-xs transition-all shadow-sm">
+            <span class="material-symbols-outlined text-sm">login</span>
+            <span data-i18n="btn-go-login">ইতিমধ্যে একাউন্ট আছে? সরাসরি লগইন করুন</span>
+          </a>
+
+          <!-- Guest link removed: Login/Register required -->
+        </div>
+
+      </div>
+
+      <!-- Footer Trust Badge -->
+      <div class="mt-4 text-center">
+        <p class="text-[11px] text-[#705C3D] font-medium flex items-center justify-center gap-1.5">
+          <span class="material-symbols-outlined text-xs text-[#B8860B]">verified</span>
+          <span data-i18n="footer-secure">পশ্চিমবঙ্গ সরকারি নাগরিক অধিকার সুরক্ষা নেটওয়ার্ক দ্বারা সুরক্ষিত</span>
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Multilingual & Interactive Logic -->
+  <script>
+    // Language Dictionary
+    const i18n = {
+      bn: {
+        "govt-sub": "পশ্চিমবঙ্গ সরকার নাগরিক অধিকার ও প্রকল্প পোর্টাল",
+        "nav-login": "লগইন",
+        "title-register": "নতুন নাগরিক নিবন্ধন",
+        "subtitle-register": "পশ্চিমবঙ্গের সরকারি প্রকল্প সহায়তা পেতে আপনার স্থায়ী নাগরিক প্রোফাইল তৈরি করুন",
+        "label-name": "পুরো নাম (Full Name) *",
+        "label-phone": "মোবাইল নম্বর *",
+        "label-district": "পশ্চিমবঙ্গের জেলা (District) *",
+        "opt-select-district": "-- জেলা নির্বাচন করুন --",
+        "label-block": "ব্লক / পৌরসভা (Block / Municipality)",
+        "label-pref-lang": "পছন্দের ভাষা (Preferred Language)",
+        "label-ration": "রেশন কার্ড ক্যাটাগরি (ঐচ্ছিক)",
+        "opt-none": "-- প্রযোজ্য নয় / জানা নেই --",
+        "label-pwd": "পাসওয়ার্ড তৈরি করুন *",
+        "label-pwd-confirm": "পাসওয়ার্ড নিশ্চিত করুন *",
+        "pwd-strength": "পাসওয়ার্ডের শক্তি:",
+        "terms-declaration": "আমি ঘোষণা করছি যে আমি পশ্চিমবঙ্গের স্থায়ী বাসিন্দা/নাগরিক এবং প্রদত্ত সমস্ত বিবরণ সত্য ও সঠিক।",
+        "btn-create-account": "নাগরিক একাউন্ট তৈরি করুন (Register)",
+        "divider-already": "ইতিমধ্যে নিবন্ধিত?",
+        "btn-go-login": "ইতিমধ্যে একাউন্ট আছে? সরাসরি লগইন করুন",
+        "link-guest": "লগইন না করে গেস্ট হিসেবে চালিয়ে যান →",
+        "footer-secure": "পশ্চিমবঙ্গ সরকারি নাগরিক অধিকার সুরক্ষা নেটওয়ার্ক দ্বারা সুরক্ষিত",
+        "err-fill-all": "অনুগ্রহ করে সকল প্রয়োজনীয় তথ্য পূরণ করুন।",
+        "err-phone-invalid": "সঠিক ১০ সংখ্যার মোবাইল নম্বর প্রদান করুন।",
+        "err-pwd-match": "দুটি পাসওয়ার্ড মিলছে না, দয়া করে পুনরায় যাচাই করুন।",
+        "err-pwd-short": "পাসওয়ার্ড কমপক্ষে ৬ অক্ষরের হতে হবে।",
+        "success-register": "নাগরিক একাউন্ট সফলভাবে তৈরি হয়েছে! অনুগ্রহ করে লগইন করুন...",
+        "ph-fullname": "যেমন: রাহুল ব্যানার্জী",
+        "ph-block": "যেমন: বারাসাত / সোনারপুর",
+        "ph-pwd": "কমপক্ষে ৬ অক্ষর",
+        "ph-pwd-confirm": "একই পাসওয়ার্ড পুনরায় দিন"
+      },
+      en: {
+        "govt-sub": "Government of West Bengal Citizen Rights & Schemes Portal",
+        "nav-login": "Citizen Login",
+        "title-register": "New Citizen Registration",
+        "subtitle-register": "Create your verified citizen profile to access West Bengal schemes & assistance",
+        "label-name": "Full Name *",
+        "label-phone": "Mobile Number *",
+        "label-district": "West Bengal District *",
+        "opt-select-district": "-- Select District --",
+        "label-block": "Block / Municipality",
+        "label-pref-lang": "Preferred Language",
+        "label-ration": "Ration Card Category (Optional)",
+        "opt-none": "-- Not Applicable / Unknown --",
+        "label-pwd": "Create Password *",
+        "label-pwd-confirm": "Confirm Password *",
+        "pwd-strength": "Password Strength:",
+        "terms-declaration": "I solemnly declare that I am a resident/citizen of West Bengal and all submitted details are true and correct.",
+        "btn-create-account": "Create Citizen Account (Register)",
+        "divider-already": "Already Registered?",
+        "btn-go-login": "Already have an account? Login Here",
+        "link-guest": "Continue as Guest without login →",
+        "footer-secure": "Protected by Govt of West Bengal Citizen Security Framework",
+        "err-fill-all": "Please complete all mandatory fields.",
+        "err-phone-invalid": "Please provide a valid 10-digit mobile number.",
+        "err-pwd-match": "Passwords do not match. Please verify.",
+        "err-pwd-short": "Password must be at least 6 characters long.",
+        "success-register": "Citizen account created successfully! Please login with your credentials...",
+        "ph-fullname": "e.g. Rahul Banerjee",
+        "ph-block": "e.g. Barasat / Sonarpur",
+        "ph-pwd": "At least 6 characters",
+        "ph-pwd-confirm": "Re-enter same password"
+      },
+      hi: {
+        "govt-sub": "पश्चिम बंगाल सरकार नागरिक अधिकार एवं योजना पोर्टल",
+        "nav-login": "नागरिक लॉगिन",
+        "title-register": "नया नागरिक पंजीकरण",
+        "subtitle-register": "पश्चिम बंगाल सरकारी योजनाओं का लाभ पाने के लिए अपना नागरिक प्रोफाइल बनाएं",
+        "label-name": "पूरा नाम *",
+        "label-phone": "मोबाइल नंबर *",
+        "label-district": "पश्चिम बंगाल का जिला *",
+        "opt-select-district": "-- जिला चुनें --",
+        "label-block": "प्रखंड / नगर पालिका (Block / Municipality)",
+        "label-pref-lang": "पसंदीदा भाषा (Preferred Language)",
+        "label-ration": "राशन कार्ड श्रेणी (वैकल्पिक)",
+        "opt-none": "-- लागू नहीं / ज्ञात नहीं --",
+        "label-pwd": "पासवर्ड बनाएं *",
+        "label-pwd-confirm": "पासवर्ड की पुष्टि करें *",
+        "pwd-strength": "पासवर्ड की मजबूती:",
+        "terms-declaration": "मैं घोषित करता हूँ कि मैं पश्चिम बंगाल का निवासी/नागरिक हूँ और सभी विवरण सत्य एवं सही हैं।",
+        "btn-create-account": "नागरिक खाता बनाएं (Register)",
+        "divider-already": "पहले से पंजीकृत हैं?",
+        "btn-go-login": "पहले से खाता है? सीधे लॉगिन करें",
+        "link-guest": "बिना लॉगिन अतिथि के रूप में जारी रखें →",
+        "footer-secure": "पश्चिम बंगाल सरकारी नागरिक सुरक्षा नेटवर्क द्वारा संरक्षित",
+        "err-fill-all": "कृपया सभी अनिवार्य फ़ील्ड भरें।",
+        "err-phone-invalid": "कृपया मान्य 10 अंकों का मोबाइल नंबर प्रदान करें।",
+        "err-pwd-match": "दोनों पासवर्ड मेल नहीं खा रहे हैं। कृपया जांचें।",
+        "err-pwd-short": "पासवर्ड कम से कम 6 अक्षरों का होना चाहिए।",
+        "success-register": "नागरिक खाता सफलतापूर्वक बन गया! कृपया अपने विवरण से लॉगिन करें...",
+        "ph-fullname": "जैसे: राहुल बनर्जी",
+        "ph-block": "जैसे: बारासात / सोनारपुर",
+        "ph-pwd": "कम से कम 6 अक्षर",
+        "ph-pwd-confirm": "वही पासवर्ड दोबारा दर्ज करें"
+      }
+    };
+
+    let currentLang = 'bn';
+
+    function setAppLanguage(lang) {
+      if (!i18n[lang]) return;
+      currentLang = lang;
+      localStorage.setItem('nayasetu_lang', lang);
+
+      // Update button active state
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        if (btn.getAttribute('data-lang') === lang) {
+          btn.className = "lang-btn px-2.5 py-1 rounded-md transition-all active-lang bg-[#D4AF37] text-[#1A140B] shadow-sm font-bold";
+        } else {
+          btn.className = "lang-btn px-2.5 py-1 rounded-md transition-all text-[#6E5C3E] hover:text-[#1F1A14]";
+        }
+      });
+
+      // Update dropdown selection
+      const regLang = document.getElementById('regLang');
+      if (regLang) regLang.value = lang;
+
+      // Update all translatable elements (text)
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (i18n[lang] && i18n[lang][key]) {
+          el.textContent = i18n[lang][key];
+        }
+      });
+
+      // Update all placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (i18n[lang] && i18n[lang][key]) {
+          el.setAttribute('placeholder', i18n[lang][key]);
+          el.placeholder = i18n[lang][key];
+        }
+      });
+
+      // Explicit direct element updates for guaranteed placeholder localization
+      const pMap = {
+        'regFullName': 'ph-fullname',
+        'regBlock': 'ph-block',
+        'regPassword': 'ph-pwd',
+        'regConfirmPassword': 'ph-pwd-confirm'
+      };
+      for (const [id, key] of Object.entries(pMap)) {
+        const el = document.getElementById(id);
+        if (el && i18n[lang] && i18n[lang][key]) {
+          el.placeholder = i18n[lang][key];
+          el.setAttribute('placeholder', i18n[lang][key]);
+        }
+      }
+
+      // Synchronize across both localStorage keys and html lang attribute
+      localStorage.setItem('nayasetu_lang', lang);
+      localStorage.setItem('nyayasetu_lang', lang);
+      document.documentElement.lang = lang;
+    }
+
+    function showToast(msg, isSuccess = true) {
+      const box = document.getElementById('toastBox');
+      box.className = isSuccess 
+        ? "mb-4 p-3 rounded-xl text-xs font-semibold flex items-center gap-2 border bg-[#FAF7E8] border-[#D4AF37] text-[#705008]"
+        : "mb-4 p-3 rounded-xl text-xs font-semibold flex items-center gap-2 border bg-red-50 border-red-300 text-red-800";
+      box.innerHTML = `
+        <span class="material-symbols-outlined text-base">${isSuccess ? 'check_circle' : 'error'}</span>
+        <span>${msg}</span>
+      `;
+      box.classList.remove('hidden');
+    }
+
+    function togglePasswordVisibility(inputId, iconId) {
+      const input = document.getElementById(inputId);
+      const icon = document.getElementById(iconId);
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.textContent = 'visibility_off';
+      } else {
+        input.type = 'password';
+        icon.textContent = 'visibility';
+      }
+    }
+
+    function checkPasswordStrength() {
+      const pwd = document.getElementById('regPassword').value;
+      const barWrapper = document.getElementById('pwdStrengthBarWrapper');
+      const bar = document.getElementById('pwdStrengthBar');
+      const label = document.getElementById('pwdStrengthLabel');
+
+      if (!pwd) {
+        barWrapper.classList.add('hidden');
+        return;
+      }
+
+      barWrapper.classList.remove('hidden');
+
+      if (pwd.length < 6) {
+        bar.className = 'h-full bg-red-500 w-1/4 transition-all duration-300';
+        label.textContent = currentLang === 'en' ? 'Weak' : currentLang === 'hi' ? 'कमजोर' : 'দুর্বল';
+        label.className = 'text-red-600 font-bold';
+      } else if (pwd.length < 10) {
+        bar.className = 'h-full bg-amber-500 w-2/4 transition-all duration-300';
+        label.textContent = currentLang === 'en' ? 'Moderate' : currentLang === 'hi' ? 'मध्यम' : 'মাঝারি';
+        label.className = 'text-amber-600 font-bold';
+      } else {
+        bar.className = 'h-full bg-emerald-500 w-full transition-all duration-300';
+        label.textContent = currentLang === 'en' ? 'Strong' : currentLang === 'hi' ? 'मजबूत' : 'শক্তিশালী';
+        label.className = 'text-emerald-600 font-bold';
+      }
+    }
+
+    async function handleRegisterSubmit(e) {
+      e.preventDefault();
+
+      const fullName = document.getElementById('regFullName').value.trim();
+      const phone = document.getElementById('regPhone').value.trim().replace(/\D/g, '');
+      const district = document.getElementById('regDistrict').value;
+      const block = document.getElementById('regBlock').value.trim();
+      const lang = document.getElementById('regLang').value;
+      const rationCard = document.getElementById('regRationCard').value;
+      const password = document.getElementById('regPassword').value;
+      const confirmPassword = document.getElementById('regConfirmPassword').value;
+      const termsCheck = document.getElementById('termsCheck').checked;
+
+      if (!fullName || !phone || !district || !password || !confirmPassword) {
+        showToast(i18n[currentLang]['err-fill-all'], false);
+        return;
+      }
+
+      if (phone.length !== 10) {
+        showToast(i18n[currentLang]['err-phone-invalid'], false);
+        return;
+      }
+
+      if (password.length < 6) {
+        showToast(i18n[currentLang]['err-pwd-short'], false);
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        showToast(i18n[currentLang]['err-pwd-match'], false);
+        return;
+      }
+
+      if (!termsCheck) {
+        showToast(currentLang === 'en' ? 'Please accept the declaration terms.' : currentLang === 'hi' ? 'कृपया घोषणा के नियमों को स्वीकार करें।' : 'অনুগ্রহ করে নিয়মাবলী স্বীকার করুন।', false);
+        return;
+      }
+
+      const submitBtn = document.getElementById('btnRegisterSubmit');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <span class="inline-block animate-spin mr-1">⏳</span>
+        <span>${currentLang === 'en' ? 'Creating Citizen Account...' : currentLang === 'hi' ? 'खाता बनाया जा रहा है...' : 'একাউন্ট তৈরি হচ্ছে...'}</span>
+      `;
+
+      try {
+        const payload = {
+          full_name: fullName,
+          phone: phone,
+          district: district,
+          block_or_municipality: block,
+          preferred_language: lang,
+          ration_card_type: rationCard,
+          password: password
+        };
+
+        const res = await fetch('/api/accounts/register/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+
+        if (res.ok && data.success) {
+          showToast(i18n[currentLang]['success-register'], true);
+          localStorage.setItem('nayasetu_user', JSON.stringify(data.user));
+          setTimeout(() => { window.location.href = (window.location.port === '8000' ? '/login/?registered=1' : 'Login.html?registered=1'); }, 1200);
+        } else {
+          showToast(data.error || "নিবন্ধন করা সম্ভব হয়নি। দয়া করে পুনরায় চেষ্টা করুন।", false);
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = `
+            <span class="material-symbols-outlined text-base">how_to_reg</span>
+            <span>${i18n[currentLang]['btn-create-account']}</span>
+          `;
+        }
+      } catch (err) {
+        // Mock fallback registration for offline demonstration
+        const citizenUser = {
+          username: phone,
+          full_name: fullName,
+          phone: phone,
+          district: district,
+          block: block,
+          preferred_language: lang
+        };
+        localStorage.setItem('nayasetu_user', JSON.stringify(citizenUser));
+        showToast(i18n[currentLang]['success-register'], true);
+        setTimeout(() => { window.location.href = (window.location.port === '8000' ? '/login/?registered=1' : 'Login.html?registered=1'); }, 1200);
+      }
+    }
+
+    // Initializer
+        // Strict input restrictions (Phone: Numbers only, Name: Alphabets only)
+    const regPhoneEl = document.getElementById('regPhone');
+    const regNameEl = document.getElementById('regFullName');
+
+    if (regPhoneEl) {
+      regPhoneEl.addEventListener('keydown', function(e) {
+        const allowed = ['Backspace', 'Tab', 'Enter', 'Escape', 'Delete', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'];
+        if (allowed.includes(e.key) || e.ctrlKey || e.metaKey) return;
+        if (!/^[0-9]$/.test(e.key)) {
+          e.preventDefault();
+          showToast(currentLang === 'en' ? 'Please enter digits (0-9) only.' : currentLang === 'hi' ? 'कृपया केवल अंक (0-9) ही दर्ज करें।' : 'মোবাইল নম্বরে শুধুমাত্র সংখ্যা (0-9) লিখুন।', false);
+        }
+      });
+      regPhoneEl.addEventListener('input', function() {
+        this.value = this.value.replace(/\D/g, '').slice(0, 10);
+      });
+      regPhoneEl.addEventListener('paste', function(e) {
+        e.preventDefault();
+        const clip = (e.clipboardData || window.clipboardData).getData('text');
+        this.value = clip.replace(/\D/g, '').slice(0, 10);
+      });
+    }
+
+    if (regNameEl) {
+      regNameEl.addEventListener('keydown', function(e) {
+        const allowed = ['Backspace', 'Tab', 'Enter', 'Escape', 'Delete', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'];
+        if (allowed.includes(e.key) || e.ctrlKey || e.metaKey) return;
+        if (e.key === ' ') {
+          if (regNameEl.value.length === 0 || regNameEl.value.endsWith(' ')) e.preventDefault();
+          return;
+        }
+        if (/[0-9`~!@#\$%\^&\*\(\)_\+=\[\]\{\}\|;':",<\>\?\/\\\-]/.test(e.key)) {
+          e.preventDefault();
+          showToast(currentLang === 'en' ? 'Only letters and spaces allowed in name.' : currentLang === 'hi' ? 'नाम में केवल अक्षर और स्थान मान्य हैं।' : 'নামে কোনো সংখ্যা বা স্পেশাল ক্যারেক্টার দেওয়া যাবে না।', false);
+        }
+      });
+      regNameEl.addEventListener('input', function() {
+        this.value = this.value.replace(/[^a-zA-Z\s\u0980-\u09FF\u0900-\u097F]/g, '').replace(/\s{2,}/g, ' ');
+      });
+      regNameEl.addEventListener('paste', function(e) {
+        e.preventDefault();
+        const clip = (e.clipboardData || window.clipboardData).getData('text');
+        this.value = clip.replace(/[^a-zA-Z\s\u0980-\u09FF\u0900-\u097F]/g, '').replace(/\s{2,}/g, ' ');
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('nayasetu_lang') || localStorage.getItem('nyayasetu_lang') || 'bn';
+      setAppLanguage(savedLang);
+    });
+  </script>
+</body>
+</html>

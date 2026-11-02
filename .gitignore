@@ -37,7 +37,7 @@ staticfiles/
 # Environment Variables
 .env
 .env.local
-.
+
 
 # IDE
 .vscode/

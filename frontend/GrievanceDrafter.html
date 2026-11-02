@@ -1,0 +1,3238 @@
+<!DOCTYPE html>
+
+<html lang="bn">
+
+<head>
+
+  <meta charset="utf-8"/>
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+  <meta content="web_standard" name="shell-type"/>
+
+  <title>ন্যায়সেতু AI – নাগরিক দরখাস্ত প্রস্তুতকারক (BDO/SDO Grievance Drafter)</title>
+
+  
+
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Noto+Sans+Bengali:wght@300;400;500;600;700;800&family=Noto+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  
+
+  <style>
+
+    @layer base {
+
+      html, body {
+
+        margin: 0;
+
+        padding: 0;
+
+      }
+
+      body {
+
+        overscroll-behavior: none;
+
+      }
+
+      main > :first-child {
+
+        margin-top: 0 !important;
+
+      }
+
+      main > :last-child {
+
+        margin-bottom: 0 !important;
+
+      }
+
+    }
+
+    ::-webkit-scrollbar {
+
+      display: none;
+
+    }
+
+    
+
+    @media print {
+
+      #printContainer {
+
+        background: #ffffff !important;
+
+        color: #1c1917 !important;
+
+        box-shadow: none !important;
+
+        border: none !important;
+
+        margin: 0 !important;
+
+        padding: 20px !important;
+
+      }
+
+      body {
+
+        background: #ffffff !important;
+
+      }
+
+      header, footer, .no-print {
+
+        display: none !important;
+
+      }
+
+    }
+
+
+
+    .modal-backdrop {
+
+      background-color: rgba(18, 16, 14, 0.85);
+
+      backdrop-filter: blur(8px);
+
+    }
+
+  
+
+    /* ========================================================
+
+       LIGHT MODE / DARK MODE THEME SYSTEM
+
+       Clean, Warm Siltstone & Terracotta Palette
+
+       ======================================================== */
+
+    :root {
+
+      --theme-transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+
+    }
+
+    body, header, nav, main, section, footer, div, button, input, select, textarea {
+
+      transition: var(--theme-transition);
+
+    }
+
+    
+
+    html.light,
+
+    html.light body {
+
+      background-color: #F8F6F2 !important;
+
+      color: #1C1917 !important;
+
+    }
+
+    html.light main,
+
+    html.light .bg-\[\#141210\] {
+
+      background-color: #F8F6F2 !important;
+
+    }
+
+    html.light header,
+
+    html.light .bg-\[\#181512\],
+
+    html.light .bg-\[\#1A1714\],
+
+    html.light .bg-\[\#201C18\],
+
+    html.light .bg-\[\#28231E\] {
+
+      background-color: #FFFFFF !important;
+
+    }
+
+    html.light header {
+
+      background-color: rgba(255, 255, 255, 0.95) !important;
+
+      border-bottom-color: #E2D9CD !important;
+
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+
+    }
+
+    html.light header > div:first-child {
+
+      background-color: #F2ECE4 !important;
+
+      border-bottom-color: #E2D9CD !important;
+
+      color: #38322B !important;
+
+    }
+
+    html.light .bg-\[\#2F2923\],
+
+    html.light .bg-\[\#38312A\] {
+
+      background-color: #F2ECE4 !important;
+
+    }
+
+    html.light .bg-\[\#332D26\] {
+
+      background-color: #EAE3D8 !important;
+
+    }
+
+    html.light .border-\[\#453C33\],
+
+    html.light .border-\[\#453C33\]\/60,
+
+    html.light .border-\[\#453C33\]\/50,
+
+    html.light .border-\[\#453C33\]\/40 {
+
+      border-color: #E2D9CD !important;
+
+    }
+
+    html.light .border-\[\#544A3F\] {
+
+      border-color: #D8CEBF !important;
+
+    }
+
+    html.light .text-\[\#F7F4EE\] {
+
+      color: #1C1917 !important;
+
+    }
+
+    html.light .text-\[\#DDD5C7\] {
+
+      color: #38322B !important;
+
+    }
+
+    html.light .text-\[\#A39788\] {
+
+      color: #635A4F !important;
+
+    }
+
+    html.light .text-\[\#D9C3B0\] {
+
+      color: #4A4237 !important;
+
+    }
+
+    html.light .text-\[\#7A7165\] {
+
+      color: #7D7365 !important;
+
+    }
+
+    html.light .text-\[\#F2CBA5\],
+
+    html.light .text-\[\#E2A97B\] {
+
+      color: #8F4E24 !important;
+
+    }
+
+    html.light input:not([type="checkbox"]):not([type="radio"]),
+
+    html.light textarea,
+
+    html.light select {
+
+      background-color: #FFFFFF !important;
+
+      color: #1C1917 !important;
+
+      border-color: #D5CBBF !important;
+
+    }
+
+    html.light input:not([type="checkbox"]):not([type="radio"]):focus,
+
+    html.light textarea:focus,
+
+    html.light select:focus {
+
+      border-color: #C98A5B !important;
+
+      box-shadow: 0 0 0 1px #C98A5B !important;
+
+    }
+
+    html.light input::placeholder,
+
+    html.light textarea::placeholder {
+
+      color: #8C8275 !important;
+
+    }
+
+    html.light .nav-link:not(.bg-\[\#C98A5B\]),
+
+    html.light .nav-item:not(.bg-\[\#C98A5B\]) {
+
+      color: #44403C !important;
+
+    }
+
+    html.light .nav-link:not(.bg-\[\#C98A5B\]):hover,
+
+    html.light .nav-item:not(.bg-\[\#C98A5B\]):hover {
+
+      background-color: #F2EDE4 !important;
+
+      color: #1C1917 !important;
+
+    }
+
+    html.light .chip-btn {
+
+      background-color: #F2ECE4 !important;
+
+      border-color: #DCD2C3 !important;
+
+      color: #292524 !important;
+
+    }
+
+    html.light .group.bg-\[\#201C18\] {
+
+      background-color: #FFFFFF !important;
+
+      border-color: #E2D9CD !important;
+
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+
+    }
+
+    html.light #themeToggleBtn {
+
+      background-color: #F2ECE4 !important;
+
+      border-color: #D5CBBF !important;
+
+      color: #1C1917 !important;
+
+    }
+
+    html.light #themeToggleBtn:hover {
+
+      background-color: #E8E0D4 !important;
+
+      color: #8F4E24 !important;
+
+    }
+
+    html.light #themeToggleIcon {
+
+      color: #8F4E24 !important;
+
+    }
+
+  </style>
+
+
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <script id="tailwind-config">
+
+    tailwind.config = {
+
+      darkMode: "class",
+
+      theme: {
+
+        extend: {
+
+          colors: {
+
+            // Authentic Siltstone warm dark stone palette
+
+            "surface": "#1A1714",
+
+            "surface-dim": "#100E0C",
+
+            "surface-bright": "#28231E",
+
+            "surface-container-lowest": "#12100E",
+
+            "surface-container-low": "#181512",
+
+            "surface-container": "#201C18",
+
+            "surface-container-high": "#28231E",
+
+            "surface-container-highest": "#332D26",
+
+            "background": "#141210",
+
+            "on-background": "#F7F4EE",
+
+            "on-surface": "#F7F4EE",
+
+            "on-surface-variant": "#A39788",
+
+            "outline": "#453C33",
+
+            "outline-variant": "#544A3F",
+
+            "primary": "#C98A5B",
+
+            "primary-container": "#B87B4C",
+
+            "on-primary": "#141210",
+
+            "on-primary-container": "#F7F4EE",
+
+            "primary-fixed": "#F2CBA5",
+
+            "primary-fixed-dim": "#E2A97B",
+
+            "secondary": "#D9C3B0",
+
+            "secondary-container": "#2F2923",
+
+            "on-secondary": "#141210",
+
+            "tertiary": "#59DE9B",
+
+            "tertiary-container": "#1B3B2B",
+
+            "error": "#E57373",
+
+            "error-container": "#381E1E"
+
+          },
+
+          fontFamily: {
+
+            headline: ["EB Garamond", "Noto Sans Bengali", "serif"],
+
+            display: ["EB Garamond", "Noto Sans Bengali", "serif"],
+
+            body: ["Noto Sans Bengali", "Noto Sans", "sans-serif"],
+
+            label: ["Noto Sans Bengali", "Noto Sans", "sans-serif"]
+
+          }
+
+        }
+
+      }
+
+    };
+
+  </script>
+
+  <script>
+    // Citizen Auth Guard
+    if (!localStorage.getItem('nayasetu_user')) {
+      const dest = (window.location.port === '8000' && !window.location.pathname.endsWith('.html')) ? '/register/' : 'Register.html';
+      window.location.replace(dest);
+    }
+  
+
+    (function() {
+
+      try {
+
+        var t = localStorage.getItem('nayasetu_theme');
+
+        if (t === 'light' || (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+
+          document.documentElement.classList.add('light');
+
+          document.documentElement.classList.remove('dark');
+
+        } else {
+
+          document.documentElement.classList.add('dark');
+
+          document.documentElement.classList.remove('light');
+
+        }
+
+      } catch (e) {}
+
+    })();
+
+  </script>
+
+</head>
+
+
+
+<body class="bg-[#141210] font-body text-[#F7F4EE] antialiased selection:bg-[#C98A5B] selection:text-[#141210] min-h-screen flex flex-col justify-between">
+
+
+
+  <!-- Top Utility Ribbon / Advisory bar -->
+
+  <header class="fixed top-0 left-0 w-full z-50 bg-[#1A1714]/95 backdrop-blur-xl border-b border-[#453C33]/60 shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
+
+    <div class="bg-[#181512] text-[#DDD5C7] text-xs py-1.5 px-4 text-center font-medium tracking-wide flex items-center justify-between border-b border-[#453C33]/40 max-w-7xl mx-auto">
+
+      <div class="flex items-center gap-2">
+
+        <span class="w-2 h-2 rounded-full bg-[#C98A5B] animate-pulse"></span>
+
+        <span class="text-[#F2CBA5] font-semibold">পশ্চিমবঙ্গ সরকার নাগরিক কল্যাণ সহায়তা উদ্যোগ</span>
+
+        <span class="hidden sm:inline text-[#7A7165]">•</span>
+
+        <span class="hidden sm:inline text-xs text-[#A39788]">স্বতন্ত্র নাগরিক সহায়তা মঞ্চ (Independent Citizen Assistance Platform. Not an Official Government Authority.)</span>
+
+      </div>
+
+      <div class="hidden md:flex items-center gap-2 text-xs">
+
+        <span id="apiStatusPill" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#201C18] border border-[#453C33] text-[11px] text-[#A39788]">
+
+          <span class="w-1.5 h-1.5 rounded-full bg-[#E2A97B] animate-pulse"></span>
+
+          <span id="apiStatusText">সার্ভার যাচাই হচ্ছে...</span>
+
+        </span>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="h-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pr-6 sm:pr-8 lg:pr-10 flex items-center justify-between gap-2 sm:gap-3 xl:gap-4">
+
+      <div class="flex items-center gap-2.5 sm:gap-3 shrink-0">
+
+        <a class="flex items-center gap-2.5 sm:gap-3 group" data-path="home" href="Landing.html">
+
+          <div class="w-10 h-10 rounded-xl bg-[#C98A5B] flex items-center justify-center text-[#141210] shadow-md shadow-[#C98A5B]/25 group-hover:scale-105 transition-transform shrink-0">
+
+            <span class="material-symbols-outlined text-2xl font-bold">balance</span>
+
+          </div>
+
+          <div class="flex flex-col">
+
+            <div class="flex items-center gap-1.5">
+
+              <span class="text-xl font-headline font-bold text-[#F7F4EE] tracking-wide group-hover:text-[#E2A97B] transition-colors leading-tight whitespace-nowrap">ন্যায়সেতু AI</span>
+
+              <span class="text-[10px] px-1.5 py-0.5 rounded bg-[#28231E] text-[#F2CBA5] border border-[#453C33] font-mono font-bold">WB</span>
+
+            </div>
+
+            <span class="hidden 2xl:block text-[11px] font-label text-[#A39788] font-medium tracking-tight truncate max-w-[240px]">সরকারি কল্যাণমূলক প্রকল্প ও নাগরিকের মধ্যকার সেতুবন্ধন</span>
+
+          </div>
+
+        </a>
+
+      </div>
+
+
+
+      <!-- Navigation Links -->
+
+      <nav class="hidden lg:flex items-center gap-1 shrink-0">
+
+        <a class="px-2.5 xl:px-3 py-1.5 text-xs xl:text-sm font-label text-[#DDD5C7] hover:text-[#F7F4EE] hover:bg-[#201C18] transition-all rounded-lg whitespace-nowrap" data-path="home" href="Landing.html">হোম</a>
+
+        <a class="px-2 xl:px-2.5 py-1.5 text-xs xl:text-sm font-label text-[#DDD5C7] hover:text-[#F7F4EE] hover:bg-[#201C18] transition-all rounded-lg whitespace-nowrap" data-path="eligibility-wizard" href="EligibilityWizard.html">যোগ্যতা যাচাই</a>
+
+        <a class="px-2 xl:px-2.5 py-1.5 text-xs xl:text-sm font-label text-[#DDD5C7] hover:text-[#F7F4EE] hover:bg-[#201C18] transition-all rounded-lg whitespace-nowrap" data-path="notice-explainer" href="notice_explainer.html">নোটিশ বুঝুন</a>
+
+        <a aria-current="page" class="px-2.5 xl:px-3 py-1.5 text-xs xl:text-sm font-label transition-all bg-[#C98A5B] text-[#141210] font-bold rounded-lg shadow-sm shadow-[#C98A5B]/30 flex items-center gap-1.5 whitespace-nowrap" data-path="grievance-drafter" href="#">
+
+          <span class="material-symbols-outlined text-[16px]">draw</span>
+
+          <span>দরখাস্ত প্রস্তুতকারক</span>
+
+        </a>
+
+      </nav>
+
+
+
+      <!-- Right: Action Suite (Citizen Portal moved toward center/left) -->
+
+      <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
+
+        <!-- 1. Citizen Portal Auth Trigger -->
+
+        <button id="openPortalBtn" class="whitespace-nowrap shrink-0 flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-lg bg-[#C98A5B] hover:bg-[#B87B4C] text-[#141210] font-bold text-xs xl:text-sm transition-all shadow-md shadow-[#C98A5B]/25 focus:outline-none" title="নাগরিক পোর্টাল">
+
+          <span class="material-symbols-outlined text-lg sm:text-xl">person</span>
+
+          <span id="grvPortalText" class="font-label">নাগরিক পোর্টাল</span>
+
+        </button>
+
+
+
+        <!-- 2. Naya Setu AI Assistant Single-Line Pill Button -->
+
+        <!-- 2. Light / Dark Theme Mode Toggle -->
+
+        <button id="themeToggleBtn" type="button" class="whitespace-nowrap shrink-0 inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-lg border border-[#453C33] bg-[#181512] hover:bg-[#2F2923] text-[#F7F4EE] hover:text-[#E2A97B] transition-all text-xs xl:text-sm font-label font-semibold shadow-xs focus:outline-none cursor-pointer" title="Toggle Light / Dark Mode" aria-label="Toggle Theme">
+
+          <span id="themeToggleIcon" class="material-symbols-outlined text-base text-[#F2CBA5] transition-transform duration-300">light_mode</span>
+
+          <span id="themeToggleText" class="font-label">লাইট মোড</span>
+
+        </button>
+
+
+
+        <!-- 3. Language Switcher -->
+
+        <div class="flex items-center bg-[#181512] rounded-lg p-0.5 sm:p-1 text-xs font-label font-semibold border border-[#453C33] shrink-0">
+
+          <button id="langHeaderBn" class="px-2 sm:px-2.5 py-1 rounded bg-[#C98A5B] text-[#141210] font-bold shadow-xs">বাংলা</button>
+
+          <button id="langHeaderHi" class="px-2 sm:px-2.5 py-1 text-[#A39788] hover:text-[#F7F4EE] transition-colors">हिंदी</button>
+
+          <button id="langHeaderEn" class="px-2 sm:px-2.5 py-1 text-[#A39788] hover:text-[#F7F4EE] transition-colors">English</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- Main Section -->
+
+  <main class="w-full pt-32 bg-[#141210] min-h-[calc(100vh-24rem)] flex-1">
+
+    <div class="flex flex-col w-full">
+
+      
+
+      <!-- Decorative ambient orbs -->
+
+      <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+        <div class="absolute top-10 left-1/4 w-96 h-96 bg-[#C98A5B]/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+        <div class="absolute top-48 right-12 w-80 h-80 bg-[#332D26]/40 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+
+
+        <!-- Page Context Ribbon / Editorial Sub-header -->
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+
+          <div>
+
+            <div class="flex items-center gap-2.5 mb-2.5">
+
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#C98A5B]/15 border border-[#C98A5B]/30 text-[#F2CBA5] text-xs font-label font-bold tracking-wide">
+
+                <span class="material-symbols-outlined text-[15px]">description</span>
+
+                মডিউল ৪ • অফিশিয়াল ড্রাফটার
+
+              </span>
+
+              <span class="text-xs font-label text-[#A39788] font-medium">BDO / SDO আইনি ও প্রশাসনিক খসড়া প্রণয়ন</span>
+
+            </div>
+
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-headline font-bold text-[#F7F4EE] tracking-tight leading-tight">
+
+              নাগরিক দরখাস্ত প্রস্তুতকারক
+
+            </h1>
+
+            <p class="text-sm sm:text-base font-body text-[#DDD5C7] mt-2 max-w-2xl leading-relaxed">
+
+              কোনো জটিল আইনি ভাষা ছাড়াই আপনার অভিযোগের বিবরণ লিখুন। সিস্টেম স্বয়ংক্রিয়ভাবে পশ্চিমবঙ্গ প্রশাসনিক দপ্তরের আদর্শ মাপকাঠিতে আনুষ্ঠানিক আবেদন তৈরি করবে।
+
+            </p>
+
+          </div>
+
+
+
+          <!-- Quick Session Badge / Helper Stat -->
+
+          <div class="flex items-center gap-3 bg-[#1A1714] border border-[#453C33] px-4 py-3 rounded-xl self-start md:self-auto shadow-md">
+
+            <div class="w-10 h-10 rounded-lg bg-[#28231E] border border-[#453C33] flex items-center justify-center text-[#C98A5B]">
+
+              <span class="material-symbols-outlined text-2xl">verified_user</span>
+
+            </div>
+
+            <div>
+
+              <div class="text-[11px] font-label uppercase tracking-wider text-[#A39788] font-semibold">আবেদন ফর্ম্যাট মানক</div>
+
+              <div class="text-xs font-label font-bold text-[#F7F4EE]">পশ্চিমবঙ্গ সরকারি বিধি সংহত (BSK Compliant)</div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Practical Citizen Advisory Banner -->
+
+        <div class="bg-gradient-to-r from-[#1A1714] via-[#201C18] to-[#1A1714] border border-[#453C33] p-4 sm:p-5 rounded-xl shadow-lg mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+
+          <div class="flex items-start gap-3.5">
+
+            <div class="w-9 h-9 rounded-full bg-[#C98A5B] text-[#141210] flex items-center justify-center shrink-0 shadow-md shadow-[#C98A5B]/30 mt-0.5 sm:mt-0 font-bold">
+
+              <span class="material-symbols-outlined text-xl">tips_and_updates</span>
+
+            </div>
+
+            <div class="text-xs sm:text-sm font-body text-[#DDD5C7] leading-relaxed">
+
+              <span class="font-bold text-[#F2CBA5]">বাস্তব প্রশাসনিক পরামর্শ:</span>
+
+              দরখাস্তটি প্রিন্ট করে BDO বা সরকারি অফিসে যাওয়ার সময় সর্বদা <strong class="text-[#F2CBA5] font-bold">২টি সমান কপি</strong> সাথে রাখবেন। জমা দেওয়ার পর দ্বিতীয় কপির ডানদিকের বক্সে করণিকের (Despatch Clerk) থেকে <strong class="font-bold text-[#F7F4EE] underline decoration-[#C98A5B]">সিলমোহর ও তারিখযুক্ত রিসিভিং সই</strong> নিতে ভুলবেন না।
+
+            </div>
+
+          </div>
+
+          <div class="shrink-0 flex items-center gap-2 self-end sm:self-center">
+
+            <span class="inline-flex items-center gap-1.5 text-[11px] font-label font-bold bg-[#181512] text-[#F2CBA5] border border-[#453C33] px-3 py-1.5 rounded-lg shadow-inner">
+
+              <span class="w-2 h-2 rounded-full bg-[#C98A5B]"></span>
+
+              অ্যাকনলেজমেন্ট গ্যারান্টি
+
+            </span>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Split-Screen Architecture -->
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+          
+
+          <!-- LEFT COLUMN: Simplified Citizen Input Form (lg:col-span-5) -->
+
+          <div class="lg:col-span-5 space-y-6">
+
+            <div class="bg-[#1A1714] border border-[#453C33] rounded-xl p-6 sm:p-7 shadow-xl">
+
+              <div class="flex items-center justify-between pb-4 mb-5 border-b border-[#453C33]">
+
+                <div class="flex items-center gap-2.5">
+
+                  <span class="material-symbols-outlined text-[#C98A5B] text-2xl">edit_document</span>
+
+                  <h2 class="text-xl font-headline font-bold text-[#F7F4EE]">সহজ তথ্য ফর্ম</h2>
+
+                </div>
+
+                <span class="text-xs font-label bg-[#28231E] border border-[#453C33] px-2.5 py-1 rounded text-[#F2CBA5] font-semibold">ধাপ ১ / ১</span>
+
+              </div>
+
+
+
+              <form class="space-y-4" id="grievanceForm" onsubmit="event.preventDefault(); handleFormSubmit();">
+
+                
+
+                <!-- District & Block (2 col) -->
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+
+                  <div class="space-y-1">
+
+                    <label class="text-xs font-label font-semibold text-[#DDD5C7]">জেলা (District)</label>
+
+                    <div class="relative">
+
+                      <select id="districtInput" class="w-full bg-[#141210] text-[#F7F4EE] text-xs sm:text-sm font-body rounded-lg px-3 py-2.5 border border-[#453C33] focus:outline-none focus:ring-1 focus:ring-[#C98A5B] focus:border-[#C98A5B] shadow-inner appearance-none cursor-pointer">
+
+                        <option value="পূর্ব বর্ধমান (Purba Bardhaman)" selected>পূর্ব বর্ধমান (Purba Bardhaman)</option>
+
+                        <option value="পশ্চিম বর্ধমান (Paschim Bardhaman)">পশ্চিম বর্ধমান</option>
+
+                        <option value="উত্তর ২৪ পরগনা (North 24 Parganas)">উত্তর ২৪ পরগনা</option>
+
+                        <option value="দক্ষিণ ২৪ পরগনা (South 24 Parganas)">দক্ষিণ ২৪ পরগনা</option>
+
+                        <option value="মুর্শিদাবাদ (Murshidabad)">মুর্শিদাবাদ</option>
+
+                        <option value="হুগলী (Hooghly)">হুগলী</option>
+
+                        <option value="নদিয়া (Nadia)">নদিয়া</option>
+
+                        <option value="বীরভূম (Birbhum)">বীরভূম</option>
+
+                        <option value="মালদা (Malda)">মালদা</option>
+
+                        <option value="বাঁকুড়া (Bankura)">বাঁকুড়া</option>
+
+                        <option value="হাওড়া (Howrah)">হাওড়া</option>
+
+                        <option value="জলপাইগুড়ি (Jalpaiguri)">জলপাইগুড়ি</option>
+
+                      </select>
+
+                      <span class="material-symbols-outlined absolute right-2.5 top-2.5 text-[#A39788] pointer-events-none text-lg">expand_more</span>
+
+                    </div>
+
+                  </div>
+
+
+
+                  <div class="space-y-1">
+
+                    <label class="text-xs font-label font-semibold text-[#DDD5C7]">ব্লক / মহকুমা (Block/SDO)</label>
+
+                    <div class="relative">
+
+                      <select id="blockInput" class="w-full bg-[#141210] text-[#F7F4EE] text-xs sm:text-sm font-body rounded-lg px-3 py-2.5 border border-[#453C33] focus:outline-none focus:ring-1 focus:ring-[#C98A5B] focus:border-[#C98A5B] shadow-inner appearance-none cursor-pointer">
+
+                        <option value="কালনা-১ ব্লক (Kalna-I Block)" selected>কালনা-১ ব্লক (Kalna-I)</option>
+
+                        <option value="কালনা-২ ব্লক (Kalna-II Block)">কালনা-২ ব্লক</option>
+
+                        <option value="বর্ধমান সদর উত্তর">বর্ধমান সদর উত্তর</option>
+
+                        <option value="মেমারি-১ ব্লক">মেমারি-১ ব্লক</option>
+
+                        <option value="কাটোয়া মহকুমা">কাটোয়া মহকুমা</option>
+
+                        <option value="রায়না-১ ব্লক">রায়না-১ ব্লক</option>
+
+                      </select>
+
+                      <span class="material-symbols-outlined absolute right-2.5 top-2.5 text-[#A39788] pointer-events-none text-lg">expand_more</span>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+
+                <!-- Recipient Authority -->
+
+                <div class="space-y-1">
+
+                  <label class="text-xs font-label font-semibold text-[#DDD5C7]">প্রাপক আধিকারিক (Recipient Authority)</label>
+
+                  <div class="relative">
+
+                    <select id="recipientInput" class="w-full bg-[#141210] text-[#F7F4EE] text-xs sm:text-sm font-body rounded-lg px-3 py-2.5 border border-[#453C33] focus:outline-none focus:ring-1 focus:ring-[#C98A5B] focus:border-[#C98A5B] shadow-inner appearance-none cursor-pointer">
+
+                      <option value="মাননীয় সমষ্টি উন্নয়ন আধিকারিক (Block Development Officer - BDO)" selected>মাননীয় সমষ্টি উন্নয়ন আধিকারিক (BDO)</option>
+
+                      <option value="মাননীয় মহকুমা শাসক (Sub-Divisional Officer - SDO)">মাননীয় মহকুমা শাসক (SDO)</option>
+
+                      <option value="মাননীয় জেলাশাসক (District Magistrate - DM)">মাননীয় জেলাশাসক (DM)</option>
+
+                      <option value="প্রধান, গ্রাম পঞ্চায়েত কার্যালয় (Gram Pradhan)">প্রধান, গ্রাম পঞ্চায়েত</option>
+
+                    </select>
+
+                    <span class="material-symbols-outlined absolute right-2.5 top-2.5 text-[#A39788] pointer-events-none text-lg">account_balance</span>
+
+                  </div>
+
+                </div>
+
+
+
+                <!-- Applicant Name & Guardian -->
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+
+                  <div class="space-y-1">
+
+                    <label class="text-xs font-label font-semibold text-[#DDD5C7]">আবেদনকারীর নাম *</label>
+
+                    <input id="applicantName" class="w-full bg-[#141210] text-[#F7F4EE] text-xs sm:text-sm font-body rounded-lg px-3 py-2.5 border border-[#453C33] focus:outline-none focus:ring-1 focus:ring-[#C98A5B] focus:border-[#C98A5B] shadow-inner" placeholder="আপনার পুরো নাম (শুধুমাত্র বর্ণমালা)" type="text" value="প্রতিমা মণ্ডল" pattern="^[A-Za-z\s\u0980-\u09FF\u0900-\u097F]+$" maxlength="60" title="শুধুমাত্র বর্ণমালা গ্রহণযোগ্য / Alphabets only" autocomplete="name" required/>
+
+                  </div>
+
+                  <div class="space-y-1">
+
+                    <label class="text-xs font-label font-semibold text-[#DDD5C7]">অভিভাবক / স্বামীর নাম</label>
+
+                    <input id="guardianName" class="w-full bg-[#141210] text-[#F7F4EE] text-xs sm:text-sm font-body rounded-lg px-3 py-2.5 border border-[#453C33] focus:outline-none focus:ring-1 focus:ring-[#C98A5B] focus:border-[#C98A5B] shadow-inner" placeholder="পিতা/স্বামীর নাম (শুধুমাত্র বর্ণমালা)" type="text" value="রমেশ মণ্ডল" pattern="^[A-Za-z\s\u0980-\u09FF\u0900-\u097F]+$" maxlength="60" title="শুধুমাত্র বর্ণমালা গ্রহণযোগ্য / Alphabets only"/>
+
+                  </div>
+
+                </div>
+
+
+
+                <!-- Address line -->
+
+                <div class="space-y-1">
+
+                  <label class="text-xs font-label font-semibold text-[#DDD5C7]">স্থায়ী ঠিকানা (গ্রাম/ওয়ার্ড, ডাকঘর ও পিন) *</label>
+
+                  <input id="addressInput" class="w-full bg-[#141210] text-[#F7F4EE] text-xs sm:text-sm font-body rounded-lg px-3 py-2.5 border border-[#453C33] focus:outline-none focus:ring-1 focus:ring-[#C98A5B] focus:border-[#C98A5B] shadow-inner" placeholder="গ্রাম, পোস্ট, থানা, পিনকোড" type="text" value="গ্রাম: বাঘনাপাড়া, পো: বাঘনাপাড়া, পিন: ৭১৩৪২২" required/>
+
+                </div>
+
+
+
+                <!-- Phone & Acknowledgement -->
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+
+                  <div class="space-y-1">
+
+                    <label class="text-xs font-label font-semibold text-[#DDD5C7]">মোবাইল নম্বর (আধার সংযুক্ত) *</label>
+
+                    <input id="phoneInput" class="w-full bg-[#141210] text-[#F7F4EE] text-xs sm:text-sm font-body rounded-lg px-3 py-2.5 border border-[#453C33] focus:outline-none focus:ring-1 focus:ring-[#C98A5B] focus:border-[#C98A5B] shadow-inner" placeholder="১০ সংখ্যার মোবাইল (শুধুমাত্র নম্বর)" type="tel" inputmode="numeric" maxlength="10" pattern="[0-9]{10}" title="শুধুমাত্র ১০ সংখ্যার মোবাইল নম্বর / Numbers only" autocomplete="tel" value="9832109842" required/>
+
+                  </div>
+
+                  <div class="space-y-1">
+
+                    <label class="text-xs font-label font-semibold text-[#DDD5C7]">আবেদন স্লিপ / রেফারেন্স নং</label>
+
+                    <input id="ackInput" class="w-full bg-[#141210] text-[#F7F4EE] text-xs sm:text-sm font-body rounded-lg px-3 py-2.5 border border-[#453C33] focus:outline-none focus:ring-1 focus:ring-[#C98A5B] focus:border-[#C98A5B] shadow-inner font-mono font-medium" placeholder="Acknowledgement No." type="text" value="LB/2023/KNA/884920"/>
+
+                  </div>
+
+                </div>
+
+
+
+                <!-- Original Application Date (Backend Supported) -->
+
+                <div class="space-y-1">
+
+                  <label class="text-xs font-label font-semibold text-[#DDD5C7]">মূল আবেদনের তারিখ (Original Application Date)</label>
+
+                  <input id="appDateInput" class="w-full bg-[#141210] text-[#F7F4EE] text-xs sm:text-sm font-body rounded-lg px-3 py-2.5 border border-[#453C33] focus:outline-none focus:ring-1 focus:ring-[#C98A5B] focus:border-[#C98A5B] shadow-inner" placeholder="যেমন: ১৫ নভেম্বর, ২০২৩" type="text" value="১৫/১১/২০২৩"/>
+
+                </div>
+
+
+
+                <!-- Target Scheme (Dynamic from API / Fallback) -->
+
+                <div class="space-y-1">
+
+                  <div class="flex items-center justify-between">
+
+                    <label class="text-xs font-label font-semibold text-[#DDD5C7]">প্রকল্পের নাম (Target Scheme) *</label>
+
+                    <span id="schemesLoadedBadge" class="text-[10px] text-[#A39788]">অফিশিয়াল তালিকা</span>
+
+                  </div>
+
+                  <div class="relative">
+
+                    <select id="schemeInput" class="w-full bg-[#141210] text-[#F7F4EE] text-xs sm:text-sm font-body rounded-lg px-3 py-2.5 border border-[#453C33] focus:outline-none focus:ring-1 focus:ring-[#C98A5B] focus:border-[#C98A5B] shadow-inner appearance-none cursor-pointer">
+
+                      <option value="লক্ষ্মীর ভাণ্ডার (Lakshmir Bhandar)" selected>লক্ষ্মীর ভাণ্ডার (Lakshmir Bhandar)</option>
+
+                      <option value="কৃষক বন্ধু (Krishak Bandhu)">কৃষক বন্ধু (Krishak Bandhu)</option>
+
+                      <option value="বার্ধক্য ভাতা (Old Age Pension)">বার্ধক্য ভাতা (Jai Bangla)</option>
+
+                      <option value="বিধবা ভাতা (Widow Pension)">বিধবা ভাতা (Widow Pension)</option>
+
+                      <option value="স্বাস্থ্য সাথী (Swasthya Sathi)">স্বাস্থ্য সাথী (Swasthya Sathi)</option>
+
+                      <option value="১০০ দিনের কাজ (MGNREGA বকেয়া)">১০০ দিনের কাজ বকেয়া পারিশ্রমিক</option>
+
+                      <option value="কন্যাশ্রী (Kanyashree K2/K3)">কন্যাশ্রী প্রকল্প (Kanyashree)</option>
+
+                      <option value="রূপশ্রী (Rupashree Prakalpa)">রূপশ্রী প্রকল্প (Rupashree)</option>
+
+                      <option value="স্টুডেন্ট ক্রেডিট কার্ড (Student Credit Card)">স্টুডেন্ট ক্রেডিট কার্ড</option>
+
+                    </select>
+
+                    <span class="material-symbols-outlined absolute right-2.5 top-2.5 text-[#A39788] pointer-events-none text-lg">card_membership</span>
+
+                  </div>
+
+                </div>
+
+
+
+                <!-- Issue Type Selector -->
+
+                <div class="space-y-1.5">
+
+                  <label class="text-xs font-label font-semibold text-[#DDD5C7]">অভিযোগের মূল কারণ (Issue Type)</label>
+
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+
+                    <label class="flex items-center gap-2 p-2.5 rounded-lg bg-[#141210] border border-[#453C33] text-xs font-body cursor-pointer hover:border-[#C98A5B] transition-all has-[:checked]:border-[#C98A5B] has-[:checked]:bg-[#201C18]">
+
+                      <input checked class="accent-[#C98A5B]" name="issueType" type="radio" value="dbt_fail"/>
+
+                      <span class="font-medium text-[#F7F4EE]">টাকা ঢুকছে না (DBT Failure)</span>
+
+                    </label>
+
+                    <label class="flex items-center gap-2 p-2.5 rounded-lg bg-[#141210] border border-[#453C33] text-xs font-body cursor-pointer hover:border-[#C98A5B] transition-all has-[:checked]:border-[#C98A5B] has-[:checked]:bg-[#201C18]">
+
+                      <input class="accent-[#C98A5B]" name="issueType" type="radio" value="rejection"/>
+
+                      <span class="font-medium text-[#F7F4EE]">অযৌক্তিক রিজেক্ট</span>
+
+                    </label>
+
+                    <label class="flex items-center gap-2 p-2.5 rounded-lg bg-[#141210] border border-[#453C33] text-xs font-body cursor-pointer hover:border-[#C98A5B] transition-all has-[:checked]:border-[#C98A5B] has-[:checked]:bg-[#201C18]">
+
+                      <input class="accent-[#C98A5B]" name="issueType" type="radio" value="delay"/>
+
+                      <span class="font-medium text-[#F7F4EE]">দীর্ঘ অনিষ্পন্ন</span>
+
+                    </label>
+
+                  </div>
+
+                </div>
+
+
+
+                <!-- Letter Language -->
+
+                <div class="space-y-1.5 pt-1">
+
+                  <label class="text-xs font-label font-semibold text-[#DDD5C7]">দরখাস্তের ভাষা (Format Language)</label>
+
+                  <div class="flex flex-wrap items-center gap-4">
+
+                    <label class="inline-flex items-center gap-2 text-xs font-body cursor-pointer">
+
+                      <input checked class="accent-[#C98A5B]" name="letterLang" onchange="toggleLanguage('bn')" type="radio" value="bn"/>
+
+                      <span class="font-bold text-[#F7F4EE]">বাংলা (আদর্শ প্রশাসনিক প্রথা)</span>
+
+                    </label>
+
+                    <label class="inline-flex items-center gap-2 text-xs font-body cursor-pointer">
+
+                      <input class="accent-[#C98A5B]" name="letterLang" onchange="toggleLanguage('en')" type="radio" value="en"/>
+
+                      <span class="text-[#A39788] hover:text-[#F7F4EE]">English Representation</span>
+
+                    </label>
+
+                    <label class="inline-flex items-center gap-2 text-xs font-body cursor-pointer">
+
+                      <input class="accent-[#C98A5B]" name="letterLang" onchange="toggleLanguage('hi')" type="radio" value="hi"/>
+
+                      <span class="text-[#A39788] hover:text-[#F7F4EE]">हिन्दी आवेदन (Hindi)</span>
+
+                    </label>
+
+                  </div>
+
+                </div>
+
+
+
+                <!-- Submit / Generate / Refresh Button -->
+
+                <div class="pt-3">
+
+                  <button id="generateBtn" class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-[#C98A5B] hover:bg-[#B87B4C] text-[#141210] font-label font-bold text-sm shadow-lg shadow-[#C98A5B]/30 hover:shadow-[#C98A5B]/45 transition-all cursor-pointer" type="submit">
+
+                    <span id="generateSpinner" class="material-symbols-outlined text-lg">auto_fix_high</span>
+
+                    <span id="generateBtnText">দরখাস্ত আপডেট করুন (Generate/Refresh Draft)</span>
+
+                  </button>
+
+                </div>
+
+              </form>
+
+            </div>
+
+
+
+            <!-- Supporting Card / Checklist -->
+
+            <div class="bg-[#1A1714] border border-[#453C33] rounded-xl p-5 shadow-lg space-y-3">
+
+              <div class="flex items-center gap-3">
+
+                <div class="w-8 h-8 rounded-lg bg-[#28231E] border border-[#453C33] text-[#F2CBA5] flex items-center justify-center shrink-0">
+
+                  <span class="material-symbols-outlined text-lg">assignment_late</span>
+
+                </div>
+
+                <div>
+
+                  <h3 class="text-sm font-headline font-bold text-[#F7F4EE]">সংযোজনী আবশ্যকীয় চেকলিস্ট</h3>
+
+                  <p class="text-[11px] font-label text-[#A39788]">দরখাস্তের সাথে স্টেপল করে জমা দেওয়া বাধ্যতামূলক:</p>
+
+                </div>
+
+              </div>
+
+
+
+              <div class="grid grid-cols-2 gap-2 text-xs font-body">
+
+                <div class="flex items-center gap-1.5 p-2 rounded bg-[#141210] border border-[#453C33] text-[#DDD5C7]">
+
+                  <span class="material-symbols-outlined text-[#C98A5B] text-base">check_circle</span>
+
+                  <span>আধার স্ব-প্রত্যয়িত জেরক্স</span>
+
+                </div>
+
+                <div class="flex items-center gap-1.5 p-2 rounded bg-[#141210] border border-[#453C33] text-[#DDD5C7]">
+
+                  <span class="material-symbols-outlined text-[#C98A5B] text-base">check_circle</span>
+
+                  <span>সিঙ্গেল ব্যাঙ্ক পাসবই কপি</span>
+
+                </div>
+
+                <div class="flex items-center gap-1.5 p-2 rounded bg-[#141210] border border-[#453C33] text-[#DDD5C7]">
+
+                  <span class="material-symbols-outlined text-[#C98A5B] text-base">check_circle</span>
+
+                  <span>NPCI DBT সচল স্লিপ</span>
+
+                </div>
+
+                <div class="flex items-center gap-1.5 p-2 rounded bg-[#141210] border border-[#453C33] text-[#DDD5C7]">
+
+                  <span class="material-symbols-outlined text-[#C98A5B] text-base">check_circle</span>
+
+                  <span>দুয়ারে সরকার জমা স্লিপ</span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+
+            <!-- Field Photo / Citizen Info Context -->
+
+            <div class="relative rounded-xl overflow-hidden shadow-lg h-36 bg-[#1A1714] border border-[#453C33]">
+
+              <div class="absolute inset-0 bg-gradient-to-t from-[#141210]/95 via-[#1A1714]/80 to-transparent flex items-end p-4">
+
+                <span class="text-xs font-label text-[#DDD5C7] font-medium flex items-center gap-1.5">
+
+                  <span class="material-symbols-outlined text-sm text-[#F2CBA5]">info</span>
+
+                  সরাসরি সহায়তা: প্রতিটি ব্লকে বাংলা সহায়তা কেন্দ্র (BSK) থেকে নিখরচায় রিসিভিং সহায়তা পাওয়া যায়।
+
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- RIGHT COLUMN: Official WB Legal Sheet Live Preview & Citizen Actions (lg:col-span-7) -->
+
+          <div class="lg:col-span-7 space-y-4">
+
+            
+
+            <!-- Action Toolbar -->
+
+            <div class="flex flex-wrap items-center justify-between gap-3 bg-[#1A1714] border border-[#453C33] p-3.5 rounded-xl shadow-lg">
+
+              <div class="flex items-center gap-2">
+
+                <span class="inline-flex w-2.5 h-2.5 rounded-full bg-[#C98A5B] animate-pulse"></span>
+
+                <span class="text-xs font-label font-bold text-[#F7F4EE]">লাইভ অফিসিয়াল প্রিভিউ (A4 Format)</span>
+
+                <span id="draftIdBadge" class="hidden px-2 py-0.5 rounded bg-[#C98A5B]/20 text-[#F2CBA5] border border-[#C98A5B]/40 text-[10px] font-mono font-bold"></span>
+
+              </div>
+
+
+
+              <div class="flex items-center flex-wrap gap-2">
+
+                <button class="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#C98A5B] hover:bg-[#B87B4C] text-[#141210] text-xs font-label font-bold shadow-md shadow-[#C98A5B]/25 transition-all cursor-pointer" onclick="window.print()">
+
+                  <span class="material-symbols-outlined text-base">print</span>
+
+                  <span>প্রিন্ট করুন - ২ কপি</span>
+
+                </button>
+
+                <button id="saveDraftServerBtn" class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#28231E] hover:bg-[#332D26] border border-[#453C33] text-[#F2CBA5] text-xs font-label font-bold shadow-sm transition-all cursor-pointer" onclick="saveDraftToBackend()">
+
+                  <span class="material-symbols-outlined text-base">cloud_upload</span>
+
+                  <span class="hidden sm:inline">সার্ভারে সংরক্ষণ</span>
+
+                </button>
+
+                <button class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#141210] hover:bg-[#201C18] border border-[#453C33] text-[#F7F4EE] text-xs font-label font-semibold shadow-xs transition-all cursor-pointer" id="copyBtn" onclick="copyDraftText()">
+
+                  <span class="material-symbols-outlined text-base">content_copy</span>
+
+                  <span>কপি টেক্সট</span>
+
+                </button>
+
+              </div>
+
+            </div>
+
+
+
+            <!-- Legal Paper Preview Container -->
+
+            <div id="printContainer" class="bg-white text-stone-900 p-6 sm:p-10 lg:p-12 rounded-xl shadow-2xl relative min-h-[750px] font-body border-4 border-[#C98A5B]/30">
+
+              
+
+              <!-- Inner Legal Margined Box -->
+
+              <div class="space-y-6 text-xs sm:text-sm leading-relaxed text-justify">
+
+                
+
+                <!-- Date & Top Meta -->
+
+                <div class="flex justify-between items-start border-b border-stone-200 pb-3">
+
+                  <div>
+
+                    <span id="previewHeaderRibbon" class="text-[10px] uppercase font-mono tracking-widest text-[#B87B4C] font-bold">পশ্চিমবঙ্গ প্রশাসনিক আনুষ্ঠানিক আবেদন • অফিশিয়াল ফরম্যাট</span>
+
+                  </div>
+
+                  <div class="text-right">
+
+                    <p class="font-label text-xs sm:text-sm font-semibold text-stone-800">
+
+                      <span id="previewDateLabel">তারিখ:</span> <span class="font-bold text-stone-900" id="previewDate">১৫ মার্চ, ২০২৫</span>
+
+                    </p>
+
+                    <p class="text-[11px] font-label text-stone-500"><span id="previewPlaceLabel">স্থান:</span> <span id="previewPlace">কালনা, পূর্ব বর্ধমান</span></p>
+
+                  </div>
+
+                </div>
+
+
+
+                <!-- Recipient Address Block -->
+
+                <div class="space-y-0.5 pt-2">
+
+                  <p id="previewToLabel" class="font-bold text-stone-800">প্রতি,</p>
+
+                  <p class="font-bold text-stone-950 text-sm sm:text-base" id="previewRecipient">মাননীয় সমষ্টি উন্নয়ন আধিকারিক (Block Development Officer - BDO)</p>
+
+                  <p class="text-stone-700" id="previewOfficeAddress">কালনা-১ সমষ্টি উন্নয়ন ব্লক কার্যালয়,</p>
+
+                  <p class="text-stone-700" id="previewDistrictLine">পূর্ব বর্ধমান জেলা, পশ্চিমবঙ্গ।</p>
+
+                </div>
+
+
+
+                <!-- Subject Line (Warm Terracotta Highlight) -->
+
+                <div class="bg-stone-50 border-l-4 border-[#C98A5B] p-3.5 rounded-r-lg my-3 shadow-xs">
+
+                  <p class="text-xs sm:text-sm font-headline font-bold text-stone-900 leading-snug">
+
+                    <span id="previewSubjLabel" class="underline decoration-[#C98A5B] font-bold text-[#B87B4C]">বিষয়:</span>
+
+                    <span id="previewSubject">
+
+                      লক্ষ্মীর ভাণ্ডার প্রকল্পের আবেদন (Ref: LB/2023/KNA/884920) মঞ্জুর হওয়া সত্ত্বেও ব্যাঙ্ক DBT সমস্যাজনিত কারণে অর্থ অ্যাকাউন্টে জমা না হওয়ার প্রতিকার প্রার্থনা।
+
+                    </span>
+
+                  </p>
+
+                </div>
+
+
+
+                <!-- Salutation & Body Paragraphs -->
+
+                <div class="space-y-3.5 pt-1 text-stone-800">
+
+                  <p id="previewSalutation" class="font-bold text-stone-900">মহাশয়,</p>
+
+                  <p class="leading-relaxed" id="previewBody1">
+
+                    বিনীত নিবেদন এই যে, আমি <strong class="font-bold text-stone-950" id="previewName">প্রতিমা মণ্ডল</strong>, স্বামী/অভিভাবক: <strong class="font-bold text-stone-950" id="previewGuardian">রমেশ মণ্ডল</strong>, <strong class="font-bold text-stone-950" id="previewAddress">গ্রাম: বাঘনাপাড়া, পো: বাঘনাপাড়া, পিন: ৭১৩৪২২</strong>-এর স্থায়ী বাসিন্দা। আমি আপনার ব্লকের অন্তর্গত দুয়ারে সরকার শিবিরে সরকারের জনকল্যাণমূলক <strong class="font-bold text-[#B87B4C]" id="previewScheme">লক্ষ্মীর ভাণ্ডার</strong> প্রকল্পের অন্তর্ভুক্তির নিমিত্ত প্রয়োজনীয় নথিপত্রসহ আবেদনপত্র জমা দিয়েছিলাম (আবেদন স্বীকৃতি নম্বর: <span class="font-mono font-bold bg-stone-100 border border-stone-300 px-1.5 py-0.5 rounded text-stone-900" id="previewAck">LB/2023/KNA/884920</span>)।
+
+                  </p>
+
+
+
+                  <div class="space-y-3" id="previewBodyDynamic">
+
+                    <p class="leading-relaxed">
+
+                      উক্ত আবেদনের প্রেক্ষিতে সরকারি তথ্যভাণ্ডারে আমার নাম নথিভুক্ত হওয়া সত্ত্বেও বিগত কয়েকমাস ধরে আমার নির্দিষ্ট ব্যাঙ্ক অ্যাকাউন্টে কোনো ভাতা জমা হচ্ছে না। ব্যাঙ্ক কর্তৃপক্ষের সাথে অনুসন্ধান করিয়া জানা যায় যে, সেন্ট্রাল NPCI ম্যাপিং ও আধার এনেবল্ড পেমেন্ট সিস্টেমে (Aadhaar DBT Link) প্রযুক্তিগত ত্রুটির কারণে সরকারি ট্রেজারি থেকে প্রেরিত কিস্তির টাকা প্রত্যাখ্যাত (Payment Failed) হইতেছে।
+
+                    </p>
+
+                    <p class="leading-relaxed">
+
+                      ইতিমধ্যে আমি আমার নিজস্ব একক ব্যাঙ্ক অ্যাকাউন্টে (Single Account) নতুন করিয়া আধার সিডিং ও NPCI ম্যান্ডেট সফলভাবে সম্পূর্ণ করিয়াছি এবং ব্যাঙ্ক ম্যানেজার কর্তৃক স্বাক্ষরিত ভ্যালিডেশন স্লিপ সংগ্রহ করিয়াছি।
+
+                    </p>
+
+                  </div>
+
+
+
+                  <p class="leading-relaxed font-medium text-stone-900" id="previewConclusion">
+
+                    অতএব মহাশয়ের নিকট সনির্বন্ধ প্রার্থনা, অনুগ্রহপূর্বক আমার উপরিউক্ত আবেদনপত্র ও সংযুক্ত ব্যাঙ্ক নথিসমূহ পুনঃযাচাই করিয়া পোর্টালে ব্যাঙ্ক DBT ডেটা পুনরায় সচল (Re-trigger Disbursement) করার যথাযথ প্রশাসনিক আদেশ জারি করিতে আপনার সদয় মর্জি হয়।
+
+                  </p>
+
+                </div>
+
+
+
+                <!-- Attachments List (সংযোজনী) -->
+
+                <div class="bg-stone-50 border border-stone-200 p-3.5 rounded-lg space-y-1.5 text-xs">
+
+                  <p class="font-bold font-label text-stone-900 flex items-center gap-1.5">
+
+                    <span class="material-symbols-outlined text-sm text-[#B87B4C]">attach_file</span>
+
+                    <span id="previewAttachTitle">সংযোজনীসমূহ (Documents Attached):</span>
+
+                  </p>
+
+                  <ol id="previewAttachList" class="list-decimal list-inside space-y-1 text-stone-700 font-body pl-1">
+
+                    <li>আবেদনকারীর আধার কার্ডের স্ব-প্রত্যয়িত প্রতিলিপি (Self-attested Aadhaar Xerox)।</li>
+
+                    <li>সংশ্লিষ্ট একক ব্যাঙ্ক অ্যাকাউন্টের পাসবইয়ের প্রথম পাতার স্পষ্ট প্রতিলিপি (Bank Passbook Copy)।</li>
+
+                    <li>ব্যাঙ্ক কর্তৃপক্ষ কর্তৃক প্রদত্ত সক্রিয় NPCI / Aadhaar DBT লিঙ্ক স্ট্যাটাস স্লিপ।</li>
+
+                    <li>দুয়ারে সরকার শিবিরের মূল প্রাপ্তিস্বীকার পত্রের প্রতিলিপি (Duare Sarkar Acknowledgement)।</li>
+
+                  </ol>
+
+                </div>
+
+
+
+                <!-- Closing Signatures Grid -->
+
+                <div class="pt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 items-end border-t border-stone-200">
+
+                  
+
+                  <!-- Applicant Signature Column -->
+
+                  <div class="space-y-2">
+
+                    <p id="previewSignGreeting" class="text-xs font-semibold text-stone-600">বিনীত,</p>
+
+                    <div class="h-12 flex items-end">
+
+                      <span class="font-serif italic text-lg text-[#B87B4C] font-bold" id="previewSigName">প্রতিমা মণ্ডল</span>
+
+                    </div>
+
+                    <div class="text-xs space-y-0.5">
+
+                      <p class="font-bold text-stone-900">আবেদনকারীর পূর্ণ স্বাক্ষর</p>
+
+                      <p class="text-stone-600 font-mono">মোবাইল: <span id="previewPhone">9832109842</span></p>
+
+                    </div>
+
+                  </div>
+
+
+
+                  <!-- Official Receiving Rubber Stamp & Despatch Clerk Sign Box -->
+
+                  <div class="bg-stone-50 border border-stone-300 rounded-lg p-3 text-center space-y-1.5">
+
+                    <div class="flex items-center justify-center gap-1 text-[11px] font-label font-bold text-stone-700 uppercase tracking-wider">
+
+                      <span class="material-symbols-outlined text-xs text-[#B87B4C]">approval</span>
+
+                      দাপ্তরিক প্রাপ্তিস্বীকার সিলমোহর
+
+                    </div>
+
+                    <div class="h-16 rounded bg-white border border-dashed border-stone-400 flex flex-col items-center justify-center p-2">
+
+                      <span class="text-[10px] font-mono text-stone-500 font-medium">[ BDO Office Receiving Stamp &amp; Date ]</span>
+
+                      <span class="text-[9px] font-label text-stone-600 mt-1">করণিক স্বাক্ষর: .......................................</span>
+
+                    </div>
+
+                    <p class="text-[10px] font-label text-stone-500 italic">
+
+                      *এই কপির উপর প্রাপ্তিস্বীকার সিল ও তারিখ নিজের কাছে প্রমাণস্বরূপ রাখুন।
+
+                    </p>
+
+                  </div>
+
+                </div>
+
+
+
+              </div>
+
+            </div>
+
+
+
+            <!-- Micro Feedback Toast Alert -->
+
+            <div id="toastMessage" class="hidden bg-[#201C18] text-[#F7F4EE] border border-[#C98A5B] text-xs font-label py-2.5 px-4 rounded-lg shadow-xl flex items-center justify-between transition-all">
+
+              <span class="flex items-center gap-2">
+
+                <span class="material-symbols-outlined text-[#C98A5B] text-base" id="toastIcon">check_circle</span>
+
+                <span id="toastText">দরখাস্ত সফলভাবে কপি করা হয়েছে!</span>
+
+              </span>
+
+              <button class="text-xs text-[#F2CBA5] underline ml-4 hover:text-white" onclick="hideToast()">বন্ধ করুন</button>
+
+            </div>
+
+
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Bottom Contextual Support Banner -->
+
+        <div class="mt-12 bg-[#1A1714] border border-[#453C33] rounded-2xl p-6 sm:p-8 shadow-xl">
+
+          <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+
+            <div class="space-y-1.5 max-w-3xl">
+
+              <div class="flex items-center gap-2">
+
+                <span class="material-symbols-outlined text-[#C98A5B]">contact_support</span>
+
+                <h3 class="text-base sm:text-lg font-headline font-bold text-[#F7F4EE]">আবেদন জমার পরবর্তী পদক্ষেপ কী?</h3>
+
+              </div>
+
+              <p class="text-xs sm:text-sm font-body text-[#DDD5C7] leading-relaxed">
+
+                দরখাস্ত জমার ৭ থেকে ১৫ কার্যদিবসের মধ্যে সমাধান না হলে, আপনি প্রাপ্তিস্বীকার স্লিপের ছবি তুলে সরাসরি <strong class="text-[#F7F4EE] font-semibold">মুখ্যমন্ত্রী গ্রিভেন্স সেল (Didi ke Bolo - 9137091370)</strong> অথবা <strong class="text-[#F2CBA5] font-semibold">পশ্চিমবঙ্গ বাংলা সহায়তা কেন্দ্রে</strong> অনলাইন নথিকরণ করিয়ে নিতে পারেন।
+
+              </p>
+
+            </div>
+
+            <div class="flex items-center gap-3 shrink-0">
+
+              <button id="openHelplineModalBtn" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#28231E] hover:bg-[#332D26] border border-[#453C33] text-[#F2CBA5] font-label font-bold text-xs shadow-md transition-colors cursor-pointer">
+
+                <span class="material-symbols-outlined text-base">call</span>
+
+                <span>জরুরি হেল্পলাইন নম্বর দেখুন</span>
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+
+  <!-- Footer -->
+
+  <footer class="w-full bg-[#100E0C] border-t border-[#453C33] mt-20 pt-16 pb-12 shadow-[0_-4px_24px_rgba(0,0,0,0.5)]">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+        <div class="space-y-4">
+
+          <div class="flex items-center gap-3">
+
+            <div class="w-9 h-9 rounded-lg bg-[#C98A5B] flex items-center justify-center text-[#141210]">
+
+              <span class="material-symbols-outlined text-xl font-bold">balance</span>
+
+            </div>
+
+            <span class="text-xl font-headline font-bold text-[#F7F4EE]">ন্যায়সেতু AI</span>
+
+          </div>
+
+          <p class="text-xs leading-relaxed text-[#A39788] font-body">পশ্চিমবঙ্গের প্রান্তিক ও সাধারণ নাগরিকদের সরকারি প্রকল্প, অধিকার, আবেদন প্রক্রিয়া ও আইনি সুরক্ষা অনুধাবনে সহায়তাকারী একটি স্বনির্ভর প্ল্যাটফর্ম।</p>
+
+          <div class="pt-2">
+
+            <span class="inline-block px-3 py-1 bg-[#201C18] border border-[#453C33] text-[11px] font-label text-[#F2CBA5] rounded-md">গোপনীয়তা নিশ্চয়তা: অতিথি সেশনে নো ডেটা রিটেনশন</span>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="space-y-3">
+
+          <h4 class="text-sm font-label font-bold uppercase tracking-wider text-[#F7F4EE]">জরুরি হেল্পলাইন নম্বর</h4>
+
+          <ul class="space-y-2.5 text-xs text-[#DDD5C7] font-body">
+
+            <li><span class="font-semibold text-[#F7F4EE] block">মুখ্যমন্ত্রী গ্রিভেন্স সেল (Didi ke Bolo):</span> 9137091370 / ১৮০০-৩৪৫-৫৫৮৮</li>
+
+            <li><span class="font-semibold text-[#F7F4EE] block">দুয়ারে সরকার কন্ট্রোল রুম:</span> ১৮০০-৩৪৫-০১১১</li>
+
+            <li><span class="font-semibold text-[#F7F4EE] block">জাতীয় আইনি সেবা (NALSA Toll-Free):</span> ১৫১০০ (24x7 বিনামূল্যে আইনি সহায়তা)</li>
+
+            <li><span class="font-semibold text-[#F7F4EE] block">মহিলা সহায়তা হেল্পলাইন:</span> ১৮১ / ১০৯১</li>
+
+          </ul>
+
+        </div>
+
+
+
+        <div class="space-y-3">
+
+          <h4 class="text-sm font-label font-bold uppercase tracking-wider text-[#F7F4EE]">স্থানীয় প্রশাসনিক সহায়তা কেন্দ্র</h4>
+
+          <p class="text-xs leading-relaxed text-[#A39788] font-body">কোনো আবেদনের চূড়ান্ত প্রক্রিয়াকরণের জন্য সর্বদা নিকটস্থ স্থানীয় কর্তৃপক্ষের সাথে যোগাযোগ করুন:</p>
+
+          <ul class="space-y-1.5 text-xs text-[#DDD5C7] font-body">
+
+            <li>• ব্লক উন্নয়ন আধিকারিক (BDO Office)</li>
+
+            <li>• মহকুমা শাসক কার্যালয় (SDO Office)</li>
+
+            <li>• গ্রাম পঞ্চায়েত তথ্যমিত্র কেন্দ্র (CSC)</li>
+
+            <li>• বাংলা সহায়তা কেন্দ্র (BSK)</li>
+
+          </ul>
+
+        </div>
+
+
+
+        <div class="space-y-3">
+
+          <h4 class="text-sm font-label font-bold uppercase tracking-wider text-[#F7F4EE]">আইনি ঘোষণা ও গোপনীয়তা</h4>
+
+          <p class="text-xs leading-relaxed text-[#A39788] font-body">NyayaSetu AI কোনো বিচার বিভাগীয় কর্তৃপক্ষ বা সরকারি দফতর নয়। এই সিস্টেম কৃত্রিম বুদ্ধিমত্তা দ্বারা প্রাথমিক তথ্য ও খসড়া তৈরিতে সহায়তা করে। সকল নথি জমা দেওয়ার পূর্বে যাচাইযোগ্য।</p>
+
+          <div class="pt-2 flex flex-wrap gap-3 text-xs text-[#E2A97B] font-medium">
+
+            <button class="footer-link hover:underline hover:text-[#F7F4EE]" data-modal="terms">শর্তাবলী</button>
+
+            <span>•</span>
+
+            <button class="footer-link hover:underline hover:text-[#F7F4EE]" data-modal="privacy">গোপনীয়তা নীতি</button>
+
+            <span>•</span>
+
+            <button class="footer-link hover:underline hover:text-[#F7F4EE]" data-modal="a11y">অ্যাক্সেসিবিলিটি সহায়তা</button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="pt-8 border-t border-[#453C33]/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-label text-[#A39788]">
+
+        <div>© 2025 NyayaSetu AI • পশ্চিমবঙ্গ নাগরিক অধিকার সহায়তা উদ্যোগ।</div>
+
+        <div class="flex items-center gap-4">
+
+          <span>ফন্ট সাইজ: 
+
+            <button class="font-size-btn px-2 py-0.5 rounded bg-[#201C18] border border-[#453C33] text-[#F7F4EE] text-[11px] font-bold hover:bg-[#28231E]" data-size="14px">A-</button>
+
+            <button class="font-size-btn px-2 py-0.5 rounded bg-[#201C18] border border-[#453C33] text-[#F7F4EE] text-[11px] font-bold hover:bg-[#28231E]" data-size="16px">A</button>
+
+            <button class="font-size-btn px-2 py-0.5 rounded bg-[#201C18] border border-[#453C33] text-[#F7F4EE] text-[11px] font-bold hover:bg-[#28231E]" data-size="18px">A+</button>
+
+          </span>
+
+          <button id="highContrastBtn" class="text-[#E2A97B] hover:text-[#F7F4EE] cursor-pointer">● উচ্চ বৈসাদৃশ্য মোড</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- ========================================================================= -->
+
+  <!-- MODALS -->
+
+  <!-- ========================================================================= -->
+
+
+
+  <!-- Modal: Citizen Portal / Saved Drafts -->
+
+  <div id="modalPortal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-backdrop">
+
+    <div class="bg-[#1A1714] border border-[#453C33] rounded-2xl w-full max-w-md max-h-[90vh] overflow-y-auto shadow-2xl p-6 sm:p-8 space-y-5">
+
+      <div class="flex items-center justify-between pb-3 border-b border-[#453C33]">
+
+        <div class="flex items-center gap-2.5">
+
+          <div class="w-9 h-9 rounded-xl bg-[#C98A5B] text-[#141210] flex items-center justify-center font-bold">
+
+            <span class="material-symbols-outlined text-xl">folder_shared</span>
+
+          </div>
+
+          <div>
+
+            <h3 class="text-lg font-headline font-bold text-[#F7F4EE]">সংরক্ষিত দরখাস্ত ও প্রোফাইল</h3>
+
+            <p class="text-xs text-[#A39788]">অফলাইন ও সার্ভার ড্রাফট ট্র্যাকিং</p>
+
+          </div>
+
+        </div>
+
+        <button class="close-modal-btn p-1 text-[#A39788] hover:text-white" data-modal="modalPortal">
+
+          <span class="material-symbols-outlined text-2xl">close</span>
+
+        </button>
+
+      </div>
+
+
+
+      <div class="space-y-3">
+
+        <div class="p-3 bg-[#201C18] border border-[#453C33] rounded-xl text-xs space-y-1.5">
+
+          <div class="flex justify-between items-center text-[#F7F4EE]">
+
+            <span class="font-bold">সেশন স্ট্যাটাস:</span>
+
+            <span class="text-[#59DE9B] font-semibold flex items-center gap-1">
+
+              <span class="w-1.5 h-1.5 rounded-full bg-[#59DE9B]"></span> সক্রিয়
+
+            </span>
+
+          </div>
+
+          <p class="text-[#A39788]">আপনার প্রস্তুতকৃত সকল খসড়া ব্রাউজারের লোকাল স্টোরেজ ও ব্যাকএন্ডে সংরক্ষিত হয়।</p>
+
+        </div>
+
+
+
+        <div class="space-y-2">
+
+          <span class="text-xs font-bold text-[#F7F4EE] block">সাম্প্রতিক দরখাস্তের তালিকা:</span>
+
+          <div id="savedDraftsList" class="space-y-2 max-h-48 overflow-y-auto">
+
+            <!-- Dynamically populated -->
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="pt-3 border-t border-[#453C33] flex justify-end">
+
+        <button class="close-modal-btn px-4 py-2 rounded-xl bg-[#201C18] border border-[#453C33] text-xs font-semibold hover:bg-[#28231E]" data-modal="modalPortal">
+
+          বন্ধ করুন
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- Modal: Helpline & Official Directory -->
+
+  <div id="modalOffices" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-backdrop">
+
+    <div class="bg-[#1A1714] border border-[#453C33] rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl p-6 sm:p-8 space-y-5">
+
+      <div class="flex items-center justify-between pb-3 border-b border-[#453C33]">
+
+        <div class="flex items-center gap-2.5">
+
+          <div class="w-9 h-9 rounded-xl bg-[#C98A5B]/20 text-[#E2A97B] flex items-center justify-center">
+
+            <span class="material-symbols-outlined text-xl">contact_phone</span>
+
+          </div>
+
+          <div>
+
+            <h3 class="text-lg font-headline font-bold text-[#F7F4EE]">পশ্চিমবঙ্গ প্রশাসনিক হেল্পলাইন ও অফিস ডিরেক্টরি</h3>
+
+            <p class="text-xs text-[#A39788]">BDO, SDO ও জেলা গ্রিভেন্স সেল সংযোগ</p>
+
+          </div>
+
+        </div>
+
+        <button class="close-modal-btn p-1 text-[#A39788] hover:text-white" data-modal="modalOffices">
+
+          <span class="material-symbols-outlined text-2xl">close</span>
+
+        </button>
+
+      </div>
+
+
+
+      <div id="officesDirectoryList" class="space-y-3 text-xs">
+
+        <!-- Loaded dynamically from backend /api/grievances/offices/ or local directory -->
+
+      </div>
+
+
+
+      <div class="pt-3 border-t border-[#453C33] flex justify-end">
+
+        <button class="close-modal-btn px-5 py-2 rounded-xl bg-[#C98A5B] text-[#141210] font-bold text-xs hover:bg-[#B87B4C]" data-modal="modalOffices">
+
+          ঠিক আছে
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- ========================================================================= -->
+
+  <!-- JAVASCRIPT: Real-time Preview + Robust Backend API Integration -->
+
+  <!-- ========================================================================= -->
+
+  <script>
+
+    // Configuration & API Endpoints
+
+    const API_BASE = window.location.origin.includes('8000') 
+
+      ? '/api' 
+
+      : 'http://127.0.0.1:8000/api';
+
+
+
+    let isBackendConnected = false;
+
+    let currentDraftId = null;
+
+
+
+    // Toast Notification Utility
+
+    function showToast(message, icon = 'check_circle') {
+
+      const toast = document.getElementById('toastMessage');
+
+      const toastText = document.getElementById('toastText');
+
+      const toastIcon = document.getElementById('toastIcon');
+
+      if (!toast || !toastText) return;
+
+
+
+      toastText.innerText = message;
+
+      if (toastIcon) toastIcon.innerText = icon;
+
+      toast.classList.remove('hidden');
+
+
+
+      setTimeout(() => {
+
+        toast.classList.add('hidden');
+
+      }, 4000);
+
+    }
+
+
+
+    function hideToast() {
+
+      const toast = document.getElementById('toastMessage');
+
+      if (toast) toast.classList.add('hidden');
+
+    }
+
+
+
+    // Modal Control Functions
+
+    function openModal(id) {
+
+      const el = document.getElementById(id);
+
+      if (el) {
+
+        el.classList.remove('hidden');
+
+        document.body.style.overflow = 'hidden';
+
+      }
+
+    }
+
+
+
+    function closeModal(id) {
+
+      const el = document.getElementById(id);
+
+      if (el) {
+
+        el.classList.add('hidden');
+
+        document.body.style.overflow = '';
+
+      }
+
+    }
+
+
+
+    document.querySelectorAll('.close-modal-btn').forEach(btn => {
+
+      btn.addEventListener('click', function() {
+
+        const modal = this.getAttribute('data-modal');
+
+        if (modal) closeModal(modal);
+
+      });
+
+    });
+
+
+
+    document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
+
+      backdrop.addEventListener('click', function(e) {
+
+        if (e.target === this) {
+
+          // Prevent accidental dismissal while scrolling or clicking margins
+
+          const card = this.querySelector('div[class*="rounded-2xl"], div[class*="rounded-xl"]');
+
+          if (card) {
+
+            card.classList.add('ring-2', 'ring-[#C98A5B]');
+
+            setTimeout(() => card.classList.remove('ring-2', 'ring-[#C98A5B]'), 300);
+
+          }
+
+        }
+
+      });
+
+    });
+
+
+
+    window.addEventListener('keydown', (e) => {
+
+      if (e.key === 'Escape') {
+
+        document.querySelectorAll('.modal-backdrop').forEach(m => m.classList.add('hidden'));
+
+        document.body.style.overflow = '';
+
+      }
+
+    });
+
+
+
+    // =========================================================================
+
+    // BACKEND CONNECTION HEALTH & SCHEMES PREFETCH
+
+    // =========================================================================
+
+    async function checkBackendConnection() {
+
+      const pill = document.getElementById('apiStatusPill');
+
+      const text = document.getElementById('apiStatusText');
+
+      
+
+      try {
+
+        const res = await fetch(`${API_BASE}/health/`, { method: 'GET', headers: { 'Accept': 'application/json' } });
+
+        if (res.ok) {
+
+          isBackendConnected = true;
+
+          pill.className = 'inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#1B3B2B] border border-[#59DE9B]/40 text-[11px] text-[#59DE9B] font-semibold';
+
+          text.innerText = 'API সার্ভার সংযুক্ত (Live Sync)';
+
+          fetchActiveSchemes();
+
+          fetchOfficeDirectory();
+
+          return;
+
+        }
+
+      } catch (err) {
+
+        // Backend not listening on 8000
+
+      }
+
+
+
+      // Offline / Client Mode
+
+      isBackendConnected = false;
+
+      pill.className = 'inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#201C18] border border-[#453C33] text-[11px] text-[#F2CBA5] font-semibold';
+
+      text.innerText = 'লোকাল ড্রাফটার সক্রিয় (Offline Ready)';
+
+    }
+
+
+
+    // Fetch Active Schemes dynamically from /api/schemes/
+
+    async function fetchActiveSchemes() {
+
+      try {
+
+        const res = await fetch(`${API_BASE}/schemes/`);
+
+        if (!res.ok) return;
+
+        const schemes = await res.json();
+
+        
+
+        if (Array.isArray(schemes) && schemes.length > 0) {
+
+          const select = document.getElementById('schemeInput');
+
+          const currentVal = select.value;
+
+          select.innerHTML = '';
+
+          
+
+          schemes.forEach(sc => {
+
+            const opt = document.createElement('option');
+
+            opt.value = `${sc.name_bn} (${sc.name_en})`;
+
+            opt.innerText = `${sc.name_bn} (${sc.name_en})`;
+
+            if (sc.name_bn.includes('লক্ষ্মী') || currentVal.includes(sc.name_bn)) {
+
+              opt.selected = true;
+
+            }
+
+            select.appendChild(opt);
+
+          });
+
+
+
+          const badge = document.getElementById('schemesLoadedBadge');
+
+          if (badge) badge.innerText = `${schemes.length}টি সক্রিয় প্রকল্প সিঙ্কড ✓`;
+
+        }
+
+      } catch (e) {
+
+        console.log('Using standard scheme fallback list.');
+
+      }
+
+    }
+
+
+
+    // Fetch Administrative Directory from /api/grievances/offices/
+
+    async function fetchOfficeDirectory(district = '') {
+
+      const container = document.getElementById('officesDirectoryList');
+
+      if (!container) return;
+
+
+
+      try {
+
+        const url = district ? `${API_BASE}/grievances/offices/?district=${encodeURIComponent(district)}` : `${API_BASE}/grievances/offices/`;
+
+        const res = await fetch(url);
+
+        if (res.ok) {
+
+          const offices = await res.json();
+
+          if (Array.isArray(offices) && offices.length > 0) {
+
+            container.innerHTML = offices.map(o => `
+
+              <div class="p-3 bg-[#201C18] border border-[#453C33] rounded-xl flex items-start justify-between gap-3">
+
+                <div class="space-y-1">
+
+                  <div class="font-bold text-[#F7F4EE] text-sm">${o.designation}</div>
+
+                  <div class="text-[#DDD5C7]">${o.address}</div>
+
+                  <div class="text-[11px] text-[#A39788]">জেলা: ${o.district} • ফোন: ${o.phone || '১৮০০-৩৪৫-৫৫৮৮'}</div>
+
+                </div>
+
+                <span class="px-2 py-0.5 rounded bg-[#C98A5B]/20 text-[#F2CBA5] border border-[#C98A5B]/40 text-[10px] font-bold shrink-0">
+
+                  ${o.office_type.toUpperCase()}
+
+                </span>
+
+              </div>
+
+            `).join('');
+
+            return;
+
+          }
+
+        }
+
+      } catch (err) {}
+
+
+
+      // Fallback local directory
+
+      container.innerHTML = `
+
+        <div class="p-3 bg-[#201C18] border border-[#453C33] rounded-xl space-y-1">
+
+          <div class="font-bold text-[#F7F4EE] text-sm">সমষ্টি উন্নয়ন আধিকারিক (BDO) - কালনা-১ ব্লক</div>
+
+          <div class="text-[#DDD5C7]">কালনা বিডিও অফিস ক্যাম্পাস, পূর্ব বর্ধমান, পশ্চিমবঙ্গ - ৭১৩৪২২</div>
+
+          <div class="text-[11px] text-[#A39788]">ফোন: ০৩৪৫৪-২৫৫২১১ • ইমেইল: bdo.kalna1@wb.gov.in</div>
+
+        </div>
+
+        <div class="p-3 bg-[#201C18] border border-[#453C33] rounded-xl space-y-1">
+
+          <div class="font-bold text-[#F7F4EE] text-sm">মহকুমা শাসক কার্যালয় (SDO Office) - কালনা</div>
+
+          <div class="text-[#DDD5C7]">কালনা কোর্ট চত্বর, পূর্ব বর্ধমান, পশ্চিমবঙ্গ - ৭১৩৪২২</div>
+
+          <div class="text-[11px] text-[#A39788]">ফোন: ০৩৪৫৪-২৫৫২৩০ • দুয়ারে সরকার নোডাল সেল</div>
+
+        </div>
+
+        <div class="p-3 bg-[#201C18] border border-[#453C33] rounded-xl space-y-1">
+
+          <div class="font-bold text-[#F7F4EE] text-sm">মুখ্যমন্ত্রী গ্রিভেন্স সেল (Didi ke Bolo)</div>
+
+          <div class="text-[#DDD5C7]">নবান্ন, হাওড়া - টোল ফ্রি কন্ট্রোল রুম</div>
+
+          <div class="text-[11px] text-[#A39788]">টোল ফ্রি: ১৮০০-৩৪৫-৫৫৮৮ / ৯১৩৭০৯১৩৭০</div>
+
+        </div>
+
+      `;
+
+    }
+
+
+
+    // =========================================================================
+
+    // FORM SUBMIT & PREVIEW LOGIC
+
+    // =========================================================================
+
+    function getFormData() {
+
+      const applicantName = document.getElementById('applicantName').value.trim() || 'আবেদনকারী';
+
+      const guardianName = document.getElementById('guardianName').value.trim() || 'অভিভাবক';
+
+      const address = document.getElementById('addressInput').value.trim() || 'পশ্চিমবঙ্গ';
+
+      const phone = document.getElementById('phoneInput').value.trim() || 'N/A';
+
+      const ack = document.getElementById('ackInput').value.trim() || 'N/A';
+
+      const appDate = document.getElementById('appDateInput').value.trim() || '১৫/১১/২০২৩';
+
+      const district = document.getElementById('districtInput').value;
+
+      const block = document.getElementById('blockInput').value;
+
+      const recipient = document.getElementById('recipientInput').value;
+
+      const scheme = document.getElementById('schemeInput').value;
+
+
+
+      const issueRadio = document.querySelector('input[name="issueType"]:checked');
+
+      const issue = issueRadio ? issueRadio.value : 'dbt_fail';
+
+      
+
+      const langRadio = document.querySelector('input[name="letterLang"]:checked');
+
+      const lang = langRadio ? langRadio.value : 'bn';
+
+
+
+      return {
+
+        applicantName,
+
+        guardianName,
+
+        address,
+
+        phone,
+
+        ack,
+
+        appDate,
+
+        district,
+
+        block,
+
+        recipient,
+
+        scheme,
+
+        issue,
+
+        lang
+
+      };
+
+    }
+
+
+
+    // Dynamic Reactive Local Preview
+
+    function updatePreview() {
+
+      const data = getFormData();
+      const lang = data.lang || 'bn';
+
+      // Update Applicant Name and details
+      const pName = document.getElementById('previewName');
+      if (pName) pName.innerText = data.applicantName;
+      const pSig = document.getElementById('previewSigName');
+      if (pSig) pSig.innerText = data.applicantName;
+      const pGuard = document.getElementById('previewGuardian');
+      if (pGuard) pGuard.innerText = data.guardianName;
+      const pAddr = document.getElementById('previewAddress');
+      if (pAddr) pAddr.innerText = data.address;
+      const pPhone = document.getElementById('previewPhone');
+      if (pPhone) pPhone.innerText = data.phone;
+      const pAck = document.getElementById('previewAck');
+      if (pAck) pAck.innerText = data.ack;
+      const pRec = document.getElementById('previewRecipient');
+      if (pRec) pRec.innerText = data.recipient;
+      const pSch = document.getElementById('previewScheme');
+      if (pSch) pSch.innerText = data.scheme;
+
+      // Labels and Ribbons
+      const ribbon = document.getElementById('previewHeaderRibbon');
+      const dateLbl = document.getElementById('previewDateLabel');
+      const placeLbl = document.getElementById('previewPlaceLabel');
+      const toLbl = document.getElementById('previewToLabel');
+      const subLbl = document.getElementById('previewSubjLabel');
+      const salut = document.getElementById('previewSalutation');
+      const offAddr = document.getElementById('previewOfficeAddress');
+      const distLine = document.getElementById('previewDistrictLine');
+      const body1 = document.getElementById('previewBody1');
+      const dynamicBody = document.getElementById('previewBodyDynamic');
+      const subjectEl = document.getElementById('previewSubject');
+      const conclusion = document.getElementById('previewConclusion');
+      const attachTitle = document.getElementById('previewAttachTitle');
+      const attachList = document.getElementById('previewAttachList');
+      const signGreeting = document.getElementById('previewSignGreeting');
+      const signLabel = document.getElementById('previewSignLabel');
+
+      if (lang === 'hi') {
+        if (ribbon) ribbon.innerText = 'पश्चिम बंगाल प्रशासनिक नागरिक आवेदन • आधिकारिक प्रारूप';
+        if (dateLbl) dateLbl.innerText = 'दिनांक:';
+        if (placeLbl) placeLbl.innerText = 'स्थान:';
+        if (toLbl) toLbl.innerText = 'सेवा में,';
+        if (subLbl) subLbl.innerText = 'विषय:';
+        if (salut) salut.innerText = 'आदरणीय महोदय / महोदया,';
+        if (offAddr) offAddr.innerText = data.block + ' प्रखंड विकास कार्यालय,';
+        if (distLine) distLine.innerText = data.district + ' जिला, पश्चिम बंगाल।';
+        if (signGreeting) signGreeting.innerText = 'भवदीय / भवदीया,';
+        if (signLabel) signLabel.innerText = '(आवेदक के हस्ताक्षर)';
+
+        if (body1) {
+          body1.innerHTML = `सविनय निवेदन है कि मैं <strong>${data.applicantName}</strong>, पिता/पति: <strong>${data.guardianName}</strong>, <strong>${data.address}</strong> का/की स्थायी निवासी हूँ। मैंने आपके प्रखंड के अंतर्गत दुआरे सरकार शिविर में सरकार की जनकल्याणकारी <strong>${data.scheme}</strong> योजना के तहत लाभ प्राप्ति हेतु आवश्यक दस्तावेज़ों सहित आवेदन जमा किया था (आवेदन पावती संदर्भ संख्या: <span class="font-mono font-bold bg-stone-100 border border-stone-300 px-1.5 py-0.5 rounded text-stone-900">${data.ack}</span>)।`;
+        }
+
+        if (data.issue === 'dbt_fail') {
+          if (subjectEl) subjectEl.innerText = `${data.scheme} योजना (Ref: ${data.ack}) के तहत बैंक DBT/NPCI समस्या के कारण खाते में सहायता राशि न आने के संबंध में आवेदन।`;
+          if (dynamicBody) dynamicBody.innerHTML = `
+            <p class="leading-relaxed">
+              उक्त आवेदन के संदर्भ में पोर्टल पर स्वीकृति मिलने के उपरांत भी विगत कई महीनों से मेरे बैंक खाते में योजना की किस्त जमा नहीं हुई है। बैंक में संपर्क करने पर ज्ञात हुआ कि आधार डीबीटी एवं NPCI मैपिंग में तकनीकी त्रुटि के कारण सरकारी ट्रेजरी से भेजी गई राशि अस्वीकृत (Payment Failed) हो गई है।
+            </p>
+            <p class="leading-relaxed">
+              वर्तमान में मैंने अपने एकल बैंक खाते (Single Account) में नया आधार सीडिंग एवं NPCI अधिदेश सफलतापूर्वक सक्रिय करा लिया है और बैंक प्रबंधक से सत्यापन पर्ची भी प्राप्त कर ली है।
+            </p>
+          `;
+        } else if (data.issue === 'rejection') {
+          if (subjectEl) subjectEl.innerText = `${data.scheme} योजना (Ref: ${data.ack}) के आवेदन को बिना किसी स्पष्ट कारण के निरस्त (Reject) किए जाने के विरुद्ध पुनर्विचार प्रार्थना।`;
+          if (dynamicBody) dynamicBody.innerHTML = `
+            <p class="leading-relaxed">
+              अत्यंत खेद के साथ सूचित करना पड़ रहा है कि पोर्टल पर स्टेटस जांच करने पर मेरा आवेदन पत्र बिना किसी वैध कारण के अस्वीकृत दिखाया जा रहा है। मेरे सभी आवश्यक दस्तावेज़ (आधार, वोटर, बैंक पासबुक एवं परिवार विवरण) वैध और नियमानुसार पूर्ण हैं।
+            </p>
+            <p class="leading-relaxed">
+              सरकारी दिशानिर्देशों के अनुसार मैं इस योजना का पूर्ण रूप से पात्र नागरिक हूँ। अतः अस्वीकृति के कारणों की पुनः जांच कर पोर्टल में सुधार करने का कष्ट करें।
+            </p>
+          `;
+        } else {
+          if (subjectEl) subjectEl.innerText = `${data.scheme} योजना (Ref: ${data.ack}) के आवेदन की स्वीकृति में अत्यधिक विलंब एवं त्वरित समाधान हेतु आवेदन।`;
+          if (dynamicBody) dynamicBody.innerHTML = `
+            <p class="leading-relaxed">
+              मैंने काफी समय पूर्व (${data.appDate}) शिविर में संपूर्ण दस्तावेजों के साथ आवेदन जमा किया था। परंतु लंबा समय बीत जाने के बावजूद पोर्टल पर आवेदन अभी भी 'Pending at Block Level' दिख रहा है।
+            </p>
+            <p class="leading-relaxed">
+              आर्थिक स्थिति को ध्यान में रखते हुए यह सरकारी सहायता मेरे परिवार के लिए अत्यंत आवश्यक है। कृपया फाइल का त्वरित भौतिक सत्यापन कर अंतिम स्वीकृति प्रदान करें।
+            </p>
+          `;
+        }
+
+        if (conclusion) {
+          conclusion.innerText = 'अतः आपसे विनम्र प्रार्थना है कि कृपया मेरे उपर्युक्त आवेदन पत्र एवं संलग्न दस्तावेज़ों की पुनः जांच कर सरकारी पोर्टल पर सहायता राशि जारी करने का प्रशासनिक आदेश प्रदान करने की कृपा करें।';
+        }
+
+        if (attachTitle) attachTitle.innerText = 'संलग्नक (Documents Attached):';
+        if (attachList) {
+          attachList.innerHTML = `
+            <li>आवेदक के आधार कार्ड की स्व-सत्यापित छायाप्रति (Self-attested Aadhaar Xerox)।</li>
+            <li>संबंधित एकल बैंक खाते की पासबुक के प्रथम पृष्ठ की स्पष्ट छायाप्रति।</li>
+            <li>बैंक शाखा द्वारा प्रदत्त सक्रिय NPCI / Aadhaar DBT लिंक स्टेटस पर्ची।</li>
+            <li>दुआरे सरकार शिविर की मूल पावती रसीद की छायाप्रति (Acknowledgement Slip)।</li>
+          `;
+        }
+
+      } else if (lang === 'en') {
+        if (ribbon) ribbon.innerText = 'GOVERNMENT OF WEST BENGAL • OFFICIAL CITIZEN REPRESENTATION FORMAT';
+        if (dateLbl) dateLbl.innerText = 'Date:';
+        if (placeLbl) placeLbl.innerText = 'Place:';
+        if (toLbl) toLbl.innerText = 'To,';
+        if (subLbl) subLbl.innerText = 'Subject:';
+        if (salut) salut.innerText = 'Respected Sir/Madam,';
+        if (offAddr) offAddr.innerText = data.block + ' Block Development Office,';
+        if (distLine) distLine.innerText = data.district + ' District, West Bengal.';
+        if (signGreeting) signGreeting.innerText = 'Yours faithfully,';
+        if (signLabel) signLabel.innerText = '(Applicant Signature)';
+
+        if (body1) {
+          body1.innerHTML = `With due respect, I, <strong>${data.applicantName}</strong>, S/o or W/o: <strong>${data.guardianName}</strong>, permanent resident of <strong>${data.address}</strong>, would like to bring to your kind notice that I duly submitted my application for the <strong>${data.scheme}</strong> welfare scheme with all required credentials at the administrative camp (Application Ref: <span class="font-mono font-bold bg-stone-100 border border-stone-300 px-1.5 py-0.5 rounded text-stone-900">${data.ack}</span>).`;
+        }
+
+        if (data.issue === 'dbt_fail') {
+          if (subjectEl) subjectEl.innerText = `Representation regarding DBT Payment Failure / Non-Credit of installment under ${data.scheme} (Ref: ${data.ack}).`;
+          if (dynamicBody) dynamicBody.innerHTML = `
+            <p class="leading-relaxed">
+              Despite successful registration and sanction on the official portal, government assistance has not been credited to my bank account for several cycles. Upon inquiry with bank officials, it was identified that technical mismatch in central NPCI mapping and Aadhaar DBT seeding caused payment rejection.
+            </p>
+            <p class="leading-relaxed">
+              I have subsequently re-seeded my active single savings bank account with NPCI mandate and obtained verified bank validation slip.
+            </p>
+          `;
+        } else if (data.issue === 'rejection') {
+          if (subjectEl) subjectEl.innerText = `Prayer for reconsideration against arbitrary rejection of application under ${data.scheme} (Ref: ${data.ack}).`;
+          if (dynamicBody) dynamicBody.innerHTML = `
+            <p class="leading-relaxed">
+              I regret to submit that upon verifying my status on the government portal, my valid application is displayed as rejected without assigning any specific reason. All my documents (Aadhaar, Voter ID, and Bank Passbook) are authentic and duly compliant.
+            </p>
+            <p class="leading-relaxed">
+              I satisfy all eligibility criteria prescribed under official state government guidelines. I earnestly pray for an administrative review to rectify portal records.
+            </p>
+          `;
+        } else {
+          if (subjectEl) subjectEl.innerText = `Prayer for expeditious processing and clearance of pending application under ${data.scheme} (Ref: ${data.ack}).`;
+          if (dynamicBody) dynamicBody.innerHTML = `
+            <p class="leading-relaxed">
+              I submitted my complete application on ${data.appDate} with all supporting records. However, despite significant lapse of time, the application continues to be marked 'Pending at Block Level'.
+            </p>
+            <p class="leading-relaxed">
+              Given our current financial hardship, timely receipt of this government welfare benefit is critical for our livelihood.
+            </p>
+          `;
+        }
+
+        if (conclusion) {
+          conclusion.innerText = 'Therefore, I earnestly pray that your good office kindly re-verifies my application along with attached records and issues necessary administrative sanction to release the benefit at the earliest.';
+        }
+
+        if (attachTitle) attachTitle.innerText = 'Enclosures (Documents Attached):';
+        if (attachList) {
+          attachList.innerHTML = `
+            <li>Self-attested photocopy of Applicant's Aadhaar Card.</li>
+            <li>Clear photocopy of Bank Passbook front page (showing Single A/C details).</li>
+            <li>Bank-certified active NPCI / Aadhaar DBT mapping status slip.</li>
+            <li>Photocopy of official Duare Sarkar Acknowledgement Slip.</li>
+          `;
+        }
+
+      } else {
+        // Bengali (Standard)
+        if (ribbon) ribbon.innerText = 'পশ্চিমবঙ্গ প্রশাসনিক আনুষ্ঠানিক আবেদন • অফিশিয়াল ফরম্যাট';
+        if (dateLbl) dateLbl.innerText = 'তারিখ:';
+        if (placeLbl) placeLbl.innerText = 'স্থান:';
+        if (toLbl) toLbl.innerText = 'প্রতি,';
+        if (subLbl) subLbl.innerText = 'বিষয়:';
+        if (salut) salut.innerText = 'মহাশয়,';
+        if (offAddr) offAddr.innerText = data.block + ' সমষ্টি উন্নয়ন ব্লক কার্যালয়,';
+        if (distLine) distLine.innerText = data.district + ' জেলা, পশ্চিমবঙ্গ।';
+        if (signGreeting) signGreeting.innerText = 'বিনীত,';
+        if (signLabel) signLabel.innerText = '(আবেদনকারীর স্বাক্ষর)';
+
+        if (body1) {
+          body1.innerHTML = `বিনীত নিবেদন এই যে, আমি <strong class="font-bold text-stone-950">${data.applicantName}</strong>, স্বামী/অভিভাবক: <strong class="font-bold text-stone-950">${data.guardianName}</strong>, <strong class="font-bold text-stone-950">${data.address}</strong>-এর স্থায়ী বাসিন্দা। আমি আপনার ব্লকের অন্তর্গত দুয়ারে সরকার শিবিরে সরকারের জনকল্যাণমূলক <strong class="font-bold text-[#B87B4C]">${data.scheme}</strong> প্রকল্পের অন্তর্ভুক্তির নিমিত্ত প্রয়োজনীয় নথিপত্রসহ আবেদনপত্র জমা দিয়েছিলাম (আবেদন স্বীকৃতি নম্বর: <span class="font-mono font-bold bg-stone-100 border border-stone-300 px-1.5 py-0.5 rounded text-stone-900">${data.ack}</span>)।`;
+        }
+
+        if (data.issue === 'dbt_fail') {
+          if (subjectEl) subjectEl.innerText = `${data.scheme} প্রকল্পের আবেদন (Ref: ${data.ack}) মঞ্জুর হওয়া সত্ত্বেও ব্যাঙ্ক DBT সমস্যাজনিত কারণে অর্থ অ্যাকাউন্টে জমা না হওয়ার প্রতিকার প্রার্থনা।`;
+          if (dynamicBody) dynamicBody.innerHTML = `
+            <p class="leading-relaxed">
+              উক্ত আবেদনের প্রেক্ষিতে সরকারি তথ্যভাণ্ডারে আমার নাম নথিভুক্ত হওয়া সত্ত্বেও বিগত কয়েকমাস ধরে আমার নির্দিষ্ট ব্যাঙ্ক অ্যাকাউন্টে কোনো ভাতা জমা হচ্ছে না। ব্যাঙ্ক কর্তৃপক্ষের সাথে অনুসন্ধান করিয়া জানা যায় যে, সেন্ট্রাল NPCI ম্যাপিং ও আধার এনেবল্ড পেমেন্ট সিস্টেমে (Aadhaar DBT Link) প্রযুক্তিগত ত্রুটির কারণে সরকারি ট্রেজারি থেকে প্রেরিত কিস্তির টাকা প্রত্যাখ্যাত (Payment Failed) হইতেছে।
+            </p>
+            <p class="leading-relaxed">
+              ইতিমধ্যে আমি আমার নিজস্ব একক ব্যাঙ্ক অ্যাকাউন্টে (Single Account) নতুন করিয়া আধার সিডিং ও NPCI ম্যান্ডেট সফলভাবে সম্পূর্ণ করিয়াছি এবং ব্যাঙ্ক ম্যানেজার কর্তৃক স্বাক্ষরিত ভ্যালিডেশন স্লিপ সংগ্রহ করিয়াছি।
+            </p>
+          `;
+        } else if (data.issue === 'rejection') {
+          if (subjectEl) subjectEl.innerText = `${data.scheme} প্রকল্পে জমা দেওয়া আবেদন (Ref: ${data.ack}) কোনো কারণ দর্শানো ব্যতীত বাতিলের (Rejection) বিরুদ্ধে পুনর্বিবেচনার আবেদন।`;
+          if (dynamicBody) dynamicBody.innerHTML = `
+            <p class="leading-relaxed">
+              অত্যন্ত পরিতাপের সাথে জানাচ্ছি যে, পোর্টালে স্ট্যাটাস যাচাইকালে দেখতে পাই আমার আবেদনপত্রটি কোনো সুস্পষ্ট কারণ ব্যতীত বাতিল হিসেবে দেখানো হচ্ছে। আমার সমস্ত কাগজপত্র (আধার, ভোটার, ব্যাঙ্ক বই ও পারিবারিক বিবরণ) নিয়মমাফিক ও বৈধ।
+            </p>
+            <p class="leading-relaxed">
+              সরকারি গাইডলাইন অনুযায়ী আমি এই সুবিধার সম্পূর্ণ যোগ্য দাবিদার। উক্ত বাতিলের কারণ খতিয়ে দেখে পোর্টালের ভুল সংশোধনপূর্বক পুনঃবিবেচনা করার জন্য অনুরোধ জানাচ্ছি।
+            </p>
+          `;
+        } else {
+          if (subjectEl) subjectEl.innerText = `${data.scheme} প্রকল্পে দুয়ারে সরকারে জমা দেওয়া আবেদনের (Ref: ${data.ack}) দীর্ঘসূত্রিতা ও দ্রুত নিষ্পত্তির আবেদন।`;
+          if (dynamicBody) dynamicBody.innerHTML = `
+            <p class="leading-relaxed">
+              আমি বিগত ৬ মাসের অধিক সময় পূর্বে (${data.appDate}) শিবিরে সম্পূর্ণ নথি সহ আবেদন জমা দিয়েছিলাম। কিন্তু দীর্ঘ সময় অতিবাহিত হওয়া সত্ত্বেও পোর্টালে আবেদনটি এখনও 'Pending at Block Level' হিসেবে প্রদর্শিত হচ্ছে।
+            </p>
+            <p class="leading-relaxed">
+              আমার পরিবারের বর্তমান আর্থিক দুরবস্থার কারণে সরকারি সহায়তাটি অত্যন্ত জরুরি। অতএব ফাইলটি দ্রুত যাচাই করে চূড়ান্ত অনুমোদনের জন্য আপনার সদয় নির্দেশ প্রার্থনা করছি।
+            </p>
+          `;
+        }
+
+        if (conclusion) {
+          conclusion.innerText = 'অতএব মহাশয়ের নিকট সনির্বন্ধ প্রার্থনা, অনুগ্রহপূর্বক আমার উপরিউক্ত আবেদনপত্র ও সংযুক্ত ব্যাঙ্ক নথিসমূহ পুনঃযাচাই করিয়া পোর্টালে ব্যাঙ্ক DBT ডেটা পুনরায় সচল (Re-trigger Disbursement) করার যথাযথ প্রশাসনিক আদেশ জারি করিতে আপনার সদয় মর্জি হয়।';
+        }
+
+        if (attachTitle) attachTitle.innerText = 'সংযোজনীসমূহ (Documents Attached):';
+        if (attachList) {
+          attachList.innerHTML = `
+            <li>আবেদনকারীর আধার কার্ডের স্ব-প্রত্যয়িত প্রতিলিপি (Self-attested Aadhaar Xerox)।</li>
+            <li>সংশ্লিষ্ট একক ব্যাঙ্ক অ্যাকাউন্টের পাসবইয়ের প্রথম পাতার স্পষ্ট প্রতিলিপি (Bank Passbook Copy)।</li>
+            <li>ব্যাঙ্ক কর্তৃপক্ষ কর্তৃক প্রদত্ত সক্রিয় NPCI / Aadhaar DBT লিঙ্ক স্ট্যাটাস স্লিপ।</li>
+            <li>দুয়ারে সরকার শিবিরের মূল প্রাপ্তিস্বীকার পত্রের প্রতিলিপি (Duare Sarkar Acknowledgement)।</li>
+          `;
+        }
+      }
+
+
+      // Smooth visual ripple on legal preview
+
+      const previewBox = document.getElementById('printContainer');
+
+      previewBox.classList.add('ring-4', 'ring-[#C98A5B]', 'transition-all');
+
+      setTimeout(() => {
+
+        previewBox.classList.remove('ring-4', 'ring-[#C98A5B]');
+
+      }, 350);
+
+    }
+
+
+
+    // Handle Form Submit: Updates UI and attempts Backend Post
+
+    async function handleFormSubmit() {
+
+      const btn = document.getElementById('generateBtn');
+
+      const btnText = document.getElementById('generateBtnText');
+
+      const spinner = document.getElementById('generateSpinner');
+
+      const data = getFormData();
+      const lang = data.lang || 'bn';
+
+      btn.disabled = true;
+
+      spinner.classList.add('animate-spin');
+
+      btnText.innerText = lang === 'en' ? 'Preparing Draft Letter...' : (lang === 'hi' ? 'आवेदन तैयार किया जा रहा है...' : 'ড্রাফট প্রস্তুত করা হচ্ছে...');
+
+
+
+      updatePreview();
+
+      await saveDraftToBackend(false);
+
+
+
+      const previewBox = document.getElementById('printContainer');
+
+      if (previewBox) {
+
+        previewBox.classList.add('ring-4', 'ring-[#C98A5B]');
+
+        previewBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      }
+
+
+
+      setTimeout(() => {
+
+        btn.disabled = false;
+
+        spinner.classList.remove('animate-spin');
+
+        btnText.innerText = lang === 'en' ? 'Update / Regenerate Draft' : (lang === 'hi' ? 'आवेदन अपडेट करें (Regenerate)' : 'দরখাস্ত আপডেট করুন (Generate/Refresh Draft)');
+
+        const successMsg = lang === 'en' 
+          ? 'Official Letter generated and ready to print below!' 
+          : (lang === 'hi' 
+            ? 'आधिकारिक आवेदन तैयार हो गया है और नीचे उपलब्ध है!' 
+            : 'দরখাস্ত সফলভাবে প্রস্তুত করা হয়েছে এবং নিচে স্থায়ীভাবে দৃশ্যমান!');
+
+        showToast(successMsg, 'verified');
+
+      }, 400);
+
+    }
+
+
+
+    // Backend API Sync: POST /api/grievances/generate/
+
+    async function saveDraftToBackend(showExplicitToast = true) {
+
+      const data = getFormData();
+
+
+
+      const grievanceTypeMap = {
+
+        'dbt_fail': 'dbt_failure',
+
+        'rejection': 'rejection_review',
+
+        'delay': 'delay'
+
+      };
+
+
+
+      const payload = {
+
+        applicant_name: data.applicantName,
+
+        scheme_name: data.scheme,
+
+        contact_phone: data.phone,
+
+        residence_address: data.address,
+
+        application_ref_no: data.ack,
+
+        original_application_date: data.appDate,
+
+        grievance_type: grievanceTypeMap[data.issue] || 'delay',
+
+        addressed_to: `${data.recipient}, ${data.block}, ${data.district}`,
+
+        facts_statement: data.issue === 'dbt_fail' 
+
+          ? 'DBT ও NPCI সমস্যাজনিত কারণে সরকারি সহায়তা একাউন্টে পৌঁছায়নি।' 
+
+          : 'আবেদন দীর্ঘদিন ব্লক পর্যায়ে অপেক্ষমাণ বা অননুমোদিত রয়েছে।',
+
+        language: data.lang
+
+      };
+
+
+
+      // Always save to localStorage
+
+      saveDraftToLocalStorage(data);
+
+
+
+      try {
+
+        const res = await fetch(`${API_BASE}/grievances/generate/`, {
+
+          method: 'POST',
+
+          headers: {
+
+            'Content-Type': 'application/json',
+
+            'Accept': 'application/json'
+
+          },
+
+          body: JSON.stringify(payload)
+
+        });
+
+
+
+        if (res.ok) {
+
+          const respData = await res.json();
+
+          currentDraftId = respData.draft_id;
+
+          
+
+          const badge = document.getElementById('draftIdBadge');
+
+          if (badge) {
+
+            badge.innerText = `আইডি: #GR-${currentDraftId}`;
+
+            badge.classList.remove('hidden');
+
+          }
+
+
+
+          if (showExplicitToast) {
+
+            showToast(`দরখাস্ত ব্যাকএন্ড ডাটাবেসে সংরক্ষিত হয়েছে (আইডি: #GR-${currentDraftId})!`, 'cloud_done');
+
+          }
+
+          return;
+
+        }
+
+      } catch (err) {
+
+        // Backend offline
+
+      }
+
+
+
+      if (showExplicitToast) {
+
+        showToast('দরখাস্ত ব্রাউজারের সুরক্ষিত অফলাইন মেমরিতে সংরক্ষিত হয়েছে!', 'save');
+
+      }
+
+    }
+
+
+
+    function saveDraftToLocalStorage(data) {
+
+      const drafts = JSON.parse(localStorage.getItem('nyayasetu_drafts') || '[]');
+
+      const newDraft = {
+
+        id: 'LOC-' + Date.now().toString().slice(-4),
+
+        name: data.applicantName,
+
+        scheme: data.scheme,
+
+        date: new Date().toLocaleDateString('bn-IN'),
+
+        ack: data.ack
+
+      };
+
+      drafts.unshift(newDraft);
+
+      if (drafts.length > 10) drafts.pop();
+
+      localStorage.setItem('nyayasetu_drafts', JSON.stringify(drafts));
+
+      updateSavedDraftsModal();
+
+    }
+
+
+
+    function updateSavedDraftsModal() {
+
+      const list = document.getElementById('savedDraftsList');
+
+      if (!list) return;
+
+      const drafts = JSON.parse(localStorage.getItem('nyayasetu_drafts') || '[]');
+
+      
+
+      if (drafts.length === 0) {
+
+        list.innerHTML = `<div class="p-3 bg-[#201C18] border border-[#453C33] rounded-lg text-[#A39788] text-center">এখনো কোনো ড্রাফট সেভ করা হয়নি।</div>`;
+
+        return;
+
+      }
+
+
+
+      list.innerHTML = drafts.map(d => `
+
+        <div class="p-2.5 bg-[#201C18] border border-[#453C33] rounded-lg flex items-center justify-between text-xs">
+
+          <div>
+
+            <div class="font-bold text-[#F7F4EE]">${d.name} • ${d.scheme}</div>
+
+            <div class="text-[10px] text-[#A39788]">রেফারেন্স: ${d.ack} • তারিখ: ${d.date}</div>
+
+          </div>
+
+          <span class="px-2 py-0.5 rounded bg-[#C98A5B]/20 text-[#F2CBA5] border border-[#C98A5B]/40 text-[10px] font-mono font-bold">${d.id}</span>
+
+        </div>
+
+      `).join('');
+
+    }
+
+
+
+    // Toggle Language for Representation
+
+    function toggleLanguage(lang) {
+
+      const today = new Date();
+      const d = today.getDate();
+      const m = today.getMonth() + 1;
+      const y = today.getFullYear();
+
+      if (lang === 'en') {
+        const placeEl = document.getElementById('previewPlace');
+        if (placeEl) placeEl.innerText = 'District Office, West Bengal';
+        const dateEl = document.getElementById('previewDate');
+        if (dateEl) dateEl.innerText = `${d}/${m}/${y}`;
+      } else if (lang === 'hi') {
+        const placeEl = document.getElementById('previewPlace');
+        if (placeEl) placeEl.innerText = 'जिला कार्यालय, पश्चिम बंगाल';
+        const dateEl = document.getElementById('previewDate');
+        if (dateEl) dateEl.innerText = `${d}/${m}/${y}`;
+      } else {
+        const placeEl = document.getElementById('previewPlace');
+        if (placeEl) placeEl.innerText = 'কালনা, পূর্ব বর্ধমান';
+        const dateEl = document.getElementById('previewDate');
+        if (dateEl) dateEl.innerText = `${d}/${m}/${y}`;
+      }
+
+      updatePreview();
+
+    }
+
+
+
+    // Copy Draft Text to Clipboard
+
+    function copyDraftText() {
+
+      const paper = document.getElementById('printContainer');
+
+      const textToCopy = paper.innerText;
+
+      navigator.clipboard.writeText(textToCopy).then(() => {
+
+        showToast('দরখাস্ত সফলভাবে কপি করা হয়েছে! এখন যে কোনো জায়গায় পেস্ট করতে পারেন।');
+
+      });
+
+    }
+
+
+
+    // Citizen Portal Modal trigger
+
+    document.getElementById('openPortalBtn').addEventListener('click', () => {
+
+      updateSavedDraftsModal();
+
+      openModal('modalPortal');
+
+    });
+
+
+
+    // Helpline Modal triggers
+
+    document.getElementById('openOfficesNavBtn').addEventListener('click', (e) => {
+
+      e.preventDefault();
+
+      fetchOfficeDirectory();
+
+      openModal('modalOffices');
+
+    });
+
+
+
+    document.getElementById('openHelplineModalBtn').addEventListener('click', () => {
+
+      fetchOfficeDirectory();
+
+      openModal('modalOffices');
+
+    });
+
+
+
+    // Font Size Resizer
+
+    document.querySelectorAll('.font-size-btn').forEach(btn => {
+
+      btn.addEventListener('click', function() {
+
+        const size = this.getAttribute('data-size');
+
+        document.documentElement.style.fontSize = size;
+
+        showToast(`ফন্ট সাইজ পরিবর্তন করা হয়েছে (${size})`);
+
+      });
+
+    });
+
+
+
+    // High Contrast Mode Toggle
+
+    const highContrastBtn = document.getElementById('highContrastBtn');
+
+    let highContrastActive = false;
+
+    if (highContrastBtn) {
+
+      highContrastBtn.addEventListener('click', () => {
+
+        highContrastActive = !highContrastActive;
+
+        if (highContrastActive) {
+
+          document.body.classList.add('contrast-125');
+
+          document.querySelectorAll('.border-\\[\\#453C33\\]').forEach(el => el.classList.add('border-white'));
+
+          showToast('উচ্চ বৈসাদৃশ্য মোড সক্রিয়');
+
+        } else {
+
+          document.body.classList.remove('contrast-125');
+
+          document.querySelectorAll('.border-white').forEach(el => el.classList.remove('border-white'));
+
+          showToast('স্বাভাবিক মোড সক্রিয়');
+
+        }
+
+      });
+
+    }
+
+
+
+    // Header Language buttons
+
+    document.getElementById('langHeaderBn').addEventListener('click', () => {
+
+      document.querySelector('input[name="letterLang"][value="bn"]').checked = true;
+
+      toggleLanguage('bn');
+
+    });
+
+    document.getElementById('langHeaderEn').addEventListener('click', () => {
+
+      document.querySelector('input[name="letterLang"][value="en"]').checked = true;
+
+      toggleLanguage('en');
+
+    });
+
+    document.getElementById('langHeaderHi').addEventListener('click', () => {
+
+      showToast('हिन्दी भाषा समर्थन जल्द आ रहा है (Bengali/English available)');
+
+    });
+
+
+
+        // =========================================================================
+    // STRICT INPUT ENFORCEMENT & RESTRICTIONS (PHONE: NUMBERS ONLY, NAME: ALPHABETS ONLY)
+    // =========================================================================
+    function showInputFieldError(el, message) {
+      if (!el) return;
+      el.classList.add('ring-2', 'ring-red-500', 'border-red-500');
+      
+      let container = el.parentElement;
+      let existingMsg = container.querySelector('.field-restriction-hint');
+      if (!existingMsg) {
+        existingMsg = document.createElement('div');
+        existingMsg.className = 'field-restriction-hint text-[11px] text-amber-400 font-semibold mt-1 flex items-center gap-1 transition-all duration-200';
+        container.appendChild(existingMsg);
+      }
+      existingMsg.innerHTML = `<span class="material-symbols-outlined text-xs">info</span> <span>${message}</span>`;
+      existingMsg.style.opacity = '1';
+
+      clearTimeout(el._restrictTimer);
+      el._restrictTimer = setTimeout(() => {
+        el.classList.remove('ring-2', 'ring-red-500', 'border-red-500');
+        if (existingMsg) {
+          existingMsg.style.opacity = '0';
+          setTimeout(() => { if (existingMsg && existingMsg.parentNode) existingMsg.parentNode.removeChild(existingMsg); }, 250);
+        }
+      }, 2500);
+    }
+
+    function enforcePhoneNumberOnly(el) {
+      if (!el) return;
+
+      // Block non-numeric keystrokes
+      el.addEventListener('keydown', function(e) {
+        // Allow standard navigation and control keys
+        const allowedKeys = ['Backspace', 'Tab', 'Enter', 'Escape', 'Delete', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'];
+        if (allowedKeys.includes(e.key) || e.ctrlKey || e.metaKey) {
+          return;
+        }
+        // If not a digit 0-9, strictly block it
+        if (!/^[0-9]$/.test(e.key)) {
+          e.preventDefault();
+          showInputFieldError(el, 'মোবাইল নম্বরে শুধুমাত্র সংখ্যা (0-9) লিখুন, কোনো অক্ষর বা চিহ্ন নয়।');
+        }
+      });
+
+      // Real-time input sanitizer (covers copy-paste, virtual keyboard, drag & drop)
+      el.addEventListener('input', function() {
+        const original = this.value;
+        const cleaned = original.replace(/\D/g, '').slice(0, 10);
+        if (original !== cleaned) {
+          this.value = cleaned;
+          showInputFieldError(el, 'শুধুমাত্র ১০ সংখ্যার মোবাইল নম্বর গ্রহণযোগ্য (Numbers only)।');
+        }
+      });
+
+      // Paste filter
+      el.addEventListener('paste', function(e) {
+        e.preventDefault();
+        const clipboard = (e.clipboardData || window.clipboardData).getData('text');
+        const digitsOnly = clipboard.replace(/\D/g, '').slice(0, 10);
+        this.value = digitsOnly;
+        this.dispatchEvent(new Event('input'));
+      });
+    }
+
+    function enforceAlphabetsOnlyForName(el) {
+      if (!el) return;
+
+      // Block digits and special characters on keydown
+      el.addEventListener('keydown', function(e) {
+        const allowedKeys = ['Backspace', 'Tab', 'Enter', 'Escape', 'Delete', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'];
+        if (allowedKeys.includes(e.key) || e.ctrlKey || e.metaKey) {
+          return;
+        }
+
+        // Allow space if not at beginning and not double space
+        if (e.key === ' ') {
+          if (el.value.length === 0 || el.value.endsWith(' ')) {
+            e.preventDefault();
+          }
+          return;
+        }
+
+        // Block numbers and common special characters
+        if (/[0-9`~!@#\$%\^&\*\(\)_\+=\[\]\{\}\|;':",<\>\?\/\\\-]/.test(e.key)) {
+          e.preventDefault();
+          showInputFieldError(el, 'নামে কোনো সংখ্যা বা স্পেশাল ক্যারেক্টার গ্রহণযোগ্য নয়, শুধুমাত্র বর্ণমালা লিখুন।');
+        }
+      });
+
+      // Real-time input sanitizer (Permits English a-z, Bengali \u0980-\u09FF, Hindi \u0900-\u097F, and spaces)
+      el.addEventListener('input', function() {
+        const original = this.value;
+        let cleaned = original.replace(/[^a-zA-Z\s\u0980-\u09FF\u0900-\u097F]/g, '');
+        cleaned = cleaned.replace(/\s{2,}/g, ' '); // collapse double spaces
+        if (original !== cleaned) {
+          this.value = cleaned;
+          showInputFieldError(el, 'নামে কোনো সংখ্যা বা স্পেশাল ক্যারেক্টার গ্রহণযোগ্য নয় (Alphabets only)।');
+        }
+      });
+
+      // Paste filter
+      el.addEventListener('paste', function(e) {
+        e.preventDefault();
+        const clipboard = (e.clipboardData || window.clipboardData).getData('text');
+        let cleaned = clipboard.replace(/[^a-zA-Z\s\u0980-\u09FF\u0900-\u097F]/g, '').replace(/\s{2,}/g, ' ');
+        this.value = cleaned;
+        this.dispatchEvent(new Event('input'));
+      });
+    }
+
+    // Initialize restrictions on Grievance form fields
+    const applicantNameEl = document.getElementById('applicantName');
+    const guardianNameEl = document.getElementById('guardianName');
+    const phoneInputEl = document.getElementById('phoneInput');
+
+    if (applicantNameEl) enforceAlphabetsOnlyForName(applicantNameEl);
+    if (guardianNameEl) enforceAlphabetsOnlyForName(guardianNameEl);
+    if (phoneInputEl) enforcePhoneNumberOnly(phoneInputEl);
+
+    // Auto-update preview on any input change
+
+    ['applicantName', 'guardianName', 'addressInput', 'phoneInput', 'ackInput', 'appDateInput', 'districtInput', 'blockInput', 'recipientInput', 'schemeInput'].forEach(id => {
+
+      const el = document.getElementById(id);
+
+      if (el) {
+
+        el.addEventListener('input', updatePreview);
+
+        el.addEventListener('change', updatePreview);
+
+      }
+
+    });
+
+
+
+    document.querySelectorAll('input[name="issueType"]').forEach(radio => {
+
+      radio.addEventListener('change', updatePreview);
+
+    });
+
+
+
+    // Initial on page load
+
+    updatePreview();
+
+    checkBackendConnection();
+
+  </script>
+
+
+
+  <!-- NayaSetu AI WhatsApp Dark Theme Chatbot Assistant -->
+
+  <script src="/static/chatbot_widget.js"></script>
+
+  <script>
+
+    if (!window.NayaSetuChatbotLoaded) {
+
+      const s = document.createElement('script');
+
+      s.src = 'chatbot_widget.js';
+
+      document.body.appendChild(s);
+
+    }
+
+  </script>
+
+<script>
+
+    // =========================================================================
+
+    // FEATURE: LIGHT / DARK THEME SYSTEM
+
+    // =========================================================================
+
+    function updateThemeUI(currentLang) {
+
+      const isLight = document.documentElement.classList.contains('light');
+
+      const icon = document.getElementById('themeToggleIcon');
+
+      const text = document.getElementById('themeToggleText');
+
+      const btn = document.getElementById('themeToggleBtn');
+
+      const curLang = currentLang || (localStorage.getItem('nayasetu_lang') || localStorage.getItem('nyayasetu_lang') || 'bn');
+
+
+
+      if (!btn) return;
+
+
+
+      if (isLight) {
+
+        if (icon) {
+
+          icon.textContent = 'dark_mode';
+
+          icon.className = 'material-symbols-outlined text-base text-[#8F4E24] transition-transform duration-300';
+
+        }
+
+        const darkLabels = { bn: 'ডার্ক মোড', hi: 'डार्क मोड', en: 'Dark Mode' };
+
+        if (text) text.textContent = darkLabels[curLang] || 'Dark Mode';
+
+        btn.setAttribute('title', (curLang === 'en') ? 'Switch to Dark Mode' : (curLang === 'hi') ? 'डार्क मोड में बदलें' : 'ডার্ক মোডে পরিবর্তন করুন');
+
+        btn.setAttribute('aria-label', 'Switch to Dark Mode');
+
+      } else {
+
+        if (icon) {
+
+          icon.textContent = 'light_mode';
+
+          icon.className = 'material-symbols-outlined text-base text-[#F2CBA5] transition-transform duration-300';
+
+        }
+
+        const lightLabels = { bn: 'লাইট মোড', hi: 'लाइट मोड', en: 'Light Mode' };
+
+        if (text) text.textContent = lightLabels[curLang] || 'Light Mode';
+
+        btn.setAttribute('title', (curLang === 'en') ? 'Switch to Light Mode' : (curLang === 'hi') ? 'लाइट मोड में बदलें' : 'লাইট মোডে পরিবর্তন করুন');
+
+        btn.setAttribute('aria-label', 'Switch to Light Mode');
+
+      }
+
+    }
+
+
+
+    function toggleTheme() {
+
+      const isLight = document.documentElement.classList.contains('light');
+
+      const curLang = (localStorage.getItem('nayasetu_lang') || localStorage.getItem('nyayasetu_lang') || 'bn');
+
+      if (isLight) {
+
+        document.documentElement.classList.remove('light');
+
+        document.documentElement.classList.add('dark');
+
+        localStorage.setItem('nayasetu_theme', 'dark');
+
+        if (typeof showToast === 'function') {
+
+          const msg = (curLang === 'en') ? 'Dark Mode activated' : (curLang === 'hi') ? 'डार्क मोड सक्रिय किया गया' : 'ডার্ক মোড সক্রিয় করা হয়েছে';
+
+          showToast(msg, 'dark_mode');
+
+        }
+
+      } else {
+
+        document.documentElement.classList.remove('dark');
+
+        document.documentElement.classList.add('light');
+
+        localStorage.setItem('nayasetu_theme', 'light');
+
+        if (typeof showToast === 'function') {
+
+          const msg = (curLang === 'en') ? 'Light Mode activated' : (curLang === 'hi') ? 'लाइट मोड सक्रिय किया गया' : 'লাইট মোড সক্রিয় করা হয়েছে';
+
+          showToast(msg, 'light_mode');
+
+        }
+
+      }
+
+      updateThemeUI(curLang);
+
+      window.dispatchEvent(new CustomEvent('nayasetu-theme-change', { detail: { theme: isLight ? 'dark' : 'light' } }));
+
+    }
+
+
+
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+
+    if (themeToggleBtn) {
+
+      themeToggleBtn.addEventListener('click', toggleTheme);
+
+    }
+
+
+
+    const savedTheme = localStorage.getItem('nayasetu_theme');
+
+    if (savedTheme === 'light' || (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+
+      document.documentElement.classList.add('light');
+
+      document.documentElement.classList.remove('dark');
+
+    } else {
+
+      document.documentElement.classList.add('dark');
+
+      document.documentElement.classList.remove('light');
+
+    }
+
+    updateThemeUI((localStorage.getItem('nayasetu_lang') || localStorage.getItem('nyayasetu_lang') || 'bn'));
+
+</script>
+
+</body>
+
+</html>
+

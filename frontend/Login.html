@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>লগইন | ন্যায়সেতু AI – পশ্চিমবঙ্গ সরকার নাগরিক সুরক্ষা পোর্টাল</title>
+
+  <!-- Google Fonts: Noto Sans Bengali, Noto Sans, EB Garamond -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+
+  <style>
+    :root {
+      --gold-primary: #D4AF37;
+      --gold-deep: #B8860B;
+      --gold-light: #F7E7B4;
+      --gold-gradient: linear-gradient(135deg, #F9E5A8 0%, #D4AF37 40%, #B8860B 100%);
+      --gold-shadow: 0 15px 40px -10px rgba(212, 175, 55, 0.35);
+    }
+
+    body {
+      font-family: 'Noto Sans Bengali', 'Noto Sans', sans-serif;
+      background-color: #FAF8F2;
+      color: #1F1A14;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Background Watermark & Golden Glow */
+    .emblem-bg-watermark {
+      position: fixed;
+      inset: 0;
+      background-image: url('/assets/wb_emblem.webp'), url('wb_emblem.webp');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: min(420px, 80vw);
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: 0;
+      filter: drop-shadow(0 0 35px rgba(212, 175, 55, 0.45));
+    }
+
+    .golden-ambient-glow {
+      position: fixed;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 50% 15%, rgba(247, 231, 180, 0.55), transparent 60%),
+        radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.15), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(184, 134, 11, 0.12), transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* White & Golden Card Aesthetic */
+    .gold-card {
+      background: #FFFFFF;
+      border: 2px solid #D4AF37;
+      box-shadow: 0 25px 50px -12px rgba(184, 134, 11, 0.22), 0 0 0 1px rgba(212, 175, 55, 0.25);
+      border-radius: 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .gold-card::before {
+      content: "";
+      position: absolute;
+      top: -2px; left: -2px; right: -2px; height: 6px;
+      background: var(--gold-gradient);
+      border-top-left-radius: 1.5rem;
+      border-top-right-radius: 1.5rem;
+    }
+
+    .gold-btn {
+      background: var(--gold-gradient);
+      color: #1A140B;
+      font-weight: 700;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+    }
+
+    .gold-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(184, 134, 11, 0.45);
+      filter: brightness(1.04);
+    }
+
+    .gold-input {
+      background-color: #FFFFFF;
+      border: 1.5px solid #E2D3AF;
+      color: #1F1A14;
+      transition: all 0.2s ease;
+    }
+
+    .gold-input:focus {
+      border-color: #C59B27;
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25);
+      outline: none;
+    }
+
+    .gold-tab.active {
+      background: var(--gold-gradient);
+      color: #1A140B;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+    }
+
+    .gold-tab:not(.active) {
+      background: #F7F3E8;
+      color: #6E5C3E;
+    }
+
+    .gold-tab:not(.active):hover {
+      background: #EFE8D6;
+      color: #1F1A14;
+    }
+
+    /* Subtle governmental border ornament */
+    .gold-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+  <!-- Background Watermark & Golden Ambiance -->
+  <div class="emblem-bg-watermark"></div>
+  <div class="golden-ambient-glow"></div>
+
+  <!-- Top State Government Header -->
+  <header class="relative z-20 bg-white/95 backdrop-blur-md border-b border-[#E8D8B5] shadow-sm py-3 px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Logo & Govt Seal -->
+      <a href="/" class="flex items-center gap-3 group">
+        <img src="/assets/wb_emblem.webp" onerror="this.src='wb_emblem.webp'" alt="West Bengal Government Emblem" class="w-10 h-12 object-contain drop-shadow-sm group-hover:scale-105 transition-transform"/>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="font-bold text-sm sm:text-base text-[#1F1A14] tracking-tight">ন্যায়সেতু <span class="text-[#B8860B]">AI</span></span>
+            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#FAF2DA] border border-[#D4AF37] text-[#8C640C]">WB CITIZEN</span>
+          </div>
+          <p class="text-[11px] text-[#705C3D]" data-i18n="govt-sub">পশ্চিমবঙ্গ সরকার নাগরিক অধিকার ও প্রকল্প পোর্টাল</p>
+        </div>
+      </a>
+
+      <!-- Right Controls: Language Selector & Home Link -->
+      <div class="flex items-center gap-2 sm:gap-4">
+        
+        <!-- Language Switcher Bar -->
+        <div class="inline-flex rounded-lg border border-[#D4AF37] p-0.5 bg-[#FAF7F0] text-xs font-semibold shadow-inner">
+          <button type="button" onclick="setAppLanguage('bn')" class="lang-btn px-2.5 py-1 rounded-md transition-all active-lang bg-[#D4AF37] text-[#1A140B] shadow-sm font-bold" data-lang="bn">বাংলা</button>
+          <button type="button" onclick="setAppLanguage('en')" class="lang-btn px-2.5 py-1 rounded-md transition-all text-[#6E5C3E] hover:text-[#1F1A14]" data-lang="en">English</button>
+          <button type="button" onclick="setAppLanguage('hi')" class="lang-btn px-2.5 py-1 rounded-md transition-all text-[#6E5C3E] hover:text-[#1F1A14]" data-lang="hi">हिन्दी</button>
+        </div>
+
+        <a href="/" class="hidden sm:inline-flex items-center gap-1 text-xs font-bold text-[#6E5C3E] hover:text-[#8C640C] border border-[#E2D3AF] hover:border-[#D4AF37] bg-white px-3 py-1.5 rounded-lg transition-all shadow-sm">
+          <span class="material-symbols-outlined text-sm">home</span>
+          <span data-i18n="nav-home">হোম পেজ</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Login Container -->
+  <main class="relative z-10 flex-1 flex items-center justify-center p-4 sm:p-6 my-auto">
+    <div class="w-full max-w-md">
+      
+      <!-- Main White & Golden Card -->
+      <div class="gold-card p-6 sm:p-8">
+        
+        <!-- Crest & Title Header -->
+        <div class="text-center mb-6">
+          <div class="inline-flex p-2 rounded-2xl bg-gradient-to-b from-[#FAF4E6] to-[#FFFFFF] border-2 border-[#D4AF37] shadow-md mb-3">
+            <img src="/assets/wb_emblem.webp" onerror="this.src='wb_emblem.webp'" alt="Govt Emblem" class="w-16 h-20 object-contain"/>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-bold text-[#1F1A14] tracking-tight" data-i18n="title-login">নাগরিক লগইন</h1>
+          <p class="text-xs text-[#705C3D] mt-1 font-medium" data-i18n="subtitle-login">আপনার সুরক্ষিত নাগরিক প্রোফাইলে প্রবেশ করুন</p>
+          <div class="gold-divider mt-4"></div>
+        </div>
+
+        <!-- Notification / Error Box -->
+        <div id="toastBox" class="hidden mb-4 p-3 rounded-xl text-xs font-semibold flex items-center gap-2 border"></div>
+
+        <!-- Login Tabs: OTP vs Password -->
+        <div class="grid grid-cols-2 gap-2 p-1 bg-[#FAF7F0] border border-[#E2D3AF] rounded-xl mb-5">
+          <button type="button" id="tabOtp" onclick="switchLoginTab('otp')" class="gold-tab active py-2 px-3 rounded-lg text-xs flex items-center justify-center gap-1.5 transition-all">
+            <span class="material-symbols-outlined text-sm">phonelink_ring</span>
+            <span data-i18n="tab-otp">মোবাইল OTP</span>
+          </button>
+          <button type="button" id="tabPassword" onclick="switchLoginTab('password')" class="gold-tab py-2 px-3 rounded-lg text-xs flex items-center justify-center gap-1.5 transition-all">
+            <span class="material-symbols-outlined text-sm">lock</span>
+            <span data-i18n="tab-password">পাসওয়ার্ড</span>
+          </button>
+        </div>
+
+        <!-- FORM 1: Mobile OTP Login -->
+        <form id="formOtpLogin" onsubmit="handleOtpLoginSubmit(event)" class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-[#4F3F23] mb-1.5" data-i18n="label-phone">মোবাইল নম্বর (১০ সংখ্যা):</label>
+            <div class="flex gap-2">
+              <span class="inline-flex items-center px-3 rounded-xl bg-[#FAF6EC] border border-[#E2D3AF] text-xs font-bold text-[#705C3D]">+91</span>
+              <div class="relative flex-1">
+                <input type="tel" id="otpPhoneInput" maxlength="10" placeholder="9876543210" required
+                       class="gold-input w-full rounded-xl py-2.5 px-3.5 text-sm font-semibold tracking-wide"/>
+              </div>
+            </div>
+            <p class="text-[11px] text-[#8C640C] mt-1" data-i18n="help-phone">একটি ৬-সংখ্যার ওটিপি আপনার নম্বরে পাঠানো হবে</p>
+          </div>
+
+          <!-- OTP Input Section (Initially Hidden until requested) -->
+          <div id="otpInputSection" class="hidden space-y-3 pt-2 border-t border-[#F2E7CB]">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <label class="text-xs font-bold text-[#4F3F23]" data-i18n="label-otp">৬-সংখ্যার OTP কোড:</label>
+                <span id="demoOtpHint" class="text-[11px] font-bold text-[#B8860B] bg-[#FAF2DA] px-2 py-0.5 rounded border border-[#D4AF37]/40"></span>
+              </div>
+              <input type="text" id="otpCodeInput" maxlength="6" placeholder="• • • • • •"
+                     class="gold-input w-full text-center text-lg tracking-widest font-bold py-2.5 rounded-xl"/>
+            </div>
+
+            <!-- Resend Timer -->
+            <div class="flex items-center justify-between text-xs text-[#705C3D]">
+              <span id="timerText" data-i18n="timer-wait">পুনরায় ওটিপি পাঠান: <span id="countdown">30</span>s</span>
+              <button type="button" id="resendOtpBtn" onclick="requestOtpCode()" disabled class="font-bold text-[#B8860B] hover:underline disabled:opacity-40 disabled:cursor-not-allowed" data-i18n="btn-resend">পুনরায় পাঠান</button>
+            </div>
+          </div>
+
+          <!-- Submit / Action Button -->
+          <div class="pt-2">
+            <button type="button" id="btnRequestOtp" onclick="requestOtpCode()" class="gold-btn w-full py-3 rounded-xl text-sm flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-base">send</span>
+              <span data-i18n="btn-send-otp">ওটিপি পাঠান (Send OTP)</span>
+            </button>
+            <button type="submit" id="btnVerifyOtp" class="hidden gold-btn w-full py-3 rounded-xl text-sm flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-base">verified_user</span>
+              <span data-i18n="btn-verify-otp">যাচাই ও লগইন করুন</span>
+            </button>
+          </div>
+        </form>
+
+        <!-- FORM 2: Password Login -->
+        <form id="formPasswordLogin" onsubmit="handlePasswordLoginSubmit(event)" class="hidden space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-[#4F3F23] mb-1.5" data-i18n="label-userid">মোবাইল নম্বর / ইউজার আইডি:</label>
+            <div class="relative">
+              <span class="material-symbols-outlined absolute left-3 top-3 text-[#A38D62] text-sm">person</span>
+              <input type="text" id="loginIdentifier" placeholder="মোবাইল বা ইউজার আইডি" data-i18n-placeholder="ph-userid" required
+                     class="gold-input w-full rounded-xl py-2.5 pl-9 pr-3 text-sm font-semibold"/>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <label class="text-xs font-bold text-[#4F3F23]" data-i18n="label-password">পাসওয়ার্ড:</label>
+              <a href="#" onclick="showForgotPasswordAlert(event)" class="text-[11px] font-bold text-[#B8860B] hover:underline" data-i18n="link-forgot">পাসওয়ার্ড ভুলে গেছেন?</a>
+            </div>
+            <div class="relative">
+              <span class="material-symbols-outlined absolute left-3 top-3 text-[#A38D62] text-sm">lock</span>
+              <input type="password" id="loginPassword" placeholder="আপনার গোপন পাসওয়ার্ড" data-i18n-placeholder="ph-pwd" required
+                     class="gold-input w-full rounded-xl py-2.5 pl-9 pr-10 text-sm font-semibold"/>
+              <button type="button" onclick="togglePasswordVisibility('loginPassword', 'eyeIcon1')" class="absolute right-3 top-2.5 text-[#A38D62] hover:text-[#1F1A14]">
+                <span id="eyeIcon1" class="material-symbols-outlined text-sm">visibility</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Remember Me -->
+          <div class="flex items-center justify-between text-xs pt-1">
+            <label class="flex items-center gap-2 cursor-pointer text-[#6E5C3E]">
+              <input type="checkbox" id="rememberMeCheck" checked class="rounded border-[#D4AF37] text-[#B8860B] focus:ring-[#D4AF37]"/>
+              <span data-i18n="check-remember">আমাকে মনে রাখুন (Remember Me)</span>
+            </label>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="pt-2">
+            <button type="submit" id="btnPasswordSubmit" class="gold-btn w-full py-3 rounded-xl text-sm flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-base">login</span>
+              <span data-i18n="btn-login-now">লগইন করুন</span>
+            </button>
+          </div>
+        </form>
+
+        <!-- Divider -->
+        <div class="relative my-6 text-center">
+          <div class="gold-divider"></div>
+          <span class="relative -top-2.5 bg-white px-3 text-[11px] font-semibold text-[#8C640C]" data-i18n="divider-or">নতুন নাগরিক?</span>
+        </div>
+
+        <!-- Registration Switch CTA -->
+        <div class="text-center space-y-3">
+          <a href="/register/" class="inline-flex w-full items-center justify-center gap-2 py-2.5 px-4 rounded-xl border-2 border-[#D4AF37] bg-[#FFFDF9] hover:bg-[#FAF3E4] text-[#8C640C] font-bold text-xs transition-all shadow-sm">
+            <span class="material-symbols-outlined text-sm">person_add</span>
+            <span data-i18n="btn-go-register">নতুন নাগরিক অ্যাকাউন্ট তৈরি করুন (Register)</span>
+          </a>
+
+          <!-- Guest link removed: Login/Register required -->
+        </div>
+
+      </div>
+
+      <!-- Footer Trust Badge -->
+      <div class="mt-4 text-center">
+        <p class="text-[11px] text-[#705C3D] font-medium flex items-center justify-center gap-1.5">
+          <span class="material-symbols-outlined text-xs text-[#B8860B]">verified</span>
+          <span data-i18n="footer-secure">পশ্চিমবঙ্গ সরকারি নাগরিক অধিকার সুরক্ষা নেটওয়ার্ক দ্বারা সুরক্ষিত</span>
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Multilingual & Interactive Logic -->
+  <script>
+    // Language Dictionary
+    const i18n = {
+      bn: {
+        "govt-sub": "পশ্চিমবঙ্গ সরকার নাগরিক অধিকার ও প্রকল্প পোর্টাল",
+        "nav-home": "হোম পেজ",
+        "title-login": "নাগরিক লগইন",
+        "subtitle-login": "আপনার সুরক্ষিত নাগরিক প্রোফাইলে প্রবেশ করুন",
+        "tab-otp": "মোবাইল OTP",
+        "tab-password": "পাসওয়ার্ড",
+        "label-phone": "মোবাইল নম্বর (১০ সংখ্যা):",
+        "help-phone": "একটি ৬-সংখ্যার ওটিপি আপনার নম্বরে পাঠানো হবে",
+        "label-otp": "৬-সংখ্যার OTP কোড:",
+        "timer-wait": "পুনরায় ওটিপি পাঠান: ",
+        "btn-resend": "পুনরায় পাঠান",
+        "btn-send-otp": "ওটিপি পাঠান (Send OTP)",
+        "btn-verify-otp": "যাচাই ও লগইন করুন",
+        "label-userid": "মোবাইল নম্বর / ইউজার আইডি:",
+        "label-password": "পাসওয়ার্ড:",
+        "link-forgot": "পাসওয়ার্ড ভুলে গেছেন?",
+        "check-remember": "আমাকে মনে রাখুন (Remember Me)",
+        "btn-login-now": "লগইন করুন",
+        "divider-or": "নতুন নাগরিক?",
+        "btn-go-register": "নতুন নাগরিক অ্যাকাউন্ট তৈরি করুন (Register)",
+        "link-guest": "লগইন না করে গেস্ট হিসেবে চালিয়ে যান →",
+        "footer-secure": "পশ্চিমবঙ্গ সরকারি নাগরিক অধিকার সুরক্ষা নেটওয়ার্ক দ্বারা সুরক্ষিত",
+        "toast-phone-err": "দয়া করে সঠিক ১০-সংখ্যার মোবাইল নম্বর লিখুন।",
+        "toast-otp-sent": "ওটিপি পাঠানো হয়েছে! ডেমো কোড নিচে দেখতে পাচ্ছেন।",
+        "toast-otp-err": "দয়া করে ৬ সংখ্যার ওটিপি কোড দিন।",
+        "toast-login-success": "সফলভাবে লগইন হয়েছে! আপনাকে নিয়ে যাওয়া হচ্ছে...",
+        "forgot-msg": "পাসওয়ার্ড রিসেট করতে অনুগ্রহ করে মোবাইল OTP লগইন ব্যবহার করুন।",
+        "ph-userid": "মোবাইল বা ইউজার আইডি",
+        "ph-pwd": "আপনার গোপন পাসওয়ার্ড"
+      },
+      en: {
+        "govt-sub": "Government of West Bengal Citizen Rights & Schemes Portal",
+        "nav-home": "Home Page",
+        "title-login": "Citizen Login",
+        "subtitle-login": "Access your secured citizen benefits dashboard",
+        "tab-otp": "Mobile OTP",
+        "tab-password": "Password",
+        "label-phone": "Mobile Number (10 digits):",
+        "help-phone": "A 6-digit OTP will be sent to your mobile",
+        "label-otp": "6-Digit OTP Code:",
+        "timer-wait": "Resend OTP in: ",
+        "btn-resend": "Resend OTP",
+        "btn-send-otp": "Send OTP Code",
+        "btn-verify-otp": "Verify & Login",
+        "label-userid": "Mobile Number / User ID:",
+        "label-password": "Password:",
+        "link-forgot": "Forgot Password?",
+        "check-remember": "Remember my session",
+        "btn-login-now": "Secure Login",
+        "divider-or": "New Citizen?",
+        "btn-go-register": "Create New Citizen Account (Register)",
+        "link-guest": "Continue as Guest without login →",
+        "footer-secure": "Protected by Govt of West Bengal Citizen Security Framework",
+        "toast-phone-err": "Please enter a valid 10-digit mobile number.",
+        "toast-otp-sent": "OTP sent successfully! Demo code is displayed below.",
+        "toast-otp-err": "Please enter the 6-digit OTP code.",
+        "toast-login-success": "Login successful! Redirecting...",
+        "forgot-msg": "To reset password, please use the Mobile OTP Login option.",
+        "ph-userid": "Mobile or User ID",
+        "ph-pwd": "Your secure password"
+      },
+      hi: {
+        "govt-sub": "पश्चिम बंगाल सरकार नागरिक अधिकार एवं योजना पोर्टल",
+        "nav-home": "होम पेज",
+        "title-login": "नागरिक लॉगिन",
+        "subtitle-login": "अपने सुरक्षित नागरिक पोर्टल में प्रवेश करें",
+        "tab-otp": "मोबाइल OTP",
+        "tab-password": "पासवर्ड",
+        "label-phone": "मोबाइल नंबर (10 अंक):",
+        "help-phone": "आपके नंबर पर 6 अंकों का ओटीपी भेजा जाएगा",
+        "label-otp": "6 अंकों का OTP कोड:",
+        "timer-wait": "पुनः ओटीपी भेजें: ",
+        "btn-resend": "पुनः भेजें",
+        "btn-send-otp": "ओटीपी भेजें (Send OTP)",
+        "btn-verify-otp": "सत्यापित करें और लॉगिन करें",
+        "label-userid": "मोबाइल नंबर / यूजर आईडी:",
+        "label-password": "पासवर्ड:",
+        "link-forgot": "पासवर्ड भूल गए?",
+        "check-remember": "मुझे याद रखें (Remember Me)",
+        "btn-login-now": "लॉगिन करें",
+        "divider-or": "नए नागरिक हैं?",
+        "btn-go-register": "नया नागरिक खाता बनाएं (Register)",
+        "link-guest": "बिना लॉगिन अतिथि के रूप में जारी रखें →",
+        "footer-secure": "पश्चिम बंगाल सरकारी नागरिक सुरक्षा नेटवर्क द्वारा संरक्षित",
+        "toast-phone-err": "कृपया मान्य 10 अंकों का मोबाइल नंबर दर्ज करें।",
+        "toast-otp-sent": "ओटीपी भेज दिया गया है! डेमो कोड नीचे देखें।",
+        "toast-otp-err": "कृपया 6 अंकों का ओटीपी कोड दर्ज करें।",
+        "toast-login-success": "सफलतापूर्वक लॉगिन हो गया! अग्रेषित किया जा रहा है...",
+        "forgot-msg": "पासवर्ड रीसेट करने के लिए कृपया मोबाइल ओटीपी लॉगिन का उपयोग करें।",
+        "ph-userid": "मोबाइल या यूजर आईडी",
+        "ph-pwd": "आपका सुरक्षित पासवर्ड"
+      }
+    };
+
+    let currentLang = 'bn';
+    let countdownInterval = null;
+    let generatedOtp = '123456';
+
+    function setAppLanguage(lang) {
+      if (!i18n[lang]) return;
+      currentLang = lang;
+      localStorage.setItem('nayasetu_lang', lang);
+
+      // Update button active state
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        if (btn.getAttribute('data-lang') === lang) {
+          btn.className = "lang-btn px-2.5 py-1 rounded-md transition-all active-lang bg-[#D4AF37] text-[#1A140B] shadow-sm font-bold";
+        } else {
+          btn.className = "lang-btn px-2.5 py-1 rounded-md transition-all text-[#6E5C3E] hover:text-[#1F1A14]";
+        }
+      });
+
+      // Update all translatable elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (i18n[lang][key]) {
+          if (key === 'timer-wait') {
+            const count = document.getElementById('countdown') ? document.getElementById('countdown').textContent : '30';
+            el.innerHTML = `${i18n[lang][key]} <span id="countdown">${count}</span>s`;
+          } else {
+            el.textContent = i18n[lang][key];
+          }
+        }
+      });
+
+      // Update all placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (i18n[lang] && i18n[lang][key]) {
+          el.setAttribute('placeholder', i18n[lang][key]);
+          el.placeholder = i18n[lang][key];
+        }
+      });
+
+      const loginInput = document.getElementById('loginIdentifier');
+      if (loginInput && i18n[lang] && i18n[lang]['ph-userid']) {
+        loginInput.placeholder = i18n[lang]['ph-userid'];
+        loginInput.setAttribute('placeholder', i18n[lang]['ph-userid']);
+      }
+
+      // Synchronize both localStorage keys and document lang
+      localStorage.setItem('nayasetu_lang', lang);
+      localStorage.setItem('nyayasetu_lang', lang);
+      document.documentElement.lang = lang;
+    }
+
+    function showToast(msg, isSuccess = true) {
+      const box = document.getElementById('toastBox');
+      box.className = isSuccess 
+        ? "mb-4 p-3 rounded-xl text-xs font-semibold flex items-center gap-2 border bg-[#FAF7E8] border-[#D4AF37] text-[#705008]"
+        : "mb-4 p-3 rounded-xl text-xs font-semibold flex items-center gap-2 border bg-red-50 border-red-300 text-red-800";
+      box.innerHTML = `
+        <span class="material-symbols-outlined text-base">${isSuccess ? 'check_circle' : 'error'}</span>
+        <span>${msg}</span>
+      `;
+      box.classList.remove('hidden');
+    }
+
+    function switchLoginTab(mode) {
+      const tabOtp = document.getElementById('tabOtp');
+      const tabPassword = document.getElementById('tabPassword');
+      const formOtp = document.getElementById('formOtpLogin');
+      const formPassword = document.getElementById('formPasswordLogin');
+
+      if (mode === 'otp') {
+        tabOtp.className = "gold-tab active py-2 px-3 rounded-lg text-xs flex items-center justify-center gap-1.5 transition-all";
+        tabPassword.className = "gold-tab py-2 px-3 rounded-lg text-xs flex items-center justify-center gap-1.5 transition-all";
+        formOtp.classList.remove('hidden');
+        formPassword.classList.add('hidden');
+      } else {
+        tabPassword.className = "gold-tab active py-2 px-3 rounded-lg text-xs flex items-center justify-center gap-1.5 transition-all";
+        tabOtp.className = "gold-tab py-2 px-3 rounded-lg text-xs flex items-center justify-center gap-1.5 transition-all";
+        formPassword.classList.remove('hidden');
+        formOtp.classList.add('hidden');
+      }
+    }
+
+    function togglePasswordVisibility(inputId, iconId) {
+      const input = document.getElementById(inputId);
+      const icon = document.getElementById(iconId);
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.textContent = 'visibility_off';
+      } else {
+        input.type = 'password';
+        icon.textContent = 'visibility';
+      }
+    }
+
+    function showForgotPasswordAlert(e) {
+      e.preventDefault();
+      alert(i18n[currentLang]['forgot-msg']);
+      switchLoginTab('otp');
+    }
+
+    // OTP Handlers
+    async function requestOtpCode() {
+      const phoneInput = document.getElementById('otpPhoneInput');
+      const phone = phoneInput.value.trim().replace(/\D/g, '');
+
+      if (phone.length !== 10) {
+        showToast(i18n[currentLang]['toast-phone-err'], false);
+        phoneInput.focus();
+        return;
+      }
+
+      showToast("ওটিপি কোড পাঠানো হচ্ছে...", true);
+
+      try {
+        const res = await fetch('/api/accounts/send-otp/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ phone: phone })
+        });
+        const data = await res.json();
+        
+        generatedOtp = data.demo_otp || '123456';
+        
+        // Show OTP input section
+        document.getElementById('otpInputSection').classList.remove('hidden');
+        document.getElementById('btnRequestOtp').classList.add('hidden');
+        document.getElementById('btnVerifyOtp').classList.remove('hidden');
+
+        // Show Demo hint for user convenience
+        document.getElementById('demoOtpHint').textContent = `Demo OTP: ${generatedOtp}`;
+        document.getElementById('otpCodeInput').value = generatedOtp;
+
+        showToast(i18n[currentLang]['toast-otp-sent'], true);
+        startCountdown();
+      } catch (err) {
+        // Fallback for offline/demo
+        document.getElementById('otpInputSection').classList.remove('hidden');
+        document.getElementById('btnRequestOtp').classList.add('hidden');
+        document.getElementById('btnVerifyOtp').classList.remove('hidden');
+        document.getElementById('demoOtpHint').textContent = `Demo OTP: 123456`;
+        document.getElementById('otpCodeInput').value = '123456';
+        showToast(i18n[currentLang]['toast-otp-sent'], true);
+        startCountdown();
+      }
+    }
+
+    function startCountdown() {
+      const resendBtn = document.getElementById('resendOtpBtn');
+      const countdownEl = document.getElementById('countdown');
+      resendBtn.disabled = true;
+      let left = 30;
+
+      if (countdownInterval) clearInterval(countdownInterval);
+
+      countdownInterval = setInterval(() => {
+        left--;
+        if (countdownEl) countdownEl.textContent = left;
+        if (left <= 0) {
+          clearInterval(countdownInterval);
+          resendBtn.disabled = false;
+        }
+      }, 1000);
+    }
+
+    async function handleOtpLoginSubmit(e) {
+      e.preventDefault();
+      const phone = document.getElementById('otpPhoneInput').value.trim();
+      const otp = document.getElementById('otpCodeInput').value.trim();
+
+      if (!otp || otp.length < 4) {
+        showToast(i18n[currentLang]['toast-otp-err'], false);
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/accounts/verify-otp/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ phone: phone, otp: otp })
+        });
+        const data = await res.json();
+
+        if (res.ok && data.success) {
+          showToast(i18n[currentLang]['toast-login-success'], true);
+          localStorage.setItem('nayasetu_user', JSON.stringify(data.user));
+          setTimeout(() => { window.location.href = (window.location.port === '8000' ? '/home/' : 'Home.html'); }, 1000);
+        } else {
+          showToast(data.error || "ভুল ওটিপি দেওয়া হয়েছে।", false);
+        }
+      } catch (err) {
+        // Direct fallback client session
+        const citizenUser = {
+          username: phone,
+          full_name: `Citizen ${phone.slice(-4)}`,
+          phone: phone,
+          district: "Kolkata",
+          preferred_language: currentLang
+        };
+        localStorage.setItem('nayasetu_user', JSON.stringify(citizenUser));
+        showToast(i18n[currentLang]['toast-login-success'], true);
+        setTimeout(() => { window.location.href = (window.location.port === '8000' ? '/home/' : 'Home.html'); }, 1000);
+      }
+    }
+
+    // Password Submit Handler
+    async function handlePasswordLoginSubmit(e) {
+      e.preventDefault();
+      const identifier = document.getElementById('loginIdentifier').value.trim();
+      const password = document.getElementById('loginPassword').value;
+
+      try {
+        const res = await fetch('/api/accounts/login/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ identifier: identifier, password: password })
+        });
+        const data = await res.json();
+
+        if (res.ok && data.success) {
+          showToast(i18n[currentLang]['toast-login-success'], true);
+          localStorage.setItem('nayasetu_user', JSON.stringify(data.user));
+          setTimeout(() => { window.location.href = (window.location.port === '8000' ? '/home/' : 'Home.html'); }, 1000);
+        } else {
+          showToast(data.error || "ইউজার আইডি বা পাসওয়ার্ড সঠিক নয়।", false);
+        }
+      } catch (err) {
+        // Fallback for mock testing
+        const citizenUser = {
+          username: identifier,
+          full_name: identifier,
+          phone: identifier,
+          district: "Kolkata",
+          preferred_language: currentLang
+        };
+        localStorage.setItem('nayasetu_user', JSON.stringify(citizenUser));
+        showToast(i18n[currentLang]['toast-login-success'], true);
+        setTimeout(() => { window.location.href = (window.location.port === '8000' ? '/home/' : 'Home.html'); }, 1000);
+      }
+    }
+
+    // Initializer
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('nayasetu_lang') || localStorage.getItem('nyayasetu_lang') || 'bn';
+      setAppLanguage(savedLang);
+
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('registered') === '1') {
+        const msg = currentLang === 'en' 
+          ? "Registration successful! Please login with your registered mobile number and password." 
+          : currentLang === 'hi' 
+            ? "पंजीकरण सफल रहा! कृपया अपने पंजीकृत मोबाइल नंबर और पासवर्ड से लॉगिन करें।" 
+            : "নাগরিক নিবন্ধন সফল হয়েছে! আপনার মোবাইল নম্বর ও পাসওয়ার্ড দিয়ে লগইন করুন।";
+        showToast(msg, true);
+        switchLoginTab('password');
+      }
+    });
+  </script>
+</body>
+</html>
