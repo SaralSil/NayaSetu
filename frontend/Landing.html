@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <link rel="icon" type="image/webp" href="/static/wb_emblem.webp"/>
   <title>ন্যায়সেতু AI | পশ্চিমবঙ্গ সরকার নাগরিক অধিকার ও কল্যাণ প্রকল্প প্রবেশদ্বার</title>
 
   <!-- Google Fonts: Noto Sans Bengali, Noto Sans, EB Garamond -->
@@ -63,7 +64,7 @@
     .ashoka-emblem-watermark {
       position: fixed;
       inset: 0;
-      background-image: url('assets/wb_emblem.webp'), url('/assets/wb_emblem.webp'), url('wb_emblem.webp');
+      background-image: url('/static/assets/wb_emblem.webp'), url('/static/wb_emblem.webp'), url('/assets/wb_emblem.webp'), url('wb_emblem.webp');
       background-repeat: no-repeat;
       background-position: center 38%;
       background-size: min(520px, 85vw);
@@ -226,7 +227,7 @@
       <!-- Brand & Emblem -->
       <a href="Landing.html" onclick="handleBrandClick(event)" class="flex items-center gap-3 group shrink-0">
         <div class="w-12 h-14 relative flex items-center justify-center p-1 rounded-xl bg-gradient-to-b from-[#FAF4E6] to-[#FFFFFF] border-1.5 border-[#D4AF37] shadow-sm group-hover:scale-105 transition-transform">
-          <img src="assets/wb_emblem.webp" onerror="this.src='wb_emblem.webp'" alt="West Bengal Ashoka Emblem" class="w-full h-full object-contain drop-shadow-xs"/>
+          <img src="/static/assets/wb_emblem.webp" onerror="this.onerror=null; this.src='/static/wb_emblem.webp';" alt="West Bengal Ashoka Emblem" class="w-full h-full object-contain drop-shadow-xs"/>
         </div>
         <div class="flex flex-col">
           <div class="flex items-center gap-2">
@@ -572,7 +573,7 @@
   <footer class="silt-header bg-[#FAF7F0] border-t border-[#E5DEC9] py-8 text-xs text-[#705C3D] relative z-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-3">
-        <img src="assets/wb_emblem.webp" onerror="this.src='wb_emblem.webp'" alt="Emblem" class="w-8 h-10 object-contain"/>
+        <img src="/static/assets/wb_emblem.webp" onerror="this.onerror=null; this.src='/static/wb_emblem.webp';" alt="Emblem" class="w-8 h-10 object-contain"/>
         <div>
           <p class="font-bold text-[#1F1A14]" data-i18n="footer_title">ন্যায়সেতু AI • পশ্চিমবঙ্গ সরকার নাগরিক কল্যাণ সহায়ক প্ল্যাটফর্ম</p>
           <p class="text-[11px] text-[#8C640C]" data-i18n="footer_sub">একটি উন্মুক্ত ও স্বাধীন জনস্বার্থ নাগরিক উদ্যোগ (2026 Edition)</p>
@@ -667,7 +668,7 @@
         btn_logout: 'Logout',
         hero_pill: 'Includes All 2026 Updated Grants & Scheme Allowances',
         hero_title: 'Unified Gateway for West Bengal Citizen Rights & <span class="bg-gradient-to-r from-[#B8860B] via-[#C98A5B] to-[#A45F2E] bg-clip-text text-transparent">Welfare Schemes</span>',
-        hero_subtitle: 'Check your eligibility for Lakkhir Bhandar, Krishak Bandhu, Swasthya Sathi & Yuvasree in 1 minute, decipher confusing official notices, and generate compliant legal representations for BDO & SDO.',
+        hero_subtitle: 'Check your eligibility for PM Surya Ghar, PM-KISAN, Ayushman Bharat & PMAY in 1 minute, decipher confusing official notices, and generate compliant legal representations for BDO & SDO.',
         cta_register: 'Create Citizen Account (Sign Up)',
         cta_home: 'View Home Dashboard →',
         cta_login: 'Direct Citizen Sign In',
@@ -808,16 +809,7 @@
     // STRICT AUTH WALL: Blocks unauthenticated access to Home or any citizen feature
     function handleAuthProtectedNav(e, page, query = '') {
       if (e && e.preventDefault) e.preventDefault();
-
-      const userStr = localStorage.getItem('nayasetu_user');
-      if (userStr) {
-        // Authenticated citizen: grant access!
-        window.location.href = getTargetUrl(page, query);
-        return;
-      }
-
-      // Unauthenticated visitor: display Auth Wall Modal
-      showAuthModal();
+      window.location.href = getTargetUrl(page, query);
     }
 
     function showAuthModal() {
@@ -854,7 +846,12 @@
     }
 
     function logoutCitizen() {
-      localStorage.removeItem('nayasetu_user');
+      try {
+        localStorage.removeItem('nayasetu_user');
+        localStorage.removeItem('nyayasetu_user');
+        localStorage.removeItem('nyayasetu_token');
+        sessionStorage.clear();
+      } catch(e) {}
       window.location.reload();
     }
 

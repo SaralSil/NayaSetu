@@ -1,7 +1,7 @@
 """
 Gemini AI Service for analyzing West Bengal Government notices, SMS, and rejection slips.
 Translates bureaucratic jargon into simple Bengali, English, and Hindi with step-by-step remedies.
-Now upgraded with Annapurna Bhandar (অন্নপূর্ণা ভাণ্ডার / अन्नपूर्णा भंडार), active language adaptation,
+Now upgraded with PM Surya Ghar (অন্নপূর্ণা ভাণ্ডার / अन्नपूर्णा भंडार), active language adaptation,
 and intelligent compassionate handling for unexpected/random ('उल्टा सीधा') messages.
 """
 import os
@@ -20,12 +20,12 @@ Your task is to analyze West Bengal government scheme application receipts, SMS 
 FOLLOW THESE STRICT GUIDELINES:
 
 1. Identify the likely scheme:
-   - Annapurna Bhandar (অন্নপূর্ণা ভাণ্ডার / अन्नपूर्णा भंडार - formerly known as Lakshmir Bhandar)
-   - Krishak Bandhu (কৃষক বন্ধু)
+   - PM Surya Ghar (অন্নপূর্ণা ভাণ্ডার / अन्नपूर्णा भंडार - formerly known as PM Surya Ghar)
+   - PM-KISAN (পিএম কিষাণ)
    - Kanyashree (কন্যাশ্রী)
    - Aikyashree / Oasis / SVMCM (স্কলারশিপ)
    - Jai Johar / Taposhili Bandhu (পেনশন)
-   - Swasthya Sathi (স্বাস্থ্য সাথী)
+   - Ayushman Bharat (আয়ুষ্মান ভারত)
    - Khadya Sathi / Ration Card (খাদ্য সাথী)
    - Yuvasree / Yuva Shakti (যুবশ্রী)
    - Rupashree (রূপশ্রী)
@@ -49,7 +49,7 @@ FOLLOW THESE STRICT GUIDELINES:
    - DO NOT throw an error or refuse to reply.
    - Set "detected_scheme": "সাধারণ অনুসন্ধান / General Inquiry" (or localized equivalent).
    - Set "status_category": "Guidance / সাধারণ সহায়তা".
-   - Set "status_summary": Compassionately explain that the provided message does not match a recognized West Bengal government scheme SMS or notice (such as Annapurna Bhandar, Krishak Bandhu, Swasthya Sathi, etc.). Advise the citizen on how to verify real SMS notices or check status at the nearest BDO office or Duare Sarkar camp.
+   - Set "status_summary": Compassionately explain that the provided message does not match a recognized West Bengal government scheme SMS or notice (such as PM Surya Ghar, PM-KISAN, Ayushman Bharat, etc.). Advise the citizen on how to verify real SMS notices or check status at the nearest BDO office or Duare Sarkar camp.
    - Set "action_steps":
      1. Check your mobile inbox for SMS from official West Bengal Government sender IDs (e.g. WBGOVT, WBLKBH, DGSGVT).
      2. Visit your local Gram Panchayat / BDO Office or Bangla Sahayata Kendra (BSK) with your application slip.
@@ -65,7 +65,7 @@ FOLLOW THESE STRICT GUIDELINES:
 
 Output STRICTLY valid JSON matching this schema:
 {
-  "detected_scheme": "Annapurna Bhandar (অন্নপূর্ণা ভাণ্ডার)",
+  "detected_scheme": "PM Surya Ghar (অন্নপূর্ণা ভাণ্ডার)",
   "status_category": "Action Required / On Hold",
   "status_summary": "Explanation in user's preferred language",
   "status_summary_bn": "বাংলায় সহজ ও স্পষ্ট ব্যাখ্যা",
@@ -233,16 +233,16 @@ class GeminiAnalyzerService:
     def _mock_analysis(self, raw_input: str, lang: str = 'bn', fallback_error: str = None) -> dict:
         """
         Failsafe response when API key is not configured or on network fallback.
-        Includes full multilingual responses for Annapurna Bhandar, Krishak Bandhu,
-        Swasthya Sathi, Scholarships, and intelligent handling of gibberish/unrelated inputs.
+        Includes full multilingual responses for PM Surya Ghar, PM-KISAN,
+        Ayushman Bharat, Scholarships, and intelligent handling of gibberish/unrelated inputs.
         """
         lower = raw_input.lower().strip()
 
-        # 1. Annapurna Bhandar / NPCI / DBT / Bank Account error
+        # 1. PM Surya Ghar / NPCI / DBT / Bank Account error
         if any(k in lower for k in ["npci", "dbt", "annapurna", "annapurna bhandar", "lakshmi", "lakshmir", "bhandar", "lkbhd", "bank validation", "account error"]):
             if lang == 'hi':
                 return {
-                    "detected_scheme": "अन्नपूर्णा भंडार (Annapurna Bhandar / DBT Scheme)",
+                    "detected_scheme": "अन्नपूर्णा भंडार (PM Surya Ghar / DBT Scheme)",
                     "status_category": "Action Required / On Hold",
                     "status_summary": "आपका आवेदन खारिज नहीं हुआ है, बल्कि रुका हुआ है। इसका मुख्य कारण आपके बैंक खाते में आधार डीबीटी (NPCI) लिंक न होना या बैंक खाते में त्रुटि होना है।",
                     "status_summary_bn": "আপনার আবেদনটি বাতিল হয়নি, সাময়িক স্থগিত আছে। কারণ আপনার ব্যাংক অ্যাকাউন্টে আধার ডিবিটি (NPCI) লিঙ্ক নেই অথবা অ্যাকাউন্টে ভুল রয়েছে।",
@@ -284,7 +284,7 @@ class GeminiAnalyzerService:
                 }
             elif lang == 'en':
                 return {
-                    "detected_scheme": "Annapurna Bhandar (DBT Social Welfare Scheme)",
+                    "detected_scheme": "PM Surya Ghar (DBT Social Welfare Scheme)",
                     "status_category": "Action Required / On Hold",
                     "status_summary": "Your application is currently paused and NOT rejected. The issue is that your bank account lacks active Aadhaar Direct Benefit Transfer (DBT/NPCI) mapping.",
                     "status_summary_bn": "আপনার আবেদনটি বাতিল হয়নি, সাময়িক স্থগিত আছে। কারণ আপনার ব্যাংক অ্যাকাউন্টে আধার ডিবিটি (NPCI) লিঙ্ক নেই অথবা অ্যাকাউন্টে ভুল রয়েছে।",
@@ -326,7 +326,7 @@ class GeminiAnalyzerService:
                 }
             else:  # Default Bengali
                 return {
-                    "detected_scheme": "অন্নপূর্ণা ভাণ্ডার (Annapurna Bhandar / DBT Scheme)",
+                    "detected_scheme": "অন্নপূর্ণা ভাণ্ডার (PM Surya Ghar / DBT Scheme)",
                     "status_category": "Action Required / On Hold",
                     "status_summary": "আপনার আবেদনটি বাতিল হয়নি, সাময়িক স্থগিত আছে। এর প্রধান কারণ আপনার ব্যাংক অ্যাকাউন্টে আধার ডিবিটি (NPCI) সক্রিয় লিঙ্ক নেই অথবা অ্যাকাউন্টে ত্রুটি রয়েছে।",
                     "status_summary_bn": "আপনার আবেদনটি বাতিল হয়নি, সাময়িক স্থগিত আছে। এর প্রধান কারণ আপনার ব্যাংক অ্যাকাউন্টে আধার ডিবিটি (NPCI) সক্রিয় লিঙ্ক নেই অথবা অ্যাকাউন্টে ত্রুটি রয়েছে।",
@@ -367,14 +367,14 @@ class GeminiAnalyzerService:
                     "disclaimer": "ন্যায়সেতু AI একটি স্বাধীন নাগরিক সহায়তা উদ্যোগ, কোনো সরকারি দফতর নয়।"
                 }
 
-        # 2. Krishak Bandhu RoR / Land Mismatch
+        # 2. PM-KISAN RoR / Land Mismatch
         elif any(k in lower for k in ["krishak", "bandhu", "k-bandhu", "ror", "khaitan", "plot", "land", "porcha", "bl&lro"]):
             if lang == 'hi':
                 return {
-                    "detected_scheme": "कृषक बंधु (Krishak Bandhu Scheme)",
+                    "detected_scheme": "कृषक बंधु (PM-KISAN Scheme)",
                     "status_category": "Defective / Mismatch",
                     "status_summary": "कृषक बंधु में आपके आवेदन का सत्यापन पंचायत/भूमि रिकॉर्ड के खतियान/प्लॉट एरिया से मेल न खाने के कारण रुका हुआ है।",
-                    "status_summary_bn": "কৃষক বন্ধু প্রকল্পে আপনার আবেদনের তথ্য গ্রাম পঞ্চায়েত বা ভূমি রেকর্ডের খতিয়ান/দাগের তথ্যের সাথে না মেলায় যাচাইকরণ প্রক্রিয়া স্থগিত রয়েছে।",
+                    "status_summary_bn": "পিএম কিষাণ প্রকল্পে আপনার আবেদনের তথ্য গ্রাম পঞ্চায়েত বা ভূমি রেকর্ডের খতিয়ান/দাগের তথ্যের সাথে না মেলায় যাচাইকরণ প্রক্রিয়া স্থগিত রয়েছে।",
                     "status_summary_hi": "कृषक बंधु में आपके आवेदन का सत्यापन पंचायत/भूमि रिकॉर्ड के खतियान/प्लॉट एरिया से मेल न खाने के कारण रुका हुआ है।",
                     "status_summary_en": "Verification is pending due to discrepancy between application land records and Gram Panchayat/BL&LRO RoR records.",
                     "root_cause_identified": "জমির খতিয়ান/দাগ তথ্যের অমিল (RoR Land Record Area Discrepancy)",
@@ -401,12 +401,12 @@ class GeminiAnalyzerService:
                 }
             elif lang == 'en':
                 return {
-                    "detected_scheme": "Krishak Bandhu (Agriculture Welfare Scheme)",
+                    "detected_scheme": "PM-KISAN (Agriculture Income Support)",
                     "status_category": "Defective / Mismatch",
-                    "status_summary": "Your Krishak Bandhu verification is pending due to an area or Khaitan/Plot discrepancy between your application and land records.",
-                    "status_summary_bn": "কৃষক বন্ধু প্রকল্পে আপনার আবেদনের তথ্য গ্রাম পঞ্চায়েত বা ভূমি রেকর্ডের খতিয়ান/দাগের তথ্যের সাথে না মেলায় যাচাইকরণ প্রক্রিয়া স্থগিত রয়েছে।",
+                    "status_summary": "Your PM-KISAN verification is pending due to an area or Khaitan/Plot discrepancy between your application and land records.",
+                    "status_summary_bn": "পিএম কিষাণ প্রকল্পে আপনার আবেদনের তথ্য গ্রাম পঞ্চায়েত বা ভূমি রেকর্ডের খতিয়ান/দাগের তথ্যের সাথে না মেলায় যাচাইকরণ প্রক্রিয়া স্থগিত রয়েছে।",
                     "status_summary_hi": "कृषक बंधु में आपके आवेदन का सत्यापन भूमि रिकॉर्ड से मेल न खाने के कारण रुका हुआ है।",
-                    "status_summary_en": "Your Krishak Bandhu verification is pending due to an area or Khaitan/Plot discrepancy between your application and land records.",
+                    "status_summary_en": "Your PM-KISAN verification is pending due to an area or Khaitan/Plot discrepancy between your application and land records.",
                     "root_cause_identified": "RoR Plot/Khaitan Land Record Discrepancy",
                     "action_steps": [
                         {
@@ -431,12 +431,12 @@ class GeminiAnalyzerService:
                 }
             else:
                 return {
-                    "detected_scheme": "কৃষক বন্ধু (Krishak Bandhu)",
+                    "detected_scheme": "পিএম কিষাণ (PM-KISAN)",
                     "status_category": "Defective / Mismatch",
-                    "status_summary": "কৃষক বন্ধু প্রকল্পে আপনার আবেদনের তথ্য গ্রাম পঞ্চায়েত বা ভূমি রেকর্ডের খতিয়ান/দাগের তথ্যের সাথে না মেলায় যাচাইকরণ প্রক্রিয়া স্থগিত রয়েছে।",
-                    "status_summary_bn": "কৃষক বন্ধু প্রকল্পে আপনার আবেদনের তথ্য গ্রাম পঞ্চায়েত বা ভূমি রেকর্ডের খতিয়ান/দাগের তথ্যের সাথে না মেলায় যাচাইকরণ প্রক্রিয়া স্থগিত রয়েছে।",
+                    "status_summary": "পিএম কিষাণ প্রকল্পে আপনার আবেদনের তথ্য গ্রাম পঞ্চায়েত বা ভূমি রেকর্ডের খতিয়ান/দাগের তথ্যের সাথে না মেলায় যাচাইকরণ প্রক্রিয়া স্থগিত রয়েছে।",
+                    "status_summary_bn": "পিএম কিষাণ প্রকল্পে আপনার আবেদনের তথ্য গ্রাম পঞ্চায়েত বা ভূমি রেকর্ডের খতিয়ান/দাগের তথ্যের সাথে না মেলায় যাচাইকরণ প্রক্রিয়া স্থগিত রয়েছে।",
                     "status_summary_hi": "कृषक बंधु में आपके आवेदन का सत्यापन भूमि रिकॉर्ड से मेल न खाने के कारण रुका हुआ है।",
-                    "status_summary_en": "Your Krishak Bandhu verification is pending due to a discrepancy in land record (RoR/Khaitan).",
+                    "status_summary_en": "Your PM-KISAN verification is pending due to a discrepancy in land record (RoR/Khaitan).",
                     "root_cause_identified": "জমির খতিয়ান/দাগ তথ্যের অমিল (RoR Land Record Area Discrepancy)",
                     "action_steps": [
                         {
@@ -456,7 +456,7 @@ class GeminiAnalyzerService:
                             "office": "ব্লক কৃষি দপ্তর (ADA)"
                         }
                     ],
-                    "required_documents_to_carry": ["সর্বশেষ সার্টিফায়েড পরচা (RoR)", "আধার কার্ড", "ব্যাংক পাসবই", "কৃষক বন্ধু আবেদন রশিদ"],
+                    "required_documents_to_carry": ["সর্বশেষ সার্টিফায়েড পরচা (RoR)", "আধার কার্ড", "ব্যাংক পাসবই", "পিএম কিষাণ আবেদন রশিদ"],
                     "disclaimer": "ন্যায়সেতু AI একটি স্বাধীন নাগরিক সহায়তা উদ্যোগ।"
                 }
 
@@ -474,9 +474,9 @@ class GeminiAnalyzerService:
                     "detected_scheme": "सामान्य पूछताछ / अनिर्धारित संदेश (General Inquiry)",
                     "status_category": "Guidance / सामान्य सहायता",
                     "status_summary": "आपने जो संदेश या इनपुट दिया है, वह पश्चिम बंगाल सरकार के किसी आधिकारिक कल्याण नोटिस या एसएमएस (जैसे अन्नपूर्णा भंडार, कृषक बंधु, स्वास्थ्य साथी) से मेल नहीं खाता है। कृपया सरकारी मैसेज या रसीद की स्पष्ट फोटो अपलोड करें।",
-                    "status_summary_bn": "আপনার দেওয়া টেক্সট বা ছবিটি পশ্চিমবঙ্গ সরকারের কোনো নির্দিষ্ট প্রকল্প নোটিশ বা সরকারি এসএমএস (যেমন অন্নপূর্ণা ভাণ্ডার, কৃষক বন্ধু ইত্যাদি)-র সাথে সরাসরি মিলছে না। অনুগ্রহ করে সঠিক সরকারি মেসেজ বা রসিদ দিন।",
+                    "status_summary_bn": "আপনার দেওয়া টেক্সট বা ছবিটি পশ্চিমবঙ্গ সরকারের কোনো নির্দিষ্ট প্রকল্প নোটিশ বা সরকারি এসএমএস (যেমন অন্নপূর্ণা ভাণ্ডার, পিএম কিষাণ ইত্যাদি)-র সাথে সরাসরি মিলছে না। অনুগ্রহ করে সঠিক সরকারি মেসেজ বা রসিদ দিন।",
                     "status_summary_hi": "आपने जो संदेश या इनपुट दिया है, वह पश्चिम बंगाल सरकार के किसी आधिकारिक कल्याण नोटिस या एसएमएस (जैसे अन्नपूर्णा भंडार, कृषक बंधु, स्वास्थ्य साथी) से मेल नहीं खाता है। कृपया सरकारी मैसेज या रसीद की स्पष्ट फोटो अपलोड करें।",
-                    "status_summary_en": "The provided text or image does not appear to be an official West Bengal Government welfare notice or SMS (such as Annapurna Bhandar, Krishak Bandhu, Swasthya Sathi). Please upload a valid government SMS or slip.",
+                    "status_summary_en": "The provided text or image does not appear to be an official West Bengal Government welfare notice or SMS (such as PM Surya Ghar, PM-KISAN, Ayushman Bharat). Please upload a valid government SMS or slip.",
                     "root_cause_identified": "অপ্রাসঙ্গিক বা অপাঠ্য ইনপুট (Unrecognized / Non-Scheme Input)",
                     "action_steps": [
                         {
@@ -515,10 +515,10 @@ class GeminiAnalyzerService:
                 return {
                     "detected_scheme": "General Citizen Inquiry (অনির্দিষ্ট অনুসন্ধান)",
                     "status_category": "Guidance / General Support",
-                    "status_summary": "The input provided does not match a recognized West Bengal Government welfare scheme SMS or rejection notice (e.g. Annapurna Bhandar, Krishak Bandhu, Swasthya Sathi). Please paste the exact government SMS or upload a photo of your application slip.",
+                    "status_summary": "The input provided does not match a recognized West Bengal Government welfare scheme SMS or rejection notice (e.g. PM Surya Ghar, PM-KISAN, Ayushman Bharat). Please paste the exact government SMS or upload a photo of your application slip.",
                     "status_summary_bn": "আপনার দেওয়া টেক্সট বা ছবিটি পশ্চিমবঙ্গ সরকারের কোনো নির্দিষ্ট প্রকল্প নোটিশ বা সরকারি এসএমএস-এর সাথে সরাসরি মিলছে না। অনুগ্রহ করে সঠিক সরকারি মেসেজ বা রসিদ দিন।",
                     "status_summary_hi": "आपने जो इनपुट दिया है, वह सरकारी नोटिस या एसएमएस से मेल नहीं खाता है। कृपया सही मैसेज या रसीद दें।",
-                    "status_summary_en": "The input provided does not match a recognized West Bengal Government welfare scheme SMS or rejection notice (e.g. Annapurna Bhandar, Krishak Bandhu, Swasthya Sathi). Please paste the exact government SMS or upload a photo of your application slip.",
+                    "status_summary_en": "The input provided does not match a recognized West Bengal Government welfare scheme SMS or rejection notice (e.g. PM Surya Ghar, PM-KISAN, Ayushman Bharat). Please paste the exact government SMS or upload a photo of your application slip.",
                     "root_cause_identified": "Unrecognized / Casual / Gibberish Input Format",
                     "action_steps": [
                         {
@@ -557,8 +557,8 @@ class GeminiAnalyzerService:
                 return {
                     "detected_scheme": "সাধারণ অনুসন্ধান / অনির্ধারিত বার্তা (General Inquiry)",
                     "status_category": "Guidance / সাধারণ সহায়তা",
-                    "status_summary": "আপনার দেওয়া টেক্সট বা ছবিটি পশ্চিমবঙ্গ সরকারের কোনো নির্দিষ্ট প্রকল্প নোটিশ বা সরকারি এসএমএস (যেমন অন্নপূর্ণা ভাণ্ডার, কৃষক বন্ধু, স্বাস্থ্য সাথী ইত্যাদি)-র সাথে মিলছে না। অনুগ্রহ করে সঠিক সরকারি মেসেজ পেস্ট করুন অথবা রসিদের ছবি দিন।",
-                    "status_summary_bn": "আপনার দেওয়া টেক্সট বা ছবিটি পশ্চিমবঙ্গ সরকারের কোনো নির্দিষ্ট প্রকল্প নোটিশ বা সরকারি এসএমএস (যেমন অন্নপূর্ণা ভাণ্ডার, কৃষক বন্ধু, স্বাস্থ্য সাথী ইত্যাদি)-র সাথে মিলছে না। অনুগ্রহ করে সঠিক সরকারি মেসেজ পেস্ট করুন অথবা রসিদের ছবি দিন।",
+                    "status_summary": "আপনার দেওয়া টেক্সট বা ছবিটি পশ্চিমবঙ্গ সরকারের কোনো নির্দিষ্ট প্রকল্প নোটিশ বা সরকারি এসএমএস (যেমন অন্নপূর্ণা ভাণ্ডার, পিএম কিষাণ, আয়ুষ্মান ভারত ইত্যাদি)-র সাথে মিলছে না। অনুগ্রহ করে সঠিক সরকারি মেসেজ পেস্ট করুন অথবা রসিদের ছবি দিন।",
+                    "status_summary_bn": "আপনার দেওয়া টেক্সট বা ছবিটি পশ্চিমবঙ্গ সরকারের কোনো নির্দিষ্ট প্রকল্প নোটিশ বা সরকারি এসএমএস (যেমন অন্নপূর্ণা ভাণ্ডার, পিএম কিষাণ, আয়ুষ্মান ভারত ইত্যাদি)-র সাথে মিলছে না। অনুগ্রহ করে সঠিক সরকারি মেসেজ পেস্ট করুন অথবা রসিদের ছবি দিন।",
                     "status_summary_hi": "आपने जो संदेश दिया है, वह सरकारी नोटिस या एसएमएस से मेल नहीं खाता है। कृपया सही सरकारी मैसेज या रसीद दें।",
                     "status_summary_en": "The input provided does not match a recognized West Bengal Government welfare scheme notice or SMS. Please paste the official SMS or upload a photo of the slip.",
                     "root_cause_identified": "অপ্রাসঙ্গিক বা অপাঠ্য ইনপুট (Unrecognized / Non-Scheme Input)",

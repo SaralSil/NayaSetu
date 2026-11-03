@@ -15,6 +15,7 @@
 
 
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <link rel="icon" type="image/webp" href="/static/wb_emblem.webp"/>
 
 
 
@@ -619,9 +620,7 @@
 
 
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <!-- Leaflet CSS & JS for Interactive BDO Location & Jurisdiction Maps -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
 
 
 
@@ -984,77 +983,34 @@
 
 
 
-      <!-- Right: Action Suite (Citizen Portal moved to the LEFT of tools!) -->
+      <!-- Right: Action Suite -->
+      <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
 
+        <!-- Citizen Profile & Direct Logout Group -->
+        <div class="flex items-center gap-1 sm:gap-1.5">
+          <button id="openAuthModalBtn" class="whitespace-nowrap shrink-0 flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1.5 rounded-lg bg-[#C98A5B] hover:bg-[#B87B4C] text-[#141210] transition-all shadow-[0_2px_14px_rgba(201,138,91,0.25)] font-bold text-xs xl:text-sm focus:outline-none cursor-pointer" title="নাগরিক প্রোফাইল">
+            <span class="material-symbols-outlined text-base sm:text-xl">account_circle</span>
+            <span id="citizenHeaderName" class="font-label max-w-[65px] sm:max-w-[120px] truncate" data-i18n="portal_btn">নাগরিক</span>
+          </button>
 
-
-      <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
-
-
-
-        <!-- 1. Citizen Portal Auth Trigger (Moved toward the center/left so it NEVER touches screen edge) -->
-
-
-
-        <button id="openAuthModalBtn" class="whitespace-nowrap shrink-0 flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-lg bg-[#C98A5B] hover:bg-[#B87B4C] text-[#141210] transition-all shadow-[0_2px_14px_rgba(201,138,91,0.25)] font-bold text-xs xl:text-sm focus:outline-none" title="নাগরিক পোর্টাল">
-
-
-
-          <span class="material-symbols-outlined text-lg sm:text-xl">account_circle</span>
-
-
-
-          <span class="font-label" data-i18n="portal_btn">নাগরিক পোর্টাল</span>
-
-
-
-        </button>
-
-
-
-
-
-
-
-        <!-- 2. Light / Dark Theme Mode Toggle -->
-
-        <button id="themeToggleBtn" type="button" class="whitespace-nowrap shrink-0 inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-lg border border-[#453C33] bg-[#181512] hover:bg-[#2F2923] text-[#F7F4EE] hover:text-[#E2A97B] transition-all text-xs xl:text-sm font-label font-semibold shadow-xs focus:outline-none cursor-pointer" title="Toggle Light / Dark Mode" aria-label="Toggle Theme">
-
-          <span id="themeToggleIcon" class="material-symbols-outlined text-base text-[#F2CBA5] transition-transform duration-300">light_mode</span>
-
-          <span id="themeToggleText" class="font-label">লাইট মোড</span>
-
-        </button>
-
-
-
-
-
-
-
-        <!-- 3. Language Switcher (Compact at the end with safe buffer) -->
-
-
-
-        <div class="flex items-center bg-[#181512] border border-[#453C33] rounded-lg p-0.5 sm:p-1 text-xs font-label font-semibold shrink-0">
-
-
-
-          <button class="lang-btn px-2 sm:px-2.5 py-1 rounded bg-[#C98A5B] text-[#141210] font-bold shadow-sm transition-all" data-lang="bn">বাংলা</button>
-
-
-
-          <button class="lang-btn px-2 sm:px-2.5 py-1 text-[#A39788] hover:text-[#F7F4EE] transition-colors" data-lang="hi">हिन्दी</button>
-
-
-
-          <button class="lang-btn px-2 sm:px-2.5 py-1 text-[#A39788] hover:text-[#F7F4EE] transition-colors" data-lang="en">English</button>
-
-
-
+          <button id="directLogoutBtn" type="button" onclick="logoutCitizen()" class="whitespace-nowrap shrink-0 flex items-center gap-1 px-2 py-1.5 rounded-lg bg-red-950/70 hover:bg-red-800 border border-red-600/60 text-red-200 hover:text-white transition-all text-xs font-bold shadow-xs cursor-pointer active:scale-95" title="লগআউট / Logout">
+            <span class="material-symbols-outlined text-sm sm:text-base">logout</span>
+            <span class="hidden md:inline text-xs" data-i18n="btn_logout">লগআউট</span>
+          </button>
         </div>
 
+        <!-- 2. Light / Dark Theme Mode Toggle (Compact on Phone) -->
+        <button id="themeToggleBtn" type="button" class="whitespace-nowrap shrink-0 inline-flex items-center gap-1 sm:gap-2 p-1.5 sm:px-2.5 sm:py-1.5 rounded-lg border border-[#453C33] bg-[#181512] hover:bg-[#2F2923] text-[#F7F4EE] hover:text-[#E2A97B] transition-all text-xs xl:text-sm font-label font-semibold shadow-xs focus:outline-none cursor-pointer" title="Toggle Light / Dark Mode" aria-label="Toggle Theme">
+          <span id="themeToggleIcon" class="material-symbols-outlined text-base text-[#F2CBA5] transition-transform duration-300">light_mode</span>
+          <span id="themeToggleText" class="hidden sm:inline font-label">লাইট মোড</span>
+        </button>
 
+        <!-- 3. Language Switcher (Compact on Phone) -->
+        <div class="flex items-center bg-[#181512] border border-[#453C33] rounded-lg p-0.5 text-xs font-label font-semibold shrink-0">
+          <button class="lang-btn px-1.5 sm:px-2 py-0.5 sm:py-1 rounded bg-[#C98A5B] text-[#141210] font-bold shadow-sm transition-all text-[11px] sm:text-xs" data-lang="bn">বাং</button>
+          <button class="lang-btn px-1.5 sm:px-2 py-0.5 sm:py-1 text-[#A39788] hover:text-[#F7F4EE] transition-colors text-[11px] sm:text-xs" data-lang="hi">हि</button>
+          <button class="lang-btn px-1.5 sm:px-2 py-0.5 sm:py-1 text-[#A39788] hover:text-[#F7F4EE] transition-colors text-[11px] sm:text-xs" data-lang="en">EN</button>
+        </div>
 
       </div>
 
@@ -1072,7 +1028,7 @@
 
 
 
-  <main class="w-full pt-28 bg-[#141210] min-h-[calc(100vh-28rem)]">
+  <main class="w-full pt-20 sm:pt-28 pb-24 lg:pb-8 bg-[#141210] min-h-[calc(100vh-28rem)]">
 
 
 
@@ -1332,7 +1288,7 @@
 
 
 
-                <div class="text-[11px] text-[#A39788]" data-i18n="ask_ai_sub">Ask in Bengali, Hindi or English — e.g. "আমি কি লক্ষ্মীর ভাণ্ডার পাব?"</div>
+                <div class="text-[11px] text-[#A39788]" data-i18n="ask_ai_sub">Ask in Bengali, Hindi or English — e.g. "আমি কি পিএম সূর্য ঘর পাব?"</div>
 
 
 
@@ -1360,7 +1316,7 @@
 
 
 
-                <input class="w-full bg-[#141210] border border-[#453C33] focus:border-[#C98A5B] focus:ring-1 focus:ring-[#C98A5B] text-[#F7F4EE] text-sm sm:text-base font-body pl-12 pr-10 py-3.5 rounded-lg outline-none transition-all placeholder:text-[#7A7165]" id="citizenSearchInput" data-i18n-placeholder="search_placeholder" placeholder='সহজ ভাষায় খুঁজুন... যেমন: "মেয়েদের বিয়ে" (Rupashree), "চাষীদের টাকা" (Krishak Bandhu), "মহিলাদের ১০০০ টাকা"...' type="text"/>
+                <input class="w-full bg-[#141210] border border-[#453C33] focus:border-[#C98A5B] focus:ring-1 focus:ring-[#C98A5B] text-[#F7F4EE] text-sm sm:text-base font-body pl-12 pr-10 py-3.5 rounded-lg outline-none transition-all placeholder:text-[#7A7165]" id="citizenSearchInput" data-i18n-placeholder="search_placeholder" placeholder='সহজ ভাষায় খুঁজুন... যেমন: "মেয়েদের বিয়ে" (PM Ujjwala), "চাষীদের টাকা" (PM-KISAN), "মহিলাদের ১০০০ টাকা"...' type="text"/>
 
 
 
@@ -1464,11 +1420,11 @@
 
 
 
-              <button class="chip-btn px-3 py-1.5 rounded-full bg-[#2F2923] hover:bg-[#C98A5B] hover:text-[#141210] border border-[#453C33] text-[#F7F4EE] font-body transition-colors text-xs flex items-center gap-1.5" data-search="Lakshmir Bhandar">
+              <button class="chip-btn px-3 py-1.5 rounded-full bg-[#2F2923] hover:bg-[#C98A5B] hover:text-[#141210] border border-[#453C33] text-[#F7F4EE] font-body transition-colors text-xs flex items-center gap-1.5" data-search="PM Surya Ghar">
 
 
 
-                <span data-i18n="chip_lb">অন্নপূর্ণা / লক্ষ্মীর ভাণ্ডার</span>
+                <span data-i18n="chip_surya">পিএম সূর্য ঘর যোজনা</span>
 
 
 
@@ -1484,7 +1440,7 @@
 
 
 
-                <span data-i18n="chip_ys">যুব শক্তি যোজনা</span>
+                <span data-i18n="chip_svanidhi">পিএম স্বনিধি লোন</span>
 
 
 
@@ -1512,11 +1468,11 @@
 
 
 
-              <button class="chip-btn px-3 py-1.5 rounded-full bg-[#2F2923] hover:bg-[#C98A5B] hover:text-[#141210] border border-[#453C33] text-[#F7F4EE] font-body transition-colors text-xs flex items-center gap-1.5" data-search="Krishak Bandhu">
+              <button class="chip-btn px-3 py-1.5 rounded-full bg-[#2F2923] hover:bg-[#C98A5B] hover:text-[#141210] border border-[#453C33] text-[#F7F4EE] font-body transition-colors text-xs flex items-center gap-1.5" data-search="PM-KISAN">
 
 
 
-                <span data-i18n="chip_kb">কৃষক বন্ধু</span>
+                <span data-i18n="chip_pmkisan">পিএম কিষাণ</span>
 
 
 
@@ -1532,7 +1488,7 @@
 
 
 
-                <span data-i18n="chip_km">কর্মশ্রী ৫০ দিন</span>
+                <span data-i18n="chip_pmay">পিএম আবাস যোজনা</span>
 
 
 
@@ -1544,7 +1500,7 @@
 
 
 
-                <span data-i18n="chip_ss">স্বাস্থ্য সাথী কার্ড</span>
+                <span data-i18n="chip_wbscc">স্টুডেন্ট ক্রেডিট কার্ড</span>
 
 
 
@@ -1924,7 +1880,7 @@
 
 
 
-                    <span class="bg-[#FAF7F2] border border-[#D8C7B5] px-2.5 py-1 rounded-md text-[#292524] font-medium shadow-2xs" data-i18n="card_chip_lb">অন্নপূর্ণা / লক্ষ্মীর ভাণ্ডার</span>
+                    <span class="bg-[#FAF7F2] border border-[#D8C7B5] px-2.5 py-1 rounded-md text-[#292524] font-medium shadow-2xs" data-i18n="card_chip_lb">অন্নপূর্ণা / পিএম সূর্য ঘর</span>
 
 
 
@@ -1936,11 +1892,11 @@
 
 
 
-                    <span class="bg-[#FAF7F2] border border-[#D8C7B5] px-2.5 py-1 rounded-md text-[#292524] font-medium shadow-2xs" data-i18n="card_chip_kb">কৃষক বন্ধু ও শস্য বীমা</span>
+                    <span class="bg-[#FAF7F2] border border-[#D8C7B5] px-2.5 py-1 rounded-md text-[#292524] font-medium shadow-2xs" data-i18n="card_chip_kb">পিএম কিষাণ ও শস্য বীমা</span>
 
 
 
-                    <span class="bg-[#FAF7F2] border border-[#D8C7B5] px-2.5 py-1 rounded-md text-[#292524] font-medium shadow-2xs" data-i18n="card_chip_km">কর্মশ্রী ও আবাস যোজনা</span>
+                    <span class="bg-[#FAF7F2] border border-[#D8C7B5] px-2.5 py-1 rounded-md text-[#292524] font-medium shadow-2xs" data-i18n="card_chip_km">পিএম আবাস ও আবাস যোজনা</span>
 
 
 
@@ -2396,7 +2352,7 @@
 
 
 
-                  লক্ষ্মীর ভাণ্ডার, কৃষক বন্ধু, রূপশ্রী, বার্ধক্য ভাতা সহ প্রত্যেকটি সামাজিক সুরক্ষা প্রকল্পের বিশদ শর্তাবলী, ফর্ম জমা দেওয়ার স্থান ও প্রয়োজনীয় নথির তালিকা।
+                  পিএম সূর্য ঘর, পিএম কিষাণ, পিএম উজ্জ্বলা, বার্ধক্য ভাতা সহ প্রত্যেকটি সামাজিক সুরক্ষা প্রকল্পের বিশদ শর্তাবলী, ফর্ম জমা দেওয়ার স্থান ও প্রয়োজনীয় নথির তালিকা।
 
 
 
@@ -2564,7 +2520,7 @@
                   সুশাসন সেবা শিবির সময়সূচি ও BDO/SDO আবেদন জমাদানের সময়সীমা
                 </h4>
                 <p class="text-xs sm:text-sm text-[#DDD5C7] font-body max-w-2xl leading-relaxed" data-i18n="camp_desc">
-                  <span data-i18n="camp_banner_desc">অন্নপূর্ণা ভাণ্ডার, আয়ুষ্মান ভারত (PM-JAY), পিএম কিষাণ ও আবাস যোজনা সহ সরকারি প্রকল্পের সরাসরি ফর্ম জমা ও স্পট ভেরিফিকেশন চলছে। আপনার অঞ্চলে ক্যাম্প না থাকলেও যেকোনো কাজের দিনে নিকটস্থ BDO (গ্রামীণ পঞ্চায়েত) বা SDO (পৌরসভা/শহর) অফিসে আবেদন জমা দিন ও প্রাপ্তি রসিদ সংগ্রহ করুন।</span>
+                  <span data-i18n="camp_banner_desc">পিএম সূর্য ঘর, আয়ুষ্মান ভারত (PM-JAY), পিএম কিষাণ ও আবাস যোজনা সহ সরকারি প্রকল্পের সরাসরি ফর্ম জমা ও স্পট ভেরিফিকেশন চলছে। আপনার অঞ্চলে ক্যাম্প না থাকলেও যেকোনো কাজের দিনে নিকটস্থ BDO (গ্রামীণ পঞ্চায়েত) বা SDO (পৌরসভা/শহর) অফিসে আবেদন জমা দিন ও প্রাপ্তি রসিদ সংগ্রহ করুন।</span>
                 </p>
               </div>
             </div>
@@ -2665,7 +2621,7 @@
 
 
 
-                    <span data-i18n="story1_quote">"লক্ষ্মীর ভাণ্ডারের এসএমএস রিজেকশন স্ক্যান করে ব্যাঙ্কে জমা দেওয়ার সঠিক চিঠি তৈরি করে ৩ মাসের বকেয়া টাকা অ্যাকাউন্টে জমা হয়েছে।"</span>
+                    <span data-i18n="story1_quote">"পিএম সূর্য ঘরের এসএমএস রিজেকশন স্ক্যান করে ব্যাঙ্কে জমা দেওয়ার সঠিক চিঠি তৈরি করে ৩ মাসের বকেয়া টাকা অ্যাকাউন্টে জমা হয়েছে।"</span>
 
 
 
@@ -2729,7 +2685,7 @@
 
 
 
-                  <p class="text-xs font-body text-[#F7F4EE] font-semibold" data-i18n="story2_title">কৃষক বন্ধু খতিয়ান মিউটেশন প্রতিকার</p>
+                  <p class="text-xs font-body text-[#F7F4EE] font-semibold" data-i18n="story2_title">পিএম কিষাণ খতিয়ান মিউটেশন প্রতিকার</p>
 
 
 
@@ -2801,7 +2757,7 @@
 
 
 
-                  <p class="text-xs font-body text-[#F7F4EE] font-semibold" data-i18n="story3_title">রূপশ্রী প্রকল্পের এককালীন অনুদান যাচাই</p>
+                  <p class="text-xs font-body text-[#F7F4EE] font-semibold" data-i18n="story3_title">পিএম উজ্জ্বলা প্রকল্পের এককালীন অনুদান যাচাই</p>
 
 
 
@@ -3105,7 +3061,7 @@
 
 
 
-              <span data-i18n="wiz_lbl_land">আমার বা পরিবারের নামে নিজস্ব চাষযোগ্য জমি রয়েছে (Land for Krishak Bandhu)</span>
+              <span data-i18n="wiz_lbl_land">আমার বা পরিবারের নামে নিজস্ব চাষযোগ্য জমি রয়েছে (Land for PM-KISAN / Agriculture)</span>
 
 
 
@@ -3343,7 +3299,7 @@
 
                   <span class="material-symbols-outlined text-[12px]">autorenew</span>
 
-                  <span data-i18n="notice_sample_lb">অন্নপূর্ণা ভাণ্ডার নমুনা</span>
+                  <span data-i18n="notice_sample_lb">পিএম সূর্য ঘর নমুনা</span>
 
                 </button>
 
@@ -3351,7 +3307,7 @@
 
                 <button type="button" id="noticeSampleKrishakBtn" class="text-[11px] text-[#E2A97B] hover:text-[#F2CBA5] font-semibold hover:underline cursor-pointer">
 
-                  <span data-i18n="notice_sample_kb">কৃষক বন্ধু নমুনা</span>
+                  <span data-i18n="notice_sample_kb">পিএম কিষাণ নমুনা</span>
 
                 </button>
 
@@ -3697,63 +3653,20 @@
 
 
 
-                <select id="grvScheme" class="w-full bg-[#141210] border border-[#453C33] rounded-lg p-2.5 text-[#F7F4EE] focus:border-[#C98A5B] outline-none">
-
-
-
-                  <option value="অন্নপূর্ণা ভাণ্ডার / লক্ষ্মীর ভাণ্ডার">অন্নপূর্ণা ভাণ্ডার / লক্ষ্মীর ভাণ্ডার (Annapurna / Lakshmir Bhandar - ₹3,000/মাসিক)</option>
-
-
-
-                  <option value="পশ্চিমবঙ্গ যুব শক্তি যোজনা">পশ্চিমবঙ্গ যুব শক্তি যোজনা (WB Yuva Shakti - ₹2,000-₹3,000/মাসিক)</option>
-
-
-
-                  <option value="আয়ুষ্মান ভারত ও স্বাস্থ্য সাথী">আয়ুষ্মান ভারত ও স্বাস্থ্য সাথী (Ayushman Bharat & Swasthya Sathi)</option>
-
-
-
-                  <option value="কর্মশ্রী প্রকল্প">কর্মশ্রী প্রকল্প (Karmashree 50-Day Guaranteed Work)</option>
-
-
-
-                  <option value="কৃষক বন্ধু ও বাংলা শস্য বীমা">কৃষক বন্ধু ও বাংলা শস্য বীমা (Krishak Bandhu & BSB)</option>
-
-
-
-                  <option value="বাংলার আবাস যোজনা">বাংলার আবাস যোজনা (Banglar Awas Yojana)</option>
-
-
-
-                  <option value="ভবিষ্যৎ ক্রেডিট কার্ড">ভবিষ্যৎ ক্রেডিট কার্ড (Bhabishyat Credit Card - WBBCCS)</option>
-
-
-
-                  <option value="রূপশ্রী প্রকল্প">রূপশ্রী প্রকল্প (Rupashree Prakalpa)</option>
-
-
-
-                  <option value="কন্যাশ্রী প্রকল্প">কন্যাশ্রী প্রকল্প (Kanyashree Prakalpa)</option>
-
-
-
-                  <option value="তরুণের স্বপ্ন">তরুণের স্বপ্ন (Taruner Swapno Tab Scheme)</option>
-
-
-
-                  <option value="স্বামী বিবেকানন্দ স্কলারশিপ ও স্টুডেন্ট ক্রেডিট কার্ড">স্বামী বিবেকানন্দ স্কলারশিপ ও স্টুডেন্ট ক্রেডিট কার্ড (SVMCM & WBSCC)</option>
-
-
-
-                  <option value="জয় জোহার ও তপশিলী বন্ধু">জয় জোহার ও তপশিলী বন্ধু (Jai Johar & Taposhili Bandhu Pension)</option>
-
-
-
-                  <option value="মানবিক প্রতিবন্ধী ভাতা">মানবিক প্রতিবন্ধী ভাতা (Manabik Pension)</option>
-
-
-
-                </select>
+                <select id="grvScheme" class="w-full bg-[#141210] border border-[#453C33] rounded-lg p-2.5 text-xs text-[#F7F4EE]">
+                        <option value="পিএম সূর্য ঘর মুফ্ত বিদ্যুৎ যোজনা">পিএম সূর্য ঘর মুফ্ত বিদ্যুৎ যোজনা (PM Surya Ghar: Muft Bijli Yojana)</option>
+                        <option value="আয়ুষ্মান ভারত (PM-JAY)">আয়ুষ্মান ভারত (PM-JAY) ও বয় বন্দনা ৭০+</option>
+                        <option value="প্রধানমন্ত্রী কিষাণ সম্মান নিধি (PM-KISAN)">প্রধানমন্ত্রী কিষাণ সম্মান নিধি (PM-KISAN)</option>
+                        <option value="প্রধানমন্ত্রী আবাস যোজনা (PMAY-U)">প্রধানমন্ত্রী আবাস যোজনা শহরাঞ্চল (PMAY-Urban)</option>
+                        <option value="পিএম স্বনিধি">পিএম স্বনিধি স্ট্রিট ভেন্ডর লোন (PM SVANidhi)</option>
+                        <option value="পশ্চিমবঙ্গ স্টুডেন্ট ক্রেডিট কার্ড">পশ্চিমবঙ্গ স্টুডেন্ট ক্রেডিট কার্ড (WB Student Credit Card)</option>
+                        <option value="পশ্চিমবঙ্গ শিক্ষাশ্রী প্রকল্প">পশ্চিমবঙ্গ শিক্ষাশ্রী প্রকল্প (Sikshashree Scheme)</option>
+                        <option value="জয় জোহার ও তপশিলী বন্ধু">জয় জোহার ও তপশিলী বন্ধু (Jai Johar & Taposhili Bandhu Pension)</option>
+                        <option value="প্রধানমন্ত্রী মুদ্রা যোজনা">প্রধানমন্ত্রী মুদ্রা যোজনা (PMMY Loan)</option>
+                        <option value="প্রধানমন্ত্রী উজ্জ্বলা যোজনা">প্রধানমন্ত্রী উজ্জ্বলা যোজনা (PMUY Gas Connection)</option>
+                        <option value="অটল পেনশন যোজনা">অটল পেনশন যোজনা (Atal Pension Yojana)</option>
+                        <option value="ই-শ্রম কার্ড">ই-শ্রম কার্ড ও সামাজিক সুরক্ষা (E-Shram Card)</option>
+                    </select>
 
 
 
@@ -4514,32 +4427,12 @@
           </div>
 
           <!-- Hero Action Buttons -->
-          <div class="flex flex-wrap sm:flex-nowrap items-center gap-2 pt-2">
-            <a id="heroDirectionsBtn" href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="flex-1 py-2 px-3 rounded-lg bg-[#C98A5B] hover:bg-[#B87B4C] text-[#141210] font-bold text-xs text-center flex items-center justify-center gap-1.5 transition-colors shadow">
-              <span class="material-symbols-outlined text-sm">directions</span>
-              <span data-i18n="off_btn_maps">গুগল ম্যাপে পথ ও দূরত্ব দেখুন (Google Maps)</span>
-            </a>
-            <button id="heroDraftGrievanceBtn" type="button" class="flex-1 py-2 px-3 rounded-lg bg-[#2A231C] hover:bg-[#382F26] border border-[#C98A5B] text-[#F2CBA5] font-bold text-xs text-center flex items-center justify-center gap-1.5 transition-colors cursor-pointer">
-              <span class="material-symbols-outlined text-sm">edit_document</span>
+          <div class="pt-2">
+            <button id="heroDraftGrievanceBtn" type="button" class="w-full py-2.5 px-4 rounded-lg bg-[#2A231C] hover:bg-[#382F26] border border-[#C98A5B] text-[#F2CBA5] hover:text-[#F7F4EE] font-bold text-xs text-center flex items-center justify-center gap-2 transition-colors cursor-pointer shadow">
+              <span class="material-symbols-outlined text-base">edit_document</span>
               <span data-i18n="off_btn_draft">এই অফিসে দরখাস্ত লিখুন (Draft Grievance)</span>
             </button>
-            <a id="heroCallBtn" href="tel:033-2214-0152" class="py-2 px-3 rounded-lg bg-[#141210] hover:bg-[#1E1B17] border border-[#453C33] text-[#DDD5C7] font-semibold text-xs flex items-center justify-center gap-1 transition-colors">
-              <span class="material-symbols-outlined text-sm text-[#E2A97B]">call</span>
-              <span>ফোন</span>
-            </a>
           </div>
-        </div>
-
-        <!-- Interactive Map Container -->
-        <div class="space-y-1.5">
-          <div class="flex items-center justify-between text-xs">
-            <span class="font-bold text-[#E2A97B] flex items-center gap-1.5">
-              <span class="material-symbols-outlined text-sm">map</span>
-              <span data-i18n="off_map_title">ভৌগোলিক মানচিত্র ও নেভিগেশন (Interactive Map)</span>
-            </span>
-            <span class="text-[10px] text-[#A39788]" data-i18n="off_map_legend">🔵 আপনার স্থান | 🏢 SDO দপ্তর | 🏛️ BDO দপ্তর</span>
-          </div>
-          <div id="bdoInteractiveMap" style="height: 290px; z-index: 1;" class="w-full rounded-xl border border-[#453C33] overflow-hidden bg-[#141210]"></div>
         </div>
 
         <!-- Verified BDO & SDO Directory List -->
@@ -4641,123 +4534,86 @@
 
 
 
-      <div class="p-6 space-y-4 text-xs sm:text-sm">
+      <div class="p-5 sm:p-6 space-y-4 text-xs sm:text-sm">
 
-
-
-        <div class="p-3 bg-[#181512] border border-[#453C33] rounded-lg text-xs text-[#DDD5C7] flex items-start gap-2">
-
-
-
-          <span class="material-symbols-outlined text-base text-[#E2A97B]">info</span>
-
-
-
-          <div>
-
-
-
-            <span class="font-bold text-[#F2CBA5]" data-i18n="auth_guest_title">গেস্ট মোড সক্রিয়:</span>
-
-
-
-            <span data-i18n="auth_guest_desc">প্রকল্প খোঁজা, যোগ্যতা যাচাই ও নোটিশ বিশ্লেষণ সম্পূর্ণ বিনামূল্যে বিনা লগইনেই করা সম্ভব।</span>
-
-
-
-          </div>
-
-
-
-        </div>
-
-
-
-
-
-
-
-        <form id="authPhoneForm" class="space-y-3">
-
-
-
-          <div>
-
-
-
-            <label class="block text-xs font-label text-[#DDD5C7] mb-1 font-semibold" data-i18n="auth_mobile_lbl">মোবাইল নম্বর (Mobile OTP Login):</label>
-
-
-
-            <div class="flex gap-2">
-
-
-
-              <span class="px-3 py-2.5 bg-[#141210] border border-[#453C33] rounded-lg text-xs text-[#A39788] font-bold">+91</span>
-
-
-
-              <input type="tel" id="authPhoneInput" placeholder="১০ সংখ্যার মোবাইল নম্বর" data-i18n-placeholder="auth_ph_phone" class="w-full bg-[#141210] border border-[#453C33] rounded-lg p-2.5 text-[#F7F4EE] focus:border-[#C98A5B] outline-none" required/>
-
-
-
+        <!-- SECTION A: LOGGED IN CITIZEN PROFILE -->
+        <div id="citizenProfileSection" class="hidden space-y-4">
+          <!-- Citizen Identity Card -->
+          <div class="p-4 rounded-xl bg-gradient-to-br from-[#2A241E] to-[#1C1814] border-2 border-[#D4AF37]/60 shadow-lg relative overflow-hidden">
+            <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-[#D4AF37]/10 rounded-full blur-xl pointer-events-none"></div>
+            
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-[#D4AF37] to-[#B8860B] text-[#141210] font-black text-xl flex items-center justify-center shadow-md">
+                <span class="material-symbols-outlined text-2xl">person</span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-1.5">
+                  <h4 id="profName" class="text-base font-bold text-[#F7F4EE] truncate">নাগরিক</h4>
+                  <span class="material-symbols-outlined text-sm text-emerald-400" title="যাচাইকৃত">verified</span>
+                </div>
+                <p class="text-[11px] text-[#D4AF37] font-semibold">পশ্চিমবঙ্গ সরকার সার্টিফায়েড নাগরিক</p>
+              </div>
             </div>
 
-
-
+            <!-- Profile Details Grid -->
+            <div class="grid grid-cols-2 gap-2 text-xs pt-3 border-t border-[#453C33]/60">
+              <div class="bg-[#141210]/60 p-2.5 rounded-lg border border-[#453C33]/40">
+                <span class="text-[10px] text-[#A39788] block font-medium">মোবাইল নম্বর</span>
+                <span id="profPhone" class="font-bold text-[#F7F4EE] text-xs">9876543210</span>
+              </div>
+              <div class="bg-[#141210]/60 p-2.5 rounded-lg border border-[#453C33]/40">
+                <span class="text-[10px] text-[#A39788] block font-medium">জেলা (District)</span>
+                <span id="profDistrict" class="font-bold text-[#F7F4EE] text-xs">Kolkata</span>
+              </div>
+              <div class="bg-[#141210]/60 p-2.5 rounded-lg border border-[#453C33]/40 col-span-2">
+                <span class="text-[10px] text-[#A39788] block font-medium">রেশন কার্ডের ধরন</span>
+                <span id="profRation" class="font-bold text-[#E2A97B] text-xs">SPHH / RKSY</span>
+              </div>
+            </div>
           </div>
 
+          <!-- Quick Navigation Actions -->
+          <div class="grid grid-cols-2 gap-2 pt-1">
+            <button type="button" onclick="closeAllModals(); openModal('eligibility-wizard');" class="p-2.5 rounded-xl bg-[#2A241E] hover:bg-[#383028] border border-[#453C33] text-[#F7F4EE] text-xs font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer">
+              <span class="material-symbols-outlined text-base text-[#D4AF37]">fact_check</span>
+              <span>যোগ্যতা যাচাই</span>
+            </button>
+            <button type="button" onclick="closeAllModals(); openModal('grievance-drafter');" class="p-2.5 rounded-xl bg-[#2A241E] hover:bg-[#383028] border border-[#453C33] text-[#F7F4EE] text-xs font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer">
+              <span class="material-symbols-outlined text-base text-[#D4AF37]">history_edu</span>
+              <span>অভিযোগ ড্রাফট</span>
+            </button>
+          </div>
 
-
-
-
-
-
-          <button type="submit" class="w-full py-2.5 rounded-lg bg-[#C98A5B] hover:bg-[#B87B4C] text-[#141210] font-bold text-xs tracking-wide transition-all shadow-md">
-
-
-
-            ওটিপি পাঠান (Send OTP)
-
-
-
-          </button>
-
-
-
-        </form>
-
-
-
-
-
-
-
-        <div class="text-center text-[11px] text-[#A39788]" data-i18n="auth_or_google">— অথবা সরাসরি গুগল দিয়ে —</div>
-
-
-
-
-
-
-
-        <button id="googleLoginBtn" class="w-full py-2.5 rounded-lg bg-[#2F2923] hover:bg-[#38312A] border border-[#453C33] text-[#F7F4EE] font-bold text-xs transition-all flex items-center justify-center gap-2">
-          <span class="material-symbols-outlined text-base">mail</span>
-          <span data-i18n="auth_btn_google">Google একাউন্ট দিয়ে লগইন করুন</span>
-        </button>
-
-        <div class="pt-3 border-t border-[#453C33] flex flex-col gap-2">
-          <a href="/login/" class="w-full py-2.5 rounded-xl border-2 border-[#D4AF37] bg-[#FAF3E4]/10 hover:bg-[#FAF3E4]/20 text-[#F2CBA5] font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-sm">
-            <span class="material-symbols-outlined text-base text-[#D4AF37]">open_in_new</span>
-            <span data-i18n="auth_link_login">হোয়াইট ও গোল্ডেন লগইন পেইজে যান (Login Page)</span>
-          </a>
-          <a href="/register/" class="w-full py-2.5 rounded-xl border border-[#D4AF37] bg-gradient-to-r from-[#D4AF37] via-[#C59B27] to-[#B8860B] hover:brightness-105 text-[#141210] font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-md">
-            <span class="material-symbols-outlined text-base">person_add</span>
-            <span data-i18n="auth_link_register">নতুন নাগরিক নিবন্ধন (Register Page)</span>
-          </a>
+          <!-- PROMINENT LOGOUT BUTTON -->
+          <div class="pt-2 border-t border-[#453C33]">
+            <button type="button" onclick="logoutCitizen()" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-red-700 via-red-600 to-red-800 hover:brightness-110 active:scale-[0.99] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-red-900/40 transition-all cursor-pointer">
+              <span class="material-symbols-outlined text-lg">logout</span>
+              <span data-i18n="btn_logout">নাগরিক প্রোফাইল থেকে লগআউট করুন (Log Out)</span>
+            </button>
+          </div>
         </div>
 
+        <!-- SECTION B: GUEST / UNLOGGED IN SECTION -->
+        <div id="citizenLoginSection" class="space-y-4">
+          <div class="p-3 bg-[#181512] border border-[#453C33] rounded-lg text-xs text-[#DDD5C7] flex items-start gap-2">
+            <span class="material-symbols-outlined text-base text-[#E2A97B]">info</span>
+            <div>
+              <span class="font-bold text-[#F2CBA5]" data-i18n="auth_guest_title">গেস্ট মোড সক্রিয়:</span>
+              <span data-i18n="auth_guest_desc">প্রকল্প খোঁজা, যোগ্যতা যাচাই ও নোটিশ বিশ্লেষণ সম্পূর্ণ বিনামূল্যে বিনা লগইনেই করা সম্ভব।</span>
+            </div>
+          </div>
 
+          <div class="pt-3 border-t border-[#453C33] flex flex-col gap-2">
+            <a href="/login/" class="w-full py-2.5 rounded-xl border-2 border-[#D4AF37] bg-[#FAF3E4]/10 hover:bg-[#FAF3E4]/20 text-[#F2CBA5] font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-sm">
+              <span class="material-symbols-outlined text-base text-[#D4AF37]">open_in_new</span>
+              <span data-i18n="auth_link_login">হোয়াইট ও গোল্ডেন লগইন পেইজে যান (Login Page)</span>
+            </a>
+            <a href="/register/" class="w-full py-2.5 rounded-xl border border-[#D4AF37] bg-gradient-to-r from-[#D4AF37] via-[#C59B27] to-[#B8860B] hover:brightness-105 text-[#141210] font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-md">
+              <span class="material-symbols-outlined text-base">person_add</span>
+              <span data-i18n="auth_link_register">নতুন নাগরিক নিবন্ধন (Register Page)</span>
+            </a>
+          </div>
+        </div>
 
       </div>
 
@@ -4881,53 +4737,7 @@
 
 
 
-        <!-- Interactive Aadhaar Input & Quick Copy Helper -->
-
-        <div class="p-5 rounded-xl bg-[#1A1714] border border-[#453C33] space-y-3.5">
-
-          <div class="flex items-center justify-between">
-
-            <label for="dbtAadhaarInput" class="font-bold text-xs text-[#F7F4EE] flex items-center gap-1.5" data-i18n="dbt_input_label">
-
-              <span>আপনার ১২ সংখ্যার আধার নম্বর লিখুন (ঐচ্ছিক সহায়ক):</span>
-
-            </label>
-
-            <span id="dbtAadhaarBadge" class="text-[11px] text-[#A39788] font-mono">১২ সংখ্যা বাকি</span>
-
-          </div>
-
-          
-
-          <div class="relative">
-
-            <input type="text" id="dbtAadhaarInput" maxlength="14" placeholder="XXXX XXXX XXXX" class="w-full bg-[#141210] border border-[#453C33] focus:border-[#C98A5B] rounded-xl px-4 py-3 text-[#F7F4EE] font-mono text-base tracking-widest outline-none transition-colors" />
-
-            <button id="dbtCopyAadhaarBtn" type="button" class="absolute right-2 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-[#2F2923] hover:bg-[#38312A] text-[#F7F4EE] text-xs font-label font-semibold rounded-lg border border-[#453C33] flex items-center gap-1 transition-all">
-
-              <span class="material-symbols-outlined text-sm">content_copy</span>
-
-              <span data-i18n="dbt_copy_btn">কপি করুন</span>
-
-            </button>
-
-          </div>
-
-
-
-          <div class="flex flex-col sm:flex-row items-center gap-2.5 pt-1">
-
-            <button id="dbtCopyAndOpenBtn" type="button" class="w-full sm:flex-1 py-2.5 px-4 bg-[#28231E] hover:bg-[#2F2923] border border-[#C98A5B] text-[#F2CBA5] hover:text-[#F7F4EE] rounded-xl text-xs font-label font-bold flex items-center justify-center gap-1.5 transition-all">
-
-              <span class="material-symbols-outlined text-sm">content_paste_go</span>
-
-              <span data-i18n="dbt_copy_and_go">নম্বর কপি করুন ও সরকারি পোর্টাল খুলুন</span>
-
-            </button>
-
-          </div>
-
-        </div>
+        
 
 
 
@@ -5005,7 +4815,7 @@
 
           <p class="leading-relaxed" data-i18n="dbt_warning_text">
 
-            লক্ষ্মীর ভাণ্ডার (₹১,০০০/₹১,২০০), কৃষক বন্ধু (₹১০,০০০) বা কন্যাশ্রী প্রকল্পের টাকা পাওয়ার জন্য আবেদনকারীর নিজস্ব নামে <strong>একক ব্যাঙ্ক অ্যাকাউন্ট (Single Account) এবং NPCI DBT সক্রিয় থাকা বাধ্যতামূলক</strong>। যদি 'Inactive' বা বন্ধ দেখায়, অবিলম্বে আপনার ব্যাঙ্ক শাখায় গিয়ে আধার সিডিং ফর্ম জমা দিন।
+            পিএম সূর্য ঘর (₹১,০০০/₹১,২০০), পিএম কিষাণ (₹১০,০০০) বা স্টুডেন্ট ক্রেডিট কার্ড প্রকল্পের টাকা পাওয়ার জন্য আবেদনকারীর নিজস্ব নামে <strong>একক ব্যাঙ্ক অ্যাকাউন্ট (Single Account) এবং NPCI DBT সক্রিয় থাকা বাধ্যতামূলক</strong>। যদি 'Inactive' বা বন্ধ দেখায়, অবিলম্বে আপনার ব্যাঙ্ক শাখায় গিয়ে আধার সিডিং ফর্ম জমা দিন।
 
           </p>
 
@@ -5344,6 +5154,32 @@
 
 
   </footer>
+  <!-- ========================================================================= -->
+  <!-- MOBILE BOTTOM NAVIGATION DOCK (Dedicated for phone viewports < 1024px) -->
+  <!-- ========================================================================= -->
+  <nav id="mobileBottomNav" class="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#161310]/95 backdrop-blur-xl border-t border-[#453C33] px-1 py-1.5 flex items-center justify-around shadow-[0_-8px_25px_rgba(0,0,0,0.6)]" style="padding-bottom: max(6px, env(safe-area-inset-bottom));">
+    <button type="button" onclick="closeAllModals(); window.scrollTo({top: 0, behavior: 'smooth'});" class="mobile-nav-btn flex flex-col items-center justify-center py-1 px-2 text-[#C98A5B] font-bold text-[10px] min-w-[56px] active:scale-95 transition-transform" data-mob-path="home">
+      <span class="material-symbols-outlined text-xl">home</span>
+      <span data-i18n="nav_home">হোম</span>
+    </button>
+    <button type="button" onclick="openModal('eligibility-wizard')" class="mobile-nav-btn flex flex-col items-center justify-center py-1 px-2 text-[#A39788] hover:text-[#F7F4EE] text-[10px] min-w-[56px] active:scale-95 transition-transform" data-mob-path="eligibility-wizard">
+      <span class="material-symbols-outlined text-xl">verified</span>
+      <span data-i18n="nav_wizard">যোগ্যতা</span>
+    </button>
+    <button type="button" onclick="openModal('schemes-and-docs')" class="mobile-nav-btn flex flex-col items-center justify-center py-1 px-2 text-[#A39788] hover:text-[#F7F4EE] text-[10px] min-w-[56px] active:scale-95 transition-transform" data-mob-path="schemes-and-docs">
+      <span class="material-symbols-outlined text-xl">dataset</span>
+      <span data-i18n="nav_schemes">প্রকল্প</span>
+    </button>
+    <button type="button" onclick="openModal('notice-explainer')" class="mobile-nav-btn flex flex-col items-center justify-center py-1 px-2 text-[#A39788] hover:text-[#F7F4EE] text-[10px] min-w-[56px] active:scale-95 transition-transform" data-mob-path="notice-explainer">
+      <span class="material-symbols-outlined text-xl">document_scanner</span>
+      <span data-i18n="nav_notice">নোটিশ</span>
+    </button>
+    <button type="button" onclick="openModal('grievance-drafter')" class="mobile-nav-btn flex flex-col items-center justify-center py-1 px-2 text-[#A39788] hover:text-[#F7F4EE] text-[10px] min-w-[56px] active:scale-95 transition-transform" data-mob-path="grievance-drafter">
+      <span class="material-symbols-outlined text-xl">edit_document</span>
+      <span data-i18n="nav_grievance">অভিযোগ</span>
+    </button>
+  </nav>
+
 
 
 
@@ -5368,43 +5204,71 @@
 
 
     // Strict Citizen Authentication Guard: Requires login for all features
+    function updateCitizenProfileUI(user) {
+      if (!user) return;
+      const userName = user.full_name || user.username || 'নাগরিক';
+      
+      const nameEl = document.getElementById('citizenHeaderName');
+      if (nameEl) nameEl.textContent = userName;
+
+      const authBtn = document.getElementById('openAuthModalBtn');
+      if (authBtn) authBtn.title = "নাগরিক প্রোফাইল: " + userName;
+
+      const profSection = document.getElementById('citizenProfileSection');
+      const loginSection = document.getElementById('citizenLoginSection');
+      if (profSection && loginSection) {
+        profSection.classList.remove('hidden');
+        loginSection.classList.add('hidden');
+        
+        const profName = document.getElementById('profName');
+        const profPhone = document.getElementById('profPhone');
+        const profDistrict = document.getElementById('profDistrict');
+        const profRation = document.getElementById('profRation');
+
+        if (profName) profName.textContent = userName;
+        if (profPhone) profPhone.textContent = user.phone || '–';
+        if (profDistrict) profDistrict.textContent = user.district || 'পশ্চিমবঙ্গ (West Bengal)';
+        if (profRation) profRation.textContent = user.ration_card_type || 'General (সাধারণ)';
+      }
+    }
+    window.updateCitizenProfileUI = updateCitizenProfileUI;
+
     (function checkCitizenAuth() {
       try {
         const userStr = localStorage.getItem('nayasetu_user');
         if (!userStr) {
-          const dest = (window.location.port === '8000' && !window.location.pathname.endsWith('.html')) ? '/register/' : 'Register.html';
+          const dest = (window.location.protocol === 'file:') ? 'Register.html' : '/register/';
           window.location.replace(dest);
           return;
         }
         const user = JSON.parse(userStr);
         setTimeout(() => {
-          const authBtn = document.getElementById('openAuthModalBtn');
-          if (authBtn) {
-            const userName = user.full_name || user.username || 'নাগরিক';
-            authBtn.innerHTML = `
-              <span class="material-symbols-outlined text-lg sm:text-xl">account_circle</span>
-              <span class="font-label max-w-[120px] truncate">${userName}</span>
-              <span onclick="event.stopPropagation(); logoutCitizen();" class="ml-1 px-1.5 py-0.5 rounded bg-black/20 hover:bg-red-700 text-[10px]" title="লগআউট / Logout">লগআউট</span>
-            `;
-            authBtn.title = "নাগরিক প্রোফাইল: " + userName;
-          }
-        }, 100);
+          updateCitizenProfileUI(user);
+        }, 50);
       } catch (e) {
         console.warn('Auth check exception:', e);
       }
     })();
 
     function logoutCitizen() {
-      localStorage.removeItem('nayasetu_user');
-      const dest = (window.location.port === '8000' && !window.location.pathname.endsWith('.html')) ? '/' : 'Landing.html';
+      try {
+        localStorage.removeItem('nayasetu_user');
+        localStorage.removeItem('nyayasetu_user');
+        localStorage.removeItem('nyayasetu_token');
+        sessionStorage.clear();
+      } catch (e) {
+        console.error('Logout error:', e);
+      }
+      const dest = (window.location.protocol === 'file:') ? 'Landing.html' : '/';
       window.location.href = dest;
     }
+    window.logoutCitizen = logoutCitizen;
 
     // Automatically detects if running on Django server port 8000 or external origin
 
 
 
-    window.API_BASE = window.location.origin.includes('8000') ? '/api' : 'http://127.0.0.1:8000/api';
+    window.API_BASE = (window.location.protocol === 'file:' || window.location.port === '5500' || window.location.port === '3000') ? 'http://127.0.0.1:8000/api' : '/api';
 
 
 
@@ -5510,7 +5374,21 @@
 
 
 
+        function updateMobileNavState(activeModal) {
+      document.querySelectorAll('#mobileBottomNav .mobile-nav-btn').forEach(btn => {
+        const path = btn.getAttribute('data-mob-path');
+        if (path === activeModal) {
+          btn.classList.add('text-[#C98A5B]', 'font-bold');
+          btn.classList.remove('text-[#A39788]');
+        } else {
+          btn.classList.remove('text-[#C98A5B]', 'font-bold');
+          btn.classList.add('text-[#A39788]');
+        }
+      });
+    }
+
     function openModal(name, pushHistory = true) {
+      updateMobileNavState(name);
 
       if (modals[name]) {
 
@@ -5535,6 +5413,7 @@
 
 
     function closeAllModals(updateHistory = true) {
+      updateMobileNavState('home');
 
       Object.values(modals).forEach(m => {
 
@@ -5889,7 +5768,7 @@
 
         dbt_warning_title: 'পশ্চিমবঙ্গ সরকারি প্রকল্পের অতি জরুরি সতর্কতা:',
 
-        dbt_warning_text: "লক্ষ্মীর ভাণ্ডার (₹১,০০০/₹১,২০০), কৃষক বন্ধু (₹১০,০০০) বা কন্যাশ্রী প্রকল্পের টাকা পাওয়ার জন্য আবেদনকারীর নিজস্ব নামে একক ব্যাঙ্ক অ্যাকাউন্ট (Single Account) এবং NPCI DBT সক্রিয় থাকা বাধ্যতামূলক।",
+        dbt_warning_text: "পিএম সূর্য ঘর (₹১,০০০/₹১,২০০), পিএম কিষাণ (₹১০,০০০) বা স্টুডেন্ট ক্রেডিট কার্ড প্রকল্পের টাকা পাওয়ার জন্য আবেদনকারীর নিজস্ব নামে একক ব্যাঙ্ক অ্যাকাউন্ট (Single Account) এবং NPCI DBT সক্রিয় থাকা বাধ্যতামূলক।",
 
         dbt_ussd_note: 'ইন্টারনেট ছাড়া মোবাইলে চেক: ডায়াল করুন *99*99*1#',
 
@@ -5905,11 +5784,11 @@
 
 
 
-        ask_ai_sub: 'বাংলা, হিন্দি বা ইংরেজিতে প্রশ্ন করুন — যেমন: "আমি কি লক্ষ্মীর ভাণ্ডার পাব?"',
+        ask_ai_sub: 'বাংলা, হিন্দি বা ইংরেজিতে প্রশ্ন করুন — যেমন: "আমি কি পিএম সূর্য ঘর পাব?"',
 
 
 
-        search_placeholder: 'সহজ ভাষায় খুঁজুন... যেমন: "মেয়েদের বিয়ে" (Rupashree), "চাষীদের টাকা" (Krishak Bandhu), "মহিলাদের ১০০০ টাকা"...',
+        search_placeholder: 'সহজ ভাষায় খুঁজুন... যেমন: "মেয়েদের বিয়ে" (PM Ujjwala), "চাষীদের টাকা" (PM-KISAN), "মহিলাদের ১০০০ টাকা"...',
 
 
 
@@ -6069,7 +5948,7 @@
 
 
 
-        c4_desc: 'লক্ষ্মীর ভাণ্ডার, কৃষক বন্ধু, রূপশ্রী, বার্ধক্য ভাতা সহ প্রতিটি প্রকল্পের নিয়মাবলী, ফর্ম জমা দেওয়ার স্থান ও প্রয়োজনীয় নথির সম্পূর্ণ চেকলিস্ট।',
+        c4_desc: 'পিএম সূর্য ঘর, পিএম কিষাণ, পিএম উজ্জ্বলা, বার্ধক্য ভাতা সহ প্রতিটি প্রকল্পের নিয়মাবলী, ফর্ম জমা দেওয়ার স্থান ও প্রয়োজনীয় নথির সম্পূর্ণ চেকলিস্ট।',
 
 
 
@@ -6092,7 +5971,7 @@
         camp_tag: 'জরুরি বিজ্ঞপ্তি',
         camp_sub: 'সুশাসন সেবা শিবির ও নাগরিক সুবিধা কেন্দ্র',
         camp_title: 'সুশাসন সেবা শিবির সময়সূচি ও BDO/SDO আবেদন জমাদানের সময়সীমা',
-        camp_desc: '<span data-i18n="camp_banner_desc">অন্নপূর্ণা ভাণ্ডার, আয়ুষ্মান ভারত (PM-JAY), পিএম কিষাণ ও আবাস যোজনা সহ সরকারি প্রকল্পের সরাসরি ফর্ম জমা ও স্পট ভেরিফিকেশন চলছে। আপনার অঞ্চলে ক্যাম্প না থাকলেও যেকোনো কাজের দিনে নিকটস্থ BDO (গ্রামীণ পঞ্চায়েত) বা SDO (পৌরসভা/শহর) অফিসে আবেদন জমা দিন ও প্রাপ্তি রসিদ সংগ্রহ করুন।</span>',
+        camp_desc: '<span data-i18n="camp_banner_desc">পিএম সূর্য ঘর, আয়ুষ্মান ভারত (PM-JAY), পিএম কিষাণ ও আবাস যোজনা সহ সরকারি প্রকল্পের সরাসরি ফর্ম জমা ও স্পট ভেরিফিকেশন চলছে। আপনার অঞ্চলে ক্যাম্প না থাকলেও যেকোনো কাজের দিনে নিকটস্থ BDO (গ্রামীণ পঞ্চায়েত) বা SDO (পৌরসভা/শহর) অফিসে আবেদন জমা দিন ও প্রাপ্তি রসিদ সংগ্রহ করুন।</span>',
         camp_btn: 'নিকটস্থ BDO / SDO অফিস খুঁজুন',
 
 
@@ -6225,7 +6104,7 @@
 
 
 
-        wiz_lbl_land: 'আমার বা পরিবারের নামে নিজস্ব চাষযোগ্য জমি রয়েছে (Land for Krishak Bandhu)',
+        wiz_lbl_land: 'আমার বা পরিবারের নামে নিজস্ব চাষযোগ্য জমি রয়েছে (Land for PM-KISAN / Agriculture)',
 
 
 
@@ -6464,12 +6343,12 @@
         auth_modal_sub: 'Supabase সিকিওর লগইন ও ড্রাফট সংরক্ষণ',
         auth_modal_title: 'নাগরিক পোর্টাল (Citizen Portal)',
         auth_or_google: '— অথবা সরাসরি গুগল দিয়ে —',
-        camp_banner_desc: 'অন্নপূর্ণা ভাণ্ডার, আয়ুষ্মান ভারত (PM-JAY), পিএম কিষাণ ও আবাস যোজনা সহ সরকারি প্রকল্পের সরাসরি ফর্ম জমা ও স্পট ভেরিফিকেশন চলছে। আপনার অঞ্চলে ক্যাম্প না থাকলেও যেকোনো কাজের দিনে নিকটস্থ BDO (গ্রামীণ পঞ্চায়েত) বা SDO (পৌরসভা/শহর) অফিসে আবেদন জমা দিন ও প্রাপ্তি রসিদ সংগ্রহ করুন।',
+        camp_banner_desc: 'পিএম সূর্য ঘর, আয়ুষ্মান ভারত (PM-JAY), পিএম কিষাণ ও আবাস যোজনা সহ সরকারি প্রকল্পের সরাসরি ফর্ম জমা ও স্পট ভেরিফিকেশন চলছে। আপনার অঞ্চলে ক্যাম্প না থাকলেও যেকোনো কাজের দিনে নিকটস্থ BDO (গ্রামীণ পঞ্চায়েত) বা SDO (পৌরসভা/শহর) অফিসে আবেদন জমা দিন ও প্রাপ্তি রসিদ সংগ্রহ করুন।',
         camp_btn_find: 'নিকটস্থ BDO / SDO অফিস খুঁজুন',
         card_chip_ab: 'আয়ুষ্মান ভারত ও স্বাস্থ্য সাথী',
-        card_chip_kb: 'কৃষক বন্ধু ও শস্য বীমা',
-        card_chip_km: 'কর্মশ্রী ও আবাস যোজনা',
-        card_chip_lb: 'অন্নপূর্ণা / লক্ষ্মীর ভাণ্ডার',
+        card_chip_kb: 'পিএম কিষাণ ও শস্য বীমা',
+        card_chip_km: 'পিএম আবাস ও আবাস যোজনা',
+        card_chip_lb: 'অন্নপূর্ণা / পিএম সূর্য ঘর',
         card_chip_ys: 'যুব শক্তি যোজনা',
         card_grv_b1: 'স্বাক্ষরের নির্দিষ্ট স্থান ও সংযুক্তি (Enclosures) তালিকা স্বয়ংক্রিয়ভাবে তৈরি',
         card_grv_b2: 'সরাসরি বাংলায় PDF বা এক ক্লিকে প্রিন্ট করার সুবিধা',
@@ -6480,10 +6359,10 @@
         chip_ab: 'আয়ুষ্মান ভারত',
         chip_ab_amt: '₹৫L + ৭০+ ফ্রি',
         chip_dbt: 'আধার লিঙ্ক (NPCI/DBT)',
-        chip_kb: 'কৃষক বন্ধু',
+        chip_kb: 'পিএম কিষাণ',
         chip_kb_amt: 'শস্য বীমা',
-        chip_km: 'কর্মশ্রী ৫০ দিন',
-        chip_lb: 'অন্নপূর্ণা / লক্ষ্মীর ভাণ্ডার',
+        chip_km: 'পিএম আবাস ৫০ দিন',
+        chip_lb: 'অন্নপূর্ণা / পিএম সূর্য ঘর',
         chip_lb_amt: '₹৩০০০/মাস',
         chip_ss: 'স্বাস্থ্য সাথী কার্ড',
         chip_ys: 'যুব শক্তি যোজনা',
@@ -6512,8 +6391,8 @@
         notice_dropzone_sub: 'ছবি টেনে আনুন অথবা এখানে ক্লিক করে ছবি আপলোড করুন (JPG, PNG, WebP • সর্বোচ্চ ১০ এমবি)',
         notice_dropzone_title: 'আবেদনপত্র, নোটিশ স্লিপ বা স্ক্রিনশটের ছবি নির্বাচন করুন',
         notice_img_attached: '✓ ছবি যুক্ত করা হয়েছে',
-        notice_sample_kb: 'কৃষক বন্ধু নমুনা',
-        notice_sample_lb: 'অন্নপূর্ণা ভাণ্ডার নমুনা',
+        notice_sample_kb: 'পিএম কিষাণ নমুনা',
+        notice_sample_lb: 'পিএম সূর্য ঘর নমুনা',
         off_btn_detect_text: 'লাইভ লোকেশন সক্ষম করুন (Find Nearest BDO / SDO)',
         off_btn_draft: 'এই অফিসে দরখাস্ত লিখুন (Draft Grievance)',
         off_btn_maps: 'গুগল ম্যাপে পথ ও দূরত্ব দেখুন (Google Maps)',
@@ -6537,7 +6416,7 @@
         quick_results_title: 'দ্রুত প্রাসঙ্গিক ফলাফল (Quick Results):',
         step_1_pill: 'প্রস্তাবিত ধাপ ১',
         story1_loc: 'মুর্শিদাবাদ • লালবাগ ব্লক',
-        story1_quote: '"লক্ষ্মীর ভাণ্ডারের এসএমএস রিজেকশন স্ক্যান করে ব্যাঙ্কে জমা দেওয়ার সঠিক চিঠি তৈরি করে ৩ মাসের বকেয়া টাকা অ্যাকাউন্টে জমা হয়েছে।"',
+        story1_quote: '"পিএম সূর্য ঘরের এসএমএস রিজেকশন স্ক্যান করে ব্যাঙ্কে জমা দেওয়ার সঠিক চিঠি তৈরি করে ৩ মাসের বকেয়া টাকা অ্যাকাউন্টে জমা হয়েছে।"',
         story1_tag: 'BDO অফিসে সফল নিষ্পত্তিকরণ',
         story1_time: '২ দিন আগে',
         story1_title: 'আধার DBT সক্রিয়করণে সফল সমাধান',
@@ -6545,12 +6424,12 @@
         story2_quote: '"ওয়ারিশান সূত্রে রেকর্ড হওয়া জমির খতিয়ান আপডেট না থাকায় টাকা আটকে ছিল। সঠিক দরখাস্তের বয়ান নিয়ে সহকারী কৃষি অধিকর্তা (ADA) দফতরে জমা দেওয়া হয়।"',
         story2_tag: 'মিউটেশন অনুমোদন ও পোর্টাল আপডেট',
         story2_time: '৩ দিন আগে',
-        story2_title: 'কৃষক বন্ধু খতিয়ান মিউটেশন প্রতিকার',
+        story2_title: 'পিএম কিষাণ খতিয়ান মিউটেশন প্রতিকার',
         story3_loc: 'দক্ষিণ ২৪ পরগনা • ক্যানিং',
         story3_quote: '"বিয়ের তারিখের ১৫ দিন আগে ফর্ম জমা দিতে ভুল নথিপত্র বাদ দেওয়ার জন্য চেকলিস্ট ব্যবহার করে প্রথম দফায় ফর্ম গৃহীত হয়েছে।"',
         story3_tag: 'দুয়ারে সরকার সেন্টারে ফর্ম জমা সম্পন্ন',
         story3_time: 'আজ',
-        story3_title: 'রূপশ্রী প্রকল্পের এককালীন অনুদান যাচাই',
+        story3_title: 'পিএম উজ্জ্বলা প্রকল্পের এককালীন অনুদান যাচাই',
 
     },
 
@@ -6687,7 +6566,7 @@
 
 
 
-        search_placeholder: 'आसान भाषा में खोजें... जैसे: "बेटियों की शादी" (Rupashree), "किसानों के पैसे" (Krishak Bandhu), "महिलाओं के ₹१०००"...',
+        search_placeholder: 'आसान भाषा में खोजें... जैसे: "बेटियों की शादी" (PM Ujjwala), "किसानों के पैसे" (PM-KISAN), "महिलाओं के ₹१०००"...',
 
 
 
@@ -7445,7 +7324,7 @@
 
         dbt_warning_title: 'Critical Advisory for West Bengal Welfare Schemes:',
 
-        dbt_warning_text: "To receive payments for Lakshmir Bhandar, Krishak Bandhu, or Kanyashree, a Single Bank Account in applicant's name with Active NPCI DBT is mandatory.",
+        dbt_warning_text: "To receive payments for PM Surya Ghar, PM-KISAN, or Student Credit Card, a Single Bank Account in applicant's name with Active NPCI DBT is mandatory.",
 
         dbt_ussd_note: 'Check on phone without internet: Dial *99*99*1#',
 
@@ -7461,11 +7340,11 @@
 
 
 
-        ask_ai_sub: 'Ask in Bengali, Hindi or English — e.g. "Am I eligible for Lakshmir Bhandar?"',
+        ask_ai_sub: 'Ask in Bengali, Hindi or English — e.g. "Am I eligible for PM Surya Ghar?"',
 
 
 
-        search_placeholder: 'Search in simple words... e.g. "Marriage assistance" (Rupashree), "Farmer DBT" (Krishak Bandhu)...',
+        search_placeholder: 'Search in simple words... e.g. "Marriage assistance" (PM Ujjwala), "Farmer DBT" (PM-KISAN)...',
 
 
 
@@ -7625,7 +7504,7 @@
 
 
 
-        c4_desc: 'Comprehensive rules, application venues, and document checklists for Lakshmir Bhandar, Krishak Bandhu, Rupashree, Old Age Pension, and more.',
+        c4_desc: 'Comprehensive rules, application venues, and document checklists for PM Surya Ghar, PM-KISAN, PM Ujjwala, Old Age Pension, and more.',
 
 
 
@@ -7781,7 +7660,7 @@
 
 
 
-        wiz_lbl_land: 'I or my family own cultivable agricultural land (For Krishak Bandhu)',
+        wiz_lbl_land: 'I or my family own cultivable agricultural land (For PM-KISAN)',
 
 
 
@@ -8023,9 +7902,9 @@
         camp_banner_desc: 'Direct spot verification and application submissions for Annapurna Bhandar, Ayushman Bharat (PM-JAY), PM-Kisan, and Awas Yojana are underway. If there is no camp in your area, submit your application at your nearest BDO (rural) or SDO (urban) office on any working day.',
         camp_btn_find: 'Find Nearest BDO / SDO Office',
         card_chip_ab: 'Ayushman Bharat & Swasthya Sathi',
-        card_chip_kb: 'Krishak Bandhu & Crop Insurance',
+        card_chip_kb: 'PM-KISAN & Crop Insurance',
         card_chip_km: 'Karmashree & Awas Yojana',
-        card_chip_lb: 'Annapurna / Lakshmir Bhandar',
+        card_chip_lb: 'Annapurna / PM Surya Ghar',
         card_chip_ys: 'Yuva Shakti Scheme',
         card_grv_b1: 'Automated signature placement and enclosures checklist generated',
         card_grv_b2: 'Direct download in PDF or 1-click printing capability',
@@ -8036,10 +7915,10 @@
         chip_ab: 'Ayushman Bharat',
         chip_ab_amt: '₹5L + 70+ Free',
         chip_dbt: 'Aadhaar Link (NPCI/DBT)',
-        chip_kb: 'Krishak Bandhu',
+        chip_kb: 'PM-KISAN',
         chip_kb_amt: 'Crop Insurance',
         chip_km: 'Karmashree 50 Days',
-        chip_lb: 'Annapurna / Lakshmir Bhandar',
+        chip_lb: 'Annapurna / PM Surya Ghar',
         chip_lb_amt: '₹3000/month',
         chip_ss: 'Swasthya Sathi Card',
         chip_ys: 'Yuva Shakti Scheme',
@@ -8068,7 +7947,7 @@
         notice_dropzone_sub: 'Drag & drop image or click here to upload (JPG, PNG, WebP • Max 10MB)',
         notice_dropzone_title: 'Select Application Slip, Official Notice, or Screenshot Image',
         notice_img_attached: '✓ Image attached successfully',
-        notice_sample_kb: 'Krishak Bandhu Sample',
+        notice_sample_kb: 'PM-KISAN Sample',
         notice_sample_lb: 'Annapurna Bhandar Sample',
         off_btn_detect_text: 'Enable Live Location (Find Nearest BDO / SDO)',
         off_btn_draft: 'Draft Grievance for this Office',
@@ -8093,7 +7972,7 @@
         quick_results_title: 'Quick Search Results:',
         step_1_pill: 'Recommended Step 1',
         story1_loc: 'Murshidabad • Lalbagh Block',
-        story1_quote: '"After scanning the Lakshmir Bhandar rejection SMS, NayaSetu drafted the correct representation to the bank and 3 months of pending allowance was credited to my account."',
+        story1_quote: '"After scanning the PM Surya Ghar rejection SMS, NayaSetu drafted the correct representation to the bank and 3 months of pending allowance was credited to my account."',
         story1_tag: 'Successful BDO Resolution',
         story1_time: '2 days ago',
         story1_title: 'Aadhaar DBT Activation Success',
@@ -8101,7 +7980,7 @@
         story2_quote: '"Disbursement was paused because inherited land mutation was pending. With the drafted representation submitted to the ADA office, records were updated immediately."',
         story2_tag: 'Mutation Approved & Portal Updated',
         story2_time: '3 days ago',
-        story2_title: 'Krishak Bandhu Record Mutation Redressal',
+        story2_title: 'PM-KISAN Record Mutation Redressal',
         story3_loc: 'South 24 Parganas • Canning',
         story3_quote: '"To submit the form 15 days before marriage without missing papers, we used the checklist and the application was approved in the first review."',
         story3_tag: 'Form Accepted at Duare Sarkar Camp',
@@ -8390,133 +8269,7 @@
 
 
 
-    // =========================================================================
-
-    // FEATURE: AADHAAR & BANK DBT LINK CHECKER
-
-    // =========================================================================
-
-    const dbtAadhaarInput = document.getElementById('dbtAadhaarInput');
-
-    const dbtAadhaarBadge = document.getElementById('dbtAadhaarBadge');
-
-    const dbtCopyAadhaarBtn = document.getElementById('dbtCopyAadhaarBtn');
-
-    const dbtCopyAndOpenBtn = document.getElementById('dbtCopyAndOpenBtn');
-
-
-
-    if (dbtAadhaarInput) {
-
-      dbtAadhaarInput.addEventListener('input', function(e) {
-
-        let raw = this.value.replace(/\D/g, '').substring(0, 12);
-
-        let formatted = '';
-
-        for (let i = 0; i < raw.length; i++) {
-
-          if (i > 0 && i % 4 === 0) formatted += ' ';
-
-          formatted += raw[i];
-
-        }
-
-        this.value = formatted;
-
-
-
-        if (dbtAadhaarBadge) {
-
-          const curLang = localStorage.getItem('nyayasetu_lang') || 'bn';
-
-          if (raw.length === 12) {
-
-            dbtAadhaarBadge.innerHTML = `<span class="text-emerald-400 font-bold">${(curLang === 'en') ? '✓ 12-digit Aadhaar Ready' : (curLang === 'hi') ? '✓ 12 अंकों का आधार तैयार' : '✓ ১২ সংখ্যার আধার প্রস্তুত'}</span>`;
-
-          } else {
-
-            const remaining = 12 - raw.length;
-
-            dbtAadhaarBadge.innerHTML = `<span class="text-[#A39788]">${remaining} ${(curLang === 'en') ? 'digits remaining' : (curLang === 'hi') ? 'अंक बाकी' : 'সংখ্যা বাকি'}</span>`;
-
-          }
-
-        }
-
-      });
-
-    }
-
-
-
-    if (dbtCopyAadhaarBtn && dbtAadhaarInput) {
-
-      dbtCopyAadhaarBtn.addEventListener('click', function() {
-
-        const raw = dbtAadhaarInput.value.replace(/\D/g, '');
-
-        const curLang = localStorage.getItem('nyayasetu_lang') || 'bn';
-
-        if (raw.length !== 12) {
-
-          const warnMsg = (curLang === 'en') ? 'Please enter a valid 12-digit Aadhaar number first' : (curLang === 'hi') ? 'कृपया पहले 12 अंकों का आधार नंबर दर्ज करें' : 'অনুগ্রহ করে প্রথমে ১২ সংখ্যার আধার নম্বরটি লিখুন';
-
-          showToast(warnMsg, 'warning');
-
-          return;
-
-        }
-
-        navigator.clipboard.writeText(raw).then(() => {
-
-          const succMsg = (curLang === 'en') ? 'Aadhaar number copied to clipboard!' : (curLang === 'hi') ? 'आधार नंबर क्लिपबोर्ड पर कॉपी हो गया!' : 'আধার নম্বর ক্লিপবোর্ডে কপি করা হয়েছে!';
-
-          showToast(succMsg, 'content_copy');
-
-        });
-
-      });
-
-    }
-
-
-
-    if (dbtCopyAndOpenBtn && dbtAadhaarInput) {
-
-      dbtCopyAndOpenBtn.addEventListener('click', function() {
-
-        const raw = dbtAadhaarInput.value.replace(/\D/g, '');
-
-        const curLang = localStorage.getItem('nyayasetu_lang') || 'bn';
-
-        const officialUrl = 'https://myaadhaar.uidai.gov.in/check-aadhaar-bank-seeding-status';
-
-        
-
-        if (raw.length === 12) {
-
-          navigator.clipboard.writeText(raw);
-
-          const succMsg = (curLang === 'en') ? 'Aadhaar copied! Opening official UIDAI portal...' : (curLang === 'hi') ? 'आधार कॉपी हुआ! आधिकारिक UIDAI पोर्टल खुल रहा है...' : 'আধার কপি হয়েছে! সরকারি UIDAI পোর্টাল খোলা হচ্ছে...';
-
-          showToast(succMsg, 'open_in_new');
-
-        } else {
-
-          const infoMsg = (curLang === 'en') ? 'Opening official UIDAI portal...' : (curLang === 'hi') ? 'आधिकारिक UIDAI पोर्टल खुल रहा है...' : 'সরকারি UIDAI পোর্টাল খোলা হচ্ছে...';
-
-          showToast(infoMsg, 'open_in_new');
-
-        }
-
-        
-
-        window.open(officialUrl, '_blank', 'noopener,noreferrer');
-
-      });
-
-    }
+    // Aadhaar quick helper removed as requested
 
 
 
@@ -9372,7 +9125,7 @@
 
         }
 
-        showToast('অন্নপূর্ণা ভাণ্ডার নমুনা লোড করা হয়েছে');
+        showToast('পিএম সূর্য ঘর নমুনা লোড করা হয়েছে');
 
       });
 
@@ -9388,7 +9141,7 @@
 
         }
 
-        showToast('কৃষক বন্ধু নমুনা লোড করা হয়েছে');
+        showToast('পিএম কিষাণ নমুনা লোড করা হয়েছে');
 
       });
 
@@ -9822,7 +9575,7 @@
       const year = today.getFullYear();
       const todayStr = `${day}/${month}/${year}`;
 
-      const scheme = data.scheme_name || 'লক্ষ্মীর ভাণ্ডার';
+      const scheme = data.scheme_name || 'পিএম সূর্য ঘর';
       const name = data.applicant_name || 'আবেদনকারী';
       const phone = data.contact_phone || 'N/A';
       const address = data.residence_address || 'পশ্চিমবঙ্গ';
@@ -12170,120 +11923,9 @@ Enclosures:
       return R * c;
     }
 
-    // Initialize Interactive Leaflet Map for BDO & SDO Navigation
-    function initBdoLeafletMap() {
-      const mapContainer = document.getElementById('bdoInteractiveMap');
-      if (!mapContainer || typeof L === 'undefined') return;
-
-      if (!bdoMapInstance) {
-        bdoMapInstance = L.map('bdoInteractiveMap', {
-          zoomControl: true,
-          scrollWheelZoom: true
-        }).setView([22.9868, 87.8550], 7); // Center of West Bengal
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          maxZoom: 18,
-          attribution: '© OpenStreetMap contributors | NayaSetu'
-        }).addTo(bdoMapInstance);
-
-        bdoMarkersLayer = L.layerGroup().addTo(bdoMapInstance);
-      }
-
-      setTimeout(() => {
-        if (bdoMapInstance) {
-          bdoMapInstance.invalidateSize();
-        }
-      }, 300);
-    }
-
-    // Render BDO & SDO Markers on Leaflet Map
-    function renderBdoMapMarkers(activeOffice = null) {
-      if (!bdoMapInstance || !bdoMarkersLayer) return;
-      bdoMarkersLayer.clearLayers();
-
-      // Plot User Marker if userCoords available
-      if (bdoUserCoords) {
-        const userIcon = L.divIcon({
-          className: 'bdo-user-pin',
-          html: '<div style="background:#2563EB; width:24px; height:24px; border-radius:50%; border:3px solid #FFFFFF; box-shadow:0 0 14px rgba(37,99,235,0.9); display:flex; align-items:center; justify-content:center; color:#fff; font-size:11px;">📍</div>',
-          iconSize: [24, 24],
-          iconAnchor: [12, 12]
-        });
-
-        bdoUserMarker = L.marker([bdoUserCoords.lat, bdoUserCoords.lng], { icon: userIcon })
-          .bindPopup('<strong>📍 আপনার বর্তমান অবস্থান (Your Location)</strong>')
-          .addTo(bdoMarkersLayer);
-      }
-
-      // Plot Offices Markers
-      currentFilteredBdos.forEach(off => {
-        if (!off.lat || !off.lng) return;
-        const isSelected = activeOffice && (activeOffice.name === off.name);
-        const isSdo = off.office_type === 'sdo';
-
-        let pinBg = isSdo ? '#0284C7' : '#D97706';
-        let pinIconSymbol = isSdo ? '🏢' : '🏛️';
-        if (isSelected) {
-          pinBg = '#C98A5B';
-        }
-
-        const pinSize = isSelected ? 30 : 20;
-        const officeIcon = L.divIcon({
-          className: 'bdo-office-pin',
-          html: `<div style="background:${pinBg}; width:${pinSize}px; height:${pinSize}px; border-radius:50%; border:2px solid #FFFFFF; box-shadow:0 0 12px ${pinBg}; display:flex; align-items:center; justify-content:center; color:#fff; font-size:${isSelected ? 14 : 10}px; cursor:pointer;">${pinIconSymbol}</div>`,
-          iconSize: [pinSize, pinSize],
-          iconAnchor: [pinSize/2, pinSize/2]
-        });
-
-        const distText = (off.distance !== undefined && off.distance !== null && off.distance < 9000) ? `<br/><span style="color:#C98A5B; font-weight:bold;">দূরত্ব: ${off.distance.toFixed(1)} km</span>` : '';
-        const typeLabel = isSdo ? '<span style="color:#0284C7; font-weight:bold;">[🏢 মহকুমা শাসকের দপ্তর (SDO)]</span>' : '<span style="color:#D97706; font-weight:bold;">[🏛️ ব্লক উন্নয়ন আধিকারিক (BDO)]</span>';
-        const coverageText = off.coverage ? `<br/><span style="font-size:11px; color:#555;">আওতাভুক্ত এলাকা: ${off.coverage}</span>` : '';
-
-        const marker = L.marker([off.lat, off.lng], { icon: officeIcon })
-          .bindPopup(`
-            <div style="font-size:12px; font-family:sans-serif; color:#141210; min-width:180px;">
-              ${typeLabel}<br/>
-              <strong>${off.name}</strong><br/>
-              <span style="color:#444;">${off.block} (${off.district})</span>${distText}
-              ${coverageText}<br/>
-              <span style="font-size:11px;">📍 ${off.addr}</span><br/>
-              <span style="font-size:11px; font-weight:bold;">📞 ${off.phone}</span>
-            </div>
-          `)
-          .addTo(bdoMarkersLayer);
-
-        marker.on('click', () => {
-          selectBdoOffice(off);
-        });
-
-        if (isSelected) {
-          marker.openPopup();
-        }
-      });
-
-      // Draw dashed route line if activeOffice and userCoords exist
-      if (bdoRouteLine) {
-        bdoMapInstance.removeLayer(bdoRouteLine);
-        bdoRouteLine = null;
-      }
-
-      if (bdoUserCoords && activeOffice && activeOffice.lat && activeOffice.lng) {
-        bdoRouteLine = L.polyline(
-          [[bdoUserCoords.lat, bdoUserCoords.lng], [activeOffice.lat, activeOffice.lng]],
-          { color: '#C98A5B', weight: 3, dashArray: '6, 8', opacity: 0.95 }
-        ).addTo(bdoMapInstance);
-
-        const bounds = L.latLngBounds([
-          [bdoUserCoords.lat, bdoUserCoords.lng],
-          [activeOffice.lat, activeOffice.lng]
-        ]);
-        bdoMapInstance.fitBounds(bounds, { padding: [50, 50], maxZoom: 13 });
-      } else if (activeOffice && activeOffice.lat && activeOffice.lng) {
-        bdoMapInstance.setView([activeOffice.lat, activeOffice.lng], 12);
-      } else if (currentFilteredBdos.length > 0 && currentFilteredBdos[0].lat) {
-        bdoMapInstance.setView([currentFilteredBdos[0].lat, currentFilteredBdos[0].lng], 9);
-      }
-    }
+    // Interactive Leaflet Map removed as requested
+    function initBdoLeafletMap() {}
+    function renderBdoMapMarkers(activeOffice = null) {}
 
     // Select and Highlight a specific BDO / SDO Office in Hero Card
     function selectBdoOffice(off) {
@@ -12318,7 +11960,7 @@ Enclosures:
       heroOfficeAddress.textContent = `${off.addr} | ইমেল: ${off.email || 'office@wb.gov.in'}`;
       heroOfficePhoneLink.textContent = off.phone;
       heroOfficePhoneLink.href = `tel:${off.phone}`;
-      heroCallBtn.href = `tel:${off.phone}`;
+      if (heroCallBtn) heroCallBtn.href = `tel:${off.phone}`;
 
       if (off.distance !== undefined && off.distance !== null && off.distance < 9000) {
         heroDistanceBadge.innerHTML = `<span class="material-symbols-outlined text-xs text-[#E2A97B]">near_me</span> <span>আপনার বর্তমান অবস্থান থেকে <strong>${off.distance.toFixed(1)} km</strong> দূরে</span>`;
@@ -12327,12 +11969,12 @@ Enclosures:
         heroDistanceBadge.innerHTML = `<span class="material-symbols-outlined text-xs text-[#E2A97B]">location_on</span> <span>${off.district}</span>`;
       }
 
-      // Directions via Google Maps
-      if (off.lat && off.lng) {
-        heroDirectionsBtn.href = `https://www.google.com/maps/dir/?api=1&destination=${off.lat},${off.lng}`;
-        heroDirectionsBtn.classList.remove('hidden');
-      } else {
-        heroDirectionsBtn.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(off.name + ' ' + off.addr)}`;
+      if (heroDirectionsBtn) {
+        if (off.lat && off.lng) {
+          heroDirectionsBtn.href = `https://www.google.com/maps/dir/?api=1&destination=${off.lat},${off.lng}`;
+        } else {
+          heroDirectionsBtn.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(off.name + ' ' + off.addr)}`;
+        }
       }
 
       // Draft Grievance button action: Pre-fill BDO/SDO into Grievance Modal
@@ -12386,7 +12028,7 @@ Enclosures:
           <div class="pt-1 flex items-center justify-between">
             <span class="text-[10px] text-[#DDD5C7]">শহর ও পৌরসভা এলাকার জন্য</span>
             <button type="button" class="text-[11px] font-bold text-[#38BDF8] hover:underline flex items-center gap-0.5">
-              <span>ম্যাপে নির্বাচন করুন</span>
+              <span>অফিস নির্বাচন করুন</span>
               <span class="material-symbols-outlined text-xs">arrow_forward</span>
             </button>
           </div>
@@ -12421,7 +12063,7 @@ Enclosures:
           <div class="pt-1 flex items-center justify-between">
             <span class="text-[10px] text-[#DDD5C7]">গ্রামীণ পঞ্চায়েত এলাকার জন্য</span>
             <button type="button" class="text-[11px] font-bold text-[#F59E0B] hover:underline flex items-center gap-0.5">
-              <span>ম্যাপে নির্বাচন করুন</span>
+              <span>অফিস নির্বাচন করুন</span>
               <span class="material-symbols-outlined text-xs">arrow_forward</span>
             </button>
           </div>
@@ -12482,7 +12124,7 @@ Enclosures:
           <div class="flex items-center justify-between pt-1">
             <span class="text-[11px] text-[#F2CBA5] font-mono">📞 ${off.phone}</span>
             <button type="button" class="text-[11px] text-[#C98A5B] hover:text-[#E2A97B] font-bold flex items-center gap-0.5">
-              <span>মানচিত্রে নির্বাচন</span>
+              <span>অফিস নির্বাচন করুন</span>
               <span class="material-symbols-outlined text-xs">arrow_forward</span>
             </button>
           </div>

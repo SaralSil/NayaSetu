@@ -43,3 +43,12 @@ staticfiles/
 .vscode/
 .idea/
 *.swp
+
+/NayaSetu/__pycache__/
+/NayaSetu/*.pyc
+/NayaSetu/backend/__pycache__/
+graphify-out
+.agents
+
+*.patch
+*.bundle
