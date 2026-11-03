@@ -1516,19 +1516,20 @@ aadhaar_enrolment_seeding: {
       40% { opacity: 1; transform: scale(1.2); }
     }
 
-    @media (max-width: 480px) {
-      .ns-chat-window {
-        bottom: 0;
-        right: 0;
-        width: 100vw;
-        height: 100vh;
-        max-width: 100vw;
-        max-height: 100vh;
-        border-radius: 0;
-      }
+    @media (max-width: 1024px) {
       #nayasetu-chat-widget {
-        bottom: 16px;
-        right: 16px;
+        bottom: 72px !important;
+        right: 14px !important;
+      }
+      .ns-chat-window {
+        bottom: 0 !important;
+        right: 0 !important;
+        width: 100vw !important;
+        height: 100dvh !important;
+        max-width: 100vw !important;
+        max-height: 100dvh !important;
+        border-radius: 0 !important;
+        z-index: 999999 !important;
       }
     }
   `;

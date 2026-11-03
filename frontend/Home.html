@@ -983,77 +983,34 @@
 
 
 
-      <!-- Right: Action Suite (Citizen Portal moved to the LEFT of tools!) -->
+      <!-- Right: Action Suite -->
+      <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
 
+        <!-- Citizen Profile & Direct Logout Group -->
+        <div class="flex items-center gap-1 sm:gap-1.5">
+          <button id="openAuthModalBtn" class="whitespace-nowrap shrink-0 flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1.5 rounded-lg bg-[#C98A5B] hover:bg-[#B87B4C] text-[#141210] transition-all shadow-[0_2px_14px_rgba(201,138,91,0.25)] font-bold text-xs xl:text-sm focus:outline-none cursor-pointer" title="নাগরিক প্রোফাইল">
+            <span class="material-symbols-outlined text-base sm:text-xl">account_circle</span>
+            <span id="citizenHeaderName" class="font-label max-w-[65px] sm:max-w-[120px] truncate" data-i18n="portal_btn">নাগরিক</span>
+          </button>
 
-
-      <div class="flex items-center gap-2 sm:gap-2.5 shrink-0">
-
-
-
-        <!-- 1. Citizen Portal Auth Trigger (Moved toward the center/left so it NEVER touches screen edge) -->
-
-
-
-        <button id="openAuthModalBtn" class="whitespace-nowrap shrink-0 flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-lg bg-[#C98A5B] hover:bg-[#B87B4C] text-[#141210] transition-all shadow-[0_2px_14px_rgba(201,138,91,0.25)] font-bold text-xs xl:text-sm focus:outline-none" title="নাগরিক পোর্টাল">
-
-
-
-          <span class="material-symbols-outlined text-lg sm:text-xl">account_circle</span>
-
-
-
-          <span class="font-label" data-i18n="portal_btn">নাগরিক পোর্টাল</span>
-
-
-
-        </button>
-
-
-
-
-
-
-
-        <!-- 2. Light / Dark Theme Mode Toggle -->
-
-        <button id="themeToggleBtn" type="button" class="whitespace-nowrap shrink-0 inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-lg border border-[#453C33] bg-[#181512] hover:bg-[#2F2923] text-[#F7F4EE] hover:text-[#E2A97B] transition-all text-xs xl:text-sm font-label font-semibold shadow-xs focus:outline-none cursor-pointer" title="Toggle Light / Dark Mode" aria-label="Toggle Theme">
-
-          <span id="themeToggleIcon" class="material-symbols-outlined text-base text-[#F2CBA5] transition-transform duration-300">light_mode</span>
-
-          <span id="themeToggleText" class="font-label">লাইট মোড</span>
-
-        </button>
-
-
-
-
-
-
-
-        <!-- 3. Language Switcher (Compact at the end with safe buffer) -->
-
-
-
-        <div class="flex items-center bg-[#181512] border border-[#453C33] rounded-lg p-0.5 sm:p-1 text-xs font-label font-semibold shrink-0">
-
-
-
-          <button class="lang-btn px-2 sm:px-2.5 py-1 rounded bg-[#C98A5B] text-[#141210] font-bold shadow-sm transition-all" data-lang="bn">বাংলা</button>
-
-
-
-          <button class="lang-btn px-2 sm:px-2.5 py-1 text-[#A39788] hover:text-[#F7F4EE] transition-colors" data-lang="hi">हिन्दी</button>
-
-
-
-          <button class="lang-btn px-2 sm:px-2.5 py-1 text-[#A39788] hover:text-[#F7F4EE] transition-colors" data-lang="en">English</button>
-
-
-
+          <button id="directLogoutBtn" type="button" onclick="logoutCitizen()" class="whitespace-nowrap shrink-0 flex items-center gap-1 px-2 py-1.5 rounded-lg bg-red-950/70 hover:bg-red-800 border border-red-600/60 text-red-200 hover:text-white transition-all text-xs font-bold shadow-xs cursor-pointer active:scale-95" title="লগআউট / Logout">
+            <span class="material-symbols-outlined text-sm sm:text-base">logout</span>
+            <span class="hidden md:inline text-xs" data-i18n="btn_logout">লগআউট</span>
+          </button>
         </div>
 
+        <!-- 2. Light / Dark Theme Mode Toggle (Compact on Phone) -->
+        <button id="themeToggleBtn" type="button" class="whitespace-nowrap shrink-0 inline-flex items-center gap-1 sm:gap-2 p-1.5 sm:px-2.5 sm:py-1.5 rounded-lg border border-[#453C33] bg-[#181512] hover:bg-[#2F2923] text-[#F7F4EE] hover:text-[#E2A97B] transition-all text-xs xl:text-sm font-label font-semibold shadow-xs focus:outline-none cursor-pointer" title="Toggle Light / Dark Mode" aria-label="Toggle Theme">
+          <span id="themeToggleIcon" class="material-symbols-outlined text-base text-[#F2CBA5] transition-transform duration-300">light_mode</span>
+          <span id="themeToggleText" class="hidden sm:inline font-label">লাইট মোড</span>
+        </button>
 
+        <!-- 3. Language Switcher (Compact on Phone) -->
+        <div class="flex items-center bg-[#181512] border border-[#453C33] rounded-lg p-0.5 text-xs font-label font-semibold shrink-0">
+          <button class="lang-btn px-1.5 sm:px-2 py-0.5 sm:py-1 rounded bg-[#C98A5B] text-[#141210] font-bold shadow-sm transition-all text-[11px] sm:text-xs" data-lang="bn">বাং</button>
+          <button class="lang-btn px-1.5 sm:px-2 py-0.5 sm:py-1 text-[#A39788] hover:text-[#F7F4EE] transition-colors text-[11px] sm:text-xs" data-lang="hi">हि</button>
+          <button class="lang-btn px-1.5 sm:px-2 py-0.5 sm:py-1 text-[#A39788] hover:text-[#F7F4EE] transition-colors text-[11px] sm:text-xs" data-lang="en">EN</button>
+        </div>
 
       </div>
 
@@ -1071,7 +1028,7 @@
 
 
 
-  <main class="w-full pt-28 bg-[#141210] min-h-[calc(100vh-28rem)]">
+  <main class="w-full pt-20 sm:pt-28 pb-24 lg:pb-8 bg-[#141210] min-h-[calc(100vh-28rem)]">
 
 
 
@@ -4577,123 +4534,86 @@
 
 
 
-      <div class="p-6 space-y-4 text-xs sm:text-sm">
+      <div class="p-5 sm:p-6 space-y-4 text-xs sm:text-sm">
 
-
-
-        <div class="p-3 bg-[#181512] border border-[#453C33] rounded-lg text-xs text-[#DDD5C7] flex items-start gap-2">
-
-
-
-          <span class="material-symbols-outlined text-base text-[#E2A97B]">info</span>
-
-
-
-          <div>
-
-
-
-            <span class="font-bold text-[#F2CBA5]" data-i18n="auth_guest_title">গেস্ট মোড সক্রিয়:</span>
-
-
-
-            <span data-i18n="auth_guest_desc">প্রকল্প খোঁজা, যোগ্যতা যাচাই ও নোটিশ বিশ্লেষণ সম্পূর্ণ বিনামূল্যে বিনা লগইনেই করা সম্ভব।</span>
-
-
-
-          </div>
-
-
-
-        </div>
-
-
-
-
-
-
-
-        <form id="authPhoneForm" class="space-y-3">
-
-
-
-          <div>
-
-
-
-            <label class="block text-xs font-label text-[#DDD5C7] mb-1 font-semibold" data-i18n="auth_mobile_lbl">মোবাইল নম্বর (Mobile OTP Login):</label>
-
-
-
-            <div class="flex gap-2">
-
-
-
-              <span class="px-3 py-2.5 bg-[#141210] border border-[#453C33] rounded-lg text-xs text-[#A39788] font-bold">+91</span>
-
-
-
-              <input type="tel" id="authPhoneInput" placeholder="১০ সংখ্যার মোবাইল নম্বর" data-i18n-placeholder="auth_ph_phone" class="w-full bg-[#141210] border border-[#453C33] rounded-lg p-2.5 text-[#F7F4EE] focus:border-[#C98A5B] outline-none" required/>
-
-
-
+        <!-- SECTION A: LOGGED IN CITIZEN PROFILE -->
+        <div id="citizenProfileSection" class="hidden space-y-4">
+          <!-- Citizen Identity Card -->
+          <div class="p-4 rounded-xl bg-gradient-to-br from-[#2A241E] to-[#1C1814] border-2 border-[#D4AF37]/60 shadow-lg relative overflow-hidden">
+            <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-[#D4AF37]/10 rounded-full blur-xl pointer-events-none"></div>
+            
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-[#D4AF37] to-[#B8860B] text-[#141210] font-black text-xl flex items-center justify-center shadow-md">
+                <span class="material-symbols-outlined text-2xl">person</span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-1.5">
+                  <h4 id="profName" class="text-base font-bold text-[#F7F4EE] truncate">নাগরিক</h4>
+                  <span class="material-symbols-outlined text-sm text-emerald-400" title="যাচাইকৃত">verified</span>
+                </div>
+                <p class="text-[11px] text-[#D4AF37] font-semibold">পশ্চিমবঙ্গ সরকার সার্টিফায়েড নাগরিক</p>
+              </div>
             </div>
 
-
-
+            <!-- Profile Details Grid -->
+            <div class="grid grid-cols-2 gap-2 text-xs pt-3 border-t border-[#453C33]/60">
+              <div class="bg-[#141210]/60 p-2.5 rounded-lg border border-[#453C33]/40">
+                <span class="text-[10px] text-[#A39788] block font-medium">মোবাইল নম্বর</span>
+                <span id="profPhone" class="font-bold text-[#F7F4EE] text-xs">9876543210</span>
+              </div>
+              <div class="bg-[#141210]/60 p-2.5 rounded-lg border border-[#453C33]/40">
+                <span class="text-[10px] text-[#A39788] block font-medium">জেলা (District)</span>
+                <span id="profDistrict" class="font-bold text-[#F7F4EE] text-xs">Kolkata</span>
+              </div>
+              <div class="bg-[#141210]/60 p-2.5 rounded-lg border border-[#453C33]/40 col-span-2">
+                <span class="text-[10px] text-[#A39788] block font-medium">রেশন কার্ডের ধরন</span>
+                <span id="profRation" class="font-bold text-[#E2A97B] text-xs">SPHH / RKSY</span>
+              </div>
+            </div>
           </div>
 
+          <!-- Quick Navigation Actions -->
+          <div class="grid grid-cols-2 gap-2 pt-1">
+            <button type="button" onclick="closeAllModals(); openModal('eligibility-wizard');" class="p-2.5 rounded-xl bg-[#2A241E] hover:bg-[#383028] border border-[#453C33] text-[#F7F4EE] text-xs font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer">
+              <span class="material-symbols-outlined text-base text-[#D4AF37]">fact_check</span>
+              <span>যোগ্যতা যাচাই</span>
+            </button>
+            <button type="button" onclick="closeAllModals(); openModal('grievance-drafter');" class="p-2.5 rounded-xl bg-[#2A241E] hover:bg-[#383028] border border-[#453C33] text-[#F7F4EE] text-xs font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer">
+              <span class="material-symbols-outlined text-base text-[#D4AF37]">history_edu</span>
+              <span>অভিযোগ ড্রাফট</span>
+            </button>
+          </div>
 
-
-
-
-
-
-          <button type="submit" class="w-full py-2.5 rounded-lg bg-[#C98A5B] hover:bg-[#B87B4C] text-[#141210] font-bold text-xs tracking-wide transition-all shadow-md">
-
-
-
-            ওটিপি পাঠান (Send OTP)
-
-
-
-          </button>
-
-
-
-        </form>
-
-
-
-
-
-
-
-        <div class="text-center text-[11px] text-[#A39788]" data-i18n="auth_or_google">— অথবা সরাসরি গুগল দিয়ে —</div>
-
-
-
-
-
-
-
-        <button id="googleLoginBtn" class="w-full py-2.5 rounded-lg bg-[#2F2923] hover:bg-[#38312A] border border-[#453C33] text-[#F7F4EE] font-bold text-xs transition-all flex items-center justify-center gap-2">
-          <span class="material-symbols-outlined text-base">mail</span>
-          <span data-i18n="auth_btn_google">Google একাউন্ট দিয়ে লগইন করুন</span>
-        </button>
-
-        <div class="pt-3 border-t border-[#453C33] flex flex-col gap-2">
-          <a href="/login/" class="w-full py-2.5 rounded-xl border-2 border-[#D4AF37] bg-[#FAF3E4]/10 hover:bg-[#FAF3E4]/20 text-[#F2CBA5] font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-sm">
-            <span class="material-symbols-outlined text-base text-[#D4AF37]">open_in_new</span>
-            <span data-i18n="auth_link_login">হোয়াইট ও গোল্ডেন লগইন পেইজে যান (Login Page)</span>
-          </a>
-          <a href="/register/" class="w-full py-2.5 rounded-xl border border-[#D4AF37] bg-gradient-to-r from-[#D4AF37] via-[#C59B27] to-[#B8860B] hover:brightness-105 text-[#141210] font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-md">
-            <span class="material-symbols-outlined text-base">person_add</span>
-            <span data-i18n="auth_link_register">নতুন নাগরিক নিবন্ধন (Register Page)</span>
-          </a>
+          <!-- PROMINENT LOGOUT BUTTON -->
+          <div class="pt-2 border-t border-[#453C33]">
+            <button type="button" onclick="logoutCitizen()" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-red-700 via-red-600 to-red-800 hover:brightness-110 active:scale-[0.99] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-red-900/40 transition-all cursor-pointer">
+              <span class="material-symbols-outlined text-lg">logout</span>
+              <span data-i18n="btn_logout">নাগরিক প্রোফাইল থেকে লগআউট করুন (Log Out)</span>
+            </button>
+          </div>
         </div>
 
+        <!-- SECTION B: GUEST / UNLOGGED IN SECTION -->
+        <div id="citizenLoginSection" class="space-y-4">
+          <div class="p-3 bg-[#181512] border border-[#453C33] rounded-lg text-xs text-[#DDD5C7] flex items-start gap-2">
+            <span class="material-symbols-outlined text-base text-[#E2A97B]">info</span>
+            <div>
+              <span class="font-bold text-[#F2CBA5]" data-i18n="auth_guest_title">গেস্ট মোড সক্রিয়:</span>
+              <span data-i18n="auth_guest_desc">প্রকল্প খোঁজা, যোগ্যতা যাচাই ও নোটিশ বিশ্লেষণ সম্পূর্ণ বিনামূল্যে বিনা লগইনেই করা সম্ভব।</span>
+            </div>
+          </div>
 
+          <div class="pt-3 border-t border-[#453C33] flex flex-col gap-2">
+            <a href="/login/" class="w-full py-2.5 rounded-xl border-2 border-[#D4AF37] bg-[#FAF3E4]/10 hover:bg-[#FAF3E4]/20 text-[#F2CBA5] font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-sm">
+              <span class="material-symbols-outlined text-base text-[#D4AF37]">open_in_new</span>
+              <span data-i18n="auth_link_login">হোয়াইট ও গোল্ডেন লগইন পেইজে যান (Login Page)</span>
+            </a>
+            <a href="/register/" class="w-full py-2.5 rounded-xl border border-[#D4AF37] bg-gradient-to-r from-[#D4AF37] via-[#C59B27] to-[#B8860B] hover:brightness-105 text-[#141210] font-bold text-xs transition-all flex items-center justify-center gap-2 shadow-md">
+              <span class="material-symbols-outlined text-base">person_add</span>
+              <span data-i18n="auth_link_register">নতুন নাগরিক নিবন্ধন (Register Page)</span>
+            </a>
+          </div>
+        </div>
 
       </div>
 
@@ -5234,6 +5154,32 @@
 
 
   </footer>
+  <!-- ========================================================================= -->
+  <!-- MOBILE BOTTOM NAVIGATION DOCK (Dedicated for phone viewports < 1024px) -->
+  <!-- ========================================================================= -->
+  <nav id="mobileBottomNav" class="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#161310]/95 backdrop-blur-xl border-t border-[#453C33] px-1 py-1.5 flex items-center justify-around shadow-[0_-8px_25px_rgba(0,0,0,0.6)]" style="padding-bottom: max(6px, env(safe-area-inset-bottom));">
+    <button type="button" onclick="closeAllModals(); window.scrollTo({top: 0, behavior: 'smooth'});" class="mobile-nav-btn flex flex-col items-center justify-center py-1 px-2 text-[#C98A5B] font-bold text-[10px] min-w-[56px] active:scale-95 transition-transform" data-mob-path="home">
+      <span class="material-symbols-outlined text-xl">home</span>
+      <span data-i18n="nav_home">হোম</span>
+    </button>
+    <button type="button" onclick="openModal('eligibility-wizard')" class="mobile-nav-btn flex flex-col items-center justify-center py-1 px-2 text-[#A39788] hover:text-[#F7F4EE] text-[10px] min-w-[56px] active:scale-95 transition-transform" data-mob-path="eligibility-wizard">
+      <span class="material-symbols-outlined text-xl">verified</span>
+      <span data-i18n="nav_wizard">যোগ্যতা</span>
+    </button>
+    <button type="button" onclick="openModal('schemes-and-docs')" class="mobile-nav-btn flex flex-col items-center justify-center py-1 px-2 text-[#A39788] hover:text-[#F7F4EE] text-[10px] min-w-[56px] active:scale-95 transition-transform" data-mob-path="schemes-and-docs">
+      <span class="material-symbols-outlined text-xl">dataset</span>
+      <span data-i18n="nav_schemes">প্রকল্প</span>
+    </button>
+    <button type="button" onclick="openModal('notice-explainer')" class="mobile-nav-btn flex flex-col items-center justify-center py-1 px-2 text-[#A39788] hover:text-[#F7F4EE] text-[10px] min-w-[56px] active:scale-95 transition-transform" data-mob-path="notice-explainer">
+      <span class="material-symbols-outlined text-xl">document_scanner</span>
+      <span data-i18n="nav_notice">নোটিশ</span>
+    </button>
+    <button type="button" onclick="openModal('grievance-drafter')" class="mobile-nav-btn flex flex-col items-center justify-center py-1 px-2 text-[#A39788] hover:text-[#F7F4EE] text-[10px] min-w-[56px] active:scale-95 transition-transform" data-mob-path="grievance-drafter">
+      <span class="material-symbols-outlined text-xl">edit_document</span>
+      <span data-i18n="nav_grievance">অভিযোগ</span>
+    </button>
+  </nav>
+
 
 
 
@@ -5258,37 +5204,65 @@
 
 
     // Strict Citizen Authentication Guard: Requires login for all features
+    function updateCitizenProfileUI(user) {
+      if (!user) return;
+      const userName = user.full_name || user.username || 'নাগরিক';
+      
+      const nameEl = document.getElementById('citizenHeaderName');
+      if (nameEl) nameEl.textContent = userName;
+
+      const authBtn = document.getElementById('openAuthModalBtn');
+      if (authBtn) authBtn.title = "নাগরিক প্রোফাইল: " + userName;
+
+      const profSection = document.getElementById('citizenProfileSection');
+      const loginSection = document.getElementById('citizenLoginSection');
+      if (profSection && loginSection) {
+        profSection.classList.remove('hidden');
+        loginSection.classList.add('hidden');
+        
+        const profName = document.getElementById('profName');
+        const profPhone = document.getElementById('profPhone');
+        const profDistrict = document.getElementById('profDistrict');
+        const profRation = document.getElementById('profRation');
+
+        if (profName) profName.textContent = userName;
+        if (profPhone) profPhone.textContent = user.phone || '–';
+        if (profDistrict) profDistrict.textContent = user.district || 'পশ্চিমবঙ্গ (West Bengal)';
+        if (profRation) profRation.textContent = user.ration_card_type || 'General (সাধারণ)';
+      }
+    }
+    window.updateCitizenProfileUI = updateCitizenProfileUI;
+
     (function checkCitizenAuth() {
       try {
         const userStr = localStorage.getItem('nayasetu_user');
         if (!userStr) {
-          const dest = (window.location.port === '8000' && !window.location.pathname.endsWith('.html')) ? '/register/' : 'Register.html';
+          const dest = (window.location.protocol === 'file:') ? 'Register.html' : '/register/';
           window.location.replace(dest);
           return;
         }
         const user = JSON.parse(userStr);
         setTimeout(() => {
-          const authBtn = document.getElementById('openAuthModalBtn');
-          if (authBtn) {
-            const userName = user.full_name || user.username || 'নাগরিক';
-            authBtn.innerHTML = `
-              <span class="material-symbols-outlined text-lg sm:text-xl">account_circle</span>
-              <span class="font-label max-w-[120px] truncate">${userName}</span>
-              <span onclick="event.stopPropagation(); logoutCitizen();" class="ml-1 px-1.5 py-0.5 rounded bg-black/20 hover:bg-red-700 text-[10px]" title="লগআউট / Logout">লগআউট</span>
-            `;
-            authBtn.title = "নাগরিক প্রোফাইল: " + userName;
-          }
-        }, 100);
+          updateCitizenProfileUI(user);
+        }, 50);
       } catch (e) {
         console.warn('Auth check exception:', e);
       }
     })();
 
     function logoutCitizen() {
-      localStorage.removeItem('nayasetu_user');
-      const dest = (window.location.port === '8000' && !window.location.pathname.endsWith('.html')) ? '/' : 'Landing.html';
+      try {
+        localStorage.removeItem('nayasetu_user');
+        localStorage.removeItem('nyayasetu_user');
+        localStorage.removeItem('nyayasetu_token');
+        sessionStorage.clear();
+      } catch (e) {
+        console.error('Logout error:', e);
+      }
+      const dest = (window.location.protocol === 'file:') ? 'Landing.html' : '/';
       window.location.href = dest;
     }
+    window.logoutCitizen = logoutCitizen;
 
     // Automatically detects if running on Django server port 8000 or external origin
 
@@ -5400,7 +5374,21 @@
 
 
 
+        function updateMobileNavState(activeModal) {
+      document.querySelectorAll('#mobileBottomNav .mobile-nav-btn').forEach(btn => {
+        const path = btn.getAttribute('data-mob-path');
+        if (path === activeModal) {
+          btn.classList.add('text-[#C98A5B]', 'font-bold');
+          btn.classList.remove('text-[#A39788]');
+        } else {
+          btn.classList.remove('text-[#C98A5B]', 'font-bold');
+          btn.classList.add('text-[#A39788]');
+        }
+      });
+    }
+
     function openModal(name, pushHistory = true) {
+      updateMobileNavState(name);
 
       if (modals[name]) {
 
@@ -5425,6 +5413,7 @@
 
 
     function closeAllModals(updateHistory = true) {
+      updateMobileNavState('home');
 
       Object.values(modals).forEach(m => {
 
