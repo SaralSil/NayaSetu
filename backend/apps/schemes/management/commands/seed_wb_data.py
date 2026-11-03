@@ -349,7 +349,7 @@ class Command(BaseCommand):
                     )
 
         # -------------------------------------------------------------
-        # Scheme 1: Annapurna Bhandar / Lakshmir Bhandar (2026 Active)
+        # Scheme 1: Ayushman Bharat (AB-PMJAY)
         # -------------------------------------------------------------
         ab, _ = Scheme.objects.update_or_create(
             slug="ayushman-bharat",
@@ -1080,27 +1080,27 @@ class Command(BaseCommand):
         ])
 
         # -------------------------------------------------------------
-        # Scheme 36: Annapurna Yojana (West Bengal / National Social Assistance)
+        # Scheme 36: Annapurna Bhandar / Annapurna Yojana (West Bengal Social Registry)
         # -------------------------------------------------------------
         annapurna_sc, _ = Scheme.objects.update_or_create(
             slug="annapurna-yojana",
             defaults={
                 "department": food,
                 "category": "social_security",
-                "name_en": "Annapurna Yojana (National Social Assistance & WB Food Security)",
-                "name_bn": "অন্নপূর্ণা যোজনা (জাতীয় সামাজিক সহায়তা ও খাদ্য সুরক্ষা)",
-                "name_hi": "अन्नपूर्णा योजना (राष्ट्रीय सामाजिक सहायता व खाद्य सुरक्षा)",
+                "name_en": "Annapurna Bhandar / Annapurna Yojana (WB Social Registry & Food Security)",
+                "name_bn": "অন্নপূর্ণা ভাণ্ডার / অন্নপূর্ণা যোজনা (পশ্চিমবঙ্গ সামাজিক রেজিস্ট্রি ও খাদ্য সুরক্ষা)",
+                "name_hi": "अन्नपूर्णा भंडार / अन्नपूर्णा योजना (पश्चिम बंगाल सामाजिक रजिस्ट्री एवं खाद्य सुरक्षा)",
                 "tagline_en": "10 kg free foodgrains monthly for indigent senior citizens aged 65+ and vulnerable female welfare assistance",
                 "tagline_bn": "৬৫+ অসহায় প্রবীণ নাগরিকদের জন্য মাসিক ১০ কেজি বিনামূল্যে খাদ্যশস্য ও প্রান্তিক মহিলাদের আর্থিক সুরক্ষা",
                 "tagline_hi": "65+ निराश्रित बुजुर्गों को मासिक 10 किग्रा मुफ्त खाद्यान्न एवं पात्र महिलाओं को सामाजिक सुरक्षा",
-                "description_en": "Annapurna Yojana provides 10 kg of free foodgrains (rice/wheat) per month to indigent senior citizens aged 65 years or above who are eligible for NOAPS but not receiving any regular pension, alongside West Bengal's social framework for economically vulnerable households.",
-                "description_bn": "অন্নপূর্ণা যোজনার আওতায় ৬৫ বছর বা তার বেশি বয়সী অসহায় প্রবীণ নাগরিকরা যারা কোনো নিয়মিত পেনশন পাচ্ছেন না তাদের বিনামূল্যে প্রতি মাসে ১০ কেজি খাদ্যশস্য প্রদান করা হয়, পাশাপাশি আর্থিক অনগ্রসর মহিলাদের সুরক্ষা প্রদান করা হয়।",
-                "description_hi": "अन्नपूर्णा योजना के अंतर्गत 65 वर्ष या उससे अधिक आयु के निराश्रित वरिष्ठ नागरिक जो पेंशन नहीं पा रहे हैं, उन्हें प्रति माह 10 किग्रा मुफ्त राशन प्रदान किया जाता है।",
+                "description_en": "Annapurna Bhandar / Annapurna Yojana provides social security benefits alongside monthly foodgrains assistance to indigent senior citizens and vulnerable households via the West Bengal Social Registry.",
+                "description_bn": "অন্নপূর্ণা ভাণ্ডার / অন্নপূর্ণা যোজনার আওতায় পশ্চিমবঙ্গ সামাজিক রেজিস্ট্রির মাধ্যমে অসহায় প্রবীণ নাগরিক ও আর্থিকভাবে অনগ্রসর পরিবারগুলোকে সামাজিক সুরক্ষা এবং খাদ্য সহায়তা প্রদান করা হয়।",
+                "description_hi": "अन्नपूर्णा भंडार / अन्नपूर्णा योजना के अंतर्गत पश्चिम बंगाल सामाजिक रजिस्ट्री के माध्यम से पात्र वरिष्ठ नागरिकों और कमजोर परिवारों को सामाजिक सुरक्षा व खाद्यान्न सहायता प्रदान की जाती है।",
                 "benefit_type": "monthly_dbt",
                 "benefit_amount_text_en": "10 kg Free Foodgrains (Rice/Wheat) per Month + Social Welfare Assistance",
                 "benefit_amount_text_bn": "প্রতি মাসে ১০ কেজি বিনামূল্যে খাদ্যশস্য (চাল/গম) + সামাজিক কল্যাণ সহায়তা",
-                "application_channels": ["Gram Panchayat / BDO Office", "Municipality / SDO Office", "Duare Sarkar Camp", "Food & Supplies Inspector"],
-                "official_portal_url": "https://food.wb.gov.in"
+                "application_channels": ["West Bengal Social Registry Portal (socialregistry.wb.gov.in)", "Gram Panchayat / BDO Office", "Municipality / SDO Office", "Duare Sarkar Camp"],
+                "official_portal_url": "https://socialregistry.wb.gov.in/"
             }
         )
         SchemeEligibility.objects.update_or_create(
