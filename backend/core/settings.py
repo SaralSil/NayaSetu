@@ -113,6 +113,15 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
+# Optimized Password Hasher (100k rounds instead of 1.5M rounds)
+PASSWORD_HASHERS = [
+    'core.hashers.OptimizedPBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+]
+
 # Internationalization
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'Asia/Kolkata'
@@ -128,6 +137,20 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Redis Cache Configuration (Seamless zero-downtime fallback to In-Memory LocMemCache if Redis is offline)
+REDIS_URL = os.getenv('REDIS_URL', 'redis://127.0.0.1:6379/1').strip()
+CACHES = {
+    'default': {
+        'BACKEND': 'core.cache_backends.FallbackRedisCache',
+        'LOCATION': REDIS_URL,
+        'TIMEOUT': 300,
+        'OPTIONS': {
+            'socket_connect_timeout': 1,
+            'socket_timeout': 1,
+        }
+    }
+}
 
 # Django REST Framework Configuration
 REST_FRAMEWORK = {
