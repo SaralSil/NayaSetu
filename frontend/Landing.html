@@ -846,7 +846,12 @@
     }
 
     function logoutCitizen() {
-      localStorage.removeItem('nayasetu_user');
+      try {
+        localStorage.removeItem('nayasetu_user');
+        localStorage.removeItem('nyayasetu_user');
+        localStorage.removeItem('nyayasetu_token');
+        sessionStorage.clear();
+      } catch(e) {}
       window.location.reload();
     }
 
