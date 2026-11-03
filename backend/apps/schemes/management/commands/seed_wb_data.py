@@ -1189,7 +1189,7 @@ class Command(BaseCommand):
                 "benefit_amount_text_en": "Institutional Healthcare & Education Entitlements + SSY / Kanyashree Linkage",
                 "benefit_amount_text_bn": "প্রাতিষ্ঠানিক স্বাস্থ্য ও শিক্ষা সহায়তা + সুকন্যা সমৃদ্ধি ও কন্যাশ্রী প্রকল্পের সংযোগ",
                 "application_channels": ["Anganwadi Centres (ICDS)", "Gram Panchayat / Block Office", "Primary Health Centres (PHC)", "Local Schools"],
-                "official_portal_url": "https://wcd.nic.in/bbbp-schemes"
+                "official_portal_url": "https://wcd.gov.in/women/beti-bachao-beti-padhao"
             }
         )
         SchemeEligibility.objects.update_or_create(
