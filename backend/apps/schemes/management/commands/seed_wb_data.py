@@ -494,7 +494,7 @@ class Command(BaseCommand):
                 "benefit_amount_text_en": "Up to ₹5,00,000 Loan (10% subsidy up to ₹25,000 + 85% guarantee)",
                 "benefit_amount_text_bn": "৫,০০,০০০ টাকা পর্যন্ত ঋণ (১০% অনুদান ও ৮৫% রাজ্য গ্যারান্টি)",
                 "application_channels": ["BCCS Online Portal", "DIC Office", "Duare Sarkar Camp"],
-                "official_portal_url": "https://bccs.wb.gov.in"
+                "official_portal_url": "https://wbmsmet.gov.in/schemes_of_msmet"
             }
         )
         SchemeEligibility.objects.update_or_create(
@@ -840,7 +840,7 @@ class Command(BaseCommand):
                 "benefit_amount_text_en": "100% Free Coaching, Hostel Stay & Books",
                 "benefit_amount_text_bn": "১০০% বিনামূল্যে প্রশিক্ষণ, হোস্টেল ও বইপত্র",
                 "application_channels": ["WBCSTRWDC Portal", "BCW Department Portal", "District Welfare Office"],
-                "official_portal_url": "https://www.wbcstrwdc.in"
+                "official_portal_url": "https://www.govtschemes.in/west-bengal-yogyashree-scheme"
             }
         )
         SchemeEligibility.objects.update_or_create(
@@ -1142,6 +1142,105 @@ class Command(BaseCommand):
         set_docs(khadya, [
             ("Digital Ration Card", "ডিজিটাল রেশন কার্ড", True, "For biometric e-POS distribution"),
             ("Aadhaar Card", "আধার কার্ড", True, "Linked with Ration Card")
+        ])
+
+
+        # -------------------------------------------------------------
+        # Scheme 27: Annapurna Yojana (Women Financial Assistance 2026)
+        # -------------------------------------------------------------
+        annapurna_sch, _ = Scheme.objects.update_or_create(
+            slug="annapurna-yojana",
+            defaults={
+                "department": wcd,
+                "category": "women",
+                "name_en": "Annapurna Yojana (Women Financial Assistance Scheme)",
+                "name_bn": "অন্নপূর্ণা যোজনা (মহিলাদের মাসিক আর্থিক সহায়তা)",
+                "name_hi": "अन्नपूर्णा योजना (महिलाओं के लिए मासिक वित्तीय सहायता)",
+                "tagline_en": "Monthly financial assistance of ₹3,000 for eligible women residing in West Bengal (2026 Notification)",
+                "tagline_bn": "পশ্চিমবঙ্গের যোগ্য মহিলাদের জন্য মাসিক ৩,০০০ টাকা সরাসরি ব্যাংক একাউন্টে আর্থিক সহায়তা (২০২৬ বিজ্ঞপ্তি)",
+                "tagline_hi": "पश्चिम बंगाल की पात्र महिलाओं के लिए प्रति माह ₹3,000 सीधी बैंक वित्तीय सहायता (2026 अधिसूचना)",
+                "description_en": "Annapurna Yojana provides monthly financial assistance of Rs. 3,000 directly into the Aadhaar-linked single bank account of eligible resident women aged 25-60 years through the West Bengal Social Registry portal, excluding permanent government employees, regular pension holders, and income-tax payers.",
+                "description_bn": "পশ্চিমবঙ্গ সামাজিক রেজিস্ট্রি পোর্টালের মাধ্যমে ২৫-৬০ বছর বয়সী যোগ্য স্থায়ী মহিলা বাসিন্দাদের একক আধার-সংযুক্ত ব্যাংক একাউন্টে প্রতি মাসে ৩,০০০ টাকা আর্থিক সহায়তা প্রদান করা হয় (সরকারি কর্মচারী, পেনশনভোগী ও আয়করদাতাগণ ব্যতীত)।",
+                "description_hi": "पश्चिम बंगाल सामाजिक रजिस्ट्री पोर्टल के माध्यम से 25-60 वर्ष की पात्र महिला निवासियों के आधार-लिंक्ड बैंक खाते में प्रति माह ₹3,000 की वित्तीय सहायता सीधे डीबीटी द्वारा प्रदान की जाती है।",
+                "benefit_type": "monthly_dbt",
+                "benefit_amount_text_en": "₹3,000 / month (Direct DBT to Aadhaar-Linked Bank Account)",
+                "benefit_amount_text_bn": "মাসিক ৩,০০০ টাকা (আধার-সংযুক্ত ব্যাংক একাউন্টে সরাসরি DBT)",
+                "application_channels": ["Social Registry Portal", "Duare Sarkar Camp", "BDO Office (Rural)", "SDO Office (Urban)"],
+                "official_portal_url": "https://socialregistry.wb.gov.in/"
+            }
+        )
+        SchemeEligibility.objects.update_or_create(
+            scheme=annapurna_sch,
+            defaults={
+                "min_age": 25,
+                "max_age": 60,
+                "gender_allowed": "female",
+                "caste_categories": ["General", "SC", "ST", "OBC-A", "OBC-B", "Minority"],
+                "rules_summary_en": "Female applicant aged 25-60 years residing in West Bengal with an Aadhaar-linked bank account in her own name. Must not be a permanent government employee, regular pension/salary recipient from govt bodies, or an income-tax payer. Verification by authorised govt officials required.",
+                "rules_summary_bn": "পশ্চিমবঙ্গের স্থায়ী বাসিন্দা ২৫-৬০ বছর বয়সী মহিলা আবেদনকারী, যাঁদের নিজস্ব আধার-সংযুক্ত ব্যাংক একাউন্ট রয়েছে। স্থায়ী সরকারি চাকরিজীবী, সরকারি বেতন/পেনশন প্রাপক বা আয়করদাতা হওয়া চলবে না। দায়িত্বপ্রাপ্ত সরকারি আধিকারিক দ্বারা যাচাইকরণ আবশ্যক।"
+            }
+        )
+        set_docs(annapurna_sch, [
+            ("Aadhaar Card (Aadhaar-Linked for DBT)", "আধার কার্ড (ব্যাংক DBT সংযুক্ত)", True, "Linked with bank account for Direct Benefit Transfer"),
+            ("Proof of Residence in West Bengal", "পশ্চিমবঙ্গের স্থায়ী বাসিন্দার প্রমাণপত্র", True, "Voter Card / Digital Ration Card / Residential Certificate"),
+            ("Bank Passbook / Cancelled Cheque", "ব্যাংক পাসবইয়ের প্রথম পাতার প্রতিলিপি", True, "Single-operated bank account in applicant's own name with IFSC"),
+            ("Self-Declaration Form", "স্বঘোষণাপত্র (আয়কর ও সরকারি চাকরি না থাকার)", True, "Declaration certifying not a permanent govt employee, non-pensioner, and non-taxpayer"),
+            ("Swasthya Sathi Card / Digital Ration Card", "স্বাস্থ্য সাথী কার্ড / ডিজিটাল রেশন কার্ড", True, "Family level identity verification"),
+            ("Passport Size Photograph", "পাসপোর্ট মাপের রঙিন ছবি", True, "Recent photograph for verification and portal profile")
+        ])
+
+        # -------------------------------------------------------------
+        # Scheme 28: Banglar Yuba Sathi / Yuvasree (Labour Dept)
+        # -------------------------------------------------------------
+        labour, _ = Department.objects.get_or_create(
+            code="labour",
+            defaults={
+                "name_en": "Labour Department",
+                "name_bn": "শ্রম দপ্তর",
+                "name_hi": "श्रम विभाग",
+                "portal_url": "https://employmentbankwb.gov.in/",
+                "helpline": "033-2237-6401"
+            }
+        )
+        yuvasree_sch, _ = Scheme.objects.update_or_create(
+            slug="banglar-yuba-sathi",
+            defaults={
+                "department": labour,
+                "category": "youth",
+                "name_en": "Banglar Yuba Sathi / Yuvasree (Employment Bank Assistance)",
+                "name_bn": "বাংলার যুব সাথী / যুবশ্রী (এমপ্লয়মেন্ট ব্যাংক আর্থিক সহায়তা)",
+                "name_hi": "बांगलार युवा साथी / युवाश्री (रोजगार बैंक वित्तीय सहायता)",
+                "tagline_en": "Monthly unemployment DBT grant of ₹1,500 for enrolled jobseekers in Employment Bank",
+                "tagline_bn": "এমপ্লয়মেন্ট ব্যাংকে নথিভুক্ত কর্মপ্রার্থীদের জন্য মাসিক ১,৫০০ টাকা বেকার ভাতা অনুদান",
+                "tagline_hi": "रोजगार बैंक में पंजीकृत नौकरी तलाशने वालों के लिए ₹1,500 प्रति माह बेरोजगारी डीबीटी सहायता",
+                "description_en": "Banglar Yuba Sathi (Yuvasree) provides financial assistance of Rs. 1,500 per month to registered unemployed youth of West Bengal who have passed at least Class 8 and enrolled in the Employment Bank portal.",
+                "description_bn": "পশ্চিমবঙ্গের বেকার যুবক-যুবতীদের চাকরির প্রস্তুতি ও দক্ষতা বৃদ্ধির জন্য প্রতি মাসে ১,৫০০ টাকা আর্থিক অনুদান সরাসরি ব্যাংক একাউন্টে দেওয়া হয় (ন্যূনতম অষ্টম শ্রেণী উত্তীর্ণ)।",
+                "description_hi": "पश्चिम बंगाल के पंजीकृत बेरोजगार युवाओं को नौकरी की तैयारी और कौशल विकास के लिए प्रति माह ₹1,500 की वित्तीय सहायता सीधे बैंक खाते में दी जाती है।",
+                "benefit_type": "monthly_dbt",
+                "benefit_amount_text_en": "₹1,500 / month (Direct DBT to Bank Account)",
+                "benefit_amount_text_bn": "মাসিক ১,৫০০ টাকা (সরাসরি ব্যাংক একাউন্টে DBT)",
+                "application_channels": ["Employment Bank WB Portal", "Sub-Divisional Employment Exchange", "Duare Sarkar Camp"],
+                "official_portal_url": "https://employmentbankwb.gov.in/"
+            }
+        )
+        SchemeEligibility.objects.update_or_create(
+            scheme=yuvasree_sch,
+            defaults={
+                "min_age": 18,
+                "max_age": 45,
+                "gender_allowed": "all",
+                "caste_categories": ["General", "SC", "ST", "OBC-A", "OBC-B", "Minority"],
+                "rules_summary_en": "Jobseeker enrolled in Employment Bank WB, age 18-45 years, minimum Class 8 pass, unemployed, resident of West Bengal.",
+                "rules_summary_bn": "এমপ্লয়মেন্ট ব্যাংকে নথিভুক্ত, বয়স ১৮-৪৫ বছর, ন্যূনতম অষ্টম শ্রেণী পাস, বেকার এবং পশ্চিমবঙ্গের স্থায়ী বাসিন্দা।"
+            }
+        )
+        set_docs(yuvasree_sch, [
+            ("Employment Bank Registration Slip (EB-No)", "এমপ্লয়মেন্ট ব্যাংক এনরোলমেন্ট স্লিপ", True, "Enrolment copy with valid EB Registration Number"),
+            ("Aadhaar Card (Linked with Bank DBT)", "আধার কার্ড (ব্যাংক DBT সংযুক্ত)", True, "Proof of Identity and DBT enablement"),
+            ("Educational Qualification Certificate", "শিক্ষাগত যোগ্যতার প্রমাণপত্র", True, "Class 8 Marksheet / Madhyamik Admit Card or Certificate"),
+            ("Bank Passbook / Cancelled Cheque", "ব্যাংক পাসবইয়ের প্রথম পাতার প্রতিলিপি", True, "Single account in applicant's name with IFSC code"),
+            ("Proof of Residence", "পশ্চিমবঙ্গের স্থায়ী বাসিন্দার প্রমাণ", True, "Voter Card / Digital Ration Card / Residential Certificate"),
+            ("Unemployment Self-Declaration (Annexure-I)", "বেকারত্বের স্বঘোষণাপত্র (অ্যানেক্সার-১)", True, "Mandatory format under Yuvasree")
         ])
 
         # -------------------------------------------------------------

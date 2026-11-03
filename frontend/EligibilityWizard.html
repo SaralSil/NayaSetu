@@ -2757,33 +2757,152 @@
 
 
                   <div class="mt-4 flex items-center justify-between text-xs font-label pt-2.5 border-t border-[#E7DECE]">
-
-
-
                     <span id="studentDocsNote" class="text-stone-500 font-medium">প্রয়োজনীয়: স্কুল/কলেজ আইডেন্টিটি কার্ড + আধার</span>
-
-
-
                     <button class="open-checklist-btn text-[#8F4E24] font-bold hover:text-[#C98A5B] flex items-center gap-1 transition-colors" data-scheme="scc">
-
-
-
                       <span id="studentChecklistBtnText">নথি তালিকা দেখুন</span>
-
-
-
                       <span class="material-symbols-outlined text-sm">arrow_forward</span>
-
-
-
                     </button>
-
-
-
                   </div>
+                </div>
 
+                <!-- 5. Annapurna Yojana Card -->
+                <div id="cardAnnapurnaYojana" class="hidden scheme-card bg-[#FFFFFF] border-2 border-[#E7DECE] hover:border-[#C98A5B] rounded-2xl p-6 sm:p-7 shadow-xl shadow-stone-900/10 transition-all text-stone-900">
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <div class="flex items-center gap-2 mb-1">
+                        <span id="annapurnaStatusBadge" class="px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-800 text-[11px] font-label font-bold inline-flex items-center gap-1 shadow-2xs">
+                          <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                          <span>১০০% সম্পূর্ণ যোগ্য (মহিলা কল্যাণ)</span>
+                        </span>
+                        <span id="annapurnaCategoryTag" class="text-xs font-label text-stone-500 font-medium">মহিলা কল্যাণ ও ডিবিটি সহায়তা</span>
+                      </div>
+                      <h4 id="annapurnaCardTitle" class="text-xl font-headline font-bold text-[#1C1917]">অন্নপূর্ণা যোজনা (Annapurna Yojana)</h4>
+                      <p id="annapurnaCardSub" class="text-xs text-stone-500 font-label">West Bengal Social Registry (Family Level Data Collection Portal - 2026 Notification)</p>
+                    </div>
+                    <div class="text-right">
+                      <span id="annapurnaBenefitLabel" class="text-xs font-label text-stone-500 block">মাসিক আর্থিক সহায়তা</span>
+                      <span id="annapurnaAmountDisplay" class="text-xl sm:text-2xl font-headline font-bold text-emerald-700 leading-none">₹ ৩,০০০ / মাস</span>
+                      <span id="annapurnaFreeNote" class="text-[11px] font-label text-emerald-600 font-semibold block">আধার-সংযুক্ত ব্যাংক একাউন্টে DBT</span>
+                    </div>
+                  </div>
+                  <p id="annapurnaDesc" class="mt-3 text-xs text-stone-600 font-body leading-relaxed">
+                    পশ্চিমবঙ্গের ২৫-৬০ বছর বয়সী যোগ্য স্থায়ী মহিলা বাসিন্দাদের নিজস্ব একক আধার-সংযুক্ত ব্যাংক একাউন্টে প্রতি মাসে ৩,০০০ টাকা সরাসরি আর্থিক সহায়তা প্রদান করা হয় (সরকারি চাকরিজীবী, স্থায়ী পেনশনভোগী ও আয়করদাতাগণ ব্যতীত)।
+                  </p>
+                  <div class="mt-4 flex flex-wrap items-center justify-between gap-2 text-xs font-label pt-2.5 border-t border-[#E7DECE]">
+                    <a href="https://socialregistry.wb.gov.in/" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-lg bg-[#FAF6EC] border border-[#D4AF37] text-[#8F4E24] hover:bg-[#FAF0D8] font-bold flex items-center gap-1 transition-all">
+                      <span class="material-symbols-outlined text-xs">language</span>
+                      <span id="annapurnaPortalLinkText">অফিসিয়াল পোর্টাল (socialregistry.wb.gov.in) →</span>
+                    </a>
+                    <button class="open-checklist-btn text-[#8F4E24] font-bold hover:text-[#C98A5B] flex items-center gap-1 transition-colors" data-scheme="annapurna">
+                      <span id="annapurnaChecklistBtnText">নথি তালিকা দেখুন</span>
+                      <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </button>
+                  </div>
+                </div>
 
+                <!-- 6. Bhabishyat Credit Card Card -->
+                <div id="cardBhabishyatCreditCard" class="hidden scheme-card bg-[#FFFFFF] border-2 border-[#E7DECE] hover:border-[#C98A5B] rounded-2xl p-6 sm:p-7 shadow-xl shadow-stone-900/10 transition-all text-stone-900">
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <div class="flex items-center gap-2 mb-1">
+                        <span id="bhabishyatStatusBadge" class="px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-800 text-[11px] font-label font-bold inline-flex items-center gap-1 shadow-2xs">
+                          <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                          <span>১০০% যোগ্য (যুব স্বনির্ভরতা)</span>
+                        </span>
+                        <span id="bhabishyatCategoryTag" class="text-xs font-label text-stone-500 font-medium">যুব ও ক্ষুদ্র উদ্যোগ</span>
+                      </div>
+                      <h4 id="bhabishyatCardTitle" class="text-xl font-headline font-bold text-[#1C1917]">ভবিষ্যৎ ক্রেডিট কার্ড স্কিম (WBBCCS)</h4>
+                      <p id="bhabishyatCardSub" class="text-xs text-stone-500 font-label">Micro, Small & Medium Enterprises and Textiles Department (MSMET)</p>
+                    </div>
+                    <div class="text-right">
+                      <span id="bhabishyatLimitLabel" class="text-xs font-label text-stone-500 block">ব্যাংক ঋণ সুবিধা</span>
+                      <span id="bhabishyatCardAmount" class="text-xl sm:text-2xl font-headline font-bold text-[#8F4E24] leading-none">৫ লক্ষ টাকা পর্যন্ত</span>
+                      <span id="bhabishyatSubsidyNote" class="text-[11px] font-label text-amber-700 font-semibold block">১০% সরকারি অনুদান (সর্বোচ্চ ₹২৫,০০০)</span>
+                    </div>
+                  </div>
+                  <p id="bhabishyatDesc" class="mt-3 text-xs text-stone-600 font-body leading-relaxed">
+                    ১৮ থেকে ৪৫ বছর বয়সের উদ্যোগী যুবকদের ক্ষুদ্র ব্যবসা, উৎপাদন বা সার্ভিসিং সেক্টরে স্বনির্ভর হওয়ার জন্য জামানতহীন ব্যাংক ঋণ এবং সরকারের ১০০% গ্যারান্টি সুরক্ষা।
+                  </p>
+                  <div class="mt-4 flex flex-wrap items-center justify-between gap-2 text-xs font-label pt-2.5 border-t border-[#E7DECE]">
+                    <a href="https://wbmsmet.gov.in/schemes_of_msmet" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-lg bg-[#FAF6EC] border border-[#D4AF37] text-[#8F4E24] hover:bg-[#FAF0D8] font-bold flex items-center gap-1 transition-all">
+                      <span class="material-symbols-outlined text-xs">language</span>
+                      <span id="bhabishyatPortalLinkText">অফিসিয়াল পোর্টাল (wbmsmet.gov.in) →</span>
+                    </a>
+                    <button class="open-checklist-btn text-[#8F4E24] font-bold hover:text-[#C98A5B] flex items-center gap-1 transition-colors" data-scheme="bhabishyat">
+                      <span id="bhabishyatChecklistBtnText">নথি তালিকা দেখুন</span>
+                      <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </button>
+                  </div>
+                </div>
 
+                <!-- 7. Yogyashree Scheme Card -->
+                <div id="cardYogyashreeYojana" class="hidden scheme-card bg-[#FFFFFF] border-2 border-[#E7DECE] hover:border-[#C98A5B] rounded-2xl p-6 sm:p-7 shadow-xl shadow-stone-900/10 transition-all text-stone-900">
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <div class="flex items-center gap-2 mb-1">
+                        <span id="yogyashreeStatusBadge" class="px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-800 text-[11px] font-label font-bold inline-flex items-center gap-1 shadow-2xs">
+                          <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                          <span>১০০% সম্পূর্ণ যোগ্য (প্রবেশিকা ও চাকরি কোচিং)</span>
+                        </span>
+                        <span id="yogyashreeCategoryTag" class="text-xs font-label text-stone-500 font-medium">শিক্ষা ও সরকারি চাকরি</span>
+                      </div>
+                      <h4 id="yogyashreeCardTitle" class="text-xl font-headline font-bold text-[#1C1917]">যোগ্যশ্রী প্রকল্প (Yogyashree Scheme)</h4>
+                      <p id="yogyashreeCardSub" class="text-xs text-stone-500 font-label">Free Residential Coaching for JEE, NEET, WBCS, Police & Railways</p>
+                    </div>
+                    <div class="text-right">
+                      <span id="yogyashreeBenefitLabel" class="text-xs font-label text-stone-500 block">কোচিং সুবিধা</span>
+                      <span id="yogyashreeCardAmount" class="text-xl sm:text-2xl font-headline font-bold text-emerald-700 leading-none">১০০% সম্পূর্ণ বিনামূল্যে</span>
+                      <span id="yogyashreeHostelNote" class="text-[11px] font-label text-emerald-600 font-semibold block">বিনামূল্যে হোস্টেল ও স্টাডি কিট</span>
+                    </div>
+                  </div>
+                  <p id="yogyashreeDesc" class="mt-3 text-xs text-stone-600 font-body leading-relaxed">
+                    তফসিলি জাতি (SC), উপজাতি (ST) এবং ওবিসি (OBC) ছাত্রছাত্রীদের ইঞ্জিনিয়ারিং (JEE), মেডিকেল (NEET), WBCS এবং পুলিশ/রেলওয়ে সরকারি চাকরির পরীক্ষার জন্য সেরা শিক্ষকদের দিয়ে সম্পূর্ণ বিনামূল্যে আবাসিক প্রশিক্ষণ।
+                  </p>
+                  <div class="mt-4 flex flex-wrap items-center justify-between gap-2 text-xs font-label pt-2.5 border-t border-[#E7DECE]">
+                    <a href="https://www.govtschemes.in/west-bengal-yogyashree-scheme" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-lg bg-[#FAF6EC] border border-[#D4AF37] text-[#8F4E24] hover:bg-[#FAF0D8] font-bold flex items-center gap-1 transition-all">
+                      <span class="material-symbols-outlined text-xs">language</span>
+                      <span id="yogyashreePortalLinkText">সরকারি পোর্টাল নির্দেশিকা (govtschemes.in) →</span>
+                    </a>
+                    <button class="open-checklist-btn text-[#8F4E24] font-bold hover:text-[#C98A5B] flex items-center gap-1 transition-colors" data-scheme="yogyashree">
+                      <span id="yogyashreeChecklistBtnText">নথি তালিকা দেখুন</span>
+                      <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- 8. Banglar Yuba Sathi / Yuvasree Card -->
+                <div id="cardBanglarYubaSathi" class="hidden scheme-card bg-[#FFFFFF] border-2 border-[#E7DECE] hover:border-[#C98A5B] rounded-2xl p-6 sm:p-7 shadow-xl shadow-stone-900/10 transition-all text-stone-900">
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <div class="flex items-center gap-2 mb-1">
+                        <span id="yuvasreeStatusBadge" class="px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-800 text-[11px] font-label font-bold inline-flex items-center gap-1 shadow-2xs">
+                          <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                          <span>১০০% যোগ্য (কর্মহীন বেকার ভাতা)</span>
+                        </span>
+                        <span id="yuvasreeCategoryTag" class="text-xs font-label text-stone-500 font-medium">যুব কল্যাণ ও কর্মসংস্থান</span>
+                      </div>
+                      <h4 id="yuvasreeCardTitle" class="text-xl font-headline font-bold text-[#1C1917]">বাংলা যুব সাথী / যুবশ্রী (Yuvasree)</h4>
+                      <p id="yuvasreeCardSub" class="text-xs text-stone-500 font-label">Directorate of Employment, Labour Department, Govt of West Bengal</p>
+                    </div>
+                    <div class="text-right">
+                      <span id="yuvasreeGrantLabel" class="text-xs font-label text-stone-500 block">মাসিক বেকার ভাতা</span>
+                      <span id="yuvasreeCardAmount" class="text-xl sm:text-2xl font-headline font-bold text-emerald-700 leading-none">₹১,৫০০ / মাস</span>
+                      <span id="yuvasreeDbtNote" class="text-[11px] font-label text-emerald-600 font-semibold block">সরাসরি ব্যাঙ্ক একাউন্টে (DBT)</span>
+                    </div>
+                  </div>
+                  <p id="yuvasreeDesc" class="mt-3 text-xs text-stone-600 font-body leading-relaxed">
+                    পশ্চিমবঙ্গ এমপ্লয়মেন্ট ব্যাংকে নথিভুক্ত ১৮ থেকে ৪৫ বছর বয়সী চাকরিপ্রার্থী বেকার যুবক-যুবতীদের চাকরির প্রস্তুতি ও কারিগরি দক্ষতা অর্জনের জন্য প্রতি মাসে ₹১,৫০০ আর্থিক সহায়তা।
+                  </p>
+                  <div class="mt-4 flex flex-wrap items-center justify-between gap-2 text-xs font-label pt-2.5 border-t border-[#E7DECE]">
+                    <a href="https://employmentbankwb.gov.in/" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-lg bg-[#FAF6EC] border border-[#D4AF37] text-[#8F4E24] hover:bg-[#FAF0D8] font-bold flex items-center gap-1 transition-all">
+                      <span class="material-symbols-outlined text-xs">language</span>
+                      <span id="yuvasreePortalLinkText">এমপ্লয়মেন্ট ব্যাংক পোর্টাল (employmentbankwb.gov.in) →</span>
+                    </a>
+                    <button class="open-checklist-btn text-[#8F4E24] font-bold hover:text-[#C98A5B] flex items-center gap-1 transition-colors" data-scheme="yuvasree">
+                      <span id="yuvasreeChecklistBtnText">নথি তালিকা দেখুন</span>
+                      <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </button>
+                  </div>
                 </div>
 
 
@@ -5046,11 +5165,27 @@
 
 
 
-        checklistTitles: {
+                annapurna: {
+          categoryTag: 'মহিলা কল্যাণ ও ডিবিটি সহায়তা',
+          title: 'অন্নপূর্ণা যোজনা (Annapurna Yojana)',
+          sub: 'West Bengal Social Registry (Family Level Data Collection - 2026)',
+          benefitLabel: 'মাসিক আর্থিক সহায়তা',
+          amount: '₹ ৩,০০০ / মাস',
+          freeNote: 'আধার-সংযুক্ত ব্যাংক একাউন্টে DBT',
+          statusBadge: '১০০% সম্পূর্ণ যোগ্য (মহিলা অনুদান)',
+          desc: 'পশ্চিমবঙ্গের ২৫-৬০ বছর বয়সী যোগ্য স্থায়ী মহিলা বাসিন্দাদের নিজস্ব একক আধার-সংযুক্ত ব্যাংক একাউন্টে প্রতি মাসে ৩,০০০ টাকা সরাসরি আর্থিক সহায়তা প্রদান করা হয় (সরকারি চাকরিজীবী, স্থায়ী পেনশনভোগী ও আয়করদাতাগণ ব্যতীত)।',
+          portalBtn: 'অফিসিয়াল পোর্টাল (socialregistry.wb.gov.in) →',
+          checklistBtn: 'নথি তালিকা দেখুন'
+        },
+checklistTitles: {
 
 
 
           lb: 'লক্ষ্মীর ভাণ্ডার নথির চেকলিস্ট',
+          annapurna: 'অন্নপূর্ণা যোজনা নথির চেকলিস্ট (Annapurna Yojana)',
+          bhabishyat: 'ভবিষ্যৎ ক্রেডিট কার্ড নথির চেকলিস্ট (Bhabishyat Credit Card)',
+          yogyashree: 'যোগ্যশ্রী প্রকল্প নথির চেকলিস্ট (Yogyashree Scheme)',
+          yuvasree: 'যুবশ্রী / যুব সাথী নথির চেকলিস্ট (Yuvasree Scheme)',
 
 
 
@@ -5578,7 +5713,19 @@
 
 
 
-        checklistTitles: {
+                annapurna: {
+          categoryTag: 'महिला कल्याण एवं डीबीटी सहायता',
+          title: 'अन्नपूर्णा योजना (Annapurna Yojana)',
+          sub: 'West Bengal Social Registry (Family Level Data Collection - 2026)',
+          benefitLabel: 'मासिक वित्तीय सहायता',
+          amount: '₹ 3,000 / माह',
+          freeNote: 'आधार-लिंक्ड बैंक खाते में DBT',
+          statusBadge: '100% पूर्णतः पात्र (महिला सहायता)',
+          desc: 'पश्चिम बंगाल की 25-60 वर्ष की पात्र महिला निवासियों के आधार-लिंक्ड एकल बैंक खाते में प्रति माह ₹3,000 की वित्तीय सहायता सीधे डीबीटी द्वारा प्रदान की जाती है (सरकारी कर्मचारी, पेंशनभोगी व आयकरदाता बहिष्कृत)।',
+          portalBtn: 'आधिकारिक पोर्टल (socialregistry.wb.gov.in) →',
+          checklistBtn: 'दस्तावेज़ सूची देखें'
+        },
+checklistTitles: {
 
 
 
@@ -6110,11 +6257,27 @@
 
 
 
-        checklistTitles: {
+                annapurna: {
+          categoryTag: 'Women Welfare & DBT Assistance',
+          title: 'Annapurna Yojana (Women Financial Assistance)',
+          sub: 'West Bengal Social Registry (Family Level Data Collection - 2026)',
+          benefitLabel: 'Monthly Financial Assistance',
+          amount: '₹ 3,000 / month',
+          freeNote: 'Direct DBT to Aadhaar-Linked Bank Account',
+          statusBadge: '100% Eligible (Women Assistance)',
+          desc: 'Monthly financial assistance of ₹3,000 provided directly into the Aadhaar-linked single bank account of eligible resident women aged 25-60 in West Bengal (excluding govt employees, pensioners, and tax-payers).',
+          portalBtn: 'Official Portal (socialregistry.wb.gov.in) →',
+          checklistBtn: 'View Document Checklist'
+        },
+checklistTitles: {
 
 
 
           lb: 'Lakshmir Bhandar Document Checklist',
+          annapurna: 'Annapurna Yojana Document Checklist',
+          bhabishyat: 'Bhabishyat Credit Card Document Checklist',
+          yogyashree: 'Yogyashree Free Coaching Document Checklist',
+          yuvasree: 'Yuvasree / Banglar Yuba Sathi Document Checklist',
 
 
 
@@ -6262,6 +6425,35 @@
 
 
 
+        ],
+        annapurna: [
+          { title: 'আবেদনকারীর নিজস্ব আধার কার্ড (Aadhaar Card)', note: 'ব্যাংক একাউন্টের সাথে DBT ও NPCI সক্রিয় থাকতে হবে', mandatory: true },
+          { title: 'স্বাস্থ্য সাথী কার্ড / ডিজিটাল রেশন কার্ড', note: 'পারিবারিক পরিচয় ও সোশ্যাল রেজিস্ট্রি যাচাইকরণ', mandatory: true },
+          { title: 'একক ব্যাংক পাসবই (Single Account Passbook)', note: 'আবেদনকারীর একক নামে একাউন্ট (কোনো জয়েন্ট একাউন্ট গ্রাহ্য নয়), IFSC কোড স্পষ্ট হওয়া আবশ্যক', mandatory: true },
+          { title: 'পশ্চিমবঙ্গের স্থায়ী বাসিন্দার প্রমাণপত্র', note: 'ভোটার কার্ড / ডিজিটাল রেশন কার্ড / আবাসিক সার্টিফিকেট', mandatory: true },
+          { title: 'স্বঘোষণাপত্র (Self-Declaration Form)', note: 'স্থায়ী সরকারি চাকরি, সরকারি পেনশন বা আয়করদাতা না হওয়ার ঘোষণাপত্র', mandatory: true },
+          { title: 'পাসপোর্ট মাপের রঙিন ছবি (২ কপি)', note: 'সাম্প্রতিক তোলা স্পষ্ট রঙিন ছবি', mandatory: true }
+        ],
+        bhabishyat: [
+          { title: 'আধার কার্ড ও বয়সের প্রমাণ (১৮-৪৫ বছর)', note: 'জেরক্স ও আসল কপি সঙ্গে রাখা আবশ্যক', mandatory: true },
+          { title: 'পশ্চিমবঙ্গের ১০ বছরের স্থায়ী বাসিন্দার প্রমাণপত্র', note: 'ভোটার কার্ড / আবাসিক প্রমাণপত্র', mandatory: true },
+          { title: 'প্রকল্প প্রস্তাবনা (Detailed Project Report - DPR)', note: 'উদ্যোগ বা ব্যবসার বিস্তারিত বিবরণ ও বাজেটের খসড়া', mandatory: true },
+          { title: 'একক ব্যাংক পাসবই ও বাতিল চেক', note: 'আবেদনকারীর নিজস্ব ব্যাংক একাউন্ট ও IFSC কোড', mandatory: true },
+          { title: 'শিক্ষাগত ও কারিগরি যোগ্যতার প্রমাণপত্র', note: 'ন্যূনতম শিক্ষাগত যোগ্যতা বা ট্রেড স্কিল সার্টিফিকেট', mandatory: false }
+        ],
+        yogyashree: [
+          { title: 'তফসিলি জাতি / উপজাতি / ওবিসি সার্টিফিকেট (SC/ST/OBC)', note: 'সক্ষম কর্তৃপক্ষ কর্তৃক প্রদত্ত ডিজিটাল কাস্ট সার্টিফিকেট', mandatory: true },
+          { title: 'আবেদনকারীর নিজস্ব আধার কার্ড', note: 'পরিচয় ও বয়সের প্রমাণপত্র', mandatory: true },
+          { title: 'পূর্ববর্তী পরীক্ষার মার্কশিট ও অ্যাডমিট কার্ড', note: 'মাধ্যমিক / উচ্চ মাধ্যমিক / স্নাতক পরীক্ষার নম্বরপত্র', mandatory: true },
+          { title: 'পারিবারিক বার্ষিক আয় শংসাপত্র (Income Certificate)', note: 'বাৎসরিক আয় ৩ লক্ষ টাকার কম হতে হবে', mandatory: true },
+          { title: 'পাসপোর্ট মাপের রঙিন ছবি', note: 'কোচিং আবেদনপত্রের জন্য ২ কপি ছবি', mandatory: true }
+        ],
+        yuvasree: [
+          { title: 'এমপ্লয়মেন্ট ব্যাংক এনরোলমেন্ট স্লিপ (EB Number)', note: 'এমপ্লয়মেন্ট ব্যাংকে বৈধ নথিবদ্ধকরণ স্লিপ', mandatory: true },
+          { title: 'আধার কার্ড (ব্যাংক DBT সংযুক্ত)', note: 'ডিবিটি সক্রিয় আধার কার্ডের প্রতিলিপি', mandatory: true },
+          { title: 'অষ্টম শ্রেণী / মাধ্যমিক পাশের প্রমাণপত্র', note: 'ন্যূনতম শিক্ষাগত যোগ্যতার মার্কশিট বা সার্টিফিকেট', mandatory: true },
+          { title: 'একক ব্যাংক পাসবই (Single Account)', note: 'আবেদনকারীর নামে একক একাউন্ট ও স্পষ্ট IFSC', mandatory: true },
+          { title: 'বেকারত্বের স্বঘোষণাপত্র (Annexure-I Form)', note: 'কোনো সরকারি বা ব্যক্তিগত লাভজনক কাজে যুক্ত না থাকার ঘোষণা', mandatory: true }
         ]
 
 
@@ -6370,6 +6562,35 @@
 
 
 
+        ],
+        annapurna: [
+          { title: 'आवेदक का मूल आधार कार्ड (Aadhaar Card)', note: 'बैंक खाते के साथ DBT व NPCI सक्रिय होना अनिवार्य', mandatory: true },
+          { title: 'स्वास्थ्य साथी कार्ड / डिजिटल राशन कार्ड', note: 'पारिवारिक पहचान व सोशल रजिस्ट्री सत्यापन', mandatory: true },
+          { title: 'एकल बैंक पासबुक (Single Account Passbook)', note: 'आवेदक के नाम पर एकल खाता (संयुक्त खाता अमान्य), IFSC कोड स्पष्ट', mandatory: true },
+          { title: 'पश्चिम बंगाल का निवास प्रमाण पत्र', note: 'मतदाता पहचान पत्र / डिजिटल राशन कार्ड / निवास प्रमाण', mandatory: true },
+          { title: 'स्वघोषणा पत्र (Self-Declaration Form)', note: 'स्थायी सरकारी नौकरी, सरकारी पेंशन या आयकरदाता न होने का शपथ पत्र', mandatory: true },
+          { title: 'पासपोर्ट साइज रंगीन फोटो (2 प्रतियां)', note: 'हाल ही में ली गई स्पष्ट फोटो', mandatory: true }
+        ],
+        bhabishyat: [
+          { title: 'आधार कार्ड व आयु प्रमाण (18-45 वर्ष)', note: 'मूल प्रति एवं स्व-सत्यापित फोटोकॉपी', mandatory: true },
+          { title: 'पश्चिम बंगाल में 10 वर्ष का निवास प्रमाण', note: 'वोटर कार्ड / आवासीय प्रमाण पत्र', mandatory: true },
+          { title: 'परियोजना रिपोर्ट (Detailed Project Report - DPR)', note: 'व्यवसाय या उद्यम की विस्तृत परियोजना रूपरेखा', mandatory: true },
+          { title: 'एकल बैंक पासबुक व निरस्त चेक', note: 'आवेदक के नाम का सक्रिय बैंक खाता', mandatory: true },
+          { title: 'शैक्षणिक / व्यावसायिक योग्यता प्रमाण पत्र', note: 'तकनीकी दक्षता या शैक्षणिक प्रमाण पत्र', mandatory: false }
+        ],
+        yogyashree: [
+          { title: 'SC / ST / OBC जाति प्रमाण पत्र', note: 'सक्षम प्राधिकारी द्वारा जारी डिजिटल जाति प्रमाण पत्र', mandatory: true },
+          { title: 'आवेदक का आधार कार्ड', note: 'पहचान एवं आयु सत्यापन हेतु', mandatory: true },
+          { title: 'पिछली परीक्षा की अंकतालिका (Marksheet)', note: 'माध्यमिक / उच्च माध्यमिक / स्नातक अंकपत्र', mandatory: true },
+          { title: 'पारिवारिक वार्षिक आय प्रमाण पत्र', note: 'वार्षिक आय ₹3 लाख से कम होनी चाहिए', mandatory: true },
+          { title: 'पासपोर्ट साइज रंगीन फोटोग्राफ', note: 'कोचिंग नामांकन हेतु 2 प्रतियां', mandatory: true }
+        ],
+        yuvasree: [
+          { title: 'रोजगार बैंक पंजीकरण पर्ची (EB Number)', note: 'WB Employment Bank की मान्य पंजीकरण रसीद', mandatory: true },
+          { title: 'आधार कार्ड (बैंक डीबीटी लिंक्ड)', note: 'NPCI सक्रिय आधार कार्ड की प्रति', mandatory: true },
+          { title: '8वीं / 10वीं उत्तीर्ण प्रमाण पत्र', note: 'न्यूनतम शैक्षणिक योग्यता प्रमाण पत्र', mandatory: true },
+          { title: 'एकल बैंक पासबुक (Single Account)', note: 'आवेदक के एकल खाते की पासबुक', mandatory: true },
+          { title: 'बेरोजगारी स्वघोषणा पत्र (Annexure-I)', note: 'किसी सरकारी या नियमित नौकरी में न होने का प्रमाण', mandatory: true }
         ]
 
 
@@ -6478,6 +6699,35 @@
 
 
 
+        ],
+        annapurna: [
+          { title: "Applicant's Aadhaar Card (Aadhaar Linked for DBT)", note: "Must be active on NPCI DBT mapper for direct transfer", mandatory: true },
+          { title: "Swasthya Sathi Card / Digital Ration Card", note: "Family-level verification and Social Registry ID", mandatory: true },
+          { title: "Single Bank Account Passbook (First Page)", note: "Must be in applicant's single name (no joint accounts), clear IFSC", mandatory: true },
+          { title: "Proof of Residence in West Bengal", note: "Voter ID / Digital Ration Card / Residential Certificate", mandatory: true },
+          { title: "Self-Declaration Form", note: "Certifying non-govt employee, non-pensioner, and non-income tax payer", mandatory: true },
+          { title: "Passport Size Photographs (2 copies)", note: "Recent color photographs for verification and profile", mandatory: true }
+        ],
+        bhabishyat: [
+          { title: "Aadhaar Card & Age Proof (18-45 years)", note: "Original and self-attested photocopies", mandatory: true },
+          { title: "Proof of 10-Year Residence in West Bengal", note: "Voter ID / Domicile Certificate", mandatory: true },
+          { title: "Detailed Project Report (DPR / Business Plan)", note: "Comprehensive plan of proposed business or manufacturing unit", mandatory: true },
+          { title: "Single Bank Passbook & Cancelled Cheque", note: "Active bank account in applicant's name with IFSC", mandatory: true },
+          { title: "Educational / Technical Skill Certificate", note: "Relevant trade or educational qualification certificate", mandatory: false }
+        ],
+        yogyashree: [
+          { title: "SC / ST / OBC Caste Certificate", note: "Digitized certificate issued by competent authority", mandatory: true },
+          { title: "Applicant's Aadhaar Card", note: "Proof of identity and age", mandatory: true },
+          { title: "Academic Marksheets & Admit Cards", note: "Class 10 / 12 / Degree examination marksheet", mandatory: true },
+          { title: "Family Annual Income Certificate", note: "Annual family income must be below Rs. 3 Lakh", mandatory: true },
+          { title: "Passport Size Color Photographs", note: "Recent photographs for coaching enrollment", mandatory: true }
+        ],
+        yuvasree: [
+          { title: "Employment Bank Registration Slip (EB-No)", note: "Valid registration slip from WB Employment Bank", mandatory: true },
+          { title: "Aadhaar Card (Linked with Bank DBT)", note: "Proof of identity and DBT enablement", mandatory: true },
+          { title: "Educational Qualification Certificate", note: "Minimum Class 8 pass marksheet or Madhyamik certificate", mandatory: true },
+          { title: "Single Bank Account Passbook", note: "Individual account in applicant's name with clear IFSC", mandatory: true },
+          { title: "Unemployment Self-Declaration (Annexure-I)", note: "Mandatory official format under Yuvasree", mandatory: true }
         ]
 
 
@@ -8264,6 +8514,71 @@
 
 
 
+
+
+            // 5. Annapurna Yojana Card logic (Women 25-60, ₹3,000/month, Social Registry)
+      const annapurnaCard = document.getElementById('cardAnnapurnaYojana');
+      if (annapurnaCard) {
+        if (state.gender === 'female' && state.age >= 25 && state.age <= 60) {
+          annapurnaCard.classList.remove('hidden');
+          totalMatches++;
+          const anBadge = document.getElementById('annapurnaStatusBadge');
+          const anCat = document.getElementById('annapurnaCategoryTag');
+          const anTitle = document.getElementById('annapurnaCardTitle');
+          const anSub = document.getElementById('annapurnaCardSub');
+          const anLabel = document.getElementById('annapurnaBenefitLabel');
+          const anAmt = document.getElementById('annapurnaAmountDisplay');
+          const anFree = document.getElementById('annapurnaFreeNote');
+          const anDesc = document.getElementById('annapurnaDesc');
+          const anPortal = document.getElementById('annapurnaPortalLinkText');
+          const anBtn = document.getElementById('annapurnaChecklistBtnText');
+          if (anBadge) anBadge.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span><span>${t.annapurna?.statusBadge || '১০০% সম্পূর্ণ যোগ্য (মহিলা অনুদান)'}</span>`;
+          if (anCat) anCat.textContent = t.annapurna?.categoryTag || 'মহিলা কল্যাণ ও ডিবিটি সহায়তা';
+          if (anTitle) anTitle.textContent = t.annapurna?.title || 'অন্নপূর্ণা যোজনা (Annapurna Yojana)';
+          if (anSub) anSub.textContent = t.annapurna?.sub || 'West Bengal Social Registry (Family Level Data Collection - 2026)';
+          if (anLabel) anLabel.textContent = t.annapurna?.benefitLabel || 'মাসিক আর্থিক সহায়তা';
+          if (anAmt) anAmt.textContent = t.annapurna?.amount || '₹ ৩,০০০ / মাস';
+          if (anFree) anFree.textContent = t.annapurna?.freeNote || 'আধার-সংযুক্ত ব্যাংক একাউন্টে DBT';
+          if (anDesc) anDesc.textContent = t.annapurna?.desc || 'পশ্চিমবঙ্গের ২৫-৬০ বছর বয়সী যোগ্য স্থায়ী মহিলা বাসিন্দাদের জন্য প্রতি মাসে ৩,০০০ টাকা সরাসরি ব্যাংক একাউন্টে আর্থিক সহায়তা (সরকারি চাকরিজীবী, পেনশনভোগী ও আয়করদাতাগণ ব্যতীত)।';
+          if (anPortal) anPortal.textContent = t.annapurna?.portalBtn || 'অফিসিয়াল পোর্টাল (socialregistry.wb.gov.in) →';
+          if (anBtn) anBtn.textContent = t.annapurna?.checklistBtn || 'নথি তালিকা দেখুন';
+        } else {
+          annapurnaCard.classList.add('hidden');
+        }
+      }
+
+      // 6. Bhabishyat Credit Card logic (Youth 18-45)
+      const bhabishyatCard = document.getElementById('cardBhabishyatCreditCard');
+      if (bhabishyatCard) {
+        if (state.age >= 18 && state.age <= 45) {
+          bhabishyatCard.classList.remove('hidden');
+          totalMatches++;
+        } else {
+          bhabishyatCard.classList.add('hidden');
+        }
+      }
+
+      // 7. Yogyashree Yojana logic (SC/ST/OBC Students/Youth)
+      const yogyashreeCard = document.getElementById('cardYogyashreeYojana');
+      if (yogyashreeCard) {
+        if ((state.isStudent || state.age <= 35) && (state.caste === 'SC' || state.caste === 'ST' || state.caste === 'OBC-A' || state.caste === 'OBC-B' || state.caste === 'OBC')) {
+          yogyashreeCard.classList.remove('hidden');
+          totalMatches++;
+        } else {
+          yogyashreeCard.classList.add('hidden');
+        }
+      }
+
+      // 8. Banglar Yuba Sathi logic (Youth 18-45 Unemployed)
+      const yuvasreeCard = document.getElementById('cardBanglarYubaSathi');
+      if (yuvasreeCard) {
+        if (state.age >= 18 && state.age <= 45 && (state.occupation === 'unemployed' || state.occupation === 'jobseeker' || state.occupation === 'none' || !state.occupation)) {
+          yuvasreeCard.classList.remove('hidden');
+          totalMatches++;
+        } else {
+          yuvasreeCard.classList.add('hidden');
+        }
+      }
 
 
       // Update Top Counter Badge
