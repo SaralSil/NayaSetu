@@ -3,6 +3,7 @@ from rest_framework import generics, permissions, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.contrib.auth import get_user_model, authenticate, login
+from django.core.cache import cache
 from .models import UserProfile, SavedScheme
 from .serializers import UserProfileSerializer, SavedSchemeSerializer
 
@@ -131,10 +132,11 @@ class CitizenLoginAPIView(APIView):
 
         # Try authenticating directly or by username
         user = authenticate(request, username=identifier, password=password)
+        profile = None
         if not user:
             # Check if username exists by phone
-            profile = UserProfile.objects.filter(phone_number=identifier).first()
-            if profile:
+            profile = UserProfile.objects.select_related('user').filter(phone_number=identifier).first()
+            if profile and profile.user:
                 user = authenticate(request, username=profile.user.username, password=password)
 
         if not user:
@@ -143,7 +145,10 @@ class CitizenLoginAPIView(APIView):
                 status=status.HTTP_401_UNAUTHORIZED
             )
 
-        profile, _ = UserProfile.objects.get_or_create(user=user)
+        if not profile:
+            profile = getattr(user, 'profile', None)
+            if not profile:
+                profile, _ = UserProfile.objects.get_or_create(user=user)
 
         return Response({
             "success": True,
@@ -174,7 +179,8 @@ class SendOTPAPIView(APIView):
 
         # Simulated OTP for instant testing, also accepts standard 123456
         otp = str(random.randint(100000, 999999))
-        OTP_STORE[phone] = otp
+        cache.set(f'otp:{phone}', otp, timeout=300)
+        OTP_STORE[phone] = otp  # in-memory mirror
 
         return Response({
             "success": True,
@@ -198,7 +204,7 @@ class VerifyOTPAPIView(APIView):
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        stored_otp = OTP_STORE.get(phone)
+        stored_otp = cache.get(f'otp:{phone}') or OTP_STORE.get(phone)
         # Accept generated OTP or universal demo OTP 123456
         if otp != stored_otp and otp != "123456":
             return Response(
@@ -222,6 +228,7 @@ class VerifyOTPAPIView(APIView):
         # Clear OTP
         if phone in OTP_STORE:
             del OTP_STORE[phone]
+        cache.delete(f'otp:{phone}')
 
         return Response({
             "success": True,

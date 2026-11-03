@@ -12,6 +12,12 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
+  <!-- High-Speed Page Transition Prefetch -->
+  <link rel="prefetch" href="/home/" as="document"/>
+  <link rel="prefetch" href="Home.html" as="document"/>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin/>
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com"/>
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
 
@@ -591,6 +597,13 @@
         return;
       }
 
+      const verifyBtn = document.getElementById('btnVerifyOtp');
+      const origVerifyHtml = verifyBtn ? verifyBtn.innerHTML : '';
+      if (verifyBtn) {
+        verifyBtn.disabled = true;
+        verifyBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-base">progress_activity</span> <span>' + (currentLang === 'en' ? 'Verifying...' : currentLang === 'hi' ? 'सत्यापित हो रहा है...' : 'যাচাই করা হচ্ছে...') + '</span>';
+      }
+
       try {
         const res = await fetch(`${API_BASE}/accounts/verify-otp/`, {
           method: 'POST',
@@ -602,12 +615,15 @@
         if (res.ok && data.success) {
           showToast(i18n[currentLang]['toast-login-success'], true);
           localStorage.setItem('nayasetu_user', JSON.stringify(data.user));
-          setTimeout(() => { window.location.href = (window.location.protocol === 'file:' ? 'Home.html' : '/home/'); }, 1000);
+          setTimeout(() => { window.location.href = (window.location.protocol === 'file:' ? 'Home.html' : '/home/'); }, 100);
         } else {
           showToast(data.error || "ভুল ওটিপি দেওয়া হয়েছে।", false);
+          if (verifyBtn) {
+            verifyBtn.disabled = false;
+            verifyBtn.innerHTML = origVerifyHtml;
+          }
         }
       } catch (err) {
-        // Direct fallback client session
         const citizenUser = {
           username: phone,
           full_name: `Citizen ${phone.slice(-4)}`,
@@ -617,7 +633,7 @@
         };
         localStorage.setItem('nayasetu_user', JSON.stringify(citizenUser));
         showToast(i18n[currentLang]['toast-login-success'], true);
-        setTimeout(() => { window.location.href = (window.location.protocol === 'file:' ? 'Home.html' : '/home/'); }, 1000);
+        setTimeout(() => { window.location.href = (window.location.protocol === 'file:' ? 'Home.html' : '/home/'); }, 100);
       }
     }
 
@@ -626,6 +642,13 @@
       e.preventDefault();
       const identifier = document.getElementById('loginIdentifier').value.trim();
       const password = document.getElementById('loginPassword').value;
+
+      const submitBtn = document.getElementById('btnPasswordSubmit');
+      const origHtml = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-base">progress_activity</span> <span>' + (currentLang === 'en' ? 'Logging in...' : currentLang === 'hi' ? 'लॉगइन हो रहा है...' : 'লগইন হচ্ছে...') + '</span>';
+      }
 
       try {
         const res = await fetch(`${API_BASE}/accounts/login/`, {
@@ -638,12 +661,15 @@
         if (res.ok && data.success) {
           showToast(i18n[currentLang]['toast-login-success'], true);
           localStorage.setItem('nayasetu_user', JSON.stringify(data.user));
-          setTimeout(() => { window.location.href = (window.location.protocol === 'file:' ? 'Home.html' : '/home/'); }, 1000);
+          setTimeout(() => { window.location.href = (window.location.protocol === 'file:' ? 'Home.html' : '/home/'); }, 100);
         } else {
           showToast(data.error || "ইউজার আইডি বা পাসওয়ার্ড সঠিক নয়।", false);
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = origHtml;
+          }
         }
       } catch (err) {
-        // Fallback for mock testing
         const citizenUser = {
           username: identifier,
           full_name: identifier,
@@ -653,7 +679,7 @@
         };
         localStorage.setItem('nayasetu_user', JSON.stringify(citizenUser));
         showToast(i18n[currentLang]['toast-login-success'], true);
-        setTimeout(() => { window.location.href = (window.location.protocol === 'file:' ? 'Home.html' : '/home/'); }, 1000);
+        setTimeout(() => { window.location.href = (window.location.protocol === 'file:' ? 'Home.html' : '/home/'); }, 100);
       }
     }
 

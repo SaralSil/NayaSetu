@@ -32,6 +32,8 @@
 
 
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin/>
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com"/>
 
 
 
@@ -5242,9 +5244,7 @@
           return;
         }
         const user = JSON.parse(userStr);
-        setTimeout(() => {
-          updateCitizenProfileUI(user);
-        }, 50);
+        updateCitizenProfileUI(user);
       } catch (e) {
         console.warn('Auth check exception:', e);
       }
@@ -12565,22 +12565,7 @@ Enclosures:
 
 
   <!-- NayaSetu AI WhatsApp Dark Theme Chatbot Assistant -->
-
-  <script src="/static/chatbot_widget.js"></script>
-
-  <script>
-
-    if (!window.NayaSetuChatbotLoaded) {
-
-      const s = document.createElement('script');
-
-      s.src = 'chatbot_widget.js';
-
-      document.body.appendChild(s);
-
-    }
-
-  </script>
+  <script src="/static/chatbot_widget.js" defer></script>
 
 
 
