@@ -422,6 +422,12 @@
       }
     };
 
+    // If citizen is already logged in, do not stay on Login page — redirect to Home page
+    if (localStorage.getItem('nayasetu_user')) {
+      const dest = (window.location.protocol === 'file:') ? 'Home.html' : '/home/';
+      window.location.replace(dest);
+    }
+
     let currentLang = 'bn';
     let countdownInterval = null;
     let generatedOtp = '123456';
@@ -615,7 +621,7 @@
         if (res.ok && data.success) {
           showToast(i18n[currentLang]['toast-login-success'], true);
           localStorage.setItem('nayasetu_user', JSON.stringify(data.user));
-          setTimeout(() => { window.location.href = (window.location.protocol === 'file:' ? 'Home.html' : '/home/'); }, 100);
+          setTimeout(() => { window.location.replace(window.location.protocol === 'file:' ? 'Home.html' : '/home/'); }, 100);
         } else {
           showToast(data.error || "ভুল ওটিপি দেওয়া হয়েছে।", false);
           if (verifyBtn) {
@@ -633,7 +639,7 @@
         };
         localStorage.setItem('nayasetu_user', JSON.stringify(citizenUser));
         showToast(i18n[currentLang]['toast-login-success'], true);
-        setTimeout(() => { window.location.href = (window.location.protocol === 'file:' ? 'Home.html' : '/home/'); }, 100);
+        setTimeout(() => { window.location.replace(window.location.protocol === 'file:' ? 'Home.html' : '/home/'); }, 100);
       }
     }
 
@@ -661,7 +667,7 @@
         if (res.ok && data.success) {
           showToast(i18n[currentLang]['toast-login-success'], true);
           localStorage.setItem('nayasetu_user', JSON.stringify(data.user));
-          setTimeout(() => { window.location.href = (window.location.protocol === 'file:' ? 'Home.html' : '/home/'); }, 100);
+          setTimeout(() => { window.location.replace(window.location.protocol === 'file:' ? 'Home.html' : '/home/'); }, 100);
         } else {
           showToast(data.error || "ইউজার আইডি বা পাসওয়ার্ড সঠিক নয়।", false);
           if (submitBtn) {
@@ -679,7 +685,7 @@
         };
         localStorage.setItem('nayasetu_user', JSON.stringify(citizenUser));
         showToast(i18n[currentLang]['toast-login-success'], true);
-        setTimeout(() => { window.location.href = (window.location.protocol === 'file:' ? 'Home.html' : '/home/'); }, 100);
+        setTimeout(() => { window.location.replace(window.location.protocol === 'file:' ? 'Home.html' : '/home/'); }, 100);
       }
     }
 

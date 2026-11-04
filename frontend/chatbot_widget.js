@@ -2244,6 +2244,11 @@ aadhaar_enrolment_seeding: {
       if (messagesBox.querySelectorAll('.ns-msg').length === 0) {
         showWelcomeMessage();
       }
+      try {
+        if (window.history && window.history.pushState) {
+          window.history.pushState({ nsChatOpen: true }, document.title, window.location.href);
+        }
+      } catch (e) {}
     } else {
       chatWindow.classList.add('ns-hidden');
       fabIcon.textContent = 'smart_toy';
@@ -2311,7 +2316,22 @@ aadhaar_enrolment_seeding: {
 
   // Event Listeners
   fabBtn.addEventListener('click', () => toggleChat());
-  closeBtn.addEventListener('click', () => toggleChat(false));
+  closeBtn.addEventListener('click', () => {
+    toggleChat(false);
+    try {
+      if (window.history && window.history.state && window.history.state.nsChatOpen) {
+        window.history.back();
+      }
+    } catch (e) {}
+  });
+
+  // Handle phone back button when chat window is active
+  window.addEventListener('popstate', (e) => {
+    if (chatWindow && !chatWindow.classList.contains('ns-hidden')) {
+      chatWindow.classList.add('ns-hidden');
+      fabIcon.textContent = 'smart_toy';
+    }
+  });
 
   clearBtn.addEventListener('click', () => {
     if (confirm('Clear chat history? / চ্যাট ইতিহাস মুছে ফেলবেন?')) {

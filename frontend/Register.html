@@ -451,6 +451,12 @@
       }
     };
 
+    // If citizen is already logged in, do not stay on Register page — redirect to Home page
+    if (localStorage.getItem('nayasetu_user')) {
+      const dest = (window.location.protocol === 'file:') ? 'Home.html' : '/home/';
+      window.location.replace(dest);
+    }
+
     let currentLang = 'bn';
     const API_BASE = (window.location.protocol === 'file:' || window.location.port === '5500' || window.location.port === '3000') ? 'http://127.0.0.1:8000/api' : '/api';
 

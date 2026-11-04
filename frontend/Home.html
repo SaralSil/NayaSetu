@@ -5445,12 +5445,47 @@
 
 
 
-    // Handle Browser Back button cleanly without reloading page or leaving website
+    // Handle Browser / Mobile Hardware Back button: stay on Home page, closing chatbot or modal first
+    if (window.history && window.history.pushState) {
+      window.history.pushState({ nsPage: 'home' }, document.title, window.location.href);
+    }
 
     window.addEventListener('popstate', (e) => {
+      // 1. If chatbot window is open, close it first
+      const chatWin = document.getElementById('nsChatWindow');
+      if (chatWin && !chatWin.classList.contains('ns-hidden')) {
+        chatWin.classList.add('ns-hidden');
+        const fabIcon = document.getElementById('nsFabIcon');
+        if (fabIcon) fabIcon.textContent = 'smart_toy';
+        if (window.history && window.history.pushState) {
+          window.history.pushState({ nsPage: 'home' }, document.title, window.location.href);
+        }
+        return;
+      }
 
-      closeAllModals(false);
+      // 2. Check if any modal is currently open on Home
+      let modalOpen = false;
+      if (typeof modals !== 'undefined') {
+        Object.values(modals).forEach(m => {
+          if (m && !m.classList.contains('hidden')) {
+            modalOpen = true;
+          }
+        });
+      }
+      const schemeDetail = document.getElementById('schemeDetailModal');
+      if (schemeDetail && !schemeDetail.classList.contains('hidden')) {
+        schemeDetail.classList.add('hidden');
+        modalOpen = true;
+      }
 
+      if (modalOpen && typeof closeAllModals === 'function') {
+        closeAllModals(false);
+      }
+
+      // 3. User pressed phone Back button on Home page -> Stay on Home page!
+      if (window.history && window.history.pushState) {
+        window.history.pushState({ nsPage: 'home' }, document.title, window.location.href);
+      }
     });
 
 
