@@ -674,6 +674,45 @@
       const dest = (window.location.port === '8000' && !window.location.pathname.endsWith('.html')) ? '/register/' : 'Register.html';
       window.location.replace(dest);
     }
+
+    // Subpage Mobile / Hardware Back Button Navigation -> Always redirect cleanly to Home Page
+    (function initSubpageBackHandler() {
+      if (!window.history || !window.history.pushState) return;
+
+      // Push anchor state so phone back button triggers popstate instead of popping page
+      window.history.pushState({ nsSubPage: true }, document.title, window.location.href);
+
+      window.addEventListener('popstate', function(e) {
+        // 1. If chatbot window is open, close it first
+        const chatWin = document.getElementById('nsChatWindow');
+        if (chatWin && !chatWin.classList.contains('ns-hidden')) {
+          chatWin.classList.add('ns-hidden');
+          const fabIcon = document.getElementById('nsFabIcon');
+          if (fabIcon) fabIcon.textContent = 'smart_toy';
+          window.history.pushState({ nsSubPage: true }, document.title, window.location.href);
+          return;
+        }
+
+        // 2. If any modal is open on this subpage, close it first
+        const openModals = document.querySelectorAll('.modal-backdrop:not(.hidden)');
+        let closedModal = false;
+        openModals.forEach(m => {
+          if (!m.classList.contains('hidden')) {
+            m.classList.add('hidden');
+            closedModal = true;
+          }
+        });
+        if (closedModal) {
+          window.history.pushState({ nsSubPage: true }, document.title, window.location.href);
+          return;
+        }
+
+        // 3. User pressed phone Back button on subpage -> Redirect to Home page!
+        const homeUrl = (window.location.protocol === 'file:') ? 'Home.html' : '/home/';
+        window.location.replace(homeUrl);
+      });
+    })();
+
   
 
     (function() {
@@ -778,7 +817,7 @@
 
 
 
-        <a class="flex items-center gap-2.5 sm:gap-3 group" data-path="home" href="Landing.html">
+        <a class="flex items-center gap-2.5 sm:gap-3 group" data-path="home" href="/home/">
 
 
 
@@ -842,7 +881,7 @@
 
 
 
-        <a class="nav-item whitespace-nowrap px-2.5 xl:px-3 py-1.5 text-xs xl:text-sm font-label text-[#DDD5C7] hover:text-[#F7F4EE] hover:bg-[#201C18] transition-all rounded-lg" data-path="home" href="Landing.html">হোম</a>
+        <a class="nav-item whitespace-nowrap px-2.5 xl:px-3 py-1.5 text-xs xl:text-sm font-label text-[#DDD5C7] hover:text-[#F7F4EE] hover:bg-[#201C18] transition-all rounded-lg" data-path="home" href="/home/">হোম</a>
 
 
 
